@@ -1,0 +1,160 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  background: #f4f5f7;
+  color: #222;
+}
+
+/* HEADER */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  background: #ffffff;
+  border-bottom: 1px solid #dde1e7;
+}
+
+.logo span:first-child {
+  margin-right: 6px;
+}
+
+.main-nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.main-nav a:hover {
+  color: #0059ff;
+}
+
+/* PAGE */
+.page {
+  max-width: 960px;
+  margin: 40px auto 80px;
+  padding: 0 20px;
+}
+
+/* HERO */
+.hero h1 {
+  font-size: 2.2rem;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  max-width: 640px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 10px 18px;
+  background: #0059ff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.btn-primary:hover {
+  background: #0041bf;
+}
+
+/* NAVIGAZIONE RAPIDA */
+.quick-nav {
+  margin-top: 40px;
+}
+
+.quick-nav h2 {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+}
+
+.cards {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #d2d8e0;
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.card h3 {
+  margin-bottom: 6px;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.btn-secondary {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 4px;
+  border: 1px solid #0059ff;
+  color: #0059ff;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.btn-secondary:hover {
+  background: #0059ff;
+  color: #ffffff;
+}
+
+/* FOOTER */
+.footer {
+  background: #222831;
+  color: #f1f3f6;
+  padding: 18px 40px;
+  font-size: 0.85rem;
+}
+
+.footer a {
+  color: #cdd7ff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-links {
+  margin-bottom: 6px;
+}
+
+.footer-meta span {
+  margin-right: 6px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 720px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .main-nav a {
+    margin-left: 0;
+    margin-right: 12px;
+  }
+}
