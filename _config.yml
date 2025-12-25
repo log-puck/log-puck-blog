@@ -1,0 +1,13 @@
+title: OB Blog
+email: info@example.com
+description: >-
+  Esplorazioni creative sull'intelligenza artificiale.
+baseurl: ""
+url: ""
+markdown: kramdown
+theme: null
+permalink: pretty
+plugins: []
+exclude:
+  - README.md
+  - .github
