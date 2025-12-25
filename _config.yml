@@ -1,13 +1,16 @@
-title: OB Blog
-email: info@example.com
-description: >-
-  Esplorazioni creative sull'intelligenza artificiale.
-baseurl: ""
-url: ""
+title: "log_puck"
+ description: "Esplorazioni creative sull'intelligenza artificiale."
+
+url: "https://log-puck.github.io"
+baseurl: "/log-puck-blog"
+
 markdown: kramdown
-theme: null
-permalink: pretty
-plugins: []
+permalink: /:categories/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
 exclude:
   - README.md
   - .github
