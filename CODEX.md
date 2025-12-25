@@ -12,3 +12,8 @@ Quando ti chiedo "check repo":
 Comandi locali attesi:
 - bundle install
 - bundle exec jekyll serve
+  
+## Styling rules
+- No inline styles in HTML.
+- Keep CSS in /assets/css/ (or SCSS in /assets/scss/ compiled to CSS).
+- Prefer small, reviewable diffs.
