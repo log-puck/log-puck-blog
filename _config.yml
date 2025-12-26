@@ -9,6 +9,19 @@ markdown: kramdown
 theme: null
 permalink: pretty
 plugins: []
+title: "log_puck"
+description: "Esplorazioni creative sull'intelligenza artificiale."
+
+url: "https://log-puck.github.io"
+baseurl: "/log-puck-blog"
+timezone: Europe/Rome
+markdown: kramdown
+permalink: /:categories/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
 # ----------------------------------------------------------------
 # COLLECTIONS (Strada B)
 # ----------------------------------------------------------------

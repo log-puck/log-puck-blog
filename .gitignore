@@ -11,3 +11,8 @@ vendor/bundle/
 
 # OS
 .DS_Store
+notion-exports/
+.DS_Store
+_site/
+Gemfile.lock
+_posts/
