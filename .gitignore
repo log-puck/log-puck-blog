@@ -2,3 +2,4 @@ notion-exports/
 .DS_Store
 _site/
 Gemfile.lock
+_posts/
