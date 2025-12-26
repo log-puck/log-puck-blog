@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: site.title }}</title>
+  <meta name="description" content="{{ page.excerpt | strip_html | default: site.description }}">
+  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo">
+      <span>🏠</span>
+      <span>{{ site.title }}</span>
+    </div>
+    <nav class="main-nav">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/session.html' | relative_url }}">OB-Session</a>
+      <a href="{{ '/progetti.html' | relative_url }}">OB-Progetti</a>
+      <a href="{{ '/ai.html' | relative_url }}">OB-AI</a>
+      <a href="{{ '/archivio.html' | relative_url }}">OB-Archivio</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    {{ content }}
+  </main>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <span>Link Rapidi:</span>
+      <a href="{{ '/about.html' | relative_url }}">About</a> |
+      <a href="{{ '/privacy.html' | relative_url }}">Privacy &amp; Terms</a> |
+      <a href="{{ '/contatti.html' | relative_url }}">Contatti</a>
+    </div>
+    <div class="footer-links">
+      <span>Social:</span>
+      <a href="https://x.com/tuo_handle" target="_blank" rel="noopener">
+        Seguimi su X (ex Twitter)
+      </a>
+    </div>
+    <div class="footer-meta">
+      <span>© 2025 OB Blog</span>
+      <span>•</span>
+      <span>Creato da Puck</span>
+    </div>
+  </footer>
+</body>
+</html>

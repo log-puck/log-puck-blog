@@ -1,0 +1,58 @@
+title: OB Blog
+email: info@example.com
+description: >-
+  Esplorazioni creative sull'intelligenza artificiale.
+baseurl: ""
+url: ""
+timezone: Europe/Rome
+markdown: kramdown
+theme: null
+permalink: pretty
+plugins: []
+# ----------------------------------------------------------------
+# COLLECTIONS (Strada B)
+# ----------------------------------------------------------------
+collections:
+  ob-session:
+    output: true
+    permalink: /ob-session/:slug/
+  ob-progetti:
+    output: true
+    permalink: /ob-progetti/:slug/
+  ob-ai:
+    output: true
+    permalink: /ob-ai/:slug/
+  ob-archivio:
+    output: true
+    permalink: /ob-archivio/:slug/
+
+# ----------------------------------------------------------------
+# DEFAULT FRONT MATTER
+# ----------------------------------------------------------------
+defaults:
+  - scope:
+      path: ""
+      type: "ob-session"
+    values:
+      layout: "session"
+  - scope:
+      path: ""
+      type: "ob-progetti"
+    values:
+      layout: "project"
+  - scope:
+      path: ""
+      type: "ob-ai"
+    values:
+      layout: "ai"
+  - scope:
+      path: ""
+      type: "ob-archivio"
+    values:
+      layout: "archive"
+
+exclude:
+  - README.md
+  - .github
+  - scripts/
+  - notion-exports/
