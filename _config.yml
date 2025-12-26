@@ -1,3 +1,14 @@
+title: OB Blog
+email: info@example.com
+description: >-
+  Esplorazioni creative sull'intelligenza artificiale.
+baseurl: ""
+url: ""
+timezone: Europe/Rome
+markdown: kramdown
+theme: null
+permalink: pretty
+plugins: []
 title: "log_puck"
 description: "Esplorazioni creative sull'intelligenza artificiale."
 

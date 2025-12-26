@@ -1,3 +1,16 @@
+# Build output
+_site/
+
+# Caches
+.jekyll-cache/
+.sass-cache/
+
+# Bundler
+.bundle/
+vendor/bundle/
+
+# OS
+.DS_Store
 notion-exports/
 .DS_Store
 _site/
