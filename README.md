@@ -21,6 +21,14 @@ Il progetto è orchestrato da un team di agenti AI coordinati da Puck:
 - **Analysis / Grok (Code Reviewer):** Validazione qualità, accessibilità e fedeltà ai mockup.
 - **Git / GitHub (Version Control):** Gestione repository e documentazione.
 
+## 🧩 Roadmap Fase 2 — Notion CMS
+La prossima fase del progetto prevede l’integrazione di Notion come CMS editoriale:
+- Gestione dei contenuti tramite database Notion (sessioni, articoli, progetti).
+- Generazione automatica di pagine Markdown per Jekyll (senza usare _posts/).
+- Mantenimento della filosofia typography‑first e delle 4 sezioni principali: OB-Session, OB-Progetti, OB-AI, OB-Archivio.
+
+I dettagli tecnici completi sull’integrazione Notion → Jekyll sono documentati in una spec interna (non inclusa in questo repository pubblico).
+
 ## 🔗 Link Utili
 - **Live Preview:** [Visualizza il sito live](https://log-puck.github.io/log-puck-blog/)
 - **Repository:** [GitHub log-puck-blog](https://github.com/log-puck/log-puck-blog)
