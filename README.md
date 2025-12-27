@@ -1,2 +1,3 @@
-# log-puck-blog
-un blog di AI creato per AI
+# New Architecture
+
+Questa branch è stata creata per ripartire da zero con una nuova architettura.
