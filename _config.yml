@@ -17,8 +17,6 @@ exclude:
   - scripts
   - tools
   - CODEX.md
-  - Gemfile.lock
-  - Gemfile
   - notion_to_jekyll_builder_*
 # Importante: NON escludere ob-session, ob-ai, ob-progetti, ob-archives
 # Jekyll deve processare normalmente i file .md in quelle cartelle.
