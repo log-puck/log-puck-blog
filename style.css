@@ -1,107 +1,71 @@
 /* --- VARIABILI CORE --- */
 :root {
-    --bg-main: #f9f9f9;        /* [cite: 153] */
-    --text-main: #1a1a1a;      /* [cite: 153] */
-    --accent-yellow: #c2d600;  /* Giallo LOG_PUCK [cite: 153] */
-    --accent-box: #ec5bfe;     /* Accento Box [cite: 153] */
-    --border-color: #D4D4D4;   /* [cite: 153] */
-    --slot-bg: #F5F5F0;        /* Beige sfumato [cite: 153] */
-    --max-width-content: 700px; /* [cite: 42] */
+    --bg-main: #f9f9f9;
+    --text-main: #1a1a1a;
+    --accent-yellow: #c2d600;  /* Giallo LOG_PUCK  */
+    --accent-magenta: #ec5bfe; /* Accento Box  */
+    --border-color: #D4D4D4;   /* Grigio sottile  */
+    --slot-bg: #F5F5F0;        /* Beige sfumato  */
 }
 
-/* --- RESET & BASE --- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; /* [cite: 167] */
-    line-height: 1.7; /* [cite: 186] */
-    color: var(--text-main);
-    background-color: var(--bg-main);
-}
-
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* --- TAGS (CADENZA 1) --- */
+/* --- TAGS (Gialli solo in hover) --- */
 .tag {
-    background-color: var(--accent-yellow); /* Sempre giallo [cite: 155, 417] */
-    color: #000;
+    background-color: #eee; /* Grigio neutro di base */
+    color: var(--text-main);
     padding: 4px 10px;
     margin: 0 4px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    border-radius: 2px;
-    display: inline-block;
-    transition: transform 0.2s ease;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
 
 .tag:hover {
-    transform: translateY(-2px); /* Hover smooth [cite: 418, 420] */
+    background-color: var(--accent-yellow); /* Giallo solo in hover  */
 }
 
-/* --- CARDS (CADENZA 2) --- */
-.card {
-    background: var(--slot-bg); /* Beige sfumato [cite: 153, 423] */
-    padding: 2.5rem;
-    border: 1px solid var(--border-color); /* Bordo sottile [cite: 153, 422] */
+/* --- GRID BLOCKS (Paralleli in Desktop, Verticali in Mobile) --- */
+.grid-container {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: border-color 0.3s ease;
+    flex-wrap: nowrap; /* Paralleli in desktop [cite: 38] */
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.card {
+    flex: 1;
+    background: var(--slot-bg);
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    transition: background-color 0.3s ease;
 }
 
 .card:hover {
-    border-color: var(--accent-box); /* Accento viola on hover [cite: 153] */
+    background-color: var(--accent-magenta); /* Magenta in hover  */
 }
 
+/* --- CTA (Freccia e Stile Giallo) --- */
 .btn-enter {
-    margin-top: 1.5rem;
+    display: inline-flex;
+    align-items: center;
     text-decoration: none;
     color: var(--text-main);
     font-weight: bold;
-    border-bottom: 2px solid var(--accent-yellow);
+    margin-top: 1rem;
+    border-bottom: 2px solid var(--accent-yellow); /* Sottolineatura gialla */
 }
 
-/* --- FEED TABELLARE (CADENZA 3) --- */
-.feed-table {
-    width: 100%;
-    margin-top: 2rem;
+.btn-enter::after {
+    content: " →"; /* La freccia [cite: 424] */
+    margin-left: 8px;
+    background-color: var(--accent-yellow); /* Bottone giallo per la freccia */
+    padding: 0 5px;
+    border-radius: 2px;
 }
 
-.feed-row {
-    display: grid;
-    grid-template-columns: 100px 1fr 150px; /* Layout lista [cite: 427] */
-    padding: 1rem;
-    border-bottom: 1px solid var(--border-color);
-    align-items: center;
-}
-
-.feed-row:nth-child(even) {
-    background-color: #fff; /* Righe alternate [cite: 428, 525] */
-}
-
-.feed-row .date { color: #666; font-size: 0.875rem; }
-.feed-row .title { text-decoration: none; color: var(--text-main); font-weight: 600; }
-.feed-row .category { 
-    text-align: right; 
-    font-size: 0.75rem; 
-    text-transform: uppercase; 
-    letter-spacing: 1px; 
-}
-
-/* --- FOOTER --- */
-.site-footer {
-    padding: 5rem 0;
-    background: #1a1a1a;
-    color: #fff;
-    text-align: center;
-}
-
-.koan {
-    font-family: Georgia, serif; /* [cite: 164] */
-    font-style: italic;
-    margin-bottom: 2rem;
+/* --- RESPONSIVE (Mobile-first) --- */
+@media (max-width: 768px) {
+    .grid-container {
+        flex-direction: column; /* Verticali in mobile [cite: 49] */
+    }
 }
