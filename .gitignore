@@ -1,11 +1,19 @@
-notion-exports/
-.DS_Store
-_site/
-Gemfile.lock
-_posts/
+# File YAML e JSON temporanei
+*.log
+*.lock
+
+# Output di Jekyll
 _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
-.bundle/
-vendor/
+
+# Python-specific
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+tools/*notion*config # Casi dove NON esporti
+db/
+
+.lock fi
