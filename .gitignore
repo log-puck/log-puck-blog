@@ -17,3 +17,9 @@ tools/*notion*config # Casi dove NON esporti
 db/
 
 .lock fi
+
+# Config con chiavi sensibili
+tools/notion_config.py
+*.key
+*.secret
+.env
