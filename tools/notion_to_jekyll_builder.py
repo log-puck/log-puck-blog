@@ -5,9 +5,9 @@ import datetime
 from pathlib import Path
 
 # --- CONFIGURAZIONE ---
-NOTION_API_KEY = "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"
-DB_CONTENT_ID = "2d46f0146d118046949bf3b441fa2627"
-OUTPUT_DIR = "." 
+# ✅ DOPO (importa da config)
+from notion_config import NOTION_API_KEY, DB_CONTENT_ID
+OUTPUT_DIR = "."
 
 # Mapping Layout Notion -> Layout Jekyll
 LAYOUT_MAP = {

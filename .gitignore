@@ -7,16 +7,35 @@ _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
+.bundle/
 
 # Python-specific
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
-tools/*notion*config # Casi dove NON esporti
-# Ignora file di macOS
-.DS_Store
-tools/.DS_Store
-db/
+venv/
+*.egg-info/
 
-.lock fi
+# Config con chiavi sensibili
+tools/*notion*config
+tools/notion_to_jekyll_builder_v*.py  # Vecchie versioni
+*.key
+*.secret
+
+# Database e backup
+db/
+bak/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node (se usi npm per qualcosa)
+node_modules/
+
+# Config con chiavi sensibili
+tools/notion_config.py
+*.key
+*.secret
+.env
