@@ -14,6 +14,9 @@ __pycache__/
 *.pyo
 *.pyd
 tools/*notion*config # Casi dove NON esporti
+# Ignora file di macOS
+.DS_Store
+tools/.DS_Store
 db/
 
 .lock fi

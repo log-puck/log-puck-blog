@@ -5,17 +5,18 @@ import datetime
 from pathlib import Path
 
 # --- CONFIGURAZIONE ---
-NOTION_API_KEY = "YOUR_NOTION_API_KEY"
-DB_CONTENT_ID = "YOUR_DB_CONTENT_ID"
+NOTION_API_KEY = "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"
+DB_CONTENT_ID = "2d46f0146d118046949bf3b441fa2627"
 OUTPUT_DIR = "." 
 
-# Mapping Layout Notion -> Layout Jekyll (Rispetta Tabella B)
+# Mapping Layout Notion -> Layout Jekyll
 LAYOUT_MAP = {
-    "home": "ob_home",
-    "archive": "ob_archive",
+    "session": "ob_session",
+    "document": "ob_document",
+    "landing": "ob_landing",
     "ai": "ob_ai",
-    "project": "ob_project",
-    "session": "ob_session"
+    "music": "ob_music",
+    "game": "ob_game"
 }
 
 headers = {
@@ -62,7 +63,6 @@ def get_page_by_id(page_id):
 def get_latest_session_id(session_ids):
     """
     Riceve una lista di ID sessione e restituisce l'ID della sessione con Date più recente.
-    Implementa la regola 3.4 di NotionAI.
     """
     if not session_ids:
         return None
@@ -74,23 +74,18 @@ def get_latest_session_id(session_ids):
     
     candidates = []
     for sid in session_ids:
-        # Fetch pagina chiedendo esplicitamente la proprietà 'Date' per ottimizzare
         url = f"https://api.notion.com/v1/pages/{sid}"
-        # Possiamo filtrare le proprietà richieste per velocità, ma fetch completo è più sicuro per MVP
         response = requests.get(url, headers=headers)
         if response.status_code == 200:
             page_data = response.json()
-            # Estraiamo la proprietà Date. Assumiamo nome campo "Date" come da Spec
             date_prop = page_data.get("properties", {}).get("Date")
             date_val = get_property_value(date_prop)
             
-            # Usa created_time come fallback se Date è vuota
             if not date_val:
                 date_val = page_data.get("created_time")
                 
             candidates.append({'id': sid, 'date': date_val})
     
-    # Ordina per data decrescente
     candidates.sort(key=lambda x: x['date'], reverse=True)
     
     if candidates:
@@ -103,15 +98,11 @@ def get_latest_session_id(session_ids):
 def update_infra_status(infra_page_id, status, error_log=""):
     url = f"https://api.notion.com/v1/pages/{infra_page_id}"
     
-    # Mappatura: Parola interna dello script -> Parola Opzione Notion
-    # Se lo script dice "ok" -> Notion legge "Done"
-    # Se lo script dice "error" -> Notion legge "In progress" (così riprova dopo)
-    
-    notion_status_name = "In progress" # Default se c'è errore
+    notion_status_name = "In progress"
     if status == "ok":
         notion_status_name = "Done"
     elif status == "error":
-        notion_status_name = "In progress" # Lasciamo in progress se fallisce
+        notion_status_name = "In progress"
         
     payload = {
         "properties": {
@@ -145,16 +136,19 @@ def update_infra_status(infra_page_id, status, error_log=""):
 
 def get_property_value(prop):
     """Helper per estrarre il valore 'pulito' da un oggetto proprietà Notion."""
+    if not prop:
+        return None
+        
     prop_type = prop.get("type")
     
     if prop_type == "title":
         title_list = prop.get("title", [])
-        if title_list: # Se c'è almeno un elemento
+        if title_list:
             return title_list[0].get("plain_text", "")
         return ""
     elif prop_type == "rich_text":
         rich_text_list = prop.get("rich_text", [])
-        if rich_text_list: # Se c'è almeno un elemento
+        if rich_text_list:
             return rich_text_list[0].get("plain_text", "")
         return ""
     elif prop_type == "select":
@@ -181,7 +175,6 @@ def get_page_blocks(page_id):
     blocks = data.get("results", [])
     content_md = ""
     
-    # Helper interno per leggere il testo in sicurezza (evita IndexError se vuoto)
     def get_text(prop):
         rich_text_list = prop.get("rich_text", [])
         if rich_text_list:
@@ -201,21 +194,31 @@ def get_page_blocks(page_id):
         elif block_type == "heading_2":
             text = get_text(block_data)
             content_md += f"## {text}\n\n"
+        elif block_type == "heading_3":
+            text = get_text(block_data)
+            content_md += f"### {text}\n\n"
         elif block_type == "code":
             text = get_text(block_data)
-            content_md += f"```\n{text}\n```\n\n"
+            lang = block_data.get("language", "")
+            content_md += f"```{lang}\n{text}\n```\n\n"
+        elif block_type == "bulleted_list_item":
+            text = get_text(block_data)
+            content_md += f"- {text}\n"
+        elif block_type == "numbered_list_item":
+            text = get_text(block_data)
+            content_md += f"1. {text}\n"
         elif block_type == "image":
             url_img = block_data.get("external", {}).get("url")
+            if not url_img:
+                url_img = block_data.get("file", {}).get("url")
             if url_img:
-                content_md += f"""
-![image]({url_img})
-
-"""
+                content_md += f"![image]({url_img})\n\n"
+                
     return content_md
 
-def generate_build_path(section, slug, type_val, subsection=None):
+def generate_build_path(section, slug, layout_val, subsection=None):
     """
-    Implementa la Routing Matrix (Tabella A).
+    Implementa la Routing Matrix.
     """
     safe_slug = slug.strip().lower().replace(" ", "-")
     
@@ -228,22 +231,27 @@ def generate_build_path(section, slug, type_val, subsection=None):
     }
     base_dir = dir_map.get(section, "uncategorized")
     
-    # 👇 INSERISCI QUESTA RIGA DI DEBUG SPY 👇
-    print(f"🕵️‍♂️ SPY DEBUG: Section Notion = [{section}] -> Base Dir Calcolato = [{base_dir}]")
-    # 👆 FINE DEBUG SPY 👆
-    
     sub_path = ""
     
-    # Logica Type
-    if type_val == "document": sub_path = "docs/"
-    elif type_val == "landing": sub_path = "landing/"
+    # Logica Layout (sostituisce Type)
+    if layout_val == "document":
+        sub_path = "docs/"
+    elif layout_val == "landing":
+        sub_path = "landing/"
     
-    # Logica Subsection (Override/Append)
+    # Logica Subsection (per OB-Progetti)
     if subsection and subsection != "Default":
-        sub_sub = subsection.lower().replace(" ", "-").replace("&", "and")
-        if "multi" in sub_sub: sub_sub = "giochi-multiai"
-        if sub_path == "": sub_path = f"{sub_sub}/"
-        else: sub_path = f"{sub_path}{sub_sub}/"
+        sub_sub = subsection.lower().replace(" ", "-")
+        # Normalizziamo i nomi
+        if "musica" in sub_sub:
+            sub_sub = "musica"
+        elif "giochi" in sub_sub:
+            sub_sub = "giochiAI"
+            
+        if sub_path == "":
+            sub_path = f"{sub_sub}/"
+        else:
+            sub_path = f"{sub_path}{sub_sub}/"
         
     filename = f"{safe_slug}.md"
     return os.path.join(OUTPUT_DIR, base_dir, sub_path, filename)
@@ -253,10 +261,11 @@ def create_frontmatter(props, layout_name):
     fm += f'title: "{props.get("title", "Untitled")}"\n'
     fm += f'slug: "{props.get("slug", "")}"\n'
     fm += f'date: "{props.get("date", "")}"\n'
-    fm += f'type: "{props.get("type", "")}"\n'
     fm += f'section: "{props.get("section", "")}"\n'
+    
     if props.get("subsection"):
         fm += f'subsection: "{props.get("subsection")}"\n'
+        
     fm += f'layout: "{layout_name}"\n'
     
     if props.get("meta_title"):
@@ -275,7 +284,7 @@ def create_frontmatter(props, layout_name):
     return fm
 
 def main():
-    log("Avvio GENERATORE Jekyll v2.1 (Aligned with NotionAI)...")
+    log("Avvio GENERATORE Jekyll v3.0 (Simplified Layout)...")
     
     filter_published = {
         "filter": {
@@ -298,17 +307,16 @@ def main():
         title = get_property_value(props_raw.get("Title"))
         slug = get_property_value(props_raw.get("Slug"))
         date = get_property_value(props_raw.get("Date"))
-        type_val = get_property_value(props_raw.get("Type"))
+        layout_notion = get_property_value(props_raw.get("Layout"))
         section = get_property_value(props_raw.get("Section"))
         subsection = get_property_value(props_raw.get("Subsection"))
-        layout_notion = get_property_value(props_raw.get("Layout"))
         
         meta_title = get_property_value(props_raw.get("Meta Title"))
         meta_desc = get_property_value(props_raw.get("Meta Description"))
         keys_seo = get_property_value(props_raw.get("Keywords SEO"))
         tags = get_property_value(props_raw.get("Tags"))
         
-        if not all([slug, date, type_val, section, layout_notion]):
+        if not all([slug, date, layout_notion, section]):
             log(f"SKIP [MISSING FIELDS]: {title}", "WARN")
             continue
 
@@ -328,7 +336,8 @@ def main():
                 if bp_prop:
                     raw_path = get_property_value(bp_prop)
                     if raw_path:
-                        if raw_path.endswith(".html"): raw_path = raw_path[:-5] + ".md"
+                        if raw_path.endswith(".html"):
+                            raw_path = raw_path[:-5] + ".md"
                         build_path_override = os.path.join(OUTPUT_DIR, raw_path)
 
         # 3. Recupero Body (Con Logica Multi-Sessione)
@@ -338,12 +347,10 @@ def main():
         source_name = ""
         
         if session_ids:
-            # APPLICA REGOLA 3.4: Seleziona sessione più recente
             latest_sid = get_latest_session_id(session_ids)
             body_content = get_page_blocks(latest_sid)
             source_name = "OB-SESSION (Latest)"
         else:
-            # Fallback (Content DB) - Rilevante solo se nessuna sessione
             raw_content = get_property_value(props_raw.get("Content"))
             if raw_content:
                 body_content = raw_content
@@ -356,41 +363,38 @@ def main():
                 update_infra_status(infra_id_to_update, "error", "No content found")
             continue
 
-        # 4. Layout & Path (Calcolo o Override)
+        # 4. Layout & Path
         jekyll_layout = LAYOUT_MAP.get(layout_notion, "default")
         
         if build_path_override:
             file_path = build_path_override
         else:
-            file_path = generate_build_path(section, slug, type_val, subsection)
+            file_path = generate_build_path(section, slug, layout_notion, subsection)
 
-        # --- 🛡️ NUOVO: Controllo Anti-Formiche v2.0 ---
-        # Verifica se qualcuno dei nomi delle cartelle inizia con underscore _
-        # Jekyll ignora queste cartelle.
-        
-        # Estraiamo il percorso diviso in cartelle (es. ['ob-session', 'docs'])
+        # 5. Controllo Anti-Underscore
         path_components = os.path.normpath(file_path).split(os.sep)
-        
-        # Rimuoviamo il nome del file dall'elenco, controlliamo solo le cartelle
         folders = path_components[:-1]
         
         if any(folder.startswith("_") for folder in folders):
-            error_msg = f"⛔ ERRORE CRITICO: Build Path '{file_path}' invalido. Contiene una cartella che inizia con '_' (es. _ob-ai). Jekyll non la processerebbe."
+            error_msg = f"⛔ ERRORE: Build Path '{file_path}' contiene cartella con '_'. Jekyll la ignorerebbe."
             log(error_msg, "ERROR")
             
-            # Aggiorna Infra con errore
             if infra_id_to_update:
                 update_infra_status(infra_id_to_update, "error", "Folder starts with _")
             
-            # Blocca tutto
             raise ValueError(error_msg)
-        # ---------------------------------------------------
 
-        # 5. Build File
+        # 6. Build File
         fm_props = {
-            "title": title, "slug": slug, "date": date, "type": type_val,
-            "section": section, "subsection": subsection, "meta_title": meta_title,
-            "meta_description": meta_desc, "keywords_seo": keys_seo, "tags": tags
+            "title": title,
+            "slug": slug,
+            "date": date,
+            "section": section,
+            "subsection": subsection,
+            "meta_title": meta_title,
+            "meta_description": meta_desc,
+            "keywords_seo": keys_seo,
+            "tags": tags
         }
         
         full_content = create_frontmatter(fm_props, jekyll_layout) + body_content
@@ -400,13 +404,10 @@ def main():
             if not os.path.exists(target_dir):
                 os.makedirs(target_dir)
                 
-            # ... scrittura file avvenuta ...
             with open(file_path, "w", encoding="utf-8") as f:
                 f.write(full_content)
             
-            # --- 📢 NUOVO: Log Umano ---
-            print(f"✅ [OK] Generato file: {file_path}")
-            # ---------------------------------
+            print(f"✅ [OK] Generato: {file_path}")
             
             generated_count += 1
             
