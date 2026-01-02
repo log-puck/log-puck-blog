@@ -1,0 +1,55 @@
+---
+layout: default
+---
+
+<section class="landing-page {% if page.custom_class %}{{ page.custom_class }}{% endif %}">
+    <div class="container">
+        <header class="landing-header">
+            <h1 class="landing-title">{{ page.title }}</h1>
+            {% if page.description %}
+            <p class="landing-description">{{ page.description }}</p>
+            {% endif %}
+        </header>
+
+        <div class="articles-grid">
+            {% assign section_posts = site.pages | where_exp: "p", "p.section == page.filter_section" | sort: "date" | reverse %}
+            
+            {% if section_posts.size > 0 %}
+                {% for post in section_posts %}
+                <article class="article-card {% if post.layout == 'ob_ai' %}persona-card{% endif %}">
+                    {% if post.layout == 'ob_ai' %}
+                        <!-- Card AI Persona -->
+                        <div class="ai-card-avatar">{{ post.avatar }}</div>
+                        <h2 class="article-card-title">
+                            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                        </h2>
+                        <p class="ai-card-meta">{{ post.profilo }} | {{ post.epoca }}</p>
+                        {% if post.style %}
+                        <p class="ai-card-style">{{ post.style }}</p>
+                        {% endif %}
+                    {% else %}
+                        <!-- Card Articolo normale -->
+                        <time class="article-date">{{ post.date | date: "%d/%m/%Y" }}</time>
+                        <h2 class="article-card-title">
+                            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                        </h2>
+                        {% if post.meta_description %}
+                        <p class="article-excerpt">{{ post.meta_description }}</p>
+                        {% endif %}
+                    {% endif %}
+                    
+                    {% if post.tags %}
+                    <div class="article-tags">
+                        {% for tag in post.tags limit:3 %}
+                        <span class="tag">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </article>
+                {% endfor %}
+            {% else %}
+                <p class="no-content">Nessun articolo pubblicato ancora.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>

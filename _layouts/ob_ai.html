@@ -1,0 +1,18 @@
+---
+layout: default
+---
+
+<article class="persona-page">
+    <div class="container">
+        <header class="persona-header">
+            <div class="persona-avatar-large">{{ page.avatar }}</div>
+            <h1 class="persona-title">{{ page.title }}</h1>
+            <p class="persona-subtitle">{{ page.profilo }} | {{ page.epoca }}</p>
+            <p class="persona-style">{{ page.style }}</p>
+        </header>
+
+        <div class="persona-content">
+            {{ content }}
+        </div>
+    </div>
+</article>

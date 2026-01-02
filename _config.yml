@@ -4,20 +4,28 @@ url: "https://log-puck.github.io"
 baseurl: "/log-puck-blog"   # importante per GitHub Pages
 
 markdown: kramdown
+permalink: /:categories/:title/
 highlighter: rouge
 
 # Se NON usi un tema Jekyll, puoi commentare questa riga:
 # theme: minima
 
+# Collections (opzionale per ora)
+collections_dir: .
+
 # Cartelle da escludere dalla build
 exclude:
   - node_modules
   - vendor
-  - venv
+  - venv/
   - scripts
-  - tools
+  - tools/
   - CODEX.md
   - notion_to_jekyll_builder_*
+  - db/
+  - Gemfile
+  - Gemfile.lock
+  - README.md
 # Importante: NON escludere ob-session, ob-ai, ob-progetti, ob-archives
 # Jekyll deve processare normalmente i file .md in quelle cartelle.
 

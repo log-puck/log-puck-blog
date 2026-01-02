@@ -1,116 +1,54 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOG_PUCK — Laboratorio di collaborazione Umano / AI</title>
-    <meta name="description" content="Blog e laboratorio sulla simbiosi creativa tra umano e macchina.">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+---
+layout: default
+---
 
-    <header class="site-header">
-        <div class="container">
-            <h1 class="logo">LOG_PUCK</h1>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#ob-session">OB-Session</a></li>
-                    <li><a href="#ob-progetti">OB-Progetti</a></li>
-                    <li><a href="#ob-ai">OB-AI</a></li>
-                    <li><a href="#ob-archivio">OB-Archivio</a></li>
-                </ul>
-            </nav>
+<section class="hero">
+    <div class="container">
+        <div class="tags-cloud">
+            <span class="tag">#LLM</span>
+            <span class="tag">#Music</span>
+            <span class="tag">#Prompts</span>
+            <span class="tag">#Marmotte</span>
+            <span class="tag">#Formiche</span>
         </div>
-    </header>
+        <h2 class="hero-title">Laboratorio di collaborazione <br>Umano / AI</h2>
+        <p class="hero-tagline">Esplora per scoprire cosa stiamo vivendo.</p>
+    </div>
+</section>
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <div class="tags-cloud">
-                    <span class="tag">#LLM</span>
-                    <span class="tag">#Music</span>
-                    <span class="tag">#Prompts</span>
-                    <span class="tag">#Marmotte</span>
-                    <span class="tag">#Formiche</span>
-                </div>
-                <h2 class="hero-title">Laboratorio di collaborazione <br>Umano / AI</h2>
-                <p class="hero-tagline">Esplora per scoprire cosa stiamo vivendo.</p>
-            </div>
-        </section>
+<section class="grid-sections">
+    <div class="container grid-container">
+        <article class="card" id="ob-session">
+            <h3>OB-Session</h3>
+            <p>Simbiosi creative tra umano e macchina. Esplorazioni neurali e dialoghi interattivi.</p>
+            <a href="{{ '/ob-session/' | relative_url }}" class="btn-enter">Entra</a>
+        </article>
+        <article class="card" id="ob-progetti">
+            <h3>OB-Progetti</h3>
+            <p>Architetture progettuali e prototipi nati dalla collaborazione algoritmica.</p>
+            <a href="{{ '/ob-progetti/' | relative_url }}" class="btn-enter">Entra</a>
+        </article>
+        <article class="card" id="ob-ai">
+            <h3>OB-AI</h3>
+            <p>Riflessioni tecniche e filosofiche sul futuro dell'intelligenza artificiale.</p>
+            <a href="{{ '/ob-ai/' | relative_url }}" class="btn-enter">Entra</a>
+        </article>
+    </div>
+</section>
 
-        <section class="grid-sections">
-            <div class="container grid-container">
-                <article class="card" id="ob-session">
-                    <h3>OB-Session</h3>
-                    <p>Simbiosi creative tra umano e macchina. Esplorazioni neurali e dialoghi interattivi.</p>
-                    <a href="#" class="btn-enter">Entra</a>
-                </article>
-                <article class="card" id="ob-progetti">
-                    <h3>OB-Progetti</h3>
-                    <p>Architetture progettuali e prototipi nati dalla collaborazione algoritmica.</p>
-                    <a href="#" class="btn-enter">Entra</a>
-                </article>
-                <article class="card" id="ob-ai">
-                    <h3>OB-AI</h3>
-                    <p>Riflessioni tecniche e filosofiche sul futuro dell'intelligenza artificiale.</p>
-                    <a href="#" class="btn-enter">Entra</a>
-                </article>
-            </div>
-        </section>
-
-        <section class="feed-section">
-            <div class="container">
-                <h2 class="section-title">Ultimi Articoli</h2>
-                <div class="feed-table">
-                    <div class="feed-row">
-                        <span class="date">26/12</span>
-                        <a href="#" class="title">La Sinfonia Algoritmica: Musica generata dall'AI</a>
-                        <span class="category">OB-AI</span>
-                    </div>
-                    <div class="feed-row">
-                        <span class="date">25/12</span>
-                        <a href="#" class="title">Dialoghi Interattivi e Prompt Engineering</a>
-                        <span class="category">OB-Session</span>
-                    </div>
-                    <div class="feed-row">
-                        <span class="date">24/12</span>
-                        <a href="#" class="title">Retrospettiva Digitale: Il senso del Mu</a>
-                        <span class="category">OB-Archivio</span>
-                    </div>
-                    <div class="feed-row">
-                        <span class="date">23/12</span>
-                        <a href="#" class="title">Architetture Progettuali e Collaborazione Algoritmica</a>
-                        <span class="category">OB-Progetti</span>
-                    </div>
-                    <div class="feed-row">
-                        <span class="date">22/12</span>
-                        <a href="#" class="title">Il Futuro della Creatività: Oltre il Test di Turing</a>
-                        <span class="category">OB-AI</span>
-                    </div>
-                </div>
-                <div class="view-all">
-                    <a href="#ob-archivio" class="btn-archive">Esplora tutti gli articoli →</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="container">
-            <blockquote class="koan">
-                Una volta un monaco chiese al maestro Joshu: "Un cane possiede la natura di Buddha?" <br>
-                Joshu rispose: <strong>Mù! (無)</strong>
-            </blockquote>
+<section class="feed-section">
+    <div class="container">
+        <h2 class="section-title">Ultimi Articoli</h2>
+        <div class="feed-table">
+            {% assign all_posts = site.pages | where_exp: "page", "page.layout == 'ob_session'" | sort: "date" | reverse | limit: 5 %}
             
-            <nav class="footer-nav">
-                <a href="#">About</a> | <a href="#">Legal</a> | <a href="#">Social</a>
-            </nav>
-
-            <div class="footer-meta">
-                <p>&copy; 2025 LOG_PUCK — Built with AI Hurricane Modules</p>
+            {% for post in all_posts %}
+            <div class="feed-row">
+                <span class="date">{{ post.date | date: "%d/%m/%y" }}</span>
+                <a href="{{ post.url | relative_url }}" class="title">{{ post.title }}</a>
+                <span class="category">{{ post.section }}</span>
             </div>
+            {% endfor %}
         </div>
-    </footer>
-
-</body>
-</html>
+    </div>
+</section>

@@ -4,9 +4,9 @@ import json
 import datetime
 from pathlib import Path
 
-# --- CONFIGURAZIONE ---
-# ✅ DOPO (importa da config)
-from notion_config import NOTION_API_KEY, DB_CONTENT_ID
+# Importa le credenziali da notion_config.py
+from notion_config import NOTION_API_KEY, DB_CONTENT_ID, DB_PERSONAS_ID
+
 OUTPUT_DIR = "."
 
 # Mapping Layout Notion -> Layout Jekyll
@@ -164,6 +164,10 @@ def get_property_value(prop):
         return [rel.get("id") for rel in prop.get("relation", [])]
     return None
     
+ # ⚡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━⚡
+# 🔥 VARIATION 14→15 | chaos→pattern | 02/01/26 00:51 🔥
+# ⚡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━⚡
+
 def get_page_blocks(page_id):
     """Recupera i blocchi (contenuto corpo) di una pagina Notion."""
     url = f"https://api.notion.com/v1/blocks/{page_id}/children"
@@ -213,7 +217,13 @@ def get_page_blocks(page_id):
                 url_img = block_data.get("file", {}).get("url")
             if url_img:
                 content_md += f"![image]({url_img})\n\n"
-                
+    
+    # Rimuovi markdown wrapper se presente
+    if content_md.startswith("```markdown"):
+        content_md = content_md.replace("```markdown\n", "", 1)
+    if content_md.endswith("```"):
+        content_md = content_md.rstrip("```").rstrip()
+    
     return content_md
 
 def generate_build_path(section, slug, layout_val, subsection=None):
@@ -420,6 +430,115 @@ def main():
                 update_infra_status(infra_id_to_update, "error", str(e))
 
     log(f"--- COMPLETATO! Generati {generated_count} file. ---")
+    
+    # Processa anche le personas
+    process_personas()
+
+# ═══════════════════════════════════════════════════════════
+# 🤖 PERSONAS PROCESSING | DB PERSONAS → ob-ai/
+# ═══════════════════════════════════════════════════════════
+
+def process_personas():
+    """
+    Genera pagine AI personas da DB CONTENT (Section=OB-AI) 
+    collegato a DB PERSONAS per i dati specifici.
+    """
+    log("Inizio generazione PERSONAS...")
+    
+    # Filtra solo OB-AI published
+    filter_ai = {
+        "filter": {
+            "and": [
+                {"property": "Section", "select": {"equals": "OB-AI"}},
+                {"property": "Status", "select": {"equals": "Published"}}
+            ]
+        }
+    }
+    
+    ai_items = get_notion_data(DB_CONTENT_ID, filter_ai)
+    
+    if not ai_items:
+        log("Nessuna persona OB-AI trovata", "WARN")
+        return
+    
+    personas_count = 0
+    
+    for item in ai_items:
+        props = item["properties"]
+        
+        # Dati da DB CONTENT
+        title = get_property_value(props.get("Title"))
+        slug = get_property_value(props.get("Slug"))
+        date_str = get_property_value(props.get("Date"))
+        meta_title = get_property_value(props.get("Meta Title")) or title
+        meta_desc = get_property_value(props.get("Meta Description")) or ""
+        keywords = get_property_value(props.get("Keywords SEO")) or ""
+        tags = get_property_value(props.get("Tags")) or []
+        
+        if not slug:
+            log(f"Slug mancante per: {title}", "WARN")
+            continue
+        
+        # Segui relation a DB PERSONAS
+        personas_relation = get_property_value(props.get("DB PERSONAS"))
+        
+        if not personas_relation:
+            log(f"Nessuna relation a DB PERSONAS per: {title}", "WARN")
+            continue
+        
+        persona_id = personas_relation[0]
+        
+        # Fetch dati da DB PERSONAS
+        persona_data = get_page_by_id(persona_id)
+        if not persona_data:
+            log(f"Errore fetch persona {persona_id}", "ERROR")
+            continue
+            
+        persona_props = persona_data.get("properties", {})
+        
+        nome = get_property_value(persona_props.get("Nome"))
+        profilo = get_property_value(persona_props.get("Profilo")) or ""
+        epoca = get_property_value(persona_props.get("Epoca")) or ""
+        stile = get_property_value(persona_props.get("Stile")) or ""
+        avatar = get_property_value(persona_props.get("Avatar Emoji")) or "🤖"
+        
+        # Fetch BODY dalla pagina Notion di DB PERSONAS
+        body_content = get_page_blocks(persona_id)
+        
+        # Genera frontmatter
+        frontmatter = f"""---
+layout: ob_ai
+title: "{title}"
+slug: "{slug}"
+date: {date_str}
+section: "OB-AI"
+nome: "{nome}"
+profilo: "{profilo}"
+epoca: "{epoca}"
+style: "{stile}"
+avatar: "{avatar}"
+meta_title: "{meta_title}"
+meta_description: "{meta_desc}"
+keywords_seo: "{keywords}"
+tags: {tags}
+---
+
+"""
+        
+        # Path file
+        filepath = os.path.join("ob-ai", f"{slug}.md")
+        
+        # Scrivi file
+        try:
+            with open(filepath, "w", encoding="utf-8") as f:
+                f.write(frontmatter + body_content)
+            print(f"✅ [OK] Persona: {nome} → {filepath}")
+            personas_count += 1
+        except Exception as e:
+            log(f"ERROR writing {filepath}: {str(e)}", "ERROR")
+    
+    log(f"--- PERSONAS: Generati {personas_count} file. ---")
+
 
 if __name__ == "__main__":
     main()
