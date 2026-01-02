@@ -245,9 +245,9 @@ def generate_build_path(section, slug, layout_val, subsection=None):
     
     # Logica Layout (sostituisce Type)
     if layout_val == "document":
-        sub_path = "docs/"
+        sub_path = ""
     elif layout_val == "landing":
-        sub_path = "landing/"
+        sub_path = ""
     
     # Logica Subsection (per OB-Progetti)
     if subsection and subsection != "Default":
@@ -321,6 +321,9 @@ def main():
         section = get_property_value(props_raw.get("Section"))
         subsection = get_property_value(props_raw.get("Subsection"))
         
+        # DEBUG: mostra il valore del layout letto da Notion
+        log(f"DEBUG - '{title}' | Layout da Notion: '{layout_notion}'", "DEBUG")
+        
         meta_title = get_property_value(props_raw.get("Meta Title"))
         meta_desc = get_property_value(props_raw.get("Meta Description"))
         keys_seo = get_property_value(props_raw.get("Keywords SEO"))
@@ -375,6 +378,7 @@ def main():
 
         # 4. Layout & Path
         jekyll_layout = LAYOUT_MAP.get(layout_notion, "default")
+        log(f"DEBUG - '{title}' | Layout mappato: '{jekyll_layout}'", "DEBUG")
         
         if build_path_override:
             file_path = build_path_override
