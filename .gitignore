@@ -23,6 +23,34 @@ tools/notion_to_jekyll_builder_v*.py  # Vecchie versioni
 *.key
 *.secret
 
+# Tools con credenziali
+tools/notion_config.py
+
+# Ma NON tutto tools/
+# !tools/notion_to_jekyll_builder.py  # Se vuoi committare lo script
+
+# Esperimenti pubblici OK
+# experiments/ è tracciato
+
+# Output Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Database e backup
+db/
+bak/
+
 # Database e backup
 db/
 bak/
