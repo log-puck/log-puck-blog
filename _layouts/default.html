@@ -7,17 +7,34 @@
     <meta name="description" content="{% if page.meta_description %}{{ page.meta_description }}{% else %}{{ site.description }}{% endif %}">
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 </head>
+
 <body>
 
     <header class="site-header">
         <div class="container">
             <h1 class="logo"><a href="{{ '/' | relative_url }}">LOG_PUCK</a></h1>
             <nav class="main-nav">
-                <ul>
-                    <li><a href="{{ '/ob-session/' | relative_url }}">OB-Session</a></li>
-                    <li><a href="{{ '/ob-progetti/' | relative_url }}">OB-Progetti</a></li>
-                    <li><a href="{{ '/ob-ai/' | relative_url }}">OB-AI</a></li>
-                    <li><a href="{{ '/ob-archives/' | relative_url }}">OB-Archivio</a></li>
+                <button class="nav-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <ul class="nav-menu">
+                    <li><a href="{{ '/ob-session/' | relative_url }}" class="nav-link">OB-Session</a></li>
+                    
+                    <li class="nav-dropdown">
+                        <a href="{{ '/ob-progetti/' | relative_url }}" class="nav-link">
+                            OB-Progetti <span class="dropdown-arrow">▼</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ '/ob-progetti/musica/' | relative_url }}">Musica</a></li>
+                            <li><a href="{{ '/ob-progetti/giochi/' | relative_url }}">Giochi</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="{{ '/ob-ai/' | relative_url }}" class="nav-link">OB-AI</a></li>
+                    <li><a href="{{ '/ob-archives/' | relative_url }}" class="nav-link">OB-Archivio</a></li>
                 </ul>
             </nav>
         </div>
@@ -64,5 +81,62 @@
         </div>
     </footer>
 
+    <script>
+        // Mobile menu toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                const isClosing = navToggle.classList.contains('active');
+                
+                navToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                
+                // 👈 NUOVO: Se stai chiudendo il menu, resetta dropdown
+                if (isClosing && navDropdown) {
+                    navDropdown.classList.remove('open');
+                }
+            });
+        }
+
+        // Mobile dropdown toggle
+        const navDropdown = document.querySelector('.nav-dropdown');
+        const dropdownLink = document.querySelector('.nav-dropdown > .nav-link');
+
+        if (dropdownLink) {
+            dropdownLink.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    navDropdown.classList.toggle('open'); // 👈 Uso 'open' invece di 'active'
+                }
+            });
+        }
+
+        // Close mobile menu when clicking dropdown items
+        const dropdownItems = document.querySelectorAll('.dropdown-menu a');
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    navDropdown.classList.remove('open');
+                }
+            });
+        });
+
+        // Close mobile menu when clicking other nav items
+        const mainNavLinks = document.querySelectorAll('.nav-menu > li > .nav-link');
+        mainNavLinks.forEach(link => {
+            if (!link.closest('.nav-dropdown')) { // Non il dropdown stesso
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        navToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    }
+                });
+            }
+        });
+        </script>
 </body>
 </html>
