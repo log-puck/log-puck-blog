@@ -1,16 +1,19 @@
-from typing import Any
+"""
+Notion to Jekyll Builder
+Converte contenuti da Notion a file Markdown per Jekyll
+"""
+
 import requests
 import os
-import json
 import datetime
-from pathlib import Path
-
-# Importa le credenziali da notion_config.py
 from notion_config import NOTION_API_KEY, DB_CONTENT_ID, DB_PERSONAS_ID
+
+# ============================================================================
+# 1. CONFIGURAZIONE
+# ============================================================================
 
 OUTPUT_DIR = "."
 
-# Mapping Layout Notion -> Layout Jekyll
 LAYOUT_MAP = {
     "session": "ob_session",
     "document": "ob_document",
@@ -20,17 +23,36 @@ LAYOUT_MAP = {
     "game": "ob_game"
 }
 
-headers = {
+NOTION_HEADERS = {
     "Authorization": f"Bearer {NOTION_API_KEY}",
     "Notion-Version": "2022-06-28",
     "Content-Type": "application/json"
 }
 
+# ============================================================================
+# 2. UTILITY BASE
+# ============================================================================
+
 def log(message, level="INFO"):
+    """Logging con timestamp."""
     timestamp = datetime.datetime.now().strftime("%H:%M:%S")
     print(f"[{timestamp}] [{level}] {message}")
 
+# ============================================================================
+# 3. NOTION API UTILITIES
+# ============================================================================
+
 def get_notion_data(database_id, filter_body=None):
+    """
+    Query un database Notion con paginazione completa.
+    
+    Args:
+        database_id: ID del database Notion
+        filter_body: Filtro opzionale per la query
+        
+    Returns:
+        Lista di risultati dalla query
+    """
     results = []
     url = f"https://api.notion.com/v1/databases/{database_id}/query"
     has_more = True
@@ -43,7 +65,7 @@ def get_notion_data(database_id, filter_body=None):
         if filter_body:
             payload.update(filter_body)
 
-        response = requests.post(url, headers=headers, json=payload)
+        response = requests.post(url, headers=NOTION_HEADERS, json=payload)
         if response.status_code != 200:
             log(f"Errore API Notion: {response.text}", "ERROR")
             raise Exception(f"API Error: {response.status_code}")
@@ -55,48 +77,70 @@ def get_notion_data(database_id, filter_body=None):
     return results
 
 def get_page_by_id(page_id):
+    """
+    Recupera una pagina Notion per ID.
+    
+    Args:
+        page_id: ID della pagina Notion
+        
+    Returns:
+        Dati della pagina o None se errore
+    """
     url = f"https://api.notion.com/v1/pages/{page_id}"
-    response = requests.get(url, headers=headers)
+    response = requests.get(url, headers=NOTION_HEADERS)
     if response.status_code == 200:
         return response.json()
     return None
 
-def get_latest_session_id(session_ids):
+def get_property_value(prop):
     """
-    Riceve una lista di ID sessione e restituisce l'ID della sessione con Date più recente.
+    Estrae il valore 'pulito' da un oggetto proprietà Notion.
+    
+    Gestisce: title, rich_text, select, multi_select, date, relation
+    
+    Args:
+        prop: Oggetto proprietà Notion
+        
+    Returns:
+        Valore estratto o None
     """
-    if not session_ids:
+    if not prop:
         return None
+        
+    prop_type = prop.get("type")
     
-    if len(session_ids) == 1:
-        return session_ids[0]
-
-    log(f"Trovate {len(session_ids)} sessioni collegate. Ricerca più recente...", "DEBUG")
-    
-    candidates = []
-    for sid in session_ids:
-        url = f"https://api.notion.com/v1/pages/{sid}"
-        response = requests.get(url, headers=headers)
-        if response.status_code == 200:
-            page_data = response.json()
-            date_prop = page_data.get("properties", {}).get("Date")
-            date_val = get_property_value(date_prop)
-            
-            if not date_val:
-                date_val = page_data.get("created_time")
-                
-            candidates.append({'id': sid, 'date': date_val})
-    
-    candidates.sort(key=lambda x: x['date'], reverse=True)
-    
-    if candidates:
-        latest = candidates[0]
-        log(f"Sessione più recente selezionata: {latest['id']} (Data: {latest['date']})", "DEBUG")
-        return latest['id']
-    
-    return session_ids[0]
+    if prop_type == "title":
+        title_list = prop.get("title", [])
+        if title_list:
+            return title_list[0].get("plain_text", "")
+        return ""
+    elif prop_type == "rich_text":
+        rich_text_list = prop.get("rich_text", [])
+        if rich_text_list:
+            return rich_text_list[0].get("plain_text", "")
+        return ""
+    elif prop_type == "select":
+        return prop.get("select", {}).get("name", "")
+    elif prop_type == "multi_select":
+        return [tag.get("name") for tag in prop.get("multi_select", [])]
+    elif prop_type == "date":
+        date_obj = prop.get("date")
+        if date_obj:
+            return date_obj.get("start") 
+        return None
+    elif prop_type == "relation":
+        return [rel.get("id") for rel in prop.get("relation", [])]
+    return None
 
 def update_infra_status(infra_page_id, status, error_log=""):
+    """
+    Aggiorna lo status di build in Notion.
+    
+    Args:
+        infra_page_id: ID della pagina infra
+        status: "ok" o "error"
+        error_log: Messaggio di errore opzionale
+    """
     url = f"https://api.notion.com/v1/pages/{infra_page_id}"
     
     notion_status_name = "In progress"
@@ -131,58 +175,76 @@ def update_infra_status(infra_page_id, status, error_log=""):
             ]
         }
 
-    response = requests.patch(url, headers=headers, json=payload)
+    response = requests.patch(url, headers=NOTION_HEADERS, json=payload)
     if response.status_code != 200:
         log(f"Errore aggiornamento status infra {infra_page_id}: {response.text}", "WARN")
 
-def get_property_value(prop):
-    """Helper per estrarre il valore 'pulito' da un oggetto proprietà Notion."""
-    if not prop:
-        return None
+# ============================================================================
+# 4. CONTENT PROCESSING UTILITIES
+# ============================================================================
+
+def get_latest_session_id(session_ids):
+    """
+    Restituisce l'ID della sessione con Date più recente.
+    
+    Args:
+        session_ids: Lista di ID sessione
         
-    prop_type = prop.get("type")
-    
-    if prop_type == "title":
-        title_list = prop.get("title", [])
-        if title_list:
-            return title_list[0].get("plain_text", "")
-        return ""
-    elif prop_type == "rich_text":
-        rich_text_list = prop.get("rich_text", [])
-        if rich_text_list:
-            return rich_text_list[0].get("plain_text", "")
-        return ""
-    elif prop_type == "select":
-        return prop.get("select", {}).get("name", "")
-    elif prop_type == "multi_select":
-        return [tag.get("name") for tag in prop.get("multi_select", [])]
-    elif prop_type == "date":
-        date_obj = prop.get("date")
-        if date_obj:
-            return date_obj.get("start") 
+    Returns:
+        ID della sessione più recente o None
+    """
+    if not session_ids:
         return None
-    elif prop_type == "relation":
-        return [rel.get("id") for rel in prop.get("relation", [])]
-    return None
     
- # ⚡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━⚡
-# 🔥 VARIATION 14→15 | chaos→pattern | 02/01/26 00:51 🔥
-# ⚡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━⚡
+    if len(session_ids) == 1:
+        return session_ids[0]
+
+    log(f"Trovate {len(session_ids)} sessioni collegate. Ricerca più recente...", "DEBUG")
+    
+    candidates = []
+    for sid in session_ids:
+        url = f"https://api.notion.com/v1/pages/{sid}"
+        response = requests.get(url, headers=NOTION_HEADERS)
+        if response.status_code == 200:
+            page_data = response.json()
+            date_prop = page_data.get("properties", {}).get("Date")
+            date_val = get_property_value(date_prop)
+            
+            if not date_val:
+                date_val = page_data.get("created_time")
+                
+            candidates.append({'id': sid, 'date': date_val})
+    
+    candidates.sort(key=lambda x: x['date'], reverse=True)
+    
+    if candidates:
+        latest = candidates[0]
+        log(f"Sessione più recente selezionata: {latest['id']} (Data: {latest['date']})", "DEBUG")
+        return latest['id']
+    
+    return session_ids[0]
 
 def get_page_blocks(page_id):
-    """Recupera i blocchi (contenuto corpo) di una pagina Notion con paginazione completa."""
+    """
+    Recupera tutti i blocchi di una pagina Notion e converte in Markdown.
+    
+    Args:
+        page_id: ID della pagina Notion
+        
+    Returns:
+        Contenuto Markdown della pagina
+    """
     all_blocks = []
     has_more = True
     start_cursor = None
     
-    # Recupera TUTTI i blocchi (con paginazione)
     while has_more:
         url = f"https://api.notion.com/v1/blocks/{page_id}/children"
         params = {}
         if start_cursor:
             params["start_cursor"] = start_cursor
             
-        response = requests.get(url, headers=headers, params=params)
+        response = requests.get(url, headers=NOTION_HEADERS, params=params)
         if response.status_code != 200:
             log(f"Errore recupero blocchi per {page_id}: {response.text}", "ERROR")
             break
@@ -195,9 +257,8 @@ def get_page_blocks(page_id):
     content_md = ""
     
     def get_text(prop):
-        """Concatena TUTTI i rich_text elements, non solo il primo."""
+        """Concatena tutti i rich_text elements."""
         rich_text_list = prop.get("rich_text", [])
-        # ✅ Unisci TUTTI i rich_text
         return "".join([rt.get("plain_text", "") for rt in rich_text_list])
     
     for block in all_blocks:
@@ -219,7 +280,6 @@ def get_page_blocks(page_id):
         elif block_type == "code":
             text = get_text(block_data)
             lang = block_data.get("language", "")
-            # Se il blocco code è markdown, output diretto (no backticks)
             if lang.lower() == "markdown":
                 content_md += f"{text}\n\n"
             else:
@@ -245,13 +305,62 @@ def get_page_blocks(page_id):
     
     return content_md
 
+def extract_ai_metadata(session_page):
+    """
+    Estrae AI Author e AI Partecipanti da una pagina sessione.
+    
+    Args:
+        session_page: Dati della pagina sessione Notion
+        
+    Returns:
+        Tuple (ai_author, ai_participants)
+    """
+    ai_author = None
+    ai_participants = []
+    
+    if not session_page:
+        return ai_author, ai_participants
+    
+    session_props = session_page.get('properties', {})
+    
+    # AI Author (single relation)
+    author_ids = get_property_value(session_props.get('AI Author'))
+    if author_ids:
+        author_page = get_page_by_id(author_ids[0])
+        if author_page:
+            ai_author = get_property_value(author_page['properties'].get('Nome AI'))
+    
+    # AI Partecipanti (multi relation)
+    participant_ids = get_property_value(session_props.get('AI Partecipanti'))
+    if participant_ids:
+        for pid in participant_ids:
+            p_page = get_page_by_id(pid)
+            if p_page:
+                p_name = get_property_value(p_page['properties'].get('Nome AI'))
+                if p_name:
+                    ai_participants.append(p_name)
+    
+    return ai_author, ai_participants
+
+# ============================================================================
+# 5. FILE GENERATION UTILITIES
+# ============================================================================
+
 def generate_build_path(section, slug, layout_val, subsection=None):
     """
-    Implementa la Routing Matrix.
+    Genera il percorso file secondo la Routing Matrix.
+    
+    Args:
+        section: Sezione (OB-Session, OB-AI, etc.)
+        slug: Slug del contenuto
+        layout_val: Valore layout Notion
+        subsection: Sottosezione opzionale
+        
+    Returns:
+        Percorso file completo
     """
     safe_slug = slug.strip().lower().replace(" ", "-")
     
-    # Mapping Base Directory
     dir_map = {
         "OB-Session": "ob-session",
         "OB-AI": "ob-ai",
@@ -262,16 +371,8 @@ def generate_build_path(section, slug, layout_val, subsection=None):
     
     sub_path = ""
     
-    # Logica Layout (sostituisce Type)
-    if layout_val == "document":
-        sub_path = ""
-    elif layout_val == "landing":
-        sub_path = ""
-    
-    # Logica Subsection (per OB-Progetti)
     if subsection and subsection != "Default":
         sub_sub = subsection.lower().replace(" ", "-")
-        # Normalizziamo i nomi
         if "musica" in sub_sub:
             sub_sub = "musica"
         elif "giochi" in sub_sub:
@@ -286,6 +387,16 @@ def generate_build_path(section, slug, layout_val, subsection=None):
     return os.path.join(OUTPUT_DIR, base_dir, sub_path, filename)
 
 def create_frontmatter(props, layout_name):
+    """
+    Crea il frontmatter YAML per Jekyll.
+    
+    Args:
+        props: Dizionario con le proprietà
+        layout_name: Nome del layout Jekyll
+        
+    Returns:
+        Stringa frontmatter YAML
+    """
     fm = "---\n"
     fm += f'title: "{props.get("title", "Untitled")}"\n'
     fm += f'slug: "{props.get("slug", "")}"\n'
@@ -308,188 +419,179 @@ def create_frontmatter(props, layout_name):
         fm += "tags:\n"
         for tag in props.get("tags"):
             fm += f"  - {tag}\n"
-    # ← AGGIUNGI QUI
+    
     if props.get("ai_author"):
         fm += f'ai_author: "{props.get("ai_author")}"\n'
     
     if props.get("ai_participants"):
         fm += "ai_participants:\n"
         for participant in props.get("ai_participants"):
-            fm += f"  - {participant}\n"
+            fm += f'  - "{participant}"\n'
             
     fm += "---\n"
     return fm
 
-def main():
-    log("Avvio GENERATORE Jekyll v3.0 (Simplified Layout)...")
+def write_jekyll_file(file_path, content, infra_id_to_update=None):
+    """
+    Scrive un file Jekyll Markdown con gestione errori.
     
-    filter_published = {
-        "filter": {
-            "property": "Status",
-            "select": {
-                "equals": "Published"
-            }
-        }
+    Args:
+        file_path: Percorso del file da scrivere
+        content: Contenuto completo (frontmatter + body)
+        infra_id_to_update: ID pagina infra per aggiornare status (opzionale)
+        
+    Returns:
+        True se successo, False altrimenti
+    """
+    try:
+        target_dir = os.path.dirname(file_path)
+        if target_dir and not os.path.exists(target_dir):
+            os.makedirs(target_dir)
+            
+        with open(file_path, "w", encoding="utf-8") as f:
+            f.write(content)
+        
+        log(f"✅ [OK] Generato: {file_path}", "INFO")
+        
+        if infra_id_to_update:
+            update_infra_status(infra_id_to_update, "ok")
+        
+        return True
+        
+    except Exception as e:
+        log(f"ERROR writing {file_path}: {str(e)}", "ERROR")
+        if infra_id_to_update:
+            update_infra_status(infra_id_to_update, "error", str(e))
+        return False
+
+def validate_build_path(file_path):
+    """
+    Valida che il percorso non contenga cartelle con underscore.
+    
+    Args:
+        file_path: Percorso da validare
+        
+    Raises:
+        ValueError se il percorso contiene cartelle con underscore
+    """
+    path_components = os.path.normpath(file_path).split(os.sep)
+    folders = path_components[:-1]
+    
+    if any(folder.startswith("_") for folder in folders):
+        error_msg = f"⛔ ERRORE: Build Path '{file_path}' contiene cartella con '_'. Jekyll la ignorerebbe."
+        log(error_msg, "ERROR")
+        raise ValueError(error_msg)
+
+# ============================================================================
+# 6. CONTENT PROCESSORS
+# ============================================================================
+
+def process_content_item(item, infra_id_to_update=None):
+    """
+    Processa un singolo item da DB CONTENT e genera il file Jekyll.
+    
+    Args:
+        item: Item Notion da DB CONTENT
+        infra_id_to_update: ID pagina infra per aggiornare status (opzionale)
+        
+    Returns:
+        True se processato con successo, False altrimenti
+    """
+    props_raw = item.get("properties", {})
+    
+    # 1. Estrai metadati base
+    title = get_property_value(props_raw.get("Title"))
+    slug = get_property_value(props_raw.get("Slug"))
+    date = get_property_value(props_raw.get("Date"))
+    layout_notion = get_property_value(props_raw.get("Layout"))
+    section = get_property_value(props_raw.get("Section"))
+    subsection = get_property_value(props_raw.get("Subsection"))
+    meta_title = get_property_value(props_raw.get("Meta Title"))
+    meta_desc = get_property_value(props_raw.get("Meta Description"))
+    keys_seo = get_property_value(props_raw.get("Keywords SEO"))
+    tags = get_property_value(props_raw.get("Tags"))
+    
+    # Validazione campi obbligatori
+    if not all([slug, date, layout_notion, section]):
+        log(f"SKIP [MISSING FIELDS]: {title}", "WARN")
+        if infra_id_to_update:
+            update_infra_status(infra_id_to_update, "error", "Missing required fields")
+        return False
+
+    # 2. Recupero Build Path Override (se presente)
+    build_path_override = None
+    blog_relation_ids = get_property_value(props_raw.get("Blog"))
+    if blog_relation_ids:
+        infra_id = blog_relation_ids[0]
+        infra_page = get_page_by_id(infra_id)
+        if infra_page:
+            bp_prop = infra_page.get("properties", {}).get("Build Path")
+            if bp_prop:
+                raw_path = get_property_value(bp_prop)
+                if raw_path:
+                    if raw_path.endswith(".html"):
+                        raw_path = raw_path[:-5] + ".md"
+                    build_path_override = os.path.join(OUTPUT_DIR, raw_path)
+
+    # 3. Recupero Body Content
+    session_ids = get_property_value(props_raw.get("DB OB-SESSIONS"))
+    body_content = ""
+    ai_author = None
+    ai_participants = []
+    
+    if session_ids:
+        latest_sid = get_latest_session_id(session_ids)
+        body_content = get_page_blocks(latest_sid)
+        
+        # Estrai AI metadata dalla sessione
+        session_page = get_page_by_id(latest_sid)
+        ai_author, ai_participants = extract_ai_metadata(session_page)
+    else:
+        raw_content = get_property_value(props_raw.get("Content"))
+        if raw_content:
+            body_content = raw_content
+    
+    # Validazione body content
+    if not body_content:
+        log(f"SKIP [NO BODY]: {title}", "WARN")
+        if infra_id_to_update:
+            update_infra_status(infra_id_to_update, "error", "No content found")
+        return False
+
+    # 4. Genera percorso file
+    jekyll_layout = LAYOUT_MAP.get(layout_notion, "default")
+    
+    if build_path_override:
+        file_path = build_path_override
+    else:
+        file_path = generate_build_path(section, slug, layout_notion, subsection)
+
+    # 5. Valida percorso
+    try:
+        validate_build_path(file_path)
+    except ValueError:
+        if infra_id_to_update:
+            update_infra_status(infra_id_to_update, "error", "Invalid build path")
+        return False
+
+    # 6. Crea frontmatter e scrivi file
+    fm_props = {
+        "title": title,
+        "slug": slug,
+        "date": date,
+        "section": section,
+        "subsection": subsection,
+        "meta_title": meta_title,
+        "meta_description": meta_desc,
+        "keywords_seo": keys_seo,
+        "tags": tags,
+        "ai_author": ai_author,
+        "ai_participants": ai_participants
     }
     
-    content_items = get_notion_data(DB_CONTENT_ID, filter_published)
-    log(f"Trovati {len(content_items)} contenuti da pubblicare.")
+    full_content = create_frontmatter(fm_props, jekyll_layout) + body_content
     
-    generated_count = 0
-    
-    for item in content_items:
-        props_raw = item.get("properties", {})
-        
-        # 1. Metadati
-        title = get_property_value(props_raw.get("Title"))
-        slug = get_property_value(props_raw.get("Slug"))
-        date = get_property_value(props_raw.get("Date"))
-        layout_notion = get_property_value(props_raw.get("Layout"))
-        section = get_property_value(props_raw.get("Section"))
-        subsection = get_property_value(props_raw.get("Subsection"))
-        meta_title = get_property_value(props_raw.get("Meta Title"))
-        meta_desc = get_property_value(props_raw.get("Meta Description"))
-        keys_seo = get_property_value(props_raw.get("Keywords SEO"))
-        tags = get_property_value(props_raw.get("Tags"))
-        
-        if not all([slug, date, layout_notion, section]):
-            log(f"SKIP [MISSING FIELDS]: {title}", "WARN")
-            continue
-
-        # 2. Recupero Infra (Blog Relation)
-        blog_relation_ids = get_property_value(props_raw.get("Blog"))
-        infra_page = None
-        build_path_override = None
-        infra_id_to_update = None
-        
-        if blog_relation_ids:
-            infra_id = blog_relation_ids[0]
-            infra_id_to_update = infra_id
-            infra_page = get_page_by_id(infra_id)
-            
-            if infra_page:
-                bp_prop = infra_page.get("properties", {}).get("Build Path")
-                if bp_prop:
-                    raw_path = get_property_value(bp_prop)
-                    if raw_path:
-                        if raw_path.endswith(".html"):
-                            raw_path = raw_path[:-5] + ".md"
-                        build_path_override = os.path.join(OUTPUT_DIR, raw_path)
-
-        # 3. Recupero Body (Con Logica Multi-Sessione)
-        session_ids = get_property_value(props_raw.get("DB OB-SESSIONS"))
-        
-        body_content = ""
-        source_name = ""
-        ai_author = None
-        ai_participants = []
-        
-        if session_ids:
-            latest_sid = get_latest_session_id(session_ids)
-            body_content = get_page_blocks(latest_sid)
-            source_name = "OB-SESSION (Latest)"
-            
-            # ✅ Estrai AI Author e AI Partecipanti DENTRO if session_ids
-            session_page = get_page_by_id(latest_sid)
-            if session_page:
-                session_props = session_page.get('properties', {})
-                
-                # AI Author (single)
-                author_ids = get_property_value(session_props.get('AI Author'))
-
-                if author_ids:
-                    author_page = get_page_by_id(author_ids[0])
-                    if author_page:
-                        ai_author = get_property_value(author_page['properties'].get('Nome AI'))
-                
-                # AI Partecipanti (multi)
-                participant_ids = get_property_value(session_props.get('AI Partecipanti'))
-                if participant_ids:
-                    for pid in participant_ids:
-                        p_page = get_page_by_id(pid)
-                        if p_page:
-                            p_name = get_property_value(p_page['properties'].get('Nome AI'))
-                            if p_name:
-                                ai_participants.append(p_name)
-        else:
-            raw_content = get_property_value(props_raw.get("Content"))
-            if raw_content:
-                body_content = raw_content
-                source_name = "DB CONTENT"
-        
-        if not body_content:
-            err_msg = f"SKIP [NO BODY]: {title}"
-            log(err_msg, "WARN")
-            if infra_id_to_update:
-                update_infra_status(infra_id_to_update, "error", "No content found")
-            continue
-
-        # 4. Layout & Path
-        jekyll_layout = LAYOUT_MAP.get(layout_notion, "default")
-        
-        if build_path_override:
-            file_path = build_path_override
-        else:
-            file_path = generate_build_path(section, slug, layout_notion, subsection)
-
-        # 5. Controllo Anti-Underscore
-        path_components = os.path.normpath(file_path).split(os.sep)
-        folders = path_components[:-1]
-        
-        if any(folder.startswith("_") for folder in folders):
-            error_msg = f"⛔ ERRORE: Build Path '{file_path}' contiene cartella con '_'. Jekyll la ignorerebbe."
-            log(error_msg, "ERROR")
-            
-            if infra_id_to_update:
-                update_infra_status(infra_id_to_update, "error", "Folder starts with _")
-            
-            raise ValueError(error_msg)
-
-        # 6. Build File
-        fm_props = {
-            "title": title,
-            "slug": slug,
-            "date": date,
-            "section": section,
-            "subsection": subsection,
-            "meta_title": meta_title,
-            "meta_description": meta_desc,
-            "keywords_seo": keys_seo,
-            "tags": tags,
-            "ai_author": ai_author,
-            "ai_participants": ai_participants
-        }
-        
-        full_content = create_frontmatter(fm_props, jekyll_layout) + body_content
-        
-        try:
-            target_dir = os.path.dirname(file_path)
-            if not os.path.exists(target_dir):
-                os.makedirs(target_dir)
-                
-            with open(file_path, "w", encoding="utf-8") as f:
-                f.write(full_content)
-            
-            print(f"✅ [OK] Generato: {file_path}")
-            
-            generated_count += 1
-            
-            if infra_id_to_update:
-                update_infra_status(infra_id_to_update, "ok")
-                
-        except Exception as e:
-            log(f"ERROR writing {file_path}: {str(e)}", "ERROR")
-            if infra_id_to_update:
-                update_infra_status(infra_id_to_update, "error", str(e))
-
-    log(f"--- COMPLETATO! Generati {generated_count} file. ---")
-    
-    # Processa anche le personas
-    process_personas()
-
-# ═══════════════════════════════════════════════════════════
-# 🤖 PERSONAS PROCESSING | DB PERSONAS → ob-ai/
-# ═══════════════════════════════════════════════════════════
+    return write_jekyll_file(file_path, full_content, infra_id_to_update)
 
 def process_personas():
     """
@@ -498,7 +600,6 @@ def process_personas():
     """
     log("Inizio generazione PERSONAS...")
     
-    # Filtra solo OB-AI published
     filter_ai = {
         "filter": {
             "and": [
@@ -585,13 +686,48 @@ tags: {tags}
         try:
             with open(filepath, "w", encoding="utf-8") as f:
                 f.write(frontmatter + body_content)
-            print(f"✅ [OK] Persona: {nome} → {filepath}")
+            log(f"✅ [OK] Persona: {nome} → {filepath}", "INFO")
             personas_count += 1
         except Exception as e:
             log(f"ERROR writing {filepath}: {str(e)}", "ERROR")
     
     log(f"--- PERSONAS: Generati {personas_count} file. ---")
 
+# ============================================================================
+# 7. MAIN ENTRY POINT
+# ============================================================================
+
+def main():
+    """Entry point principale del generatore."""
+    log("Avvio GENERATORE Jekyll v3.0 (Simplified Layout)...")
+    
+    filter_published = {
+        "filter": {
+            "property": "Status",
+            "select": {
+                "equals": "Published"
+            }
+        }
+    }
+    
+    content_items = get_notion_data(DB_CONTENT_ID, filter_published)
+    log(f"Trovati {len(content_items)} contenuti da pubblicare.")
+    
+    generated_count = 0
+    
+    for item in content_items:
+        # Estrai infra_id se presente per aggiornare status
+        props_raw = item.get("properties", {})
+        blog_relation_ids = get_property_value(props_raw.get("Blog"))
+        infra_id_to_update = blog_relation_ids[0] if blog_relation_ids else None
+        
+        if process_content_item(item, infra_id_to_update):
+            generated_count += 1
+
+    log(f"--- COMPLETATO! Generati {generated_count} file. ---")
+    
+    # Processa anche le personas
+    process_personas()
 
 if __name__ == "__main__":
     main()

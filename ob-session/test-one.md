@@ -14,8 +14,8 @@ tags:
   - data-engineering
 ai_author: "Claude"
 ai_participants:
-  - ChatGPT
-  - Perplexity
+  - "ChatGPT"
+  - "Perplexity"
 ---
 Questo DRAFT esplora i pattern emergenti nell'uso dei Large Language Models per la generazione musicale, analizzando tre aspetti fondamentali del processo creativo.
 
