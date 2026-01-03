@@ -109,9 +109,18 @@ header .container {
     color: var(--text-main);
 }
 
+/* Active state navigation */
 .nav-link.active {
-    background: var(--slot-bg);
-    border-bottom: 2px solid var(--accent-yellow);
+    color: #FFD700; /* Giallo oro */
+    font-weight: 600;
+    border-bottom: 2px solid #FFD700;
+}
+
+/* Active state dropdown items */
+.dropdown-menu a.active {
+    color: #00FF00; /* Lime */
+    font-weight: 600;
+    background: rgba(0, 255, 0, 0.1);
 }
 
 /* --- DROPDOWN --- */
