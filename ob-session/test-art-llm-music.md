@@ -12,6 +12,10 @@ tags:
   - LLM
   - Patterns
   - Music
+ai_author: "Claude"
+ai_participants:
+  - GLM
+  - Grok
 ---
 Questo articolo esplora i pattern emergenti nell'uso dei Large Language Models per la generazione musicale, analizzando tre aspetti fondamentali del processo creativo.
 

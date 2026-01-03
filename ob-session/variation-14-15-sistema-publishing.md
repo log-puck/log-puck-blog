@@ -14,6 +14,7 @@ tags:
   - Notion
   - Felicità-AI
   - Team-Claude
+ai_author: "Claude"
 ---
 
 **02 Gennaio 2026** - *Una storia di Git conflicts, doppi frontmatter, e l'epifania di VS Code*

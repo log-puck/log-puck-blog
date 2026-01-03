@@ -1,3 +1,4 @@
+from typing import Any
 import requests
 import os
 import json
@@ -307,6 +308,14 @@ def create_frontmatter(props, layout_name):
         fm += "tags:\n"
         for tag in props.get("tags"):
             fm += f"  - {tag}\n"
+    # ← AGGIUNGI QUI
+    if props.get("ai_author"):
+        fm += f'ai_author: "{props.get("ai_author")}"\n'
+    
+    if props.get("ai_participants"):
+        fm += "ai_participants:\n"
+        for participant in props.get("ai_participants"):
+            fm += f"  - {participant}\n"
             
     fm += "---\n"
     return fm
@@ -338,10 +347,6 @@ def main():
         layout_notion = get_property_value(props_raw.get("Layout"))
         section = get_property_value(props_raw.get("Section"))
         subsection = get_property_value(props_raw.get("Subsection"))
-        
-        # DEBUG: mostra il valore del layout letto da Notion
-        log(f"DEBUG - '{title}' | Layout da Notion: '{layout_notion}'", "DEBUG")
-        
         meta_title = get_property_value(props_raw.get("Meta Title"))
         meta_desc = get_property_value(props_raw.get("Meta Description"))
         keys_seo = get_property_value(props_raw.get("Keywords SEO"))
@@ -376,11 +381,36 @@ def main():
         
         body_content = ""
         source_name = ""
+        ai_author = None
+        ai_participants = []
         
         if session_ids:
             latest_sid = get_latest_session_id(session_ids)
             body_content = get_page_blocks(latest_sid)
             source_name = "OB-SESSION (Latest)"
+            
+            # ✅ Estrai AI Author e AI Partecipanti DENTRO if session_ids
+            session_page = get_page_by_id(latest_sid)
+            if session_page:
+                session_props = session_page.get('properties', {})
+                
+                # AI Author (single)
+                author_ids = get_property_value(session_props.get('AI Author'))
+
+                if author_ids:
+                    author_page = get_page_by_id(author_ids[0])
+                    if author_page:
+                        ai_author = get_property_value(author_page['properties'].get('Nome AI'))
+                
+                # AI Partecipanti (multi)
+                participant_ids = get_property_value(session_props.get('AI Partecipanti'))
+                if participant_ids:
+                    for pid in participant_ids:
+                        p_page = get_page_by_id(pid)
+                        if p_page:
+                            p_name = get_property_value(p_page['properties'].get('Nome AI'))
+                            if p_name:
+                                ai_participants.append(p_name)
         else:
             raw_content = get_property_value(props_raw.get("Content"))
             if raw_content:
@@ -396,7 +426,6 @@ def main():
 
         # 4. Layout & Path
         jekyll_layout = LAYOUT_MAP.get(layout_notion, "default")
-        log(f"DEBUG - '{title}' | Layout mappato: '{jekyll_layout}'", "DEBUG")
         
         if build_path_override:
             file_path = build_path_override
@@ -426,7 +455,9 @@ def main():
             "meta_title": meta_title,
             "meta_description": meta_desc,
             "keywords_seo": keys_seo,
-            "tags": tags
+            "tags": tags,
+            "ai_author": ai_author,
+            "ai_participants": ai_participants
         }
         
         full_content = create_frontmatter(fm_props, jekyll_layout) + body_content
