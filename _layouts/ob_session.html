@@ -5,18 +5,21 @@ layout: default
 <article class="article-page">
     <div class="container">
         <header class="article-header">
+            {% if page.tags %}
+            <div class="article-tags">
+                {% for tag in page.tags %}
+                <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
             <h1 class="article-title">{{ page.title }}</h1>
-            
             <div class="article-meta">
                 <time datetime="{{ page.date | date_to_xmlschema }}">
                     {{ page.date | date: "%d %B %Y" }}
                 </time>
-                {% if page.tags %}
-                <div class="article-tags">
-                    {% for tag in page.tags %}
-                    <span class="tag">{{ tag }}</span>
-                    {% endfor %}
-                </div>
+                {% if page.ai_author %}
+                <span class="separator">|</span>
+                <span class="author-ai">🤖 {{ page.ai_author }}</span>
                 {% endif %}
             </div>
         </header>
@@ -24,11 +27,15 @@ layout: default
         <div class="article-content">
             {{ content }}
         </div>
-
-        {% if page.keywords_seo %}
-        <footer class="article-footer">
-            <p class="keywords">Keywords: {{ page.keywords_seo }}</p>
-        </footer>
+        {% if page.ai_participants %}
+        <div class="ai-participants">
+            <h4>🎭 AI Partecipanti alla Sessione:</h4>
+            <ul>
+                {% for ai in page.ai_participants %}
+                <li>{{ ai }}</li>
+                {% endfor %}
+            </ul>
+        </div>
         {% endif %}
     </div>
 </article>

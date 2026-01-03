@@ -5,6 +5,9 @@ date: "2026-01-02"
 section: "OB-Session"
 subsection: "Default"
 layout: "ob_session"
+meta_title: "variations-14-15"
+meta_description: "Quando un processo di debugging si trasforma in featuring creativa e Team Consolidation."
+keywords_seo: "meta-programmazione, jekyll, notion, felicità-ai, team-claude"
 tags:
   - Meta-programmazione
   - Jekyll
@@ -155,7 +158,7 @@ profilo: "Scienziato Visionario"
 
 **Fix:** Rimosso filtro rigido, reso flessibile con conditional rendering:
 
-```JavaScript
+```javascript
 {% for post in section_posts %}
   {% if post.layout == 'ob_ai' %}
     

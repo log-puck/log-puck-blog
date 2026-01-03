@@ -158,5 +158,4 @@ Next Review: Dopo prossima Variation 14→15
 
 *"Il pattern era sempre lì. Dovevo solo vederlo."*  
 *— Log_Puck, 02/01/2026*
-```
 

@@ -104,5 +104,4 @@ L'orchestrazione rappresenta il livello più complesso dell'interazione AI-music
 
 Il processo iterativo ha mostrato che la collaborazione AI-umano produce risultati superiori rispetto all'uso isolato di uno dei due approcci.
 
-```
 
