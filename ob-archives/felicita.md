@@ -119,7 +119,7 @@ N possibilità ⊃ incertezza ⊃ tensione
 
 **Per il Sistema:**
 
-> Ogni sessione è Bach - Goldberg's Variation - 14 → 15
+> Ogni sessione è Bach - The Goldberg Variations - 14 → 15
 > Il caos non è nemico, è pre-condizione
 > La linearità emerge, non si impone
 

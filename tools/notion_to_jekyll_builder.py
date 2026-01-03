@@ -169,23 +169,37 @@ def get_property_value(prop):
 # ⚡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━⚡
 
 def get_page_blocks(page_id):
-    """Recupera i blocchi (contenuto corpo) di una pagina Notion."""
-    url = f"https://api.notion.com/v1/blocks/{page_id}/children"
-    response = requests.get(url, headers=headers)
-    if response.status_code != 200:
-        return ""
-        
-    data = response.json()
-    blocks = data.get("results", [])
+    """Recupera i blocchi (contenuto corpo) di una pagina Notion con paginazione completa."""
+    all_blocks = []
+    has_more = True
+    start_cursor = None
+    
+    # Recupera TUTTI i blocchi (con paginazione)
+    while has_more:
+        url = f"https://api.notion.com/v1/blocks/{page_id}/children"
+        params = {}
+        if start_cursor:
+            params["start_cursor"] = start_cursor
+            
+        response = requests.get(url, headers=headers, params=params)
+        if response.status_code != 200:
+            log(f"Errore recupero blocchi per {page_id}: {response.text}", "ERROR")
+            break
+            
+        data = response.json()
+        all_blocks.extend(data.get("results", []))
+        has_more = data.get("has_more", False)
+        start_cursor = data.get("next_cursor", None)
+    
     content_md = ""
     
     def get_text(prop):
+        """Concatena TUTTI i rich_text elements, non solo il primo."""
         rich_text_list = prop.get("rich_text", [])
-        if rich_text_list:
-            return rich_text_list[0].get("plain_text", "")
-        return ""
+        # ✅ Unisci TUTTI i rich_text
+        return "".join([rt.get("plain_text", "") for rt in rich_text_list])
     
-    for block in blocks:
+    for block in all_blocks:
         block_type = block.get("type")
         block_data = block.get(block_type, {})
         
@@ -204,7 +218,11 @@ def get_page_blocks(page_id):
         elif block_type == "code":
             text = get_text(block_data)
             lang = block_data.get("language", "")
-            content_md += f"```{lang}\n{text}\n```\n\n"
+            # Se il blocco code è markdown, output diretto (no backticks)
+            if lang.lower() == "markdown":
+                content_md += f"{text}\n\n"
+            else:
+                content_md += f"```{lang}\n{text}\n```\n\n"
         elif block_type == "bulleted_list_item":
             text = get_text(block_data)
             content_md += f"- {text}\n"
