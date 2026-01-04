@@ -75,7 +75,9 @@ tools/notion_config.py
 experiments/*.env
 experiments/api-keys.txt
 experiments/test-data/
-experiments/ponte_config.js  # Config con Database IDs sensibili
+experiments/node_modules/
+experiments/public/*.html           
+experiments/ponte_config.js
 experiments/package-lock.json
 experiments/package.json
 
