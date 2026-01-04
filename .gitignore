@@ -67,3 +67,19 @@ tools/notion_config.py
 *.key
 *.secret
 .env
+
+# Experiments folder (se ha dati sensibili)
+#experiments/
+
+# O specifici file:
+experiments/*.env
+experiments/api-keys.txt
+experiments/test-data/
+experiments/ponte_config.js  # Config con Database IDs sensibili
+experiments/package-lock.json
+experiments/package.json
+
+# Ma MANTIENI se vuoi commitare:
+#experiments/*.js (script OK)
+#experiments/*.md (note OK)
+# !experiments/ponte-orchestrator.js  # Esplicitamente traccia lo script principale
