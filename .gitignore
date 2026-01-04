@@ -78,6 +78,7 @@ experiments/test-data/
 experiments/node_modules/
 experiments/public/*.html           
 experiments/ponte_config.js
+experiments/ponte_config.example.js
 experiments/package-lock.json
 experiments/package.json
 
