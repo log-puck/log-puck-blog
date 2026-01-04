@@ -429,15 +429,35 @@ IMPORTANT: Return ONLY valid JSON, no markdown formatting.`;
     console.log('✅ WAW Council completed');
     console.log(`🥇 Winner: ${sortedVotes[0]?.idea} (${sortedVotes[0]?.score} points)`);
 
+    // ✨ NEW: Prepara nuove idee per Notion e response
+    const newIdeas = validResults.map(r => ({
+      ai: r.name,
+      ...r.data.new_idea
+    }));
+
+    // ✨ NEW: SALVA IN NOTION
+    try {
+      await saveToNotion({
+        context: req.body.context,
+        ideas: req.body.ideas,
+        selectedAIs,
+        results: allResults,
+        votes: sortedVotes,
+        newIdeas
+      });
+      
+      console.log('✅ Saved to Notion successfully');
+    } catch (notionError) {
+      console.error('⚠️ Notion save failed:', notionError.message);
+      // Non blocca response - i dati sono comunque ritornati
+    }
+
     // SPIEGAZIONE: Ritorna tutto al frontend per display
     res.json({
       success: true,
       raw: allResults,                    // Risposte grezze (per debug)
       votes: sortedVotes,                 // Classifica votazioni
-      newIdeas: validResults.map(r => ({  // Nuove idee proposte
-        ai: r.name,
-        ...r.data.new_idea
-      }))
+      newIdeas                            // Nuove idee proposte
     });
 
   } catch (error) {
@@ -581,6 +601,150 @@ async function callGLMWithSearch(query) {
 }
 
 // ============================================
+// SAVE WAW RESULTS TO NOTION
+// ============================================
+
+async function saveToNotion(data) {
+  const { context, results, votes, newIdeas } = data;
+  
+  // STEP 1: Crea Session
+  const session = await notion.pages.create({
+    parent: { database_id: config.WAW_SESSIONS_DB_ID },
+    properties: {
+      'Title': {
+        title: [{ text: { content: `AI Council Session #${await getNextSessionNumber()}` }}]
+      },
+      'Date': {
+        date: { start: new Date().toISOString().split('T')[0] }
+      },
+      'Context': {
+        rich_text: [{ text: { content: JSON.stringify(context, null, 2) }}]
+      },
+      'AI Participants': {
+        multi_select: results.map(r => ({ name: r.name }))
+      },
+      'Session Status': {
+        select: { name: 'Ready for CONTENT' }
+      },
+      'Winner Score': {
+        number: votes[0]?.score || 0
+      },
+      'Winner Idea': {
+        rich_text: [{ text: { content: votes[0]?.idea || 'N/A' }}]
+      }
+    }
+  });
+  
+  // STEP 2: Per ogni idea votata
+  for (const vote of votes) {
+    // Find or create idea
+    const idea = await findOrCreateIdea(vote.idea);
+    
+    // Crea voto per ogni AI che l'ha votata
+    for (const aiVote of vote.votes) {
+      await notion.pages.create({
+        parent: { database_id: config.WAW_VOTES_DB_ID },
+        properties: {
+          'Name': {
+            title: [{ text: { content: `${vote.idea} - ${aiVote.ai}` }}]
+          },
+          'Voters': {
+            multi_select: [{ name: aiVote.ai }]
+          },
+          'Score': {
+            number: [3, 2, 1][aiVote.rank - 1] // rank 1=3pt, 2=2pt, 3=1pt
+          },
+          'Rank': {
+            number: aiVote.rank
+          },
+          'Resoning': {
+            rich_text: [{ text: { content: aiVote.reasoning }}]
+          },
+          'WAW_IDEAS': {
+            relation: [{ id: idea.id }]
+          },
+          'WAW_SESSIONS': {
+            relation: [{ id: session.id }]
+          }
+        }
+      });
+    }
+  }
+  
+  // STEP 3: Per ogni nuova idea
+  for (const newIdea of newIdeas) {
+    await notion.pages.create({
+      parent: { database_id: config.WAW_IDEAS_DB_ID },
+      properties: {
+        'Title': {
+          title: [{ text: { content: newIdea.title }}]
+        },
+        'Description': {
+          rich_text: [{ text: { content: newIdea.description }}]
+        },
+        'Proposed By': {
+          multi_select: [{ name: newIdea.ai }]
+        },
+        'Effort': {
+          select: { name: newIdea.effort }
+        },
+        'Impact': {
+          select: { name: newIdea.impact }
+        },
+        'Status': {
+          select: { name: 'Proposed' }
+        }
+      }
+    });
+  }
+  
+  return session;
+}
+
+// Helper: Find or create idea
+async function findOrCreateIdea(ideaTitle) {
+  // Query existing ideas
+  const existing = await notion.databases.query({
+    database_id: config.WAW_IDEAS_DB_ID,
+    filter: {
+      property: 'Title',
+      title: { equals: ideaTitle }
+    }
+  });
+  
+  if (existing.results.length > 0) {
+    return existing.results[0];
+  }
+  
+  // Create new
+  return await notion.pages.create({
+    parent: { database_id: config.WAW_IDEAS_DB_ID },
+    properties: {
+      'Title': {
+        title: [{ text: { content: ideaTitle }}]
+      },
+      'Status': {
+        select: { name: 'In Progress' }
+      }
+    }
+  });
+}
+
+  // Helper: Get next session number
+  async function getNextSessionNumber() {
+    const sessions = await notion.databases.query({
+      database_id: config.WAW_SESSIONS_DB_ID,
+      sorts: [{ property: 'ID', direction: 'descending' }],
+      page_size: 1
+    });
+    
+    if (sessions.results.length === 0) return 1;
+    
+    const lastId = sessions.results[0].properties.ID.unique_id.number;
+    return lastId + 1;
+  }
+
+// ============================================
 // START SERVER
 // ============================================
 
@@ -588,8 +752,6 @@ app.listen(PORT, () => {
   console.log('\n🚀 PONTE ORCHESTRATOR MULTI-AI v1.1');
   console.log('========================================');
   console.log(`Server running on http://localhost:${PORT}`);
-  console.log(`Notion DB Tasks: ${DB_TASKS_ID}`);
-  console.log(`Notion DB Templates: ${DB_TEMPLATES_ID}`);
   console.log('\n✅ Ready for CDC chaos!');
   console.log('🎯 WAW Council: ACTIVE');
   console.log('Hayden > NOI > IO > bugghino 🎺\n');
