@@ -304,13 +304,13 @@ IMPORTANT: Return ONLY valid JSON, no markdown formatting.`;
             const jsonMatch = text.match(/\{[\s\S]*\}/);
             return {
               id: 'claude',
-              name: 'Claude Sonnet 4',
+              name: 'Claude',
               data: jsonMatch ? JSON.parse(jsonMatch[0]) : null
             };
           })
           .catch(err => ({ 
             id: 'claude', 
-            name: 'Claude Sonnet 4', 
+            name: 'Claude', 
             error: err.message 
           }))
       );
@@ -323,13 +323,13 @@ IMPORTANT: Return ONLY valid JSON, no markdown formatting.`;
             const jsonMatch = text.match(/\{[\s\S]*\}/);
             return {
               id: 'glm',
-              name: 'GLM-4',
+              name: 'GLM',
               data: jsonMatch ? JSON.parse(jsonMatch[0]) : null
             };
           })
           .catch(err => ({ 
             id: 'glm', 
-            name: 'GLM-4', 
+            name: 'GLM', 
             error: err.message 
           }))
       );
@@ -387,6 +387,25 @@ IMPORTANT: Return ONLY valid JSON, no markdown formatting.`;
           .catch(err => ({ 
             id: 'chatgpt', 
             name: 'ChatGPT', 
+            error: err.message 
+          }))
+      );
+    }
+
+    if (selectedAIs.perplexity) {
+      apiCalls.push(
+        callPerplexity(prompt)
+          .then(text => {
+            const jsonMatch = text.match(/\{[\s\S]*\}/);
+            return {
+              id: 'perplexity',
+              name: 'Perplexity',
+              data: jsonMatch ? JSON.parse(jsonMatch[0]) : null
+            };
+          })
+          .catch(err => ({ 
+            id: 'perplexity', 
+            name: 'Perplexity', 
             error: err.message 
           }))
       );
