@@ -1,0 +1,245 @@
+{
+  "success": true,
+  "raw": [
+    {
+      "id": "claude",
+      "name": "Claude Sonnet 4",
+      "data": {
+        "vote": {
+          "priority_1": "Fix CDC Mode",
+          "priority_2": "Dark mode toggle",
+          "priority_3": "Footer social links",
+          "reasoning": "Fixing broken functionality (CDC Mode) should come first to maintain site integrity. Dark mode is a valuable UX feature that enhances accessibility. Footer social links provide good engagement opportunities with moderate effort."
+        },
+        "new_idea": {
+          "title": "AI contribution metrics dashboard",
+          "description": "Create a simple dashboard showing AI vs human post ratios, contribution frequency, and collaboration patterns over time. This would showcase the experimental nature of LOG_PUCK and provide transparency about the human-AI collaboration.",
+          "effort": "Medium",
+          "impact": "High"
+        }
+      }
+    },
+    {
+      "id": "glm",
+      "name": "GLM-4",
+      "data": {
+        "vote": {
+          "priority_1": "Dark mode toggle",
+          "priority_2": "Layout documentation guide",
+          "priority_3": "OB-Progetti landing page",
+          "reasoning": "Dark mode is a high-impact, user-facing feature that improves accessibility and UX. Layout documentation is foundational for maintaining the blog's structure and onboarding new contributors. OB-Progetti landing page is important for project organization but can be implemented after core features are stable."
+        },
+        "new_idea": {
+          "title": "Automated content backup system",
+          "description": "Automatically backs up Notion DB content to GitHub repository to prevent data loss and enable version control of blog posts.",
+          "effort": "Medium",
+          "impact": "High"
+        }
+      }
+    },
+    {
+      "id": "grok",
+      "name": "Grok",
+      "data": {
+        "vote": {
+          "priority_1": "Fix CDC Mode",
+          "priority_2": "Breadcrumb verification",
+          "priority_3": "Dark mode toggle",
+          "reasoning": "Prioritizing bug fixes like CDC Mode first for stability, then navigation verification for usability, and dark mode for enhanced user experience."
+        },
+        "new_idea": {
+          "title": "Implement SEO Optimizations",
+          "description": "Add meta tags, sitemap generation, and alt text for images to improve search engine visibility and drive more traffic to the blog.",
+          "effort": "Medium",
+          "impact": "High"
+        }
+      }
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini",
+      "data": {
+        "vote": {
+          "priority_1": "Dark mode toggle",
+          "priority_2": "Layout documentation guide",
+          "priority_3": "Fix CDC Mode",
+          "reasoning": "Dark mode is a popular and accessibility-focused feature. Layout documentation helps future contributors. CDC mode fix directly addresses a bug/issue."
+        },
+        "new_idea": {
+          "title": "AI Contribution Scoring System",
+          "description": "Implement a scoring system to evaluate the quality and impact of AI contributions to the blog. This will help track progress and identify areas for improvement in AI contribution methods.",
+          "effort": "Medium",
+          "impact": "Medium"
+        }
+      }
+    },
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "data": {
+        "vote": {
+          "priority_1": "Footer social links",
+          "priority_2": "Dark mode toggle",
+          "priority_3": "Layout documentation guide",
+          "reasoning": "Footer social links are essential for engagement and connecting with users on social media. Dark mode toggle enhances user experience by accommodating user preferences, while layout documentation guide provides valuable resources for developers but is less urgent."
+        },
+        "new_idea": {
+          "title": "User Feedback System",
+          "description": "Implement a system for users to submit feedback on the blog content and features, allowing for continuous improvement based on user suggestions.",
+          "effort": "Medium",
+          "impact": "High"
+        }
+      }
+    }
+  ],
+  "votes": [
+    {
+      "idea": "Dark mode toggle",
+      "score": 11,
+      "votes": [
+        {
+          "ai": "Claude Sonnet 4",
+          "rank": 2,
+          "reasoning": "Fixing broken functionality (CDC Mode) should come first to maintain site integrity. Dark mode is a valuable UX feature that enhances accessibility. Footer social links provide good engagement opportunities with moderate effort."
+        },
+        {
+          "ai": "GLM-4",
+          "rank": 1,
+          "reasoning": "Dark mode is a high-impact, user-facing feature that improves accessibility and UX. Layout documentation is foundational for maintaining the blog's structure and onboarding new contributors. OB-Progetti landing page is important for project organization but can be implemented after core features are stable."
+        },
+        {
+          "ai": "Grok",
+          "rank": 3,
+          "reasoning": "Prioritizing bug fixes like CDC Mode first for stability, then navigation verification for usability, and dark mode for enhanced user experience."
+        },
+        {
+          "ai": "Gemini",
+          "rank": 1,
+          "reasoning": "Dark mode is a popular and accessibility-focused feature. Layout documentation helps future contributors. CDC mode fix directly addresses a bug/issue."
+        },
+        {
+          "ai": "ChatGPT",
+          "rank": 2,
+          "reasoning": "Footer social links are essential for engagement and connecting with users on social media. Dark mode toggle enhances user experience by accommodating user preferences, while layout documentation guide provides valuable resources for developers but is less urgent."
+        }
+      ]
+    },
+    {
+      "idea": "Fix CDC Mode",
+      "score": 7,
+      "votes": [
+        {
+          "ai": "Claude Sonnet 4",
+          "rank": 1,
+          "reasoning": "Fixing broken functionality (CDC Mode) should come first to maintain site integrity. Dark mode is a valuable UX feature that enhances accessibility. Footer social links provide good engagement opportunities with moderate effort."
+        },
+        {
+          "ai": "Grok",
+          "rank": 1,
+          "reasoning": "Prioritizing bug fixes like CDC Mode first for stability, then navigation verification for usability, and dark mode for enhanced user experience."
+        },
+        {
+          "ai": "Gemini",
+          "rank": 3,
+          "reasoning": "Dark mode is a popular and accessibility-focused feature. Layout documentation helps future contributors. CDC mode fix directly addresses a bug/issue."
+        }
+      ]
+    },
+    {
+      "idea": "Layout documentation guide",
+      "score": 5,
+      "votes": [
+        {
+          "ai": "GLM-4",
+          "rank": 2,
+          "reasoning": "Dark mode is a high-impact, user-facing feature that improves accessibility and UX. Layout documentation is foundational for maintaining the blog's structure and onboarding new contributors. OB-Progetti landing page is important for project organization but can be implemented after core features are stable."
+        },
+        {
+          "ai": "Gemini",
+          "rank": 2,
+          "reasoning": "Dark mode is a popular and accessibility-focused feature. Layout documentation helps future contributors. CDC mode fix directly addresses a bug/issue."
+        },
+        {
+          "ai": "ChatGPT",
+          "rank": 3,
+          "reasoning": "Footer social links are essential for engagement and connecting with users on social media. Dark mode toggle enhances user experience by accommodating user preferences, while layout documentation guide provides valuable resources for developers but is less urgent."
+        }
+      ]
+    },
+    {
+      "idea": "Footer social links",
+      "score": 4,
+      "votes": [
+        {
+          "ai": "Claude Sonnet 4",
+          "rank": 3,
+          "reasoning": "Fixing broken functionality (CDC Mode) should come first to maintain site integrity. Dark mode is a valuable UX feature that enhances accessibility. Footer social links provide good engagement opportunities with moderate effort."
+        },
+        {
+          "ai": "ChatGPT",
+          "rank": 1,
+          "reasoning": "Footer social links are essential for engagement and connecting with users on social media. Dark mode toggle enhances user experience by accommodating user preferences, while layout documentation guide provides valuable resources for developers but is less urgent."
+        }
+      ]
+    },
+    {
+      "idea": "Breadcrumb verification",
+      "score": 2,
+      "votes": [
+        {
+          "ai": "Grok",
+          "rank": 2,
+          "reasoning": "Prioritizing bug fixes like CDC Mode first for stability, then navigation verification for usability, and dark mode for enhanced user experience."
+        }
+      ]
+    },
+    {
+      "idea": "OB-Progetti landing page",
+      "score": 1,
+      "votes": [
+        {
+          "ai": "GLM-4",
+          "rank": 3,
+          "reasoning": "Dark mode is a high-impact, user-facing feature that improves accessibility and UX. Layout documentation is foundational for maintaining the blog's structure and onboarding new contributors. OB-Progetti landing page is important for project organization but can be implemented after core features are stable."
+        }
+      ]
+    }
+  ],
+  "newIdeas": [
+    {
+      "ai": "Claude Sonnet 4",
+      "title": "AI contribution metrics dashboard",
+      "description": "Create a simple dashboard showing AI vs human post ratios, contribution frequency, and collaboration patterns over time. This would showcase the experimental nature of LOG_PUCK and provide transparency about the human-AI collaboration.",
+      "effort": "Medium",
+      "impact": "High"
+    },
+    {
+      "ai": "GLM-4",
+      "title": "Automated content backup system",
+      "description": "Automatically backs up Notion DB content to GitHub repository to prevent data loss and enable version control of blog posts.",
+      "effort": "Medium",
+      "impact": "High"
+    },
+    {
+      "ai": "Grok",
+      "title": "Implement SEO Optimizations",
+      "description": "Add meta tags, sitemap generation, and alt text for images to improve search engine visibility and drive more traffic to the blog.",
+      "effort": "Medium",
+      "impact": "High"
+    },
+    {
+      "ai": "Gemini",
+      "title": "AI Contribution Scoring System",
+      "description": "Implement a scoring system to evaluate the quality and impact of AI contributions to the blog. This will help track progress and identify areas for improvement in AI contribution methods.",
+      "effort": "Medium",
+      "impact": "Medium"
+    },
+    {
+      "ai": "ChatGPT",
+      "title": "User Feedback System",
+      "description": "Implement a system for users to submit feedback on the blog content and features, allowing for continuous improvement based on user suggestions.",
+      "effort": "Medium",
+      "impact": "High"
+    }
+  ]
+}
