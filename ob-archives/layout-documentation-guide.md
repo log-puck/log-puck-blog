@@ -1,7 +1,7 @@
 ---
 layout: ob_document
 title: "Layout Documentation Guide"
-section: "OB-Archivio"
+section: "OB-Archives"
 tags:
   - Documentation
   - Jekyll
