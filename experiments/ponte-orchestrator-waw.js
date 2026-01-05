@@ -36,6 +36,11 @@ const perplexityClient = new OpenAI({
   apiKey: process.env.PERPLEXITY_API_KEY,
   baseURL: 'https://api.perplexity.ai'
 });
+// DeepSeek - usa formato OpenAI-compatible
+const deepseekClient = new OpenAI({
+  apiKey: process.env.DEEPSEEK_API_KEY,
+  baseURL: 'https://api.deepseek.com'
+});
 // Anthropic Claude
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY
@@ -411,6 +416,25 @@ IMPORTANT: Return ONLY valid JSON, no markdown formatting.`;
       );
     }
 
+    if (selectedAIs.deepseek) {
+      apiCalls.push(
+        callDeepSeek(prompt)
+          .then(text => {
+            const jsonMatch = text.match(/\{[\s\S]*\}/);
+            return {
+              id: 'deepseek',
+              name: 'DeepSeek-V3',
+              data: jsonMatch ? JSON.parse(jsonMatch[0]) : null
+            };
+          })
+          .catch(err => ({ 
+            id: 'deepseek', 
+            name: 'DeepSeek-V3', 
+            error: err.message 
+          }))
+      );
+    }
+
     // SPIEGAZIONE: Aspetta che TUTTE le chiamate finiscano
     const allResults = await Promise.all(apiCalls);
     console.log(`✅ Received ${allResults.length} responses`);
@@ -616,6 +640,21 @@ async function callGLMWithSearch(query) {
   } catch (error) {
     console.error('GLM Search error:', error.response?.data || error.message);
     throw new Error(`GLM Search failed: ${error.response?.data?.error?.message || error.message}`);
+  }
+}
+
+async function callDeepSeek(prompt) {
+  try {
+    const completion = await deepseekClient.chat.completions.create({
+      model: 'deepseek-chat',
+      messages: [{ role: 'user', content: prompt }],
+      max_tokens: 1000
+    });
+    return completion.choices[0].message.content;
+  } catch (error) {
+
+    console.error('DeepSeek error:', error.message);
+    throw new Error(`DeepSeek failed: ${error.message}`);
   }
 }
 
