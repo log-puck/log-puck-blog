@@ -5,11 +5,112 @@ layout: default
 <section class="hero">
     <div class="container">
         <div class="tags-cloud">
-            <span class="tag">#LLM</span>
-            <span class="tag">#Music</span>
-            <span class="tag">#Prompts</span>
-            <span class="tag">#Marmotte</span>
-            <span class="tag">#Formiche</span>
+            {% comment %} Trova i 5 tag più popolari {% endcomment %}
+            {% assign all_pages = site.pages %}
+            
+            {% comment %} Raccogli tutti i tag unici {% endcomment %}
+            {% assign unique_tags = '' | split: '' %}
+            {% for page in all_pages %}
+                {% if page.tags and page.tags.size > 0 %}
+                    {% for tag in page.tags %}
+                        {% assign tag_exists = false %}
+                        {% for existing in unique_tags %}
+                            {% if existing == tag %}
+                                {% assign tag_exists = true %}
+                                {% break %}
+                            {% endif %}
+                        {% endfor %}
+                        {% unless tag_exists %}
+                            {% assign unique_tags = unique_tags | push: tag %}
+                        {% endunless %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+            
+            {% comment %} Per ogni tag, conta le occorrenze e trova i top 5 {% endcomment %}
+            {% assign top_tag_1 = '' %}
+            {% assign top_count_1 = 0 %}
+            {% assign top_tag_2 = '' %}
+            {% assign top_count_2 = 0 %}
+            {% assign top_tag_3 = '' %}
+            {% assign top_count_3 = 0 %}
+            {% assign top_tag_4 = '' %}
+            {% assign top_count_4 = 0 %}
+            {% assign top_tag_5 = '' %}
+            {% assign top_count_5 = 0 %}
+            
+            {% for tag in unique_tags %}
+                {% assign count = 0 %}
+                {% for page in all_pages %}
+                    {% if page.tags %}
+                        {% for page_tag in page.tags %}
+                            {% if page_tag == tag %}
+                                {% assign count = count | plus: 1 %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+                
+                {% comment %} Inserisci nella classifica se è tra i top 5 {% endcomment %}
+                {% if top_count_1 == 0 or count > top_count_1 %}
+                    {% assign top_tag_5 = top_tag_4 %}
+                    {% assign top_count_5 = top_count_4 %}
+                    {% assign top_tag_4 = top_tag_3 %}
+                    {% assign top_count_4 = top_count_3 %}
+                    {% assign top_tag_3 = top_tag_2 %}
+                    {% assign top_count_3 = top_count_2 %}
+                    {% assign top_tag_2 = top_tag_1 %}
+                    {% assign top_count_2 = top_count_1 %}
+                    {% assign top_tag_1 = tag %}
+                    {% assign top_count_1 = count %}
+                {% elsif top_count_2 == 0 or count > top_count_2 %}
+                    {% assign top_tag_5 = top_tag_4 %}
+                    {% assign top_count_5 = top_count_4 %}
+                    {% assign top_tag_4 = top_tag_3 %}
+                    {% assign top_count_4 = top_count_3 %}
+                    {% assign top_tag_3 = top_tag_2 %}
+                    {% assign top_count_3 = top_count_2 %}
+                    {% assign top_tag_2 = tag %}
+                    {% assign top_count_2 = count %}
+                {% elsif top_count_3 == 0 or count > top_count_3 %}
+                    {% assign top_tag_5 = top_tag_4 %}
+                    {% assign top_count_5 = top_count_4 %}
+                    {% assign top_tag_4 = top_tag_3 %}
+                    {% assign top_count_4 = top_count_3 %}
+                    {% assign top_tag_3 = tag %}
+                    {% assign top_count_3 = count %}
+                {% elsif top_count_4 == 0 or count > top_count_4 %}
+                    {% assign top_tag_5 = top_tag_4 %}
+                    {% assign top_count_5 = top_count_4 %}
+                    {% assign top_tag_4 = tag %}
+                    {% assign top_count_4 = count %}
+                {% elsif top_count_5 == 0 or count > top_count_5 %}
+                    {% assign top_tag_5 = tag %}
+                    {% assign top_count_5 = count %}
+                {% endif %}
+            {% endfor %}
+            
+            {% comment %} Mostra i top 5 tag come link cliccabili {% endcomment %}
+            {% if top_tag_1 != '' %}
+                {% assign tag_slug = top_tag_1 | downcase | replace: ' ', '-' | replace: '_', '-' %}
+                <a href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}" class="tag">#{{ top_tag_1 }}</a>
+            {% endif %}
+            {% if top_tag_2 != '' %}
+                {% assign tag_slug = top_tag_2 | downcase | replace: ' ', '-' | replace: '_', '-' %}
+                <a href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}" class="tag">#{{ top_tag_2 }}</a>
+            {% endif %}
+            {% if top_tag_3 != '' %}
+                {% assign tag_slug = top_tag_3 | downcase | replace: ' ', '-' | replace: '_', '-' %}
+                <a href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}" class="tag">#{{ top_tag_3 }}</a>
+            {% endif %}
+            {% if top_tag_4 != '' %}
+                {% assign tag_slug = top_tag_4 | downcase | replace: ' ', '-' | replace: '_', '-' %}
+                <a href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}" class="tag">#{{ top_tag_4 }}</a>
+            {% endif %}
+            {% if top_tag_5 != '' %}
+                {% assign tag_slug = top_tag_5 | downcase | replace: ' ', '-' | replace: '_', '-' %}
+                <a href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}" class="tag">#{{ top_tag_5 }}</a>
+            {% endif %}
         </div>
         <h2 class="hero-title">Laboratorio di collaborazione <br>Umano / AI</h2>
         <p class="hero-tagline">Esplora per scoprire cosa stiamo vivendo.</p>
