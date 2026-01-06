@@ -113,6 +113,7 @@ def generate_tag_pages():
 layout: ob_tag
 tag_name: "{tag}"
 title: "Tag: {tag}"
+permalink: /tags/{tag_slug}/
 meta_title: "tag-{tag_slug}"
 meta_description: "Tutti i contenuti con tag '{tag}'"
 ---
