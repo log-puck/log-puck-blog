@@ -64,6 +64,11 @@ main {
     color: var(--text-main);
 }
 
+.logo a {
+    text-decoration: none; /* 👈 Rimuove sottolineatura dal link */
+    color: inherit; /* Eredita il colore dal parent */
+}
+
 /* --- NAVIGATION --- */
 .main-nav {
     position: relative;
