@@ -34,6 +34,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="{{ '/ob-progetti/musica/' | relative_url }}" {% if page.url contains '/ob-progetti/musica/' %}class="active"{% endif %}>Musica</a></li>
                             <li><a href="{{ '/ob-progetti/giochi/' | relative_url }}" {% if page.url contains '/ob-progetti/giochi/' %}class="active"{% endif %}>Giochi</a></li>
+                            <li><a href="{{ '/ob-progetti/waw/' | relative_url }}" {% if page.url contains '/ob-progetti/waw/' %}class="active"{% endif %}>wAw</a></li>
                         </ul>
                     </li>
                     
@@ -53,7 +54,11 @@
                 <span class="separator">></span>
                 <a href="{{ '/' | append: page.section | downcase | replace: ' ', '-' | append: '/' | relative_url }}">{{ page.section }}</a>
                 {% endif %}
-                {% if page.title %}
+                {% if page.subsection %}
+                <span class="separator">></span>
+                <a href="{{ '/' | append: page.section | downcase | replace: ' ', '-' | append: '/' | append: page.subsection | downcase | replace: ' ', '-' | append: '/' | relative_url }}">{{ page.subsection }}</a>
+                {% endif %}
+                {% if page.title and page.title != page.subsection %}
                 <span class="separator">></span>
                 <span class="current">{{ page.title }}</span>
                 {% endif %}
