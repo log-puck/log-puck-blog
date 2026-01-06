@@ -4,6 +4,7 @@
     --text-main: #1a1a1a;      /* Nero più morbido */
     --accent-yellow: #99ff00;   /* Lime (mantieni) */
     --accent-yellow-dark: #7acc00;  /* 👈 NUOVO */
+    --accent-lime: rgba(153, 255, 0, 0.60);
     --accent-magenta: #fa93fa;  /* Magenta (mantieni) */
     --border-color: #2a2a2a;    /* Grigio scuro */
     --slot-bg: #f5f3e8;         /* Beige caldissimo */
@@ -412,6 +413,7 @@ main {
     font-weight: 600; /* più grassetto */
     border: 2px solid var(--accent-yellow-dark);
     text-decoration: none; /* 👈 Nessuna sottolineatura al hover */
+    color: #111;
 }
 
 /* --- LANDING PAGE --- */
@@ -522,41 +524,83 @@ main {
     flex-direction: column;
 }
 
-.card:hover { 
-    background-color: var(--accent-magenta);
-    border-color: var(--accent-magenta);
-}
-
 .card h3 {
     font-size: 1.4rem;
     margin-bottom: 1rem;
 }
 
+.card:hover {
+    background-color: var(--accent-magenta);
+    border-color: var(--accent-magenta);
+  }
+  
+  .card:hover h3,
+  .card:hover p,
+  .card:hover .btn-enter {
+    color: #111;
+  }
+  .card:hover h3 {
+    color: #111;
+  }
+  .card:hover p {
+    color: #111;
+  }
+  .card:hover .btn-enter {
+    color: #111;
+  }
+
+  /* CTA reacts when hovering the whole card */
+.card:hover .btn-enter::before {
+    color: var(--accent-lime) !important;
+    border-bottom-color: var(--accent-lime) !important;
+  }
+  
+  .card:hover .btn-enter::after {
+    transform: translateX(2px);
+  }
+
+
+
 /* --- CTA --- */
 .btn-enter {
     display: inline-flex;
     align-items: center;
+    gap: 10px;
     text-decoration: none;
     color: var(--text-main);
     font-weight: bold;
     margin-top: auto;
     padding-top: 1rem;
-    border-bottom: 3px solid var(--accent-yellow);
+    border-bottom: 3px solid var(--accent-lime);
     width: fit-content;
-    transition: border-color 0.3s;
+    transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .btn-enter:hover {
-    border-bottom-color: var(--border-color);
+    border-bottom-color: var(--accent-lime) !important;
 }
 
 .btn-enter::after {
     content: "→";
-    margin-left: 10px;
-    background-color: var(--accent-yellow);
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 1.6rem;
+    height: 1.6rem;
+    background-color: var(--accent-lime);
     padding: 0 8px;
-    border-radius: 3px;
+    border: 1px solid var(--accent-lime);
+    border-radius: 6px;
+    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    color: #111;
 }
+
+.btn-enter:hover::after {
+    transform: translateX(2px);
+    background-color: var(--accent-lime) !important;
+    border-color: var(--accent-lime) !important;
+    color: #111 !important;
+  }
 
 /* --- FEED TABLE --- */
 .feed-section {
