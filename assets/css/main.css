@@ -28,14 +28,15 @@ main {
 
 .container {
     max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
+    margin: auto;
+    margin-inline: auto;
+    padding-inline: 20px;
 }
 
 /* --- HEADER & NAV --- */
 .header,
 .site-header {
-    background: var(--bg-main);
+    background: var(--slot-bg);
     border-bottom: 2px solid var(--border-color);
     padding: 1rem 0;
     position: sticky; /* 👈 Sticky al top */
@@ -352,12 +353,15 @@ main {
 }
 
 /* --- HERO & TAGS --- */
-/* --- HERO & TAGS --- */
 .hero {
     padding: 3.5rem 0 4.5rem;  /* più respiro sopra e soprattutto sotto */
   }
   
   .tags-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: flex-start; /* oppure center se li vuoi centrati */
     margin-bottom: 3rem; /* Tag row → H1 (più aria) */
   }
   
@@ -382,21 +386,30 @@ main {
 .tag {
     background-color: var(--slot-bg); 
     color: var(--text-main);
-    padding: 6px 12px;
-    margin: 4px;
-    font-size: 0.8rem;
+    padding: 0.45rem 0.65rem;
+    font-size: 0.9rem;
     font-weight: 600;
-    border-radius: 3px;
-    display: inline-block;
+    border-radius: 6px;
+    display: inline-flex;
     border: 1px solid var(--border-color);
-    transition: all 0.3s;
+    text-decoration: none;
+    transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
     text-decoration: none; /* 👈 Per tag cliccabili */
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    align-items: center;
+    vertical-align: middle;
+    line-height: 1.2;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    gap: 0.4rem;
 }
 
 .tag:hover { 
     background-color: rgba(153, 255, 0, 0.60); /* lime con trasparenza 75% */
     border-color: var(--accent-yellow);
-    font-weight: 800; /* più grassetto */
+    font-weight: 600; /* più grassetto */
     border: 2px solid var(--accent-yellow-dark);
     text-decoration: none; /* 👈 Nessuna sottolineatura al hover */
 }
@@ -1048,6 +1061,7 @@ main {
     .article-title { font-size: 2rem; }
     .hero-title { font-size: clamp(2.2rem, 8vw, 3rem); }
     .hero { padding: 3rem 0 4rem; }
+    .tag { font-size: 0.85rem; }
     .tags-cloud { margin-bottom: 2.25rem; }
     .hero-description { font-size: 1rem; }
     .hero-description p { margin-bottom: 1rem; }
