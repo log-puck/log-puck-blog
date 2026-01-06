@@ -169,6 +169,59 @@ app.get('/api/notion-ideas', async (req, res) => {
   }
 });
 
+// GET active AI Models from Notion (for AI Partner selection)
+app.get('/api/ai-models', async (req, res) => {
+  try {
+    console.log('🤖 Fetching active AI Models from Notion...');
+    
+    if (!config.AI_MODELS_DB_ID) {
+      return res.status(400).json({ 
+        success: false, 
+        error: 'AI_MODELS_DB_ID not configured in ponte_config.js' 
+      });
+    }
+    
+    const response = await notion.databases.query({
+      database_id: config.AI_MODELS_DB_ID,
+      filter: {
+        property: 'Status', // Select field
+        select: {
+          equals: 'Active'
+        }
+      },
+      sorts: [
+        {
+          property: 'Nome AI', // Sort by AI name
+          direction: 'ascending'
+        }
+      ]
+    });
+
+    const aiModels = response.results.map(page => {
+      const nomeProp = page.properties['Nome AI'] || page.properties.Name;
+      const nomeContent = nomeProp?.title || nomeProp?.rich_text || [];
+      return {
+        id: page.id,
+        name: nomeContent[0]?.text?.content || 'Untitled'
+      };
+    });
+
+    console.log(`✅ Found ${aiModels.length} active AI Models`);
+    res.json({ 
+      success: true, 
+      aiModels,
+      count: aiModels.length 
+    });
+
+  } catch (error) {
+    console.error('❌ Error fetching AI Models from Notion:', error.message);
+    res.status(500).json({ 
+      success: false, 
+      error: error.message 
+    });
+  }
+});
+
 // ============================================
 // ROUTE: SUBMIT TO AI
 // ============================================
