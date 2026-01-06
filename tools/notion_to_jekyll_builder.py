@@ -550,6 +550,11 @@ def process_content_item(item, infra_id_to_update=None):
         raw_content = get_property_value(props_raw.get("Content"))
         if raw_content:
             body_content = raw_content
+        else:
+            # Fallback: prova a estrarre da proprietà "Body" con rich_text
+            body_rich_text = props_raw.get("Body", {}).get("rich_text", [])
+            if body_rich_text:
+                body_content = "".join([rt.get("plain_text", "") for rt in body_rich_text])
     
     # Validazione body content
     if not body_content:

@@ -707,7 +707,7 @@ async function saveToNotion(data) {
             title: [{ text: { content: `${vote.idea} - ${aiVote.ai}` }}]
           },
           'Voters': {
-            multi_select: [{ name: aiVote.ai }]
+            select: [{ name: aiVote.ai }]
           },
           'Score': {
             number: [3, 2, 1][aiVote.rank - 1] // rank 1=3pt, 2=2pt, 3=1pt

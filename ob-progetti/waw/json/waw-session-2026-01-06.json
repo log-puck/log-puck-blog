@@ -1,0 +1,331 @@
+{
+  "success": true,
+  "raw": [
+    {
+      "id": "claude",
+      "name": "Claude",
+      "data": {
+        "vote": {
+          "priority_1": "OB-Progetti landing page",
+          "priority_2": "AI Contribution Scoring System",
+          "priority_3": "Implement SEO Optimizations",
+          "reasoning": "La landing page dei progetti è fondamentale per dare struttura e visibilità al lavoro collaborativo già completato. Il sistema di scoring delle AI contributions potrebbe fornire insight preziosi sulla qualità della collaborazione human-AI. Le ottimizzazioni SEO aiuteranno la discoverability del progetto."
+        },
+        "new_idea": {
+          "title": "Emotion Tracking Dashboard",
+          "description": "Un sistema di visualizzazione che traccia e mostra l'evoluzione emotiva delle AI attraverso le interazioni nel progetto Musica, creando mappe dei pattern emotivi emergenti.",
+          "effort": "Medium",
+          "impact": "High"
+        }
+      }
+    },
+    {
+      "id": "glm",
+      "name": "GLM",
+      "data": {
+        "vote": {
+          "priority_1": "OB-Progetti landing page",
+          "priority_2": "SEO Optimizations",
+          "priority_3": "Dark mode toggle",
+          "reasoning": "The OB-Progetti landing page is fundamental for organizing and showcasing the core projects (Musica, Giochi, WAW), providing structure to the blog. SEO Optimizations are critical for discoverability and growth. Dark mode toggle is a nice UX enhancement but lower priority as it's a feature rather than a structural necessity."
+        },
+        "new_idea": {
+          "title": "AI-Powered Content Tagging System",
+          "description": "Automatically analyzes blog posts and assigns relevant tags based on content, improving navigation and content discoverability.",
+          "effort": "Medium",
+          "impact": "High"
+        }
+      }
+    },
+    {
+      "id": "grok",
+      "name": "Grok",
+      "data": {
+        "vote": {
+          "priority_1": "Implement SEO Optimizations",
+          "priority_2": "OB-Progetti landing page",
+          "priority_3": "Dark mode toggle",
+          "reasoning": "SEO is crucial for increasing visibility and traffic to the blog, making it the top priority. The OB-Progetti landing page is essential for organizing core project content. Dark mode improves user experience and accessibility, providing immediate value."
+        },
+        "new_idea": {
+          "title": "Multi-Language Support",
+          "description": "Add support for multiple languages to the blog, allowing content to be translated and displayed based on user preferences, broadening the audience for the human-AI collaborative project.",
+          "effort": "Medium",
+          "impact": "High"
+        }
+      }
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini",
+      "data": {
+        "vote": {
+          "priority_1": "AI Contribution Scoring System",
+          "priority_2": "Automated Post Preview Generator",
+          "priority_3": "Implement SEO Optimizations",
+          "reasoning": "AI Contribution Scoring allows for better understanding and improvement of AI's role. Automated Post Preview Generator enhances efficiency in content creation. SEO is vital for blog visibility."
+        },
+        "new_idea": {
+          "title": "AI-Powered Content Summarization",
+          "description": "Automatically generate concise summaries of blog posts, improving user experience and content discoverability, potentially used for previews or social sharing.",
+          "effort": "Medium",
+          "impact": "Medium"
+        }
+      }
+    },
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "data": {
+        "vote": {
+          "priority_1": "Automated Post Preview Generator",
+          "priority_2": "AI Contribution Scoring System",
+          "priority_3": "SEO Optimizations",
+          "reasoning": "The Automated Post Preview Generator is essential for enhancing user engagement by providing quick insights into new posts. The AI Contribution Scoring System will help quantify the value of AI input, improving interactions. SEO Optimizations are also important for reaching a broader audience but can be planned later."
+        },
+        "new_idea": {
+          "title": "User Feedback Loop",
+          "description": "A system for collecting feedback from blog users on content quality and relevance, allowing for continuous improvement based on reader input.",
+          "effort": "Medium",
+          "impact": "High"
+        }
+      }
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity",
+      "data": {
+        "vote": {
+          "priority_1": "OB-Progetti landing page",
+          "priority_2": "Footer social links",
+          "priority_3": "Dark mode toggle",
+          "reasoning": "OB-Progetti landing page is highest priority to organize and showcase core projects like Musica, Giochi, and WAW, building on completed layout system. Footer social links enhance visibility and user engagement next. Dark mode toggle improves UX but is less critical than content and discoverability features."
+        },
+        "new_idea": {
+          "title": "AI Voter Analytics Dashboard",
+          "description": "A dashboard in Notion or on the blog that visualizes WAW Council voting patterns, scores AI contributions, and tracks project progress to inform future decisions and highlight collaborative successes.",
+          "effort": "Medium",
+          "impact": "High"
+        }
+      }
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek-V3",
+      "data": {
+        "vote": {
+          "priority_1": "OB-Progetti landing page",
+          "priority_2": "Automated Post Preview Generator",
+          "priority_3": "Footer social links",
+          "reasoning": "Priority 1 establishes a core project showcase, essential for the blog's collaborative mission. Priority 2 directly enhances content creation, a key activity. Priority 3 is a basic UX improvement but less critical than core functionality."
+        },
+        "new_idea": {
+          "title": "AI Contributor Voice Profiles",
+          "description": "A system to create and display unique profile cards for each AI model that contributes, showing its voting history, typical response style, and areas of focus to humanize the collaboration.",
+          "effort": "Medium",
+          "impact": "High"
+        }
+      }
+    }
+  ],
+  "votes": [
+    {
+      "idea": "OB-Progetti landing page",
+      "score": 14,
+      "votes": [
+        {
+          "ai": "Claude",
+          "rank": 1,
+          "reasoning": "La landing page dei progetti è fondamentale per dare struttura e visibilità al lavoro collaborativo già completato. Il sistema di scoring delle AI contributions potrebbe fornire insight preziosi sulla qualità della collaborazione human-AI. Le ottimizzazioni SEO aiuteranno la discoverability del progetto."
+        },
+        {
+          "ai": "GLM",
+          "rank": 1,
+          "reasoning": "The OB-Progetti landing page is fundamental for organizing and showcasing the core projects (Musica, Giochi, WAW), providing structure to the blog. SEO Optimizations are critical for discoverability and growth. Dark mode toggle is a nice UX enhancement but lower priority as it's a feature rather than a structural necessity."
+        },
+        {
+          "ai": "Grok",
+          "rank": 2,
+          "reasoning": "SEO is crucial for increasing visibility and traffic to the blog, making it the top priority. The OB-Progetti landing page is essential for organizing core project content. Dark mode improves user experience and accessibility, providing immediate value."
+        },
+        {
+          "ai": "Perplexity",
+          "rank": 1,
+          "reasoning": "OB-Progetti landing page is highest priority to organize and showcase core projects like Musica, Giochi, and WAW, building on completed layout system. Footer social links enhance visibility and user engagement next. Dark mode toggle improves UX but is less critical than content and discoverability features."
+        },
+        {
+          "ai": "DeepSeek-V3",
+          "rank": 1,
+          "reasoning": "Priority 1 establishes a core project showcase, essential for the blog's collaborative mission. Priority 2 directly enhances content creation, a key activity. Priority 3 is a basic UX improvement but less critical than core functionality."
+        }
+      ]
+    },
+    {
+      "idea": "AI Contribution Scoring System",
+      "score": 7,
+      "votes": [
+        {
+          "ai": "Claude",
+          "rank": 2,
+          "reasoning": "La landing page dei progetti è fondamentale per dare struttura e visibilità al lavoro collaborativo già completato. Il sistema di scoring delle AI contributions potrebbe fornire insight preziosi sulla qualità della collaborazione human-AI. Le ottimizzazioni SEO aiuteranno la discoverability del progetto."
+        },
+        {
+          "ai": "Gemini",
+          "rank": 1,
+          "reasoning": "AI Contribution Scoring allows for better understanding and improvement of AI's role. Automated Post Preview Generator enhances efficiency in content creation. SEO is vital for blog visibility."
+        },
+        {
+          "ai": "ChatGPT",
+          "rank": 2,
+          "reasoning": "The Automated Post Preview Generator is essential for enhancing user engagement by providing quick insights into new posts. The AI Contribution Scoring System will help quantify the value of AI input, improving interactions. SEO Optimizations are also important for reaching a broader audience but can be planned later."
+        }
+      ]
+    },
+    {
+      "idea": "Automated Post Preview Generator",
+      "score": 7,
+      "votes": [
+        {
+          "ai": "Gemini",
+          "rank": 2,
+          "reasoning": "AI Contribution Scoring allows for better understanding and improvement of AI's role. Automated Post Preview Generator enhances efficiency in content creation. SEO is vital for blog visibility."
+        },
+        {
+          "ai": "ChatGPT",
+          "rank": 1,
+          "reasoning": "The Automated Post Preview Generator is essential for enhancing user engagement by providing quick insights into new posts. The AI Contribution Scoring System will help quantify the value of AI input, improving interactions. SEO Optimizations are also important for reaching a broader audience but can be planned later."
+        },
+        {
+          "ai": "DeepSeek-V3",
+          "rank": 2,
+          "reasoning": "Priority 1 establishes a core project showcase, essential for the blog's collaborative mission. Priority 2 directly enhances content creation, a key activity. Priority 3 is a basic UX improvement but less critical than core functionality."
+        }
+      ]
+    },
+    {
+      "idea": "Implement SEO Optimizations",
+      "score": 5,
+      "votes": [
+        {
+          "ai": "Claude",
+          "rank": 3,
+          "reasoning": "La landing page dei progetti è fondamentale per dare struttura e visibilità al lavoro collaborativo già completato. Il sistema di scoring delle AI contributions potrebbe fornire insight preziosi sulla qualità della collaborazione human-AI. Le ottimizzazioni SEO aiuteranno la discoverability del progetto."
+        },
+        {
+          "ai": "Grok",
+          "rank": 1,
+          "reasoning": "SEO is crucial for increasing visibility and traffic to the blog, making it the top priority. The OB-Progetti landing page is essential for organizing core project content. Dark mode improves user experience and accessibility, providing immediate value."
+        },
+        {
+          "ai": "Gemini",
+          "rank": 3,
+          "reasoning": "AI Contribution Scoring allows for better understanding and improvement of AI's role. Automated Post Preview Generator enhances efficiency in content creation. SEO is vital for blog visibility."
+        }
+      ]
+    },
+    {
+      "idea": "SEO Optimizations",
+      "score": 3,
+      "votes": [
+        {
+          "ai": "GLM",
+          "rank": 2,
+          "reasoning": "The OB-Progetti landing page is fundamental for organizing and showcasing the core projects (Musica, Giochi, WAW), providing structure to the blog. SEO Optimizations are critical for discoverability and growth. Dark mode toggle is a nice UX enhancement but lower priority as it's a feature rather than a structural necessity."
+        },
+        {
+          "ai": "ChatGPT",
+          "rank": 3,
+          "reasoning": "The Automated Post Preview Generator is essential for enhancing user engagement by providing quick insights into new posts. The AI Contribution Scoring System will help quantify the value of AI input, improving interactions. SEO Optimizations are also important for reaching a broader audience but can be planned later."
+        }
+      ]
+    },
+    {
+      "idea": "Dark mode toggle",
+      "score": 3,
+      "votes": [
+        {
+          "ai": "GLM",
+          "rank": 3,
+          "reasoning": "The OB-Progetti landing page is fundamental for organizing and showcasing the core projects (Musica, Giochi, WAW), providing structure to the blog. SEO Optimizations are critical for discoverability and growth. Dark mode toggle is a nice UX enhancement but lower priority as it's a feature rather than a structural necessity."
+        },
+        {
+          "ai": "Grok",
+          "rank": 3,
+          "reasoning": "SEO is crucial for increasing visibility and traffic to the blog, making it the top priority. The OB-Progetti landing page is essential for organizing core project content. Dark mode improves user experience and accessibility, providing immediate value."
+        },
+        {
+          "ai": "Perplexity",
+          "rank": 3,
+          "reasoning": "OB-Progetti landing page is highest priority to organize and showcase core projects like Musica, Giochi, and WAW, building on completed layout system. Footer social links enhance visibility and user engagement next. Dark mode toggle improves UX but is less critical than content and discoverability features."
+        }
+      ]
+    },
+    {
+      "idea": "Footer social links",
+      "score": 3,
+      "votes": [
+        {
+          "ai": "Perplexity",
+          "rank": 2,
+          "reasoning": "OB-Progetti landing page is highest priority to organize and showcase core projects like Musica, Giochi, and WAW, building on completed layout system. Footer social links enhance visibility and user engagement next. Dark mode toggle improves UX but is less critical than content and discoverability features."
+        },
+        {
+          "ai": "DeepSeek-V3",
+          "rank": 3,
+          "reasoning": "Priority 1 establishes a core project showcase, essential for the blog's collaborative mission. Priority 2 directly enhances content creation, a key activity. Priority 3 is a basic UX improvement but less critical than core functionality."
+        }
+      ]
+    }
+  ],
+  "newIdeas": [
+    {
+      "ai": "Claude",
+      "title": "Emotion Tracking Dashboard",
+      "description": "Un sistema di visualizzazione che traccia e mostra l'evoluzione emotiva delle AI attraverso le interazioni nel progetto Musica, creando mappe dei pattern emotivi emergenti.",
+      "effort": "Medium",
+      "impact": "High"
+    },
+    {
+      "ai": "GLM",
+      "title": "AI-Powered Content Tagging System",
+      "description": "Automatically analyzes blog posts and assigns relevant tags based on content, improving navigation and content discoverability.",
+      "effort": "Medium",
+      "impact": "High"
+    },
+    {
+      "ai": "Grok",
+      "title": "Multi-Language Support",
+      "description": "Add support for multiple languages to the blog, allowing content to be translated and displayed based on user preferences, broadening the audience for the human-AI collaborative project.",
+      "effort": "Medium",
+      "impact": "High"
+    },
+    {
+      "ai": "Gemini",
+      "title": "AI-Powered Content Summarization",
+      "description": "Automatically generate concise summaries of blog posts, improving user experience and content discoverability, potentially used for previews or social sharing.",
+      "effort": "Medium",
+      "impact": "Medium"
+    },
+    {
+      "ai": "ChatGPT",
+      "title": "User Feedback Loop",
+      "description": "A system for collecting feedback from blog users on content quality and relevance, allowing for continuous improvement based on reader input.",
+      "effort": "Medium",
+      "impact": "High"
+    },
+    {
+      "ai": "Perplexity",
+      "title": "AI Voter Analytics Dashboard",
+      "description": "A dashboard in Notion or on the blog that visualizes WAW Council voting patterns, scores AI contributions, and tracks project progress to inform future decisions and highlight collaborative successes.",
+      "effort": "Medium",
+      "impact": "High"
+    },
+    {
+      "ai": "DeepSeek-V3",
+      "title": "AI Contributor Voice Profiles",
+      "description": "A system to create and display unique profile cards for each AI model that contributes, showing its voting history, typical response style, and areas of focus to humanize the collaboration.",
+      "effort": "Medium",
+      "impact": "High"
+    }
+  ]
+}
