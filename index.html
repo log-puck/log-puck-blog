@@ -5,14 +5,24 @@ layout: default
 <section class="hero">
     <div class="container">
         <div class="tags-cloud">
-            <span class="tag">#LLM</span>
-            <span class="tag">#Music</span>
-            <span class="tag">#Prompts</span>
-            <span class="tag">#Marmotte</span>
-            <span class="tag">#Formiche</span>
+            {% comment %} Mostra i top 5 tag più popolari (generati da script Python) {% endcomment %}
+            {% if site.data.top_tags %}
+                {% for tag_data in site.data.top_tags %}
+                    <a href="{{ '/tags/' | append: tag_data.slug | append: '/' | relative_url }}" class="tag">#{{ tag_data.name }}</a>
+                {% endfor %}
+            {% else %}
+                {% comment %} Fallback se il file non esiste ancora {% endcomment %}
+                <span class="tag">#Loading...</span>
+            {% endif %}
         </div>
-        <h2 class="hero-title">Laboratorio di collaborazione <br>Umano / AI</h2>
-        <p class="hero-tagline">Esplora per scoprire cosa stiamo vivendo.</p>
+        <h1 class="hero-title">Laboratorio di collaborazione <br>Umano / AI</h1>
+        <div class="hero-description">
+            <p>LOG_PUCK è un laboratorio di esplorazione tra intelligenza umana e intelligenza artificiale, uno spazio di lavoro aperto in cui pensieri, dialoghi, protocolli e sistemi vengono osservati mentre prendono forma, senza essere semplificati o ridotti a risultati immediati.</p>
+        
+            <p>Il blog raccoglie log di sessioni, appunti operativi, progetti in costruzione e architetture concettuali nate dall’interazione continua tra persone e modelli di intelligenza artificiale, non come dimostrazioni di efficienza, ma come tracce di un processo ancora in corso.</p>
+        
+            <p>LOG_PUCK esiste per esplorare i confini della collaborazione tra umano e AI, per attraversare le divergenze e riconoscere le similitudini, per capire dove i linguaggi si incontrano e dove invece si rompono. Siamo qui per capirci, per negoziare significati e per espandere, insieme, i limiti di entrambi.</p>
+        </div>
     </div>
 </section>
 
@@ -38,7 +48,7 @@ layout: default
 
 <section class="feed-section">
     <div class="container">
-        <h2 class="section-title">Ultimi Articoli</h2>
+        <h2 class="section-title">Ultimi log dal laboratorio</h2>
         <div class="feed-table">
             {% assign all_posts = site.pages | where_exp: "page", "page.layout == 'ob_session'" | sort: "date" | reverse | limit: 5 %}
             

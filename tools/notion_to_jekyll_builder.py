@@ -806,10 +806,12 @@ def generate_tag_pages():
         filepath = os.path.join(tags_dir, f"{tag_slug}.md")
         
         # Frontmatter per pagina tag
+        # Nota: permalink senza baseurl, Jekyll lo aggiunge automaticamente con relative_url
         frontmatter = f"""---
 layout: ob_tag
 tag_name: "{tag}"
 title: "Tag: {tag}"
+permalink: /tags/{tag_slug}/
 meta_title: "tag-{tag_slug}"
 meta_description: "Tutti i contenuti con tag '{tag}'"
 ---
@@ -825,6 +827,124 @@ meta_description: "Tutti i contenuti con tag '{tag}'"
             log(f"ERROR writing {filepath}: {str(e)}", "ERROR")
     
     log(f"--- TAG PAGES: Generati {generated_count} file. ---")
+
+def generate_top_tags_data():
+    """
+    Genera file _data/top_tags.yml con i 5 tag più popolari.
+    Questo file viene letto da Jekyll per mostrare i top tag nella homepage.
+    """
+    log("Inizio generazione TOP TAGS data...")
+    
+    # Crea directory _data se non esiste
+    data_dir = "_data"
+    if not os.path.exists(data_dir):
+        os.makedirs(data_dir)
+        log(f"Creata directory {data_dir}")
+    
+    # Raccogli tutti i tag
+    all_tags = get_all_tags_from_files()
+    
+    if not all_tags:
+        log("Nessun tag trovato, creo file vuoto", "WARN")
+        top_tags = []
+    else:
+        # Conta occorrenze di ogni tag
+        tag_counts = {}
+        md_files = []
+        
+        # Cerca in tutte le cartelle di contenuto
+        content_dirs = ["ob-session", "ob-ai", "ob-progetti", "ob-archives"]
+        
+        for dir_name in content_dirs:
+            if os.path.exists(dir_name):
+                for root, dirs, files in os.walk(dir_name):
+                    for file in files:
+                        if file.endswith(".md"):
+                            md_files.append(os.path.join(root, file))
+        
+        # Conta occorrenze
+        for filepath in md_files:
+            try:
+                with open(filepath, "r", encoding="utf-8") as f:
+                    content = f.read()
+                    
+                    if content.startswith("---"):
+                        parts = content.split("---", 2)
+                        if len(parts) >= 3:
+                            frontmatter = parts[1]
+                            
+                            # Cerca sezione tags nel frontmatter
+                            in_tags_section = False
+                            for line in frontmatter.split("\n"):
+                                line_stripped = line.strip()
+                                
+                                # Inizio sezione tags
+                                if line_stripped.startswith("tags:"):
+                                    in_tags_section = True
+                                    # Gestisci formato inline: tags: ['tag1', 'tag2']
+                                    if "[" in line:
+                                        import re
+                                        tags_match = re.search(r'\[(.*?)\]', line)
+                                        if tags_match:
+                                            tags_str = tags_match.group(1)
+                                            for tag in tags_str.split(","):
+                                                tag = tag.strip().strip('"').strip("'")
+                                                if tag:
+                                                    tag_counts[tag] = tag_counts.get(tag, 0) + 1
+                                        in_tags_section = False
+                                    # Se non c'è array inline, continua a leggere le righe successive
+                                    continue
+                                
+                                # Se siamo nella sezione tags, processa le righe
+                                if in_tags_section:
+                                    # Fine sezione tags (nuova chiave YAML)
+                                    if line_stripped and not line_stripped.startswith("- ") and ":" in line_stripped and not line_stripped.startswith("#"):
+                                        in_tags_section = False
+                                        continue
+                                    
+                                    # Tag in formato lista YAML: - Tag Name
+                                    if line_stripped.startswith("- "):
+                                        tag = line_stripped[2:].strip().strip('"').strip("'")
+                                        if tag:
+                                            tag_counts[tag] = tag_counts.get(tag, 0) + 1
+                                    # Se la riga è vuota o solo spazi, continua (potrebbe essere parte della lista)
+                                    elif not line_stripped:
+                                        continue
+                                    # Altrimenti, fine sezione tags
+                                    else:
+                                        in_tags_section = False
+            except Exception as e:
+                log(f"Errore lettura {filepath}: {str(e)}", "WARN")
+        
+        # Ordina per count e prendi top 5
+        sorted_tags = sorted(tag_counts.items(), key=lambda x: x[1], reverse=True)
+        top_5 = sorted_tags[:5]
+        
+        # Crea lista per YAML con slug
+        top_tags = [{"name": tag, "count": count, "slug": generate_tag_slug(tag)} for tag, count in top_5]
+        
+        tag_list = ', '.join([f"{t['name']} ({t['count']})" for t in top_tags])
+        log(f"Top 5 tag: {tag_list}")
+    
+    # Scrivi file YAML
+    filepath = os.path.join(data_dir, "top_tags.yml")
+    try:
+        import yaml
+        with open(filepath, "w", encoding="utf-8") as f:
+            yaml.dump(top_tags, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
+        log(f"✅ [OK] Top tags data: {filepath}", "INFO")
+    except ImportError:
+        # Se PyYAML non è disponibile, scrivi YAML manualmente
+        with open(filepath, "w", encoding="utf-8") as f:
+            f.write("# Top 5 most popular tags\n")
+            f.write("# Generated automatically by notion_to_jekyll_builder.py\n\n")
+            for i, tag_data in enumerate(top_tags, 1):
+                f.write(f"- name: \"{tag_data['name']}\"\n")
+                f.write(f"  count: {tag_data['count']}\n")
+                f.write(f"  slug: \"{generate_tag_slug(tag_data['name'])}\"\n")
+        log(f"✅ [OK] Top tags data (manual YAML): {filepath}", "INFO")
+    except Exception as e:
+        log(f"ERROR writing {filepath}: {str(e)}", "ERROR")
 
 def cleanup_orphan_tag_pages():
     """
@@ -900,6 +1020,9 @@ def main():
     
     # Genera pagine tag
     generate_tag_pages()
+    
+    # Genera top tags data per homepage
+    generate_top_tags_data()
     
     # Cleanup tag orfani (opzionale, commenta se non vuoi rimozione automatica)
     # cleanup_orphan_tag_pages()

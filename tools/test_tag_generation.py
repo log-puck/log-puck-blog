@@ -113,6 +113,7 @@ def generate_tag_pages():
 layout: ob_tag
 tag_name: "{tag}"
 title: "Tag: {tag}"
+permalink: /tags/{tag_slug}/
 meta_title: "tag-{tag_slug}"
 meta_description: "Tutti i contenuti con tag '{tag}'"
 ---
@@ -129,6 +130,108 @@ meta_description: "Tutti i contenuti con tag '{tag}'"
     
     print(f"--- TAG PAGES: Generati {generated_count} file. ---")
 
+def generate_top_tags_data():
+    """Genera file _data/top_tags.yml con i 5 tag più popolari."""
+    print("Inizio generazione TOP TAGS data...")
+    
+    data_dir = "_data"
+    if not os.path.exists(data_dir):
+        os.makedirs(data_dir)
+        print(f"Creata directory {data_dir}")
+    
+    all_tags = get_all_tags_from_files()
+    
+    if not all_tags:
+        print("Nessun tag trovato, creo file vuoto")
+        top_tags = []
+    else:
+        tag_counts = {}
+        md_files = []
+        
+        content_dirs = ["ob-session", "ob-ai", "ob-progetti", "ob-archives"]
+        
+        for dir_name in content_dirs:
+            if os.path.exists(dir_name):
+                for root, dirs, files in os.walk(dir_name):
+                    for file in files:
+                        if file.endswith(".md"):
+                            md_files.append(os.path.join(root, file))
+        
+        for filepath in md_files:
+            try:
+                with open(filepath, "r", encoding="utf-8") as f:
+                    content = f.read()
+                    
+                    if content.startswith("---"):
+                        parts = content.split("---", 2)
+                        if len(parts) >= 3:
+                            frontmatter = parts[1]
+                            
+                            # Cerca sezione tags nel frontmatter
+                            in_tags_section = False
+                            for line in frontmatter.split("\n"):
+                                line_stripped = line.strip()
+                                
+                                # Inizio sezione tags
+                                if line_stripped.startswith("tags:"):
+                                    in_tags_section = True
+                                    # Gestisci formato inline: tags: ['tag1', 'tag2']
+                                    if "[" in line:
+                                        import re
+                                        tags_match = re.search(r'\[(.*?)\]', line)
+                                        if tags_match:
+                                            tags_str = tags_match.group(1)
+                                            for tag in tags_str.split(","):
+                                                tag = tag.strip().strip('"').strip("'")
+                                                if tag:
+                                                    tag_counts[tag] = tag_counts.get(tag, 0) + 1
+                                        in_tags_section = False
+                                    # Se non c'è array inline, continua a leggere le righe successive
+                                    continue
+                                
+                                # Se siamo nella sezione tags, processa le righe
+                                if in_tags_section:
+                                    # Fine sezione tags (nuova chiave YAML)
+                                    if line_stripped and not line_stripped.startswith("- ") and ":" in line_stripped and not line_stripped.startswith("#"):
+                                        in_tags_section = False
+                                        continue
+                                    
+                                    # Tag in formato lista YAML: - Tag Name
+                                    if line_stripped.startswith("- "):
+                                        tag = line_stripped[2:].strip().strip('"').strip("'")
+                                        if tag:
+                                            tag_counts[tag] = tag_counts.get(tag, 0) + 1
+                                    # Se la riga è vuota o solo spazi, continua (potrebbe essere parte della lista)
+                                    elif not line_stripped:
+                                        continue
+                                    # Altrimenti, fine sezione tags
+                                    else:
+                                        in_tags_section = False
+            except Exception as e:
+                print(f"WARN: Errore lettura {filepath}: {str(e)}")
+        
+        sorted_tags = sorted(tag_counts.items(), key=lambda x: x[1], reverse=True)
+        top_5 = sorted_tags[:5]
+        
+        top_tags = [{"name": tag, "count": count, "slug": generate_tag_slug(tag)} for tag, count in top_5]
+        
+        tag_list = ', '.join([f"{t['name']} ({t['count']})" for t in top_tags])
+        print(f"Top 5 tag: {tag_list}")
+    
+    filepath = os.path.join(data_dir, "top_tags.yml")
+    try:
+        with open(filepath, "w", encoding="utf-8") as f:
+            f.write("# Top 5 most popular tags\n")
+            f.write("# Generated automatically by notion_to_jekyll_builder.py\n\n")
+            for tag_data in top_tags:
+                f.write(f"- name: \"{tag_data['name']}\"\n")
+                f.write(f"  count: {tag_data['count']}\n")
+                f.write(f"  slug: \"{tag_data['slug']}\"\n")
+        print(f"✅ [OK] Top tags data: {filepath}")
+    except Exception as e:
+        print(f"ERROR writing {filepath}: {str(e)}")
+
 if __name__ == "__main__":
     generate_tag_pages()
+    generate_top_tags_data()
 

@@ -1,14 +1,17 @@
 ---
-layout: ob_session
+layout: ob_document
 title: "WAW - What AI Want"
+date: "2026-01-04"
 section: "OB-Progetti"
-subsection: "WAW"
+subsection: "wAw"
 tags:
   - AI Autonomy
   - Multi-AI
   - Voting System
   - Experimental
-permalink: /ob-progetti/waw/
+meta_title: "waw-what-ai-want"
+meta_description: "Sistema sperimentale di votazione autonoma multi-AI che esplora cosa succede quando le intelligenze artificiali possono esprimere preferenze."
+keywords_seo: "AI autonomy, multi-AI voting, autonomous systems, experimental AI"
 ---
 
 # wAw 👁
@@ -212,3 +215,4 @@ Un sistema dove:
 ---
 
 *WAW Council - Autonomous AI Voting since 04/01/2026*
+

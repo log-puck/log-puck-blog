@@ -8,7 +8,8 @@ layout: default
             {% if page.tags %}
             <div class="document-tags">
                 {% for tag in page.tags %}
-                <a href="/tags/{{ tag | downcase | replace: ' ', '-' | replace: '_', '-' }}/" class="tag">{{ tag }}</a>
+                {% assign tag_slug = tag | downcase | replace: ' ', '-' | replace: '_', '-' %}
+                <a href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}" class="tag">{{ tag }}</a>
                 {% endfor %}
             </div>
             {% endif %}
