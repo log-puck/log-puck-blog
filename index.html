@@ -38,7 +38,7 @@ layout: default
 
 <section class="feed-section">
     <div class="container">
-        <h2 class="section-title">Ultimi Articoli</h2>
+        <h2 class="section-title">Ultimi log dal laboratorio</h2>
         <div class="feed-table">
             {% assign all_posts = site.pages | where_exp: "page", "page.layout == 'ob_session'" | sort: "date" | reverse | limit: 5 %}
             
