@@ -911,7 +911,8 @@ def generate_top_tags_data():
         # Crea lista per YAML con slug
         top_tags = [{"name": tag, "count": count, "slug": generate_tag_slug(tag)} for tag, count in top_5]
         
-        log(f"Top 5 tag: {', '.join([f'{t[\"name\"]} ({t[\"count\"]})' for t in top_tags])}")
+        tag_list = ', '.join([f"{t['name']} ({t['count']})" for t in top_tags])
+        log(f"Top 5 tag: {tag_list}")
     
     # Scrivi file YAML
     filepath = os.path.join(data_dir, "top_tags.yml")
