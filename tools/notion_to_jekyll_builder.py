@@ -699,6 +699,170 @@ tags: {tags}
     log(f"--- PERSONAS: Generati {personas_count} file. ---")
 
 # ============================================================================
+# 6. TAG PAGES GENERATION
+# ============================================================================
+
+def get_all_tags_from_files():
+    """
+    Scansiona tutti i file .md generati e raccoglie tutti i tag unici.
+    
+    Returns:
+        set: Set di tag unici trovati
+    """
+    tags_set = set()
+    md_files = []
+    
+    # Cerca in tutte le cartelle di contenuto
+    content_dirs = ["ob-session", "ob-ai", "ob-progetti", "ob-archives"]
+    
+    for dir_name in content_dirs:
+        if os.path.exists(dir_name):
+            for root, dirs, files in os.walk(dir_name):
+                for file in files:
+                    if file.endswith(".md"):
+                        md_files.append(os.path.join(root, file))
+    
+    # Leggi ogni file e estrai tag dal frontmatter
+    for filepath in md_files:
+        try:
+            with open(filepath, "r", encoding="utf-8") as f:
+                content = f.read()
+                
+                # Estrai frontmatter
+                if content.startswith("---"):
+                    parts = content.split("---", 2)
+                    if len(parts) >= 3:
+                        frontmatter = parts[1]
+                        
+                        # Cerca sezione tags nel frontmatter
+                        in_tags_section = False
+                        for line in frontmatter.split("\n"):
+                            line_stripped = line.strip()
+                            
+                            # Inizio sezione tags
+                            if line_stripped.startswith("tags:"):
+                                in_tags_section = True
+                                # Gestisci formato inline: tags: ['tag1', 'tag2']
+                                if "[" in line:
+                                    import re
+                                    tags_match = re.search(r'\[(.*?)\]', line)
+                                    if tags_match:
+                                        tags_str = tags_match.group(1)
+                                        for tag in tags_str.split(","):
+                                            tag = tag.strip().strip('"').strip("'")
+                                            if tag:
+                                                tags_set.add(tag)
+                                    in_tags_section = False
+                                continue
+                            
+                            # Se siamo nella sezione tags, processa le righe
+                            if in_tags_section:
+                                # Fine sezione tags (nuova chiave o fine frontmatter)
+                                if line_stripped and not line_stripped.startswith("- ") and ":" in line_stripped:
+                                    in_tags_section = False
+                                    continue
+                                
+                                # Tag in formato lista YAML: - Tag Name
+                                if line_stripped.startswith("- "):
+                                    tag = line_stripped[2:].strip().strip('"').strip("'")
+                                    if tag:
+                                        tags_set.add(tag)
+                                
+        except Exception as e:
+            log(f"Errore lettura {filepath}: {str(e)}", "WARN")
+    
+    return tags_set
+
+def generate_tag_slug(tag):
+    """Converte un tag in slug per URL."""
+    return tag.lower().replace(" ", "-").replace("_", "-")
+
+def generate_tag_pages():
+    """
+    Genera pagine tag per tutti i tag trovati nei file esistenti.
+    Crea file in tags/tag-slug.md
+    """
+    log("Inizio generazione TAG PAGES...")
+    
+    # Crea directory tags se non esiste
+    tags_dir = "tags"
+    if not os.path.exists(tags_dir):
+        os.makedirs(tags_dir)
+        log(f"Creata directory {tags_dir}")
+    
+    # Raccogli tutti i tag
+    all_tags = get_all_tags_from_files()
+    
+    if not all_tags:
+        log("Nessun tag trovato nei file", "WARN")
+        return
+    
+    log(f"Trovati {len(all_tags)} tag unici: {', '.join(sorted(all_tags))}")
+    
+    generated_count = 0
+    
+    for tag in all_tags:
+        tag_slug = generate_tag_slug(tag)
+        filepath = os.path.join(tags_dir, f"{tag_slug}.md")
+        
+        # Frontmatter per pagina tag
+        frontmatter = f"""---
+layout: ob_tag
+tag_name: "{tag}"
+title: "Tag: {tag}"
+meta_title: "tag-{tag_slug}"
+meta_description: "Tutti i contenuti con tag '{tag}'"
+---
+
+"""
+        
+        try:
+            with open(filepath, "w", encoding="utf-8") as f:
+                f.write(frontmatter)
+            log(f"✅ [OK] Tag page: {tag} → {filepath}", "INFO")
+            generated_count += 1
+        except Exception as e:
+            log(f"ERROR writing {filepath}: {str(e)}", "ERROR")
+    
+    log(f"--- TAG PAGES: Generati {generated_count} file. ---")
+
+def cleanup_orphan_tag_pages():
+    """
+    Rimuove pagine tag che non hanno più contenuti associati.
+    Utile dopo aver rimosso tag da alcuni contenuti.
+    """
+    log("Inizio cleanup TAG PAGES orfane...")
+    
+    tags_dir = "tags"
+    if not os.path.exists(tags_dir):
+        return
+    
+    # Raccogli tutti i tag attualmente usati
+    active_tags = get_all_tags_from_files()
+    active_tag_slugs = {generate_tag_slug(tag) for tag in active_tags}
+    
+    # Controlla ogni file tag
+    removed_count = 0
+    for filename in os.listdir(tags_dir):
+        if filename.endswith(".md"):
+            tag_slug = filename[:-3]  # Rimuovi .md
+            
+            # Verifica se il tag è ancora attivo
+            if tag_slug not in active_tag_slugs:
+                filepath = os.path.join(tags_dir, filename)
+                try:
+                    os.remove(filepath)
+                    log(f"🗑️  Rimosso tag page orfano: {tag_slug}", "INFO")
+                    removed_count += 1
+                except Exception as e:
+                    log(f"ERROR rimozione {filepath}: {str(e)}", "ERROR")
+    
+    if removed_count > 0:
+        log(f"--- CLEANUP: Rimosse {removed_count} pagine tag orfane. ---")
+    else:
+        log("--- CLEANUP: Nessuna pagina tag orfana trovata. ---")
+
+# ============================================================================
 # 7. MAIN ENTRY POINT
 # ============================================================================
 
@@ -733,6 +897,12 @@ def main():
     
     # Processa anche le personas
     process_personas()
+    
+    # Genera pagine tag
+    generate_tag_pages()
+    
+    # Cleanup tag orfani (opzionale, commenta se non vuoi rimozione automatica)
+    # cleanup_orphan_tag_pages()
 
 if __name__ == "__main__":
     main()
