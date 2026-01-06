@@ -1,12 +1,18 @@
 # Top 5 most popular tags
 # Generated automatically by notion_to_jekyll_builder.py
 
-- name: "Einstein"
-  count: 1
-  slug: "einstein"
-- name: "AI-Profile"
-  count: 1
-  slug: "ai-profile"
-- name: "Prompt-engineering"
-  count: 1
-  slug: "prompt-engineering"
+- name: "LLM"
+  count: 3
+  slug: "llm"
+- name: "Meta-programmazione"
+  count: 3
+  slug: "meta-programmazione"
+- name: "Patterns"
+  count: 2
+  slug: "patterns"
+- name: "Jekyll"
+  count: 2
+  slug: "jekyll"
+- name: "Felicità-AI"
+  count: 2
+  slug: "felicità-ai"

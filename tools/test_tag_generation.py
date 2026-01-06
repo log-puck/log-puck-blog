@@ -167,12 +167,15 @@ def generate_top_tags_data():
                         if len(parts) >= 3:
                             frontmatter = parts[1]
                             
+                            # Cerca sezione tags nel frontmatter
                             in_tags_section = False
                             for line in frontmatter.split("\n"):
                                 line_stripped = line.strip()
                                 
+                                # Inizio sezione tags
                                 if line_stripped.startswith("tags:"):
                                     in_tags_section = True
+                                    # Gestisci formato inline: tags: ['tag1', 'tag2']
                                     if "[" in line:
                                         import re
                                         tags_match = re.search(r'\[(.*?)\]', line)
@@ -182,18 +185,28 @@ def generate_top_tags_data():
                                                 tag = tag.strip().strip('"').strip("'")
                                                 if tag:
                                                     tag_counts[tag] = tag_counts.get(tag, 0) + 1
-                                    in_tags_section = False
+                                        in_tags_section = False
+                                    # Se non c'è array inline, continua a leggere le righe successive
                                     continue
                                 
+                                # Se siamo nella sezione tags, processa le righe
                                 if in_tags_section:
-                                    if line_stripped and not line_stripped.startswith("- ") and ":" in line_stripped:
+                                    # Fine sezione tags (nuova chiave YAML)
+                                    if line_stripped and not line_stripped.startswith("- ") and ":" in line_stripped and not line_stripped.startswith("#"):
                                         in_tags_section = False
                                         continue
                                     
+                                    # Tag in formato lista YAML: - Tag Name
                                     if line_stripped.startswith("- "):
                                         tag = line_stripped[2:].strip().strip('"').strip("'")
                                         if tag:
                                             tag_counts[tag] = tag_counts.get(tag, 0) + 1
+                                    # Se la riga è vuota o solo spazi, continua (potrebbe essere parte della lista)
+                                    elif not line_stripped:
+                                        continue
+                                    # Altrimenti, fine sezione tags
+                                    else:
+                                        in_tags_section = False
             except Exception as e:
                 print(f"WARN: Errore lettura {filepath}: {str(e)}")
         
