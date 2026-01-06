@@ -64,8 +64,11 @@ main {
     color: var(--text-main);
 }
 
-.logo a {
-    text-decoration: none; /* 👈 Rimuove sottolineatura dal link */
+.logo a,
+.logo a:hover,
+.logo a:visited,
+.logo a:active {
+    text-decoration: none !important; /* 👈 Rimuove sottolineatura dal link (tutti gli stati) */
     color: inherit; /* Eredita il colore dal parent */
 }
 
