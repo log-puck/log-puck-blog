@@ -2,20 +2,20 @@
 layout: default
 ---
 
-<section class="landing-page {% if page.custom_class %}{{ page.custom_class }}{% endif %}">
+<section class="landing-page tag-landing">
     <div class="container">
         <header class="landing-header">
-            <h1 class="landing-title">{{ page.title }}</h1>
-            {% if page.description %}
-            <p class="landing-description">{{ page.description }}</p>
+            <h1 class="landing-title">Tag: {{ page.tag_name }}</h1>
+            {% if page.meta_description %}
+            <p class="landing-description">{{ page.meta_description }}</p>
             {% endif %}
         </header>
 
         <div class="articles-grid">
-            {% assign section_posts = site.pages | where_exp: "p", "p.section == page.filter_section" | sort: "date" | reverse %}
+            {% assign tagged_posts = site.pages | where_exp: "p", "p.tags contains page.tag_name" | sort: "date" | reverse %}
             
-            {% if section_posts.size > 0 %}
-                {% for post in section_posts %}
+            {% if tagged_posts.size > 0 %}
+                {% for post in tagged_posts %}
                 <article class="article-card {% if post.layout == 'ob_ai' %}persona-card{% endif %}">
                     {% if post.layout == 'ob_ai' %}
                         <!-- Card AI Persona -->
@@ -48,8 +48,9 @@ layout: default
                 </article>
                 {% endfor %}
             {% else %}
-                <p class="no-content">Nessun articolo pubblicato ancora.</p>
+                <p class="no-content">Nessun contenuto trovato con questo tag.</p>
             {% endif %}
         </div>
     </div>
 </section>
+
