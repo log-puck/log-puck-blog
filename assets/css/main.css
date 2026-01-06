@@ -33,13 +33,14 @@ main {
 }
 
 /* --- HEADER & NAV --- */
-header {
+.header,
+.site-header {
     background: var(--bg-main);
     border-bottom: 2px solid var(--border-color);
     padding: 1rem 0;
-    position: sticky;
+    position: sticky; /* 👈 Sticky al top */
     top: 0;
-    z-index: 10000;  /*Molto alto per header e menu */
+    z-index: 10001; /* 👈 Più alto del breadcrumb per stare sopra */
 }
 
 .container {
@@ -48,10 +49,12 @@ header {
     padding: 0 2rem;
 }
 
-header .container {
+.header .container,
+.site-header .container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    flex-direction: column;
+    gap: 12px; /* regola il respiro tra logo e nav */
 }
 
 .logo {
@@ -180,9 +183,39 @@ header .container {
 
 /* --- MOBILE NAVIGATION --- */
 @media (max-width: 768px) {
+    .header .container,
+    .site-header .container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0; /* regola il respiro tra logo e nav */
+    }
+    
+    .logo {
+        display: flex;
+        align-items: center;
+        height: 100%; /* Allinea con l'altezza del container */
+    }
+    
     .nav-toggle {
-        display: block;
+        display: flex;
+        flex-direction: column; /* 👈 IMPORTANTE: mantiene le barrette in verticale */
+        align-items: center;
+        justify-content: center;
         z-index: 1001;
+        margin-left: auto;
+        height: 100%; /* Allinea con l'altezza del container */
+        padding: 0.5rem; /* Mantieni padding per area cliccabile */
+        gap: 5px; /* Spazio tra le barrette */
+    }
+    
+    .nav-toggle span {
+        display: block !important; /* Forza display block */
+        width: 25px;
+        height: 3px;
+        background: var(--text-main);
+        margin: 0; /* Rimuovi margin, usa gap del parent */
+        flex-shrink: 0; /* Evita che si restringano */
     }
     
     .nav-menu {
@@ -281,6 +314,8 @@ header .container {
 
 /* --- BREADCRUMB --- */
 .breadcrumb-wrapper {
+    position: relative; /* 👈 Non più sticky */
+    z-index: 1; /* 👈 Z-index normale */
     background: var(--slot-bg);
     padding: 1rem 0;
     border-bottom: 1px solid var(--border-color);

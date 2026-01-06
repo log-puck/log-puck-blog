@@ -159,7 +159,8 @@ profilo: "Scienziato Visionario"
 
 **Fix:** Rimosso filtro rigido, reso flessibile con conditional rendering:
 
-```javascript
+{% raw %}
+```liquid
 {% for post in section_posts %}
   {% if post.layout == 'ob_ai' %}
     
@@ -168,6 +169,7 @@ profilo: "Scienziato Visionario"
   {% endif %}
 {% endfor %}
 ```
+{% endraw %}
 
 **Lezione:** Template rigidi = fragilità. Build for flexibility.
 
