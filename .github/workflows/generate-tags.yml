@@ -1,0 +1,44 @@
+name: Generate Tag Pages
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'ob-session/**/*.md'
+      - 'ob-ai/**/*.md'
+      - 'ob-progetti/**/*.md'
+      - 'ob-archives/**/*.md'
+
+jobs:
+  generate-tags:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 1. Checkout del repo
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      # 2. Setup Python
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      
+      # 3. Gira script
+      - name: Generate tag pages
+        run: python test_tag_generation.py
+      
+      # 4. Commit se ci sono cambiamenti
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add tags/ _data/top_tags.yml
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore: auto-generate tag pages [skip ci]"
+      
+      # 5. Push
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
