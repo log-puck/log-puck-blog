@@ -7,12 +7,12 @@
 - name: "Meta-programmazione"
   count: 3
   slug: "meta-programmazione"
+- name: "AI Council"
+  count: 3
+  slug: "ai-council"
 - name: "Patterns"
   count: 2
   slug: "patterns"
 - name: "Jekyll"
   count: 2
   slug: "jekyll"
-- name: "Felicità-AI"
-  count: 2
-  slug: "felicità-ai"
