@@ -440,6 +440,73 @@ main {
     margin: 0 auto;
 }
 
+.landing-content {
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.landing-content h2 {
+    font-size: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--accent-yellow);
+    padding-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.landing-content h3 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.landing-content p {
+    margin-bottom: 1.5rem;
+}
+
+.landing-content ul,
+.landing-content ol {
+    margin-left: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.landing-content li {
+    margin-bottom: 0.5rem;
+}
+
+.landing-content blockquote {
+    border-left: 4px solid var(--accent-yellow);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.landing-content hr {
+    border: none;
+    border-top: 2px solid var(--border-color);
+    margin: 3rem 0;
+}
+
+.landing-content a {
+    color: var(--text-main);
+    text-decoration: underline;
+    text-decoration-color: var(--accent-yellow);
+    transition: all 0.3s;
+}
+
+.landing-content a:hover {
+    color: var(--accent-magenta);
+    text-decoration-color: var(--accent-magenta);
+}
+
+.landing-content strong {
+    font-weight: 600;
+}
+
 /* --- ARTICLES GRID --- */
 .articles-grid {
     display: grid;
@@ -881,6 +948,142 @@ main {
 .ai-landing .article-card:hover .ai-card-avatar {
     transform: scale(1.15) rotate(5deg); /* 👈 ANIMAZIONE */
 }
+
+/* ===================================
+   OB-PROGETTI LANDING - CARD STYLING
+   =================================== */
+
+.projects-grid {
+    display: grid;
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+@media (min-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+}
+
+/* Project Card */
+.project-card {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border: 1px solid #3a3a3a;
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    border-color: #a3e635;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(163, 230, 53, 0.15);
+}
+
+.project-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.project-emoji {
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.project-card h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0;
+    color: #fff;
+}
+
+.project-tagline {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #a3e635;
+    margin-bottom: 1rem;
+}
+
+.project-description {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.project-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+    color: #888;
+}
+
+.project-meta p {
+    margin: 0;
+}
+
+.project-meta strong {
+    color: #aaa;
+}
+
+.project-card .btn-enter {
+    margin-top: auto;
+    background: #a3e635;
+    color: #000;
+    border-bottom: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+}
+
+.project-card .btn-enter:hover {
+    background: #bef264;
+    transform: scale(1.05);
+    border-bottom: none;
+}
+
+.project-card .btn-enter::after {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+/* Landing Footer */
+.landing-footer {
+    text-align: center;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--border-color);
+    color: var(--text-main);
+    opacity: 0.7;
+}
+
+.footer-note {
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+  
+  /* Hero section */
+  .ob-progetti-hero {
+    text-align: center;
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+  }
+  
+  .ob-progetti-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .ob-progetti-hero p {
+    font-size: 1.25rem;
+    color: #888;
+  }
 
 /* --- DOCUMENT PAGE (Paper Style) --- */
 .document-page {

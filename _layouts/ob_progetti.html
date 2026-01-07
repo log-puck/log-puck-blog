@@ -1,0 +1,71 @@
+---
+layout: default
+---
+
+<section class="landing-page ob-progetti-landing">
+    <div class="container">
+        <!-- HEADER -->
+        <header class="landing-header">
+            <h1 class="landing-title">{{ page.title }}</h1>
+            {% if page.tagline %}
+            <p class="landing-description">{{ page.tagline }}</p>
+            {% endif %}
+        </header>
+
+        <!-- INTRO CONTENT (markdown da index.html) -->
+        {% if content and content != "" and content != blank %}
+        <div class="landing-content">
+            {{ content }}
+        </div>
+        {% endif %}
+
+        <!-- PROGETTI GRID (auto-generato dalle pagine con subsection) -->
+        {% assign progetti = site.pages | where: "section", "OB-Progetti" | where_exp: "item", "item.subsection != nil" | sort: "order" %}
+        {% if progetti.size > 0 %}
+        <div class="projects-grid">
+            {% for progetto in progetti %}
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-emoji">{{ progetto.emoji | default: "📦" }}</span>
+                    <h3>{{ progetto.subsection | capitalize }}</h3>
+                </div>
+                
+                {% if progetto.project_tagline %}
+                <p class="project-tagline">{{ progetto.project_tagline }}</p>
+                {% endif %}
+                
+                {% if progetto.project_description %}
+                <p class="project-description">{{ progetto.project_description }}</p>
+                {% endif %}
+                
+                <div class="project-meta">
+                    {% if progetto.project_status %}
+                    <p><strong>Status:</strong> {{ progetto.project_status }}</p>
+                    {% endif %}
+                    
+                    {% if progetto.ai_models %}
+                    <p><strong>AI:</strong> {{ progetto.ai_models }}</p>
+                    {% endif %}
+                    
+                    {% if progetto.project_goal %}
+                    <p><strong>Obiettivo:</strong> {{ progetto.project_goal }}</p>
+                    {% endif %}
+                </div>
+                
+                <a href="{{ progetto.url | relative_url }}" class="btn-enter">
+                    Esplora {{ progetto.subsection | capitalize }}
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <!-- FOOTER SECTION (se presente nel frontmatter) -->
+        {% if page.show_footer %}
+        <footer class="landing-footer">
+            <p><strong>無</strong></p>
+            <p class="footer-note">{{ page.footer_text | default: "OB-Progetti - Laboratorio Sperimentale Human-AI dal 2026" }}</p>
+        </footer>
+        {% endif %}
+    </div>
+</section>
