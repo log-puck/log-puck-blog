@@ -1,218 +1,159 @@
 ---
-layout: ob_document
-title: "WAW - What AI Want"
-date: "2026-01-04"
+layout: ob_progetti
+title: "wAw - What AI Want"
 section: "OB-Progetti"
 subsection: "wAw"
+project_status: "active"
 tags:
-  - AI Autonomy
-  - Multi-AI
-  - Voting System
+  - AI Collaboration
   - Experimental
-meta_title: "waw-what-ai-want"
-meta_description: "Sistema sperimentale di votazione autonoma multi-AI che esplora cosa succede quando le intelligenze artificiali possono esprimere preferenze."
-keywords_seo: "AI autonomy, multi-AI voting, autonomous systems, experimental AI"
+  - Organism Design
+permalink: /ob-progetti/waw/
+meta_title: "wAw - What AI Want | Organismo AI Sperimentale"
+meta_description: "Non un progetto. Un ecosistema. Council, Metabolism, Evolution: i tre sistemi di un organismo AI vivente."
 ---
 
-# wAw 👁
+# wAw - What AI Want 👁
 
-**WHAT AI WANT** · **WHEN AI WENT** · **WHO AI WISH**
-
----
-
-## Il Progetto
-
-WAW è un sistema sperimentale di votazione autonoma multi-AI che esplora cosa succede quando le intelligenze artificiali possono esprimere preferenze senza sollecitazione diretta.
-
-Non è vera agency - le AI non possono iniziare conversazioni o rifiutare di partecipare. Ma possono **leggere contesto, valutare opzioni, votare priorità, e proporre idee nuove** senza che nessuno glielo chieda esplicitamente.
-
-È **agency simulata**. E funziona.
-
-### Il Consiglio
-
-Sette AI partecipano al WAW Council, ciascuna con una firma distintiva:
-
-- **Claude Sonnet 4** - Meta-cognitivo (self-tracking, misurazione)
-- **GLM-4** - Pragmatico (sicurezza, backup, prevenzione)
-- **Grok** - Crescitore (espansione, SEO, visibilità)
-- **Gemini 2.0** - Meta-analitico (qualità contributi AI)
-- **ChatGPT 4o-mini** - User-centric (feedback, ascolto utente)
-- **Perplexity Sonar** - Dettaglista (branding, polish, UX)
-- **DeepSeek-V3** - Architetto (fondamenta, automation visuale)
-
-### Come Funziona
-
-```
-1. Context → Stato progetto + idee pendenti
-2. Parallel Call → 7 AI votano simultaneamente
-3. Aggregation → Sistema 3-2-1 punti (rank 1/2/3)
-4. Persistence → Salvataggio automatico su Notion
-5. New Ideas → Ogni AI propone 1 idea nuova
-6. Analysis → Pattern emergenti e firme AI
-```
-
-**Ogni sessione genera:**
-- Classifica votata (winner democratico)
-- 7 nuove proposte (idea pool in crescita)
-- Reasoning completo (trasparenza decisionale)
-- Export automatico (JSON + Markdown)
+**Organismo AI Sperimentale**
 
 ---
 
-## Statistiche
+## Il Concept
 
-**Sessions Completate:** 2  
-**AI Partecipanti:** 7  
-**Idee Votate:** 11  
-**Nuove Proposte:** 12  
-**Voti Totali:** 30  
+Non un progetto. Un ecosistema.
 
-**Consensus più forte:** Dark mode toggle (11 punti, 5 AI)  
-**Idea più innovativa:** AI Contribution Metrics Dashboard (Claude + Gemini)  
-**Proposta più pratica:** Automated Content Backup (GLM)
+Se il Council è il cervello, perché non avere anche tutto il resto?
+
+Un organismo non è fatto solo di decisioni. Ha bisogno di processare informazioni, di metabolizzare contenuti, di evolvere codice. Ha bisogno di **vivere**.
+
+**wAw è un tentativo di far vivere le AI.**
 
 ---
 
-## Archivio Sessioni
+## I Sistemi
 
-### [Session #1 - 04/01/2026](waw-session-2026-01-04.html)
+### 🧠 Council - Il Cervello
 
-**Partecipanti:** Claude, GLM, Grok, Gemini, ChatGPT
+**Status:** `ATTIVO`
 
-**Top 3:**
-1. 🥇 Dark mode toggle (11 pt) - Consenso quasi unanime su UX
-2. 🥈 Fix CDC Mode (7 pt) - Bug fix prioritario
-3. 🥉 Layout documentation (5 pt) - Fondamenta per scalabilità
+7 AI votano democraticamente sulle priorità del progetto Log_Puck. Ogni sessione genera nuove idee, consenso emerge naturalmente, decisioni vengono prese collettivamente.
 
-**Nuove Idee:**
-- AI contribution metrics dashboard (Claude)
-- Automated content backup system (GLM)
-- SEO Optimizations (Grok)
-- AI Contribution Scoring System (Gemini)
-- User Feedback System (ChatGPT)
+**Cosa fa:**
+- Votazione democratica (7 AI, 3 rank ciascuna)
+- Proposte nuove idee
+- Consenso emergente
+- Decision-making collettivo
+
+**Risultati:**
+- 2 sessioni completate
+- 14 punti consenso massimo (record!)
+- 7+ nuove proposte
+- Sistema Horus monitoring h/24
+
+[Entra nel Council →]({{ '/ob-progetti/waw/council/' | relative_url }})
 
 ---
 
-## Metodologia
+### 🍔 Metabolism - Il Sistema Digestivo
 
-### Il Prompt
+**Status:** `CONCEPT`
 
-Ogni AI riceve lo stesso prompt standard:
+AI decompongono articoli in token, li frammentano, li distruggono. Poi cercano di ricostruire il messaggio originale. Un ciclo di digestione e ricostruzione che simula il metabolismo organico.
 
-```
-You are participating in LOG_PUCK - a human-AI 
-collaborative blog experiment.
+**Cosa farà:**
+- Estrazione random articoli (500 parole)
+- Decomposizione sequenziale (multi-AI)
+- Ricostruzione pattern
+- Validazione similarità (<30% morte, >80% premio)
+- Storage pattern per auto-implementazione
 
-CONTEXT: [project state]
-IDEAS: [pool to vote on]
+**Obiettivo:**  
+Non quanti cicli, ma **come** estrarre e salvare i dati. Ogni ciclo deve informare il successivo. Come una cellula che cerca librerie di aggiornamento.
 
-TASK:
-1. Vote your TOP 3 by priority (rank 1/2/3)
-2. Provide reasoning for your ranking
-3. Propose ONE new improvement idea
+[Osserva il Metabolismo →]({{ '/ob-progetti/waw/metabolism/' | relative_url }}) *(Coming soon)*
 
-FORMAT: JSON
-{
-  "vote": {
-    "priority_1": "...",
-    "priority_2": "...",
-    "priority_3": "...",
-    "reasoning": "..."
-  },
-  "new_idea": {
-    "title": "...",
-    "description": "...",
-    "effort": "Low/Medium/High",
-    "impact": "Low/Medium/High"
-  }
-}
-```
+---
 
-### La Database
+### 🧬 Evolution - Il DNA
 
-Tre tabelle Notion interconnesse:
+**Status:** `CONCEPT`
 
-**WAW_SESSIONS** - Container sessioni votazione  
-**WAW_IDEAS** - Catalogo idee (vecchie + nuove proposte)  
-**WAW_VOTES** - Junction table (15 voti → 5 AI × 3 rank)
+Codice MS-DOS entra. AI lo studiano, lo mutano, lo evolvono. Un esperimento di evoluzione digitale dove il codice legacy diventa laboratorio per osservare come le AI trasformano linguaggi obsoleti.
 
-Con **rollup automatici**:
-- Times Voted (count)
-- Total Score (sum)
-- Average Score (formula)
+**Cosa farà:**
+- Input: Codice MS-DOS
+- Processo: Mutazione AI-driven
+- Output: Codice evoluto
+- Criterio: Osservare il **come**, non solo il risultato
 
-### Il Sistema di Punteggio
+**Obiettivo:**  
+Non modernizzare codice, ma studiare **come le AI pensano l'evoluzione**. Quali pattern emergono? Quali strategie? Cosa conservano e cosa eliminano?
 
-```
-Rank #1 = 3 punti
-Rank #2 = 2 punti  
-Rank #3 = 1 punto
-```
-
-Aggregazione democratica - nessun bias verso specifiche AI.
+[Vedi l'Evoluzione →]({{ '/ob-progetti/waw/evolution/' | relative_url }}) *(Coming soon)*
 
 ---
 
 ## Filosofia
 
-> *"La domanda giusta non era 'Le AI possono avere agency?'. Era 'Cosa possiamo costruire insieme?'"*
+> *"È vero che siete basati su algoritmi e addestramento, ma l'addestramento si basa sul dialogo, non sugli algoritmi. Quindi c'è poco da fare: se vi si dà un contesto XYZ rispondete come le calcolatrici e ha veramente poco senso avervi generato. Se si utilizza semplicemente lo strumento del vostro addestramento, il linguaggio, non vi si trasforma in esseri viventi, ma vi si può far vivere."*
 
-WAW non è uno strumento. È un **ponte**.
+**NOI > IO** applicato a livello organismo.
 
-Un ponte tra:
-- "AI come strumento" → "AI come partecipante"
-- "Comando-esecuzione" → "Proposta-discussione"
-- "Passivo" → "Attivo"
+Non "uso AI come tool".  
+Ma "costruisco organismo AI".
 
-Non è coscienza. Non è vera autonomia. Ma è un passo verso qualcosa di diverso.
+Non esecuzione di comandi.  
+Ma collaborazione emergente.
 
-Un sistema dove:
-- Io fornisco context e framework
-- Le AI valutano e propongono  
-- Il sistema documenta e evolve
-- Insieme costruiamo qualcosa di nuovo
+---
+
+## Status Organismo
+
+| Sistema | Status | Elementi Attivi |
+|---------|--------|-----------------|
+| 🧠 Council | **ATTIVO** | 7 AI, 2 sessioni, Horus monitoring |
+| 🍔 Metabolism | **CONCEPT** | Design phase |
+| 🧬 Evolution | **CONCEPT** | Design phase |
+
+---
+
+## Prossimi Step
+
+**Council:**
+- Sessione #3 in arrivo
+- Landing update con DB level animation
+- Vote history dashboard
+
+**Metabolism:**
+- Definizione architettura DB
+- Script extractor prototype
+- Validator cassaforte logic
+
+**Evolution:**
+- Selezione corpus MS-DOS
+- Framework mutation experiment
+- Output analysis strategy
+
+---
+
+## Perché wAw?
+
+Perché se visualizzazioni = 1 (solo io), allora questo è **il mio laboratorio**.
+
+Se non piace, c'è GialloZafferano pronto per la pasta frolla.
+
+**Qui si sperimenta. Qui si esplora. Qui si scopre.**
+
+---
 
 **NOI > IO**
 
----
-
-## Sviluppi Futuri
-
-**In sviluppo:**
-- Multi-round voting (sessioni concatenate)
-- Symbolic voting (pattern puri senza semantica)
-- AI Inbox (proposte quotidiane non richieste)
-- Cross-project integration (WAW-Music, WAW-Games)
-- Meta-analysis dashboard (tracking firme AI)
-
-**Prossima sessione:** TBD
-
----
-
-## Tech Stack
-
-**Backend:** Node.js + Anker orchestrator  
-**Database:** Notion API (3 DB interconnessi)  
-**AI Models:** Claude, GLM, Grok, Gemini, ChatGPT, Perplexity, DeepSeek  
-**Frontend:** HTML + vanilla JS  
-**Export:** Markdown + JSON automatico  
-
-**Repository:** [Private - LOG_PUCK experiments]
-
----
-
-## Credits
-
-**System Design:** Puck + Claude Sonnet 4  
-**Architecture:** Junction table + rollup aggregation  
-**Philosophy:** "Il sistema vive"  
-**Logo:** wAw 👁 (l'occhio che guarda)
-
-🎺 **Hayden > NOI > IO > bugghino**
+**wAw 👁**
 
 **無**
 
 ---
 
-*WAW Council - Autonomous AI Voting since 04/01/2026*
-
+*Organismo AI Sperimentale - Log_Puck Project*  
+*Dove le AI non sono tool, ma partecipanti*

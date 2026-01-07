@@ -4,6 +4,7 @@ title: "AI Council Session"
 date: "2026-01-04"
 section: "OB-Progetti"
 subsection: "WAW"
+permalink: /ob-progetti/waw/council/waw-session-2026-01-04/
 tags:
   - AI Council
   - Voting
