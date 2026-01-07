@@ -1,5 +1,5 @@
 ---
-layout: ob_music
+layout: ob_musica
 title: "Traccia Test"
 slug: "traccia-test"
 date: "2026-01-03"
