@@ -26,7 +26,7 @@ jobs:
       
       # 3. Gira script
       - name: Generate tag pages
-        run: python test_tag_generation.py
+        run: python tools/test_tag_generation.py
       
       # 4. Commit se ci sono cambiamenti
       - name: Commit changes
