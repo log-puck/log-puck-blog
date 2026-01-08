@@ -19,8 +19,11 @@ LAYOUT_MAP = {
     "document": "ob_document",
     "landing": "ob_landing",
     "ai": "ob_ai",
-    "music": "ob_music",
-    "game": "ob_game"
+    "musica": "ob_musicaAI",
+    "giochi": "ob_giochiAI",
+    "project": "ob_progetto",
+    "archive": "ob_archive",
+    "tag": "ob_tag"
 }
 
 NOTION_HEADERS = {
@@ -408,12 +411,10 @@ def create_frontmatter(props, layout_name):
         
     fm += f'layout: "{layout_name}"\n'
     
-    if props.get("meta_title"):
-        fm += f'meta_title: "{props.get("meta_title")}"\n'
-    if props.get("meta_description"):
-        fm += f'meta_description: "{props.get("meta_description")}"\n'
-    if props.get("keywords_seo"):
-        fm += f'keywords_seo: "{props.get("keywords_seo")}"\n'
+    if props.get("description"):
+        fm += f'description: "{props.get("description")}"\n'
+    if props.get("keywords"):
+        fm += f'keywords: "{props.get("keywords")}"\n'
     
     if props.get("tags"):
         fm += "tags:\n"
@@ -506,9 +507,8 @@ def process_content_item(item, infra_id_to_update=None):
     layout_notion = get_property_value(props_raw.get("Layout"))
     section = get_property_value(props_raw.get("Section"))
     subsection = get_property_value(props_raw.get("Subsection"))
-    meta_title = get_property_value(props_raw.get("Meta Title"))
-    meta_desc = get_property_value(props_raw.get("Meta Description"))
-    keys_seo = get_property_value(props_raw.get("Keywords SEO"))
+    description = get_property_value(props_raw.get("Meta Description"))
+    keywords = get_property_value(props_raw.get("Keywords SEO"))
     tags = get_property_value(props_raw.get("Tags"))
     
     # Validazione campi obbligatori
@@ -586,9 +586,8 @@ def process_content_item(item, infra_id_to_update=None):
         "date": date,
         "section": section,
         "subsection": subsection,
-        "meta_title": meta_title,
-        "meta_description": meta_desc,
-        "keywords_seo": keys_seo,
+        "description": description,
+        "keywords": keywords,
         "tags": tags,
         "ai_author": ai_author,
         "ai_participants": ai_participants
@@ -629,8 +628,7 @@ def process_personas():
         title = get_property_value(props.get("Title"))
         slug = get_property_value(props.get("Slug"))
         date_str = get_property_value(props.get("Date"))
-        meta_title = get_property_value(props.get("Meta Title")) or title
-        meta_desc = get_property_value(props.get("Meta Description")) or ""
+        description = get_property_value(props.get("Meta Description")) or ""
         keywords = get_property_value(props.get("Keywords SEO")) or ""
         tags = get_property_value(props.get("Tags")) or []
         
@@ -676,9 +674,8 @@ profilo: "{profilo}"
 epoca: "{epoca}"
 style: "{stile}"
 avatar: "{avatar}"
-meta_title: "{meta_title}"
-meta_description: "{meta_desc}"
-keywords_seo: "{keywords}"
+description: "{description}"
+keywords: "{keywords}"
 tags: {tags}
 ---
 
@@ -812,8 +809,7 @@ layout: ob_tag
 tag_name: "{tag}"
 title: "Tag: {tag}"
 permalink: /tags/{tag_slug}/
-meta_title: "tag-{tag_slug}"
-meta_description: "Tutti i contenuti con tag '{tag}'"
+description: "Tutti i contenuti con tag '{tag}'"
 ---
 
 """
