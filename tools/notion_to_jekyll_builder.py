@@ -411,6 +411,9 @@ def create_frontmatter(props, layout_name):
         
     fm += f'layout: "{layout_name}"\n'
     
+    if props.get("permalink"):
+        fm += f'permalink: {props.get("permalink")}\n'
+    
     if props.get("description"):
         fm += f'description: "{props.get("description")}"\n'
     if props.get("keywords"):
@@ -510,6 +513,7 @@ def process_content_item(item, infra_id_to_update=None):
     description = get_property_value(props_raw.get("Meta Description"))
     keywords = get_property_value(props_raw.get("Keywords SEO"))
     tags = get_property_value(props_raw.get("Tags"))
+    permalink = get_property_value(props_raw.get("Permalink"))
     
     # Validazione campi obbligatori
     if not all([slug, date, layout_notion, section]):
@@ -589,6 +593,7 @@ def process_content_item(item, infra_id_to_update=None):
         "description": description,
         "keywords": keywords,
         "tags": tags,
+        "permalink": permalink,
         "ai_author": ai_author,
         "ai_participants": ai_participants
     }
