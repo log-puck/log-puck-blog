@@ -495,6 +495,28 @@ main {
     font-weight: 600;
 }
 
+/* wAw Internal CTA Links */
+.waw-project .landing-content a[href*="/waw/"] {
+    display: inline-block;
+    color: var(--text-main);
+    background: rgba(163, 230, 53, 0.15);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: 1px solid rgba(163, 230, 53, 0.5);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(163, 230, 53, 0.1);
+}
+
+.waw-project .landing-content a[href*="/waw/"]:hover {
+    background: rgba(163, 230, 53, 0.25);
+    border-color: rgba(163, 230, 53, 0.75);
+    color: var(--text-main);
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(163, 230, 53, 0.35);
+}
+
 /* --- ARTICLES GRID --- */
 .articles-grid {
     display: grid;
@@ -1020,6 +1042,34 @@ main {
     background: transparent;
     border: none;
     padding: 0;
+}
+
+/* wAw Project - CTA più visibili */
+.waw-project .btn-enter {
+    background: linear-gradient(135deg, #a3e635 0%, #65a30d 100%);
+    color: #000;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(163, 230, 53, 0.3);
+    transition: all 0.3s ease;
+}
+
+.waw-project .btn-enter:hover {
+    background: linear-gradient(135deg, #bef264 0%, #84cc16 100%);
+    transform: translateY(-2px) scale(1.08);
+    box-shadow: 0 8px 20px rgba(163, 230, 53, 0.5);
+}
+
+.waw-project .project-card {
+    border: 2px solid #a3e635;
+    box-shadow: 0 4px 16px rgba(163, 230, 53, 0.15);
+}
+
+.waw-project .project-card:hover {
+    border-color: #bef264;
+    box-shadow: 0 8px 28px rgba(163, 230, 53, 0.3);
 }
 
 /* Landing Footer */

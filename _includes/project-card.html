@@ -2,7 +2,7 @@
 <div class="project-card">
     <div class="project-header">
         <span class="project-emoji">{{ project.emoji | default: "📦" }}</span>
-        <h3>{{ project.subsection | capitalize }}</h3>
+        <h3>{{ project.title }}</h3>
     </div>
     
     {% if project.project_tagline %}
@@ -28,6 +28,6 @@
     </div>
     
     <a href="{{ project.url | relative_url }}" class="btn-enter">
-        Esplora {{ project.subsection | capitalize }}
+        Esplora
     </a>
 </div>
