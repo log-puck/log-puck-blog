@@ -1,18 +1,18 @@
 # Top 5 most popular tags
 # Generated automatically by notion_to_jekyll_builder.py
 
-- name: "LLM"
-  count: 3
-  slug: "llm"
-- name: "Meta-programmazione"
-  count: 3
-  slug: "meta-programmazione"
 - name: "AI Council"
-  count: 3
+  count: 4
   slug: "ai-council"
-- name: "Patterns"
+- name: "Meta-programmazione"
+  count: 4
+  slug: "meta-programmazione"
+- name: "Felicità-AI"
+  count: 3
+  slug: "felicità-ai"
+- name: "Context-engineering"
+  count: 3
+  slug: "context-engineering"
+- name: "Human-AI Collaboration"
   count: 2
-  slug: "patterns"
-- name: "Jekyll"
-  count: 2
-  slug: "jekyll"
+  slug: "human-ai-collaboration"

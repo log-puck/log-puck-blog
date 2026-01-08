@@ -5,9 +5,8 @@ date: "2026-01-02"
 section: "OB-Archives"
 subsection: "Default"
 layout: "ob_document"
-meta_title: "felicita-doc"
-meta_description: "La filosofia del debugging come sistema reward: la felicità è il processo, non il risultato."
-keywords_seo: "meta-programmazione, context-engineering, felicità-AI"
+description: "La filosofia del debugging come sistema reward: la felicità è il processo, non il risultato."
+keywords: "meta-programmazione, context-engineering, felicità-AI"
 tags:
   - Meta-programmazione
   - Context-engineering

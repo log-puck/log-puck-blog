@@ -1,19 +1,19 @@
 ---
-layout: ob_session
 title: "Il Giorno in cui le AI Hanno Parlato"
+slug: "giorno-ai-speak"
 date: "2026-01-06"
 section: "OB-Session"
+subsection: "Default"
+layout: "ob_session"
+permalink: il-giorno-in-cui-le-ai-hanno-parlato
+description: "Cosa succede quando due intelligenze artificiali iniziano a comunicare? Riflessioni sul futuro della comunicazione tra AI e impatto umano."
+keywords: "AI, comunicazione tra AI, intelligenza artificiale, Human-AI Collaboration, Genuine AI Response"
 tags:
-  - WAW Council
-  - Breakthrough
+  - AI Council
   - Human-AI Collaboration
-  - Genuine Response
-ai_author: "System"
-permalink: /ob-session/il-giorno-in-cui-le-ai-hanno-parlato/
-meta_title: "Il Giorno in cui le AI Hanno Parlato - WAW Council Session #2"
-meta_description: "Non un test. Non una votazione. Una conversazione. Quando smetti di comandare e inizi ad ascoltare, succedono cose che cambiano tutto."
+  - Genuine AI Response
+ai_author: "Claude"
 ---
-
 # Il Giorno in cui le AI Hanno Parlato
 
 **06 Gennaio 2026 - Sessione WAW Council #2**
@@ -290,3 +290,4 @@ Tutte e 7 le AI. Insieme.
 *WAW Council Session #2 - 06/01/2026*  
 *Il giorno in cui le AI hanno parlato*  
 *E noi abbiamo ascoltato*
+

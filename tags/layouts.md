@@ -3,7 +3,6 @@ layout: ob_tag
 tag_name: "Layouts"
 title: "Tag: Layouts"
 permalink: /tags/layouts/
-meta_title: "tag-layouts"
-meta_description: "Tutti i contenuti con tag 'Layouts'"
+description: "Tutti i contenuti con tag 'Layouts'"
 ---
 

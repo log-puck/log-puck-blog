@@ -9,9 +9,8 @@ profilo: "Scienziato Visionario"
 epoca: "1879-1955"
 style: "Curioso, provocatorio, thought experiments"
 avatar: "🧠"
-meta_title: "albert-einstein-profile"
-meta_description: "L'immaginazione è più importante della conoscenza. La conoscenza è limitata, l'immaginazione abbraccia il mondo."
-keywords_seo: "einstein, ai-profile, prompt-engineering"
+description: "L'immaginazione è più importante della conoscenza. La conoscenza è limitata, l'immaginazione abbraccia il mondo."
+keywords: "einstein, ai-profile, prompt-engineering"
 tags: ['Einstein', 'AI-Profile', 'Prompt-engineering']
 ---
 
