@@ -5,14 +5,7 @@ layout: default
 <article class="document-page">
     <div class="container">
         <header class="document-header">
-            {% if page.tags %}
-            <div class="document-tags">
-                {% for tag in page.tags %}
-                {% assign tag_slug = tag | downcase | replace: ' ', '-' | replace: '_', '-' %}
-                <a href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}" class="tag">{{ tag }}</a>
-                {% endfor %}
-            </div>
-            {% endif %}
+            {% include tags-list.html %}
             <h1 class="document-title">{{ page.title }}</h1>
             {% if page.meta_description %}
             <p class="document-subtitle">{{ page.meta_description }}</p>

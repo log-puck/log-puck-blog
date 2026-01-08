@@ -37,38 +37,8 @@ layout: default
             {% if progetti.size > 0 %}
             <div class="projects-grid">
                 {% for progetto in progetti %}
-            <div class="project-card">
-                <div class="project-header">
-                    <span class="project-emoji">{{ progetto.emoji | default: "📦" }}</span>
-                    <h3>{{ progetto.subsection | capitalize }}</h3>
-                </div>
-                
-                {% if progetto.project_tagline %}
-                <p class="project-tagline">{{ progetto.project_tagline }}</p>
-                {% endif %}
-                
-                {% if progetto.project_description %}
-                <p class="project-description">{{ progetto.project_description }}</p>
-                {% endif %}
-                
-                <div class="project-meta">
-                    {% if progetto.project_status %}
-                    <p><strong>Status:</strong> {{ progetto.project_status }}</p>
-                    {% endif %}
-                    
-                    {% if progetto.ai_models %}
-                    <p><strong>AI:</strong> {{ progetto.ai_models }}</p>
-                    {% endif %}
-                    
-                    {% if progetto.project_goal %}
-                    <p><strong>Obiettivo:</strong> {{ progetto.project_goal }}</p>
-                    {% endif %}
-                </div>
-                
-                <a href="{{ progetto.url | relative_url }}" class="btn-enter">
-                    Esplora {{ progetto.subsection | capitalize }}
-                </a>
-            </div>
+                {% assign project = progetto %}
+                {% include project-card.html %}
                 {% endfor %}
             </div>
             {% endif %}
@@ -80,38 +50,8 @@ layout: default
                     {% assign expected_url = '/ob-progetti/' | append: subsection_slug | append: '/' %}
                     {% assign item_url_clean = item.url | remove: '/index.html' | remove: '.html' %}
                     {% if item_url_clean == expected_url %}
-            <div class="project-card">
-                <div class="project-header">
-                    <span class="project-emoji">{{ item.emoji | default: "📦" }}</span>
-                    <h3>{{ item.subsection | capitalize }}</h3>
-                </div>
-                
-                {% if item.project_tagline %}
-                <p class="project-tagline">{{ item.project_tagline }}</p>
-                {% endif %}
-                
-                {% if item.project_description %}
-                <p class="project-description">{{ item.project_description }}</p>
-                {% endif %}
-                
-                <div class="project-meta">
-                    {% if item.project_status %}
-                    <p><strong>Status:</strong> {{ item.project_status }}</p>
-                    {% endif %}
-                    
-                    {% if item.ai_models %}
-                    <p><strong>AI:</strong> {{ item.ai_models }}</p>
-                    {% endif %}
-                    
-                    {% if item.project_goal %}
-                    <p><strong>Obiettivo:</strong> {{ item.project_goal }}</p>
-                    {% endif %}
-                </div>
-                
-                <a href="{{ item.url | relative_url }}" class="btn-enter">
-                    Esplora {{ item.subsection | capitalize }}
-                </a>
-            </div>
+                    {% assign project = item %}
+                    {% include project-card.html %}
                     {% endif %}
                 {% endfor %}
             </div>

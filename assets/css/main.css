@@ -1,9 +1,9 @@
 /* --- VARIABILI CORE (NUOVA PALETTE) --- */
 :root {
-    --bg-main: #fffef7;        /* Panna chiaro */
-    --text-main: #1a1a1a;      /* Nero più morbido */
-    --accent-yellow: #99ff00;   /* Lime (mantieni) */
-    --accent-yellow-dark: #7acc00;  /* 👈 NUOVO */
+    --bg-main: #fffef7;
+    --text-main: #1a1a1a;
+    --accent-yellow: #99ff00;
+    --accent-yellow-dark: #7acc00;
     --accent-lime: rgba(153, 255, 0, 0.60);
     --accent-magenta: #fa93fa;  /* Magenta (mantieni) */
     --border-color: #2a2a2a;    /* Grigio scuro */
@@ -29,29 +29,20 @@ main {
 
 .container {
     max-width: 1100px;
-    margin: auto;
-    margin-inline: auto;
-    padding-inline: 20px;
-}
-
-/* --- HEADER & NAV --- */
-.header,
-.site-header {
-    background: var(--slot-bg);
-    border-bottom: 2px solid var(--border-color);
-    padding: 1rem 0;
-    position: sticky; /* 👈 Sticky al top */
-    top: 0;
-    z-index: 10001; /* 👈 Più alto del breadcrumb per stare sopra */
-}
-
-.container {
-    max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
 }
 
-.header .container,
+/* --- HEADER & NAV --- */
+.site-header {
+    background: var(--slot-bg);
+    border-bottom: 2px solid var(--border-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 10001;
+}
+
 .site-header .container {
     display: flex;
     align-items: center;
@@ -70,8 +61,8 @@ main {
 .logo a:hover,
 .logo a:visited,
 .logo a:active {
-    text-decoration: none !important; /* 👈 Rimuove sottolineatura dal link (tutti gli stati) */
-    color: inherit; /* Eredita il colore dal parent */
+    text-decoration: none !important;
+    color: inherit;
 }
 
 /* --- NAVIGATION --- */
@@ -193,39 +184,38 @@ main {
 
 /* --- MOBILE NAVIGATION --- */
 @media (max-width: 768px) {
-    .header .container,
     .site-header .container {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        gap: 0; /* regola il respiro tra logo e nav */
+        gap: 0;
     }
     
     .logo {
         display: flex;
         align-items: center;
-        height: 100%; /* Allinea con l'altezza del container */
+        height: 100%;
     }
     
     .nav-toggle {
         display: flex;
-        flex-direction: column; /* 👈 IMPORTANTE: mantiene le barrette in verticale */
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         z-index: 1001;
         margin-left: auto;
-        height: 100%; /* Allinea con l'altezza del container */
-        padding: 0.5rem; /* Mantieni padding per area cliccabile */
-        gap: 5px; /* Spazio tra le barrette */
+        height: 100%;
+        padding: 0.5rem;
+        gap: 5px;
     }
     
     .nav-toggle span {
-        display: block !important; /* Forza display block */
+        display: block !important;
         width: 25px;
         height: 3px;
         background: var(--text-main);
-        margin: 0; /* Rimuovi margin, usa gap del parent */
-        flex-shrink: 0; /* Evita che si restringano */
+        margin: 0;
+        flex-shrink: 0;
     }
     
     .nav-menu {
@@ -244,7 +234,7 @@ main {
         transition: right 0.3s ease;
         z-index: 999;
         box-shadow: -4px 0 12px rgba(0,0,0,0.1);
-        overflow-y: auto; /* 👈 Scroll se troppo lungo */
+        overflow-y: auto;
     }
     
     .nav-menu.active {
@@ -268,7 +258,7 @@ main {
     }
     
     .dropdown-menu {
-        position: static; /* 👈 NON absolute! */
+        position: static;
         opacity: 1;
         visibility: visible;
         transform: none;
@@ -277,13 +267,13 @@ main {
         background: var(--slot-bg);
         padding: 0;
         margin: 0;
-        max-height: 0; /* 👈 Chiuso di default */
+        max-height: 0;
         overflow: hidden;
         transition: max-height 0.4s ease, padding 0.4s ease;
     }
     
     .nav-dropdown.open .dropdown-menu {
-        max-height: 500px; /* 👈 Alto abbastanza */
+        max-height: 500px;
         padding: 0.5rem 0;
     }
     
@@ -293,7 +283,7 @@ main {
     }
     
     .dropdown-menu a {
-        padding: 0.75rem 1rem 0.75rem 2rem; /* Indent */
+        padding: 0.75rem 1rem 0.75rem 2rem;
         display: block;
         width: 100%;
     }
@@ -324,8 +314,8 @@ main {
 
 /* --- BREADCRUMB --- */
 .breadcrumb-wrapper {
-    position: relative; /* 👈 Non più sticky */
-    z-index: 1; /* 👈 Z-index normale */
+    position: relative;
+    z-index: 1;
     background: var(--slot-bg);
     padding: 1rem 0;
     border-bottom: 1px solid var(--border-color);
@@ -395,24 +385,22 @@ main {
     border: 1px solid var(--border-color);
     text-decoration: none;
     transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
-    text-decoration: none; /* 👈 Per tag cliccabili */
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     align-items: center;
     vertical-align: middle;
     line-height: 1.2;
     box-sizing: border-box;
     cursor: pointer;
-    font-weight: 600;
     letter-spacing: 0.05em;
     gap: 0.4rem;
 }
 
 .tag:hover { 
-    background-color: rgba(153, 255, 0, 0.60); /* lime con trasparenza 75% */
-    border-color: var(--accent-yellow);
-    font-weight: 600; /* più grassetto */
+    background-color: rgba(153, 255, 0, 0.60);
+    border-color: var(--accent-yellow-dark);
     border: 2px solid var(--accent-yellow-dark);
-    text-decoration: none; /* 👈 Nessuna sottolineatura al hover */
+    font-weight: 600;
+    text-decoration: none;
     color: #111;
 }
 
@@ -520,8 +508,8 @@ main {
     border: 2px solid var(--border-color);
     transition: all 0.3s ease;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    max-width: 400px; /* 👈 NUOVO - limita larghezza */
-    justify-self: center; /* 👈 NUOVO - centra se sola */
+    max-width: 400px;
+    justify-self: center;
 }
 
 .article-card:hover {
@@ -599,28 +587,13 @@ main {
 .card:hover {
     background-color: var(--accent-magenta);
     border-color: var(--accent-magenta);
-  }
-  
-  .card:hover h3,
-  .card:hover p,
-  .card:hover .btn-enter {
-    color: #111;
-  }
-  .card:hover h3 {
-    color: #111;
-  }
-  .card:hover p {
-    color: #111;
-  }
-  .card:hover .btn-enter {
-    color: #111;
-  }
+}
 
-  /* CTA reacts when hovering the whole card */
-.card:hover .btn-enter::before {
-    color: var(--accent-lime) !important;
-    border-bottom-color: var(--accent-lime) !important;
-  }
+.card:hover h3,
+.card:hover p,
+.card:hover .btn-enter {
+    color: #111;
+}
   
   .card:hover .btn-enter::after {
     transform: translateX(2px);
@@ -643,10 +616,6 @@ main {
     transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-.btn-enter:hover {
-    border-bottom-color: var(--accent-lime) !important;
-}
-
 .btn-enter::after {
     content: "→";
     display: inline-flex;
@@ -664,10 +633,10 @@ main {
 
 .btn-enter:hover::after {
     transform: translateX(2px);
-    background-color: var(--accent-lime) !important;
-    border-color: var(--accent-lime) !important;
-    color: #111 !important;
-  }
+    background-color: var(--accent-lime);
+    border-color: var(--accent-lime);
+    color: #111;
+}
 
 /* --- FEED TABLE --- */
 .feed-section {
@@ -761,8 +730,8 @@ main {
 .article-content {
     font-size: 1.1rem;
     line-height: 1.8;
-    max-width: 750px; /* invece di 800px */
-    margin: 0 auto; /* centra */
+    max-width: 750px;
+    margin: 0 auto;
 }
 
 .article-content h1,
@@ -872,7 +841,7 @@ main {
 .persona-content {
     max-width: 750px;
     margin: 0 auto;
-    padding: 0 2rem; /* 👈 RESPIRO LATERALE */
+    padding: 0 2rem;
     font-size: 1.1rem;
     line-height: 1.8;
 }
@@ -929,7 +898,7 @@ main {
 .ai-card-avatar {
     font-size: 4rem;
     margin-bottom: 1rem;
-    transition: transform 0.3s; /* 👈 IMPORTANTE */
+    transition: transform 0.3s;
 }
 
 .ai-card-meta {
@@ -946,7 +915,7 @@ main {
 }
 
 .ai-landing .article-card:hover .ai-card-avatar {
-    transform: scale(1.15) rotate(5deg); /* 👈 ANIMAZIONE */
+    transform: scale(1.15) rotate(5deg);
 }
 
 /* ===================================
@@ -1133,11 +1102,11 @@ main {
 
 /* Document Content - Academic Style */
 .document-content {
-    max-width: 700px; /* Più stretto per leggibilità */
+    max-width: 700px;
     margin: 0 auto;
     padding: 0 2rem;
     font-size: 1.05rem;
-    line-height: 1.9; /* Più spaziato */
+    line-height: 1.9;
     color: var(--text-main);
 }
 
@@ -1167,7 +1136,7 @@ main {
 
 .document-content p {
     margin-bottom: 1.5rem;
-    text-align: justify; /* Giustificato stile paper */
+    text-align: justify;
 }
 
 .document-content ul,
@@ -1271,7 +1240,7 @@ main {
 /* --- FOOTER --- */
 .site-footer {
     padding: 5rem 0;
-    background: var(--footer-bg);  /* Invece di var(--border-color) */
+    background: var(--footer-bg);
     color: var(--bg-main);
     text-align: center;
     margin-top: 4rem;
@@ -1295,15 +1264,15 @@ main {
     display: block;
     width: min(520px, 85%);
     margin: 0 auto 2rem;
-    border-top: 2px solid var(--border-color); 
+    border-top: 2px solid var(--border-color);
 }
 
 .koan::after {
-        content: "";
-        display: block;
-        width: min(520px, 85%);
-        margin: 2rem auto 0;
-        border-top: 2px solid var(--border-color); 
+    content: "";
+    display: block;
+    width: min(520px, 85%);
+    margin: 2rem auto 0;
+    border-top: 2px solid var(--border-color);
 }
 
 .footer-nav a { 
@@ -1345,5 +1314,5 @@ main {
     .persona-content pre { font-size: 0.9em; }
     .document-content { padding: 0 1rem; font-size: 1rem;}
     .document-title { font-size: 2rem; }
-    .document-content p {text-align: left; } /* No justify su mobile */
+    .document-content p {text-align: left; }
 }

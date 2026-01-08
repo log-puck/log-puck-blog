@@ -5,14 +5,7 @@ layout: default
 <article class="article-page">
     <div class="container">
         <header class="article-header">
-            {% if page.tags %}
-            <div class="article-tags">
-                {% for tag in page.tags %}
-                {% assign tag_slug = tag | downcase | replace: ' ', '-' | replace: '_', '-' %}
-                <a href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}" class="tag">{{ tag }}</a>
-                {% endfor %}
-            </div>
-            {% endif %}
+            {% include tags-list.html %}
             <h1 class="article-title">{{ page.title }}</h1>
             <div class="article-meta">
                 <time datetime="{{ page.date | date_to_xmlschema }}">

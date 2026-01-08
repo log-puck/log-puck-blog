@@ -1,0 +1,33 @@
+<!-- Project Card Component - Riutilizzabile -->
+<div class="project-card">
+    <div class="project-header">
+        <span class="project-emoji">{{ project.emoji | default: "📦" }}</span>
+        <h3>{{ project.subsection | capitalize }}</h3>
+    </div>
+    
+    {% if project.project_tagline %}
+    <p class="project-tagline">{{ project.project_tagline }}</p>
+    {% endif %}
+    
+    {% if project.project_description %}
+    <p class="project-description">{{ project.project_description }}</p>
+    {% endif %}
+    
+    <div class="project-meta">
+        {% if project.project_status %}
+        <p><strong>Status:</strong> {{ project.project_status }}</p>
+        {% endif %}
+        
+        {% if project.ai_models %}
+        <p><strong>AI:</strong> {{ project.ai_models }}</p>
+        {% endif %}
+        
+        {% if project.project_goal %}
+        <p><strong>Obiettivo:</strong> {{ project.project_goal }}</p>
+        {% endif %}
+    </div>
+    
+    <a href="{{ project.url | relative_url }}" class="btn-enter">
+        Esplora {{ project.subsection | capitalize }}
+    </a>
+</div>

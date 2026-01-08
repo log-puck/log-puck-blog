@@ -5,14 +5,7 @@ layout: default
 <article class="persona-page">
     <div class="container">
         <header class="persona-header">
-            {% if page.tags %}
-            <div class="article-tags">
-                {% for tag in page.tags %}
-                {% assign tag_slug = tag | downcase | replace: ' ', '-' | replace: '_', '-' %}
-                <a href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}" class="tag">{{ tag }}</a>
-                {% endfor %}
-            </div>
-            {% endif %}
+            {% include tags-list.html %}
             <div class="persona-avatar-large">{{ page.avatar }}</div>
             <h1 class="persona-title">{{ page.title }}</h1>
             <p class="persona-subtitle">{{ page.profilo }} | {{ page.epoca }}</p>
