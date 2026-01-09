@@ -12,6 +12,8 @@ on:
 jobs:
   generate-tags:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Necessario per fare push al repository
     
     steps:
       # 1. Checkout del repo

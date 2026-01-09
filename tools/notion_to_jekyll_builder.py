@@ -6,7 +6,7 @@ Converte contenuti da Notion a file Markdown per Jekyll
 import requests
 import os
 import datetime
-from notion_config import NOTION_API_KEY, DB_CONTENT_ID, DB_PERSONAS_ID
+from notion_config import NOTION_API_KEY, DB_CONTENT_ID, DB_PERSONAS_ID, DB_PROJECT_ID
 
 # ============================================================================
 # 1. CONFIGURAZIONE
@@ -21,7 +21,7 @@ LAYOUT_MAP = {
     "ai": "ob_ai",
     "musica": "ob_musicaAI",
     "giochi": "ob_giochiAI",
-    "project": "ob_progetto",
+    "project": "ob_progetti",
     "archive": "ob_archive",
     "tag": "ob_tag"
 }
@@ -99,7 +99,7 @@ def get_property_value(prop):
     """
     Estrae il valore 'pulito' da un oggetto proprietà Notion.
     
-    Gestisce: title, rich_text, select, multi_select, date, relation
+    Gestisce: title, rich_text, select, multi_select, date, relation, checkbox
     
     Args:
         prop: Oggetto proprietà Notion
@@ -133,6 +133,8 @@ def get_property_value(prop):
         return None
     elif prop_type == "relation":
         return [rel.get("id") for rel in prop.get("relation", [])]
+    elif prop_type == "checkbox":
+        return prop.get("checkbox", False)
     return None
 
 def update_infra_status(infra_page_id, status, error_log=""):
@@ -406,7 +408,8 @@ def create_frontmatter(props, layout_name):
     fm += f'date: "{props.get("date", "")}"\n'
     fm += f'section: "{props.get("section", "")}"\n'
     
-    if props.get("subsection"):
+    # Includi subsection solo se non è "Default"
+    if props.get("subsection") and props.get("subsection") != "Default":
         fm += f'subsection: "{props.get("subsection")}"\n'
         
     fm += f'layout: "{layout_name}"\n'
@@ -414,10 +417,17 @@ def create_frontmatter(props, layout_name):
     if props.get("permalink"):
         fm += f'permalink: {props.get("permalink")}\n'
     
+    # Description viene da "Description" in Notion
     if props.get("description"):
         fm += f'description: "{props.get("description")}"\n'
+    
     if props.get("keywords"):
         fm += f'keywords: "{props.get("keywords")}"\n'
+    
+    # Campi SEO aggiuntivi per landing pages
+    if props.get("tagline"):
+        fm += f'tagline: "{props.get("tagline")}"\n'
+    # keywords_seo rimosso (doppione di keywords)
     
     if props.get("tags"):
         fm += "tags:\n"
@@ -431,6 +441,37 @@ def create_frontmatter(props, layout_name):
         fm += "ai_participants:\n"
         for participant in props.get("ai_participants"):
             fm += f'  - "{participant}"\n'
+    
+    # Project-specific fields
+    if props.get("project_status"):
+        fm += f'project_status: "{props.get("project_status")}"\n'
+    
+    # Debug per show_footer e footer_text
+    show_footer_val = props.get("show_footer")
+    if props.get("title") == "OB-Progetti":
+        log(f"DEBUG [create_frontmatter] show_footer_val: {show_footer_val} (type: {type(show_footer_val)}, is not None: {show_footer_val is not None})", "DEBUG")
+    
+    if show_footer_val is not None:
+        fm += f'show_footer: {str(show_footer_val).lower()}\n'
+    
+    footer_text_val = props.get("footer_text")
+    if props.get("title") == "OB-Progetti":
+        log(f"DEBUG [create_frontmatter] footer_text_val: {footer_text_val} (type: {type(footer_text_val)})", "DEBUG")
+    
+    if footer_text_val:
+        fm += f'footer_text: "{footer_text_val}"\n'
+    if props.get("use_supabase_data"):
+        fm += f'use_supabase_data: {str(props.get("use_supabase_data")).lower()}\n'
+    if props.get("supabase_table"):
+        fm += f'supabase_table: "{props.get("supabase_table")}"\n'
+    if props.get("ai_models"):
+        fm += "ai_models:\n"
+        for model in props.get("ai_models"):
+            fm += f'  - "{model}"\n'
+    if props.get("personas"):
+        fm += "personas:\n"
+        for persona in props.get("personas"):
+            fm += f'  - "{persona}"\n'
             
     fm += "---\n"
     return fm
@@ -510,10 +551,42 @@ def process_content_item(item, infra_id_to_update=None):
     layout_notion = get_property_value(props_raw.get("Layout"))
     section = get_property_value(props_raw.get("Section"))
     subsection = get_property_value(props_raw.get("Subsection"))
-    description = get_property_value(props_raw.get("Meta Description"))
-    keywords = get_property_value(props_raw.get("Keywords SEO"))
+    # Description è stato rinominato da "Meta Description"
+    description = get_property_value(props_raw.get("Description"))
+    # Keywords è stato rinominato da "Keywords SEO"
+    keywords = get_property_value(props_raw.get("Keywords"))
     tags = get_property_value(props_raw.get("Tags"))
     permalink = get_property_value(props_raw.get("Permalink"))
+    
+    # Campi aggiuntivi per landing pages
+    tagline = get_property_value(props_raw.get("Tagline"))
+    
+    # show_footer e footer_text vengono da DB PROJECT tramite relazione
+    # Segui relazione a DB PROJECT se presente
+    show_footer = None
+    footer_text = None
+    db_project_ids = get_property_value(props_raw.get("DB PROJECT"))
+    
+    if db_project_ids:
+        # Prendi il primo progetto collegato
+        project_id = db_project_ids[0]
+        project_page = get_page_by_id(project_id)
+        
+        if project_page:
+            project_props = project_page.get("properties", {})
+            # Estrai show_footer e footer_text da DB PROJECT
+            show_footer = get_property_value(project_props.get("Show Footer"))
+            footer_text = get_property_value(project_props.get("Footer Text"))
+            
+            # Debug: log campi estratti
+            if title == "OB-Progetti":
+                log(f"DEBUG [OB-Progetti] Relazione DB PROJECT trovata: {project_id}", "DEBUG")
+                log(f"DEBUG [OB-Progetti] show_footer da DB PROJECT: {show_footer}", "DEBUG")
+                log(f"DEBUG [OB-Progetti] footer_text da DB PROJECT: {footer_text}", "DEBUG")
+    else:
+        # Debug: nessuna relazione trovata
+        if title == "OB-Progetti":
+            log(f"DEBUG [OB-Progetti] Nessuna relazione DB PROJECT trovata", "DEBUG")
     
     # Validazione campi obbligatori
     if not all([slug, date, layout_notion, section]):
@@ -538,27 +611,19 @@ def process_content_item(item, infra_id_to_update=None):
                     build_path_override = os.path.join(OUTPUT_DIR, raw_path)
 
     # 3. Recupero Body Content
-    session_ids = get_property_value(props_raw.get("DB OB-SESSIONS"))
-    body_content = ""
+    # Body sempre dalla pagina DB_CONTENT stessa
+    page_id = item.get("id")
+    body_content = get_page_blocks(page_id)
+    
+    # 4. Estrai AI metadata da sessione (se presente)
     ai_author = None
     ai_participants = []
+    session_ids = get_property_value(props_raw.get("DB OB-SESSIONS"))
     
     if session_ids:
         latest_sid = get_latest_session_id(session_ids)
-        body_content = get_page_blocks(latest_sid)
-        
-        # Estrai AI metadata dalla sessione
         session_page = get_page_by_id(latest_sid)
         ai_author, ai_participants = extract_ai_metadata(session_page)
-    else:
-        raw_content = get_property_value(props_raw.get("Content"))
-        if raw_content:
-            body_content = raw_content
-        else:
-            # Fallback: prova a estrarre da proprietà "Body" con rich_text
-            body_rich_text = props_raw.get("Body", {}).get("rich_text", [])
-            if body_rich_text:
-                body_content = "".join([rt.get("plain_text", "") for rt in body_rich_text])
     
     # Validazione body content
     if not body_content:
@@ -567,7 +632,7 @@ def process_content_item(item, infra_id_to_update=None):
             update_infra_status(infra_id_to_update, "error", "No content found")
         return False
 
-    # 4. Genera percorso file
+    # 5. Genera percorso file
     jekyll_layout = LAYOUT_MAP.get(layout_notion, "default")
     
     if build_path_override:
@@ -595,10 +660,34 @@ def process_content_item(item, infra_id_to_update=None):
         "tags": tags,
         "permalink": permalink,
         "ai_author": ai_author,
-        "ai_participants": ai_participants
+        "ai_participants": ai_participants,
+        "tagline": tagline,
+        "show_footer": show_footer,
+        "footer_text": footer_text
     }
     
+    # Debug: verifica valori passati a create_frontmatter
+    if title == "OB-Progetti":
+        log(f"DEBUG [OB-Progetti] fm_props['show_footer']: {fm_props.get('show_footer')} (type: {type(fm_props.get('show_footer'))})", "DEBUG")
+        log(f"DEBUG [OB-Progetti] fm_props['footer_text']: {fm_props.get('footer_text')} (type: {type(fm_props.get('footer_text'))})", "DEBUG")
+    
+    # Rimuovi eventuale --- iniziale dal body (può essere rimasto da Notion)
+    if body_content.strip().startswith("---"):
+        body_content = body_content.strip()[3:].lstrip() + "\n"
+    
     full_content = create_frontmatter(fm_props, jekyll_layout) + body_content
+    
+    # Debug: verifica frontmatter generato
+    if title == "OB-Progetti":
+        frontmatter_only = full_content.split("---\n")[1] if "---\n" in full_content else ""
+        if "show_footer" in frontmatter_only:
+            log(f"DEBUG [OB-Progetti] ✅ show_footer presente nel frontmatter generato", "DEBUG")
+        else:
+            log(f"DEBUG [OB-Progetti] ❌ show_footer NON presente nel frontmatter generato", "DEBUG")
+        if "footer_text" in frontmatter_only:
+            log(f"DEBUG [OB-Progetti] ✅ footer_text presente nel frontmatter generato", "DEBUG")
+        else:
+            log(f"DEBUG [OB-Progetti] ❌ footer_text NON presente nel frontmatter generato", "DEBUG")
     
     return write_jekyll_file(file_path, full_content, infra_id_to_update)
 
@@ -799,7 +888,7 @@ def generate_tag_pages():
         log("Nessun tag trovato nei file", "WARN")
         return
     
-    log(f"Trovati {len(all_tags)} tag unici: {', '.join(sorted(all_tags))}")
+    log(f"Trovati {len(all_tags)} tag unici")
     
     generated_count = 0
     
@@ -822,7 +911,9 @@ description: "Tutti i contenuti con tag '{tag}'"
         try:
             with open(filepath, "w", encoding="utf-8") as f:
                 f.write(frontmatter)
+            """
             log(f"✅ [OK] Tag page: {tag} → {filepath}", "INFO")
+            """
             generated_count += 1
         except Exception as e:
             log(f"ERROR writing {filepath}: {str(e)}", "ERROR")
@@ -984,7 +1075,166 @@ def cleanup_orphan_tag_pages():
         log("--- CLEANUP: Nessuna pagina tag orfana trovata. ---")
 
 # ============================================================================
-# 7. MAIN ENTRY POINT
+# 8. PROJECT PROCESSING
+# ============================================================================
+
+def process_projects():
+    """
+    Processa items da DB_PROJECT e genera pagine progetti.
+    Supporta relazioni a DB_CONTENT, AI_MODELS, PERSONAS.
+    """
+    log("Inizio generazione PROGETTI...")
+    
+    if not DB_PROJECT_ID or DB_PROJECT_ID == "TBD":
+        log("DB_PROJECT_ID non configurato, skip progetti", "WARN")
+        return
+    
+    filter_ready = {
+        "filter": {
+            "property": "Status",
+            "select": {
+                "equals": "Ready for CONTENT"
+            }
+        }
+    }
+    
+    project_items = get_notion_data(DB_PROJECT_ID, filter_ready)
+    log(f"Trovati {len(project_items)} progetti da pubblicare.")
+    
+    generated_count = 0
+    
+    for item in project_items:
+        props_raw = item.get("properties", {})
+        
+        # 1. Estrai metadati base
+        name = get_property_value(props_raw.get("Name"))
+        date = get_property_value(props_raw.get("Date"))
+        subsection = get_property_value(props_raw.get("Subsection"))
+        internal_section = get_property_value(props_raw.get("Internal Section"))
+        project_status = get_property_value(props_raw.get("Project Status"))
+        show_footer = props_raw.get("Show Footer", {}).get("checkbox", False)
+        footer_text = get_property_value(props_raw.get("Footer Text"))
+        use_supabase = props_raw.get("Use Supabase Data", {}).get("checkbox", False)
+        supabase_table = get_property_value(props_raw.get("Supabase Table"))
+        
+        # 2. Segui relation CONTENT Item
+        content_relation_ids = get_property_value(props_raw.get("CONTENT Item"))
+        
+        if not content_relation_ids:
+            log(f"SKIP [NO CONTENT]: {name}", "WARN")
+            continue
+        
+        content_id = content_relation_ids[0]
+        content_page = get_page_by_id(content_id)
+        
+        if not content_page:
+            log(f"ERROR fetching content page for: {name}", "ERROR")
+            continue
+        
+        content_props = content_page.get("properties", {})
+        
+        # 3. Estrai dati da DB_CONTENT
+        title = get_property_value(content_props.get("Title"))
+        slug = get_property_value(content_props.get("Slug"))
+        section = get_property_value(content_props.get("Section"))
+        layout_notion = get_property_value(content_props.get("Layout"))
+        description = get_property_value(content_props.get("Description"))
+        keywords = get_property_value(content_props.get("Keywords"))
+        tags = get_property_value(content_props.get("Tags"))
+        permalink = get_property_value(content_props.get("Permalink"))
+        
+        # Validazione campi obbligatori
+        if not all([slug, date, layout_notion, section]):
+            missing = []
+            if not slug: missing.append("Slug")
+            if not date: missing.append("Date")
+            if not layout_notion: missing.append("Layout")
+            if not section: missing.append("Section")
+            log(f"SKIP [MISSING FIELDS]: {name} - Mancanti: {', '.join(missing)}", "WARN")
+            continue
+        
+        # 4. Recupero Body Content
+        # Per progetti, il body è nella pagina DB_CONTENT direttamente
+        log(f"DEBUG: Tentativo lettura body da content_id: {content_id}", "DEBUG")
+        body_content = get_page_blocks(content_id)
+        log(f"DEBUG: Body recuperato, lunghezza: {len(body_content) if body_content else 0} caratteri", "DEBUG")
+        
+        if not body_content:
+            log(f"SKIP [NO BODY]: {name}", "WARN")
+            continue
+        
+        # 5. Segui relations AI Participants
+        ai_models = []
+        ai_participant_ids = get_property_value(props_raw.get("AI Participants"))
+        if ai_participant_ids:
+            for ai_id in ai_participant_ids:
+                ai_page = get_page_by_id(ai_id)
+                if ai_page:
+                    ai_name = get_property_value(ai_page['properties'].get('Name'))
+                    if ai_name:
+                        ai_models.append(ai_name)
+        
+        # 6. Segui relations DB PERSONAS
+        personas = []
+        persona_ids = get_property_value(props_raw.get("DB PERSONAS"))
+        if persona_ids:
+            for p_id in persona_ids:
+                p_page = get_page_by_id(p_id)
+                if p_page:
+                    p_name = get_property_value(p_page['properties'].get('Nome'))
+                    if p_name:
+                        personas.append(p_name)
+        
+        # 7. Genera percorso file
+        jekyll_layout = LAYOUT_MAP.get(layout_notion, "default")
+        
+        # Build path considerando Internal Section
+        if internal_section and internal_section != "Default":
+            internal_path = internal_section.lower().replace(" ", "-")
+            file_path = os.path.join(OUTPUT_DIR, "ob-progetti", subsection.lower(), internal_path, f"{slug}.md")
+        else:
+            file_path = os.path.join(OUTPUT_DIR, "ob-progetti", subsection.lower(), f"{slug}.md")
+        
+        # 8. Valida percorso
+        try:
+            validate_build_path(file_path)
+        except ValueError:
+            continue
+        
+        # 9. Crea frontmatter con tutti i campi
+        fm_props = {
+            "title": title,
+            "slug": slug,
+            "date": date,
+            "section": section,
+            "subsection": subsection,
+            "description": description,
+            "keywords": keywords,
+            "tags": tags,
+            "permalink": permalink,
+            "project_status": project_status,
+            "show_footer": show_footer,
+            "footer_text": footer_text,
+            "use_supabase_data": use_supabase,
+            "supabase_table": supabase_table,
+            "ai_models": ai_models,
+            "personas": personas
+        }
+        
+        # Rimuovi eventuale --- iniziale dal body (può essere rimasto da Notion)
+        if body_content.strip().startswith("---"):
+            body_content = body_content.strip()[3:].lstrip() + "\n"
+        
+        full_content = create_frontmatter(fm_props, jekyll_layout) + body_content
+        
+        # 10. Scrivi file
+        if write_jekyll_file(file_path, full_content):
+            generated_count += 1
+    
+    log(f"--- PROGETTI: Generati {generated_count} file. ---")
+
+# ============================================================================
+# 9. MAIN ENTRY POINT
 # ============================================================================
 
 def main():
@@ -1018,6 +1268,9 @@ def main():
     
     # Processa anche le personas
     process_personas()
+    
+    # Processa progetti da DB_PROJECT
+    process_projects()
     
     # Genera pagine tag
     generate_tag_pages()

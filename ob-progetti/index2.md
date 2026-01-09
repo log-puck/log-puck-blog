@@ -1,20 +1,16 @@
 ---
+layout: ob_progetti
 title: "OB-Progetti"
-slug: "index"
-date: "2026-01-06"
-section: "OB-Progetti"
-layout: "ob_progetti"
-permalink: /ob-progetti/
-description: "Progetti sperimentali dove human e AI collaborano: Musica (emozioni), Giochi (logica), WAW Council (decisioni democratiche)."
-keywords: "AI collaboration, human-AI projects, experimental AI, collaborative intelligence"
 tagline: "Esperimenti collaborativi human-AI"
-tags:
-  - Human-AI Collaboration
-  - Collaborative Intelligence
-  - Meta-programmazione
+section: "OB-Progetti"
+permalink: /ob-progetti/
 show_footer: true
 footer_text: "OB-Progetti - Laboratorio Sperimentale Human-AI dal 2026"
+meta_title: "OB-Progetti - Esperimenti Collaborativi Human-AI"
+meta_description: "Progetti sperimentali dove human e AI collaborano: Musica (emozioni), Giochi (logica), WAW Council (decisioni democratiche)."
+keywords_seo: "AI collaboration, human-AI projects, experimental AI, collaborative intelligence"
 ---
+
 Questo è il laboratorio dove esploriamo cosa succede quando umani e intelligenze artificiali lavorano insieme su terreni inaspettati. Non come tool da usare, ma come partecipanti da ascoltare.
 
 ---
