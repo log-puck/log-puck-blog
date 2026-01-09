@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+<article class="document-page musica-track">
+    <div class="container">
+        <header class="document-header">
+            {% include tags-list.html %}
+            <h1 class="document-title">{{ page.title }}</h1>
+            
+            <div class="document-meta">
+                <time class="document-date">{{ page.date | date: "%d %B %Y" }}</time>
+                {% if page.genere %}
+                <span class="separator">|</span>
+                <span class="track-genre">🎵 {{ page.genere }}</span>
+                {% endif %}
+            </div>
+        </header>
+
+        <div class="document-content">
+            {{ content }}
+        </div>
+
+        <footer class="document-footer">
+            <p class="document-version">Traccia {{ page.version | default: "1.0" }} | {{ page.date | date: "%d/%m/%Y" }}</p>
+        </footer>
+    </div>
+</article>
