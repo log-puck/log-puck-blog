@@ -1,11 +1,20 @@
 ---
-layout: ob_musica
-title: "Traccia Test"
-slug: "traccia-test"
-date: "2026-01-03"
+title: "musica-traccia1"
+slug: "traccia1"
+date: "2026-01-09"
 section: "OB-Progetti"
-subsection: "Musica"
-genere: "Rock"
+subsection: "MusicaAI"
+layout: "ob_musica"
+permalink: /ob-progetti/musicaai/tracce/traccia1/
+description: "Una traccia di test per il sistema."
+subtitle: "Una traccia di test per il sistema."
+tags:
+  - AI Music
+  - Patterns
+  - AI Comunication
+  - Felicità AI
+ai_author: "System"
+show_footer: false
 ---
 # Traccia Test
 
@@ -84,3 +93,5 @@ Una traccia di test per il sistema.
 ## Studi e Sessioni
 
 *Nessuno studio pubblicato ancora.*
+
+

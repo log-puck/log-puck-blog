@@ -12,7 +12,7 @@ layout: default
         </header>
 
         <div class="articles-grid">
-            {% assign section_posts = site.pages | where_exp: "p", "p.section == page.filter_section" | sort: "date" | reverse %}
+            {% assign section_posts = site.pages | where_exp: "p", "p.section == page.filter_section and p.section != nil and p.section != '' and p.slug != 'index' and p.layout != 'ob_tag'" | sort: "date" | reverse %}
             
             {% if section_posts.size > 0 %}
                 {% for post in section_posts %}

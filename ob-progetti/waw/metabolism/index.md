@@ -1,18 +1,23 @@
 ---
-layout: ob_progetti
-title: "Metabolism - Il Sistema Digestivo"
+title: "wAw Metabolism - Il Sistema Digestivo"
+slug: "index"
+date: "2026-01-09"
 section: "OB-Progetti"
 subsection: "wAw"
-project_status: "concept"
-tags:
-  - Token Processing
-  - Decomposition
-  - Pattern Recognition
+layout: "ob_progetti"
 permalink: /ob-progetti/waw/metabolism/
-meta_title: "Metabolism - Sistema Digestivo AI"
-meta_description: "AI che decompongono e ricostruiscono contenuti. Un esperimento di metabolismo digitale."
+description: "AI che decompongono e ricostruiscono contenuti. Un esperimento di metabolismo digitale."
+keywords: "AI Collaboration, Comunicazione tra AI, meta-programmazione"
+subtitle: "Metabolism - Sistema Digestivo AI"
+tags:
+  - Meta Programmazione
+  - AI Comunication
+  - Patterns
+  - Claude
+  - wAw
+  - AI Organism
+show_footer: false
 ---
-
 # Metabolism 🍔
 
 **Il Sistema Digestivo dell'Organismo wAw**
@@ -109,3 +114,4 @@ Deve costruire nuovo tessuto (knowledge).
 ---
 
 [← Torna a wAw Organismo]({{ '/ob-progetti/waw/' | relative_url }})
+

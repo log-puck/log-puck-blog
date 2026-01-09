@@ -6,12 +6,13 @@ section: "OB-Progetti"
 layout: "ob_progetti"
 permalink: /ob-progetti/
 description: "Progetti sperimentali dove human e AI collaborano: Musica (emozioni), Giochi (logica), WAW Council (decisioni democratiche)."
-keywords: "AI collaboration, human-AI projects, experimental AI, collaborative intelligence"
-tagline: "Esperimenti collaborativi human-AI"
+keywords: "AI collaboration, human-AI projects, experiment with AI, collaborative intelligence"
+subtitle: "Esperimenti collaborativi human-AI"
 tags:
   - Human-AI Collaboration
-  - Collaborative Intelligence
-  - Meta-programmazione
+  - Meta Programmazione
+  - Claude
+ai_author: "Claude"
 show_footer: true
 footer_text: "OB-Progetti - Laboratorio Sperimentale Human-AI dal 2026"
 ---

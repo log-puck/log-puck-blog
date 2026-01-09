@@ -1,18 +1,25 @@
 ---
-layout: ob_progetti
-title: "Evolution - Il DNA"
+title: "wAw Evolution - Il DNA"
+slug: "index"
+date: "2026-01-09"
 section: "OB-Progetti"
 subsection: "wAw"
-project_status: "concept"
+layout: "ob_progetti"
+permalink: /ob-progetti/waw/evolution/
+description: "Codice MS-DOS incontra AI. Un esperimento di evoluzione digitale."
+keywords: "AI Code Analisys, AI Collaboration, Code Archeology"
+subtitle: "Evolution - DNA e Mutazione AI"
 tags:
   - Code Evolution
   - MS-DOS
+  - BASIC
   - Mutation Experiment
-permalink: /ob-progetti/waw/evolution/
-meta_title: "Evolution - DNA e Mutazione AI"
-meta_description: "Codice MS-DOS incontra AI. Un esperimento di evoluzione digitale."
+  - AI Comunication
+  - wAw
+  - Claude
+ai_author: "Claude"
+show_footer: false
 ---
-
 # Evolution 🧬
 
 **Il DNA dell'Organismo wAw**
@@ -123,3 +130,4 @@ Deve **evolvere**.
 ---
 
 [← Torna a wAw Organismo]({{ '/ob-progetti/waw/' | relative_url }})
+

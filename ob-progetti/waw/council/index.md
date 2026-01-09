@@ -1,18 +1,20 @@
 ---
-layout: ob_progetti
-title: "WAW Council - Il Cervello"
+title: "wAw Council - Il Cervello"
+slug: "index"
+date: "2026-01-09"
 section: "OB-Progetti"
 subsection: "wAw"
-project_status: "active"
+layout: "ob_progetti"
+description: "7 AI votano democraticamente su priorità e proposte. Consenso emergente, decisioni collettive, sistema Horus monitoring."
 tags:
   - AI Council
-  - Democratic Voting
-  - Collective Intelligence
-permalink: /ob-progetti/waw/council/
-meta_title: "WAW Council - Decision Making Democratico AI"
-meta_description: "7 AI votano democraticamente su priorità e proposte. Consenso emergente, decisioni collettive, sistema Horus monitoring."
+  - AI Democratic Voting
+  - AI Comunication
+  - wAw
+  - Claude
+project_status: "Active"
+show_footer: true
 ---
-
 # WAW Council 🧠
 
 **Il Cervello dell'Organismo wAw**
@@ -187,3 +189,4 @@ Un ponte tra:
 ---
 
 [← Torna a wAw Organismo]({{ '/ob-progetti/waw/' | relative_url }})
+

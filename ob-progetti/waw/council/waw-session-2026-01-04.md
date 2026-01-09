@@ -1,23 +1,27 @@
 ---
-layout: ob_session
-title: "AI Council Session"
-date: "2026-01-04"
+title: "wAw Session - 2026-01-04"
+slug: "waw-session-2026-01-04"
+date: "2026-01-09"
 section: "OB-Progetti"
-subsection: "WAW"
+subsection: "wAw"
+layout: "ob_session"
 permalink: /ob-progetti/waw/council/waw-session-2026-01-04/
+description: "Quando le AI si riuniscono per valutare e esprimere la propria opinione su un progetto comune."
+keywords: "AI Problem Solve, AI Democraty, Context Engineering"
+subtitle: "wAw Session #1"
 tags:
   - AI Council
-  - Voting
-  - Autonomy
+  - AI Democratic Voting
+  - AI Comunication
 ai_author: "System"
 ai_participants:
-  - Claude Sonnet 4
-  - GLM-4
-  - Grok
-  - Gemini
-  - ChatGPT
+  - "Claude"
+  - "GLM"
+  - "Grok"
+  - "Gemini"
+  - "ChatGPT"
+show_footer: false
 ---
-
 # AI Council Session - 04/01/2026
 
 ## Voting Results
@@ -109,3 +113,5 @@ ai_participants:
 ## Next Steps
 
 Based on AI Council vote, next focus: **Dark mode toggle**
+
+

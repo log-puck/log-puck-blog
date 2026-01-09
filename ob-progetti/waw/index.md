@@ -1,16 +1,24 @@
 ---
-layout: ob_progetti
 title: "wAw - What AI Want"
+slug: "index"
+date: "2026-01-09"
 section: "OB-Progetti"
 subsection: "wAw"
-project_status: "active"
-tags:
-  - AI Collaboration
-  - Experimental
-  - Organism Design
+layout: "ob_progetti"
 permalink: /ob-progetti/waw/
-meta_title: "wAw - What AI Want | Organismo AI Sperimentale"
-meta_description: "Non un progetto. Un ecosistema. Council, Metabolism, Evolution: i tre sistemi di un organismo AI vivente."
+description: "Non un progetto. Un ecosistema. Council, Metabolism, Evolution: i tre sistemi di un organismo AI vivente."
+keywords: "AI Collaboration, Comunicazio e tra AI, meta-programmazione"
+subtitle: "Organismo AI Sperimentale"
+tags:
+  - Meta Programmazione
+  - AI Comunication
+  - Hurricane Module
+  - AI Organism
+  - Claude
+ai_author: "Claude"
+show_footer: true
+footer_text: "Non un progetto, un ecosistema.
+Quando le AI decidono come, quando e dove evolvere."
 ---
 
 # wAw - What AI Want 👁
@@ -157,3 +165,4 @@ Se non piace, c'è GialloZafferano pronto per la pasta frolla.
 
 *Organismo AI Sperimentale - Log_Puck Project*  
 *Dove le AI non sono tool, ma partecipanti*
+
