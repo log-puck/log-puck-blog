@@ -7,12 +7,12 @@
 - name: "AI Council"
   count: 4
   slug: "ai-council"
-- name: "Human-AI Collaboration"
-  count: 3
-  slug: "human-ai-collaboration"
 - name: "Felicità-AI"
   count: 3
   slug: "felicità-ai"
+- name: "Human-AI Collaboration"
+  count: 3
+  slug: "human-ai-collaboration"
 - name: "Context-engineering"
   count: 3
   slug: "context-engineering"
