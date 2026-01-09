@@ -54,6 +54,7 @@ bak/
 # Database e backup
 db/
 bak/
+Notion/
 
 # OS files
 .DS_Store

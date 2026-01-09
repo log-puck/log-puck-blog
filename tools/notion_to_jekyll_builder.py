@@ -424,10 +424,9 @@ def create_frontmatter(props, layout_name):
     if props.get("keywords"):
         fm += f'keywords: "{props.get("keywords")}"\n'
     
-    # Campi SEO aggiuntivi per landing pages
-    if props.get("tagline"):
-        fm += f'tagline: "{props.get("tagline")}"\n'
-    # keywords_seo rimosso (doppione di keywords)
+    # Campi display opzionali
+    if props.get("subtitle"):
+        fm += f'subtitle: "{props.get("subtitle")}"\n'
     
     if props.get("tags"):
         fm += "tags:\n"
@@ -446,20 +445,25 @@ def create_frontmatter(props, layout_name):
     if props.get("project_status"):
         fm += f'project_status: "{props.get("project_status")}"\n'
     
-    # Debug per show_footer e footer_text
+    # Campi footer (progetti)
     show_footer_val = props.get("show_footer")
-    if props.get("title") == "OB-Progetti":
-        log(f"DEBUG [create_frontmatter] show_footer_val: {show_footer_val} (type: {type(show_footer_val)}, is not None: {show_footer_val is not None})", "DEBUG")
-    
     if show_footer_val is not None:
         fm += f'show_footer: {str(show_footer_val).lower()}\n'
     
-    footer_text_val = props.get("footer_text")
-    if props.get("title") == "OB-Progetti":
-        log(f"DEBUG [create_frontmatter] footer_text_val: {footer_text_val} (type: {type(footer_text_val)})", "DEBUG")
+    if props.get("footer_text"):
+        fm += f'footer_text: "{props.get("footer_text")}"\n'
     
-    if footer_text_val:
-        fm += f'footer_text: "{footer_text_val}"\n'
+    # Campi documenti
+    if props.get("version"):
+        fm += f'version: "{props.get("version")}"\n'
+    
+    if props.get("next_review"):
+        # Formatta next_review come data
+        next_review_val = props.get("next_review")
+        if isinstance(next_review_val, str):
+            fm += f'next_review: "{next_review_val}"\n'
+        else:
+            fm += f'next_review: "{next_review_val}"\n'
     if props.get("use_supabase_data"):
         fm += f'use_supabase_data: {str(props.get("use_supabase_data")).lower()}\n'
     if props.get("supabase_table"):
@@ -556,37 +560,17 @@ def process_content_item(item, infra_id_to_update=None):
     # Keywords è stato rinominato da "Keywords SEO"
     keywords = get_property_value(props_raw.get("Keywords"))
     tags = get_property_value(props_raw.get("Tags"))
-    permalink = get_property_value(props_raw.get("Permalink"))
     
-    # Campi aggiuntivi per landing pages
-    tagline = get_property_value(props_raw.get("Tagline"))
+    # Campi display opzionali
+    subtitle = get_property_value(props_raw.get("Subtitle"))
     
-    # show_footer e footer_text vengono da DB PROJECT tramite relazione
-    # Segui relazione a DB PROJECT se presente
-    show_footer = None
-    footer_text = None
-    db_project_ids = get_property_value(props_raw.get("DB PROJECT"))
+    # Campi footer (letti direttamente da DB CONTENT)
+    show_footer = get_property_value(props_raw.get("Show Footer"))
+    footer_text = get_property_value(props_raw.get("Footer Text"))
     
-    if db_project_ids:
-        # Prendi il primo progetto collegato
-        project_id = db_project_ids[0]
-        project_page = get_page_by_id(project_id)
-        
-        if project_page:
-            project_props = project_page.get("properties", {})
-            # Estrai show_footer e footer_text da DB PROJECT
-            show_footer = get_property_value(project_props.get("Show Footer"))
-            footer_text = get_property_value(project_props.get("Footer Text"))
-            
-            # Debug: log campi estratti
-            if title == "OB-Progetti":
-                log(f"DEBUG [OB-Progetti] Relazione DB PROJECT trovata: {project_id}", "DEBUG")
-                log(f"DEBUG [OB-Progetti] show_footer da DB PROJECT: {show_footer}", "DEBUG")
-                log(f"DEBUG [OB-Progetti] footer_text da DB PROJECT: {footer_text}", "DEBUG")
-    else:
-        # Debug: nessuna relazione trovata
-        if title == "OB-Progetti":
-            log(f"DEBUG [OB-Progetti] Nessuna relazione DB PROJECT trovata", "DEBUG")
+    # Campi documenti opzionali
+    version = get_property_value(props_raw.get("version"))
+    next_review = get_property_value(props_raw.get("next_review"))
     
     # Validazione campi obbligatori
     if not all([slug, date, layout_notion, section]):
@@ -615,15 +599,15 @@ def process_content_item(item, infra_id_to_update=None):
     page_id = item.get("id")
     body_content = get_page_blocks(page_id)
     
-    # 4. Estrai AI metadata da sessione (se presente)
-    ai_author = None
-    ai_participants = []
-    session_ids = get_property_value(props_raw.get("DB OB-SESSIONS"))
+    # 4. Estrai AI metadata direttamente da DB CONTENT
+    # AI Author è select (singolo valore), AI Partecipants è multi-select (lista)
+    ai_author = get_property_value(props_raw.get("AI Author"))
+    ai_participants = get_property_value(props_raw.get("AI Partecipants"))
     
-    if session_ids:
-        latest_sid = get_latest_session_id(session_ids)
-        session_page = get_page_by_id(latest_sid)
-        ai_author, ai_participants = extract_ai_metadata(session_page)
+    # ai_author è già un singolo valore (select), non serve conversione
+    # ai_participants è una lista (multi-select)
+    if not isinstance(ai_participants, list):
+        ai_participants = [ai_participants] if ai_participants else []
     
     # Validazione body content
     if not body_content:
@@ -632,7 +616,24 @@ def process_content_item(item, infra_id_to_update=None):
             update_infra_status(infra_id_to_update, "error", "No content found")
         return False
 
-    # 5. Genera percorso file
+    # 5. Genera permalink automaticamente (se non c'è build_path_override)
+    permalink = None
+    if not build_path_override:
+        # Genera permalink da Section + Subsection + Slug
+        permalink_parts = []
+        if section:
+            section_slug = section.lower().replace(" ", "-").replace("ob-", "")
+            permalink_parts.append(section_slug)
+        if subsection and subsection != "Default":
+            subsection_slug = subsection.lower().replace(" ", "-")
+            permalink_parts.append(subsection_slug)
+        if slug:
+            permalink_parts.append(slug)
+        
+        if permalink_parts:
+            permalink = "/" + "/".join(permalink_parts) + "/"
+    
+    # 6. Genera percorso file
     jekyll_layout = LAYOUT_MAP.get(layout_notion, "default")
     
     if build_path_override:
@@ -640,7 +641,7 @@ def process_content_item(item, infra_id_to_update=None):
     else:
         file_path = generate_build_path(section, slug, layout_notion, subsection)
 
-    # 5. Valida percorso
+    # 7. Valida percorso
     try:
         validate_build_path(file_path)
     except ValueError:
@@ -648,7 +649,7 @@ def process_content_item(item, infra_id_to_update=None):
             update_infra_status(infra_id_to_update, "error", "Invalid build path")
         return False
 
-    # 6. Crea frontmatter e scrivi file
+    # 8. Crea frontmatter e scrivi file
     fm_props = {
         "title": title,
         "slug": slug,
@@ -659,17 +660,14 @@ def process_content_item(item, infra_id_to_update=None):
         "keywords": keywords,
         "tags": tags,
         "permalink": permalink,
+        "subtitle": subtitle,
         "ai_author": ai_author,
         "ai_participants": ai_participants,
-        "tagline": tagline,
         "show_footer": show_footer,
-        "footer_text": footer_text
+        "footer_text": footer_text,
+        "version": version,
+        "next_review": next_review
     }
-    
-    # Debug: verifica valori passati a create_frontmatter
-    if title == "OB-Progetti":
-        log(f"DEBUG [OB-Progetti] fm_props['show_footer']: {fm_props.get('show_footer')} (type: {type(fm_props.get('show_footer'))})", "DEBUG")
-        log(f"DEBUG [OB-Progetti] fm_props['footer_text']: {fm_props.get('footer_text')} (type: {type(fm_props.get('footer_text'))})", "DEBUG")
     
     # Rimuovi eventuale --- iniziale dal body (può essere rimasto da Notion)
     if body_content.strip().startswith("---"):
