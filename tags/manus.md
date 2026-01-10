@@ -3,6 +3,7 @@ layout: ob_tag
 tag_name: "Manus"
 title: "Tag: Manus"
 permalink: /tags/manus/
-description: "Tutti i contenuti con tag 'Manus'"
+meta_title: "tag-manus"
+meta_description: "Tutti i contenuti con tag 'Manus'"
 ---
 
