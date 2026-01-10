@@ -7,6 +7,7 @@ layout: "ob_session"
 permalink: /ob-session/epica-big-sur/
 description: "Scopri come la collaborazione umano AI trasforma un Mac Big Sur in un sistema multi-AI. Errori risolti, integrazione Notion e lezioni di persistenza."
 keywords: "Collaborazione umano AI,Sistema multi-AI, Mac Big Sur vecchio, Debugging Node.js, Notion API integrazione, MCP Model Context Protocol"
+subtitle: "La notte in cui una AI e un umano hanno iniziato a collaborare"
 tags:
   - Human-AI Collaboration
   - MultiAI System
@@ -108,6 +109,8 @@ show_footer: false
 
 # Insights & Lezioni
 
+<div class="callout" markdown="1">
+
 > **Insight 1 – Big Sur non è un limite, è un vincolo progettuale**
 >
 > *"Il Mac è vecchio" poteva essere un blocco. Invece è diventato un design constraint.*
@@ -120,6 +123,9 @@ show_footer: false
 > **Risultato:** Sistema che gira su hardware 2020 con performance eccellenti. Zero necessità di upgrade.
 >
 > **Sintesi:** Vincoli tecnici non sono blocchi. Sono parametri di progetto. Il sistema migliore non è quello con hardware più potente, ma quello che **funziona con ciò che hai**.
+</div>
+
+<div class="callout" markdown="1">
 
 > **Insight 2 – Errori sovrapposti richiedono debugging a strati**
 >
@@ -141,6 +147,9 @@ show_footer: false
 > *   Non molla finché l'intera catena non funziona
 >
 > **Sintesi:** Debugging reale è debugging a strati. Ogni fix rivela il problema successivo. **Persistenza batte intuito**.
+</div>
+
+<div class="callout" markdown="1">
 
 > **Insight 3 – Separazione abbonamenti vs API è cruciale**
 >
@@ -160,6 +169,9 @@ show_footer: false
 > **Budget reale API:** ~5-10€/mese per 250-600 articoli.
 >
 > **Sintesi:** **Abbonamenti ≠ API.** MCP (Claude) + Gemini free tier = sistema quasi-zero-cost per blog.
+</div>
+
+<div class="callout" markdown="1">
 
 > **Insight 4 – "Non capisco niente" è punto di partenza, non di arrivo**
 > **Puck**: *"non ci ho capito niente, troppo veloce. Recupererò con il tempo?"*
@@ -180,6 +192,9 @@ show_footer: false
 > **Realtà sana:** Capire abbastanza per proseguire. Il resto si impara iterando.
 >
 > **Sintesi:** *"Non capisco niente"* non è un problema. È onestà. Il problema è mollare perché non si capisce tutto subito. **La comprensione viene facendo, non studiando prima di fare**.
+</div>
+
+<div class="callout" markdown="1">
 
 > **Insight 5 – La riunione con le "AI di Giove"**
 > **Puck**: *"Le 4 AI sono cicloni forza 1000 venuti da Giove, se non arrivo preparato mi schiacciano."*
@@ -197,6 +212,7 @@ show_footer: false
 > *   Serve essere coordinator con sistema operativo
 >
 > **Sintesi:** Paura pre-riunione = normale. Ma con sistema funzionante, il potere negoziale è tuo. **Code beats talk**.
+</div>
 
 # Riferimenti Archivistici
 

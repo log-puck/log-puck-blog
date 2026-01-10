@@ -2,7 +2,7 @@
 # Generated automatically by notion_to_jekyll_builder.py
 
 - name: "Claude"
-  count: 13
+  count: 14
   slug: "claude"
 - name: "AI Comunication"
   count: 9
