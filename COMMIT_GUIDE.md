@@ -19,7 +19,9 @@
 - Se è già tracciato in git, rimuovilo: `git rm --cached experiments/ponte_config.js`
 
 ### 5. `experiments/public/waw-council-*.html` (NON TRACCIATO)
-**❌ NON COMMITTARE** - File HTML generati/test. Ora sono nel `.gitignore`.
+**✅ COMMITTATI** - File HTML di test/esperimenti (non contengono dati sensibili).
+- Sono già stati committati e va bene così
+- In futuro, modifiche a questi file saranno ignorate dal `.gitignore`
 
 ## Comandi per il Commit
 
