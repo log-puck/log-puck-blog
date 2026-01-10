@@ -1,89 +1,86 @@
-# File YAML e JSON temporanei
-*.log
-*.lock
-
-# Output di Jekyll
+# ============================================================================
+# Jekyll Output
+# ============================================================================
 _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
 .bundle/
 
-# Python-specific
+# ============================================================================
+# Python
+# ============================================================================
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
-venv/
+*.so
 *.egg-info/
+venv/
+env/
+ENV/
+.venv/
 
-# Config con chiavi sensibili
-tools/*notion*config
-tools/notion_to_jekyll_builder_v*.py  # Vecchie versioni
+# ============================================================================
+# Credenziali e Config Sensibili
+# ============================================================================
+# NOTA: notion_config.py.example È COMMITTATO (template per altri)
+tools/notion_config.py
+# Ignora altri file config ma NON l'example:
+tools/notion_config.local.py
+tools/notion_config.secret.py
 *.key
 *.secret
+.env
+.env.local
 
-# Tools con credenziali
-tools/notion_config.py
+# ============================================================================
+# Versioni Vecchie (opzionale, se crei backup)
+# ============================================================================
+tools/notion_to_jekyll_builder_v*.py
 
-# Ma NON tutto tools/
-# !tools/notion_to_jekyll_builder.py  # Se vuoi committare lo script
-
-# Esperimenti pubblici OK
-# experiments/ è tracciato
-
-# Output Jekyll
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
-
-# Python
-__pycache__/
-*.py[cod]
-venv/
-
-# OS
+# ============================================================================
+# OS Files
+# ============================================================================
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
 
-# Database e backup
-db/
-bak/
+# ============================================================================
+# Logs e File Temporanei
+# ============================================================================
+*.log
+*.lock
 
-# Database e backup
+# ============================================================================
+# Database e Backup Locali
+# ============================================================================
 db/
 bak/
 Notion/
 
-# OS files
-.DS_Store
-Thumbs.db
-
-# Node (se usi npm per qualcosa)
+# ============================================================================
+# Node.js (se usato per experiments)
+# ============================================================================
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
 
-# Config con chiavi sensibili
-tools/notion_config.py
-*.key
-*.secret
-.env
-
-# Experiments folder (se ha dati sensibili)
-#experiments/
-
-# O specifici file:
+# ============================================================================
+# Experiments - Config Sensibili (ma script OK)
+# ============================================================================
 experiments/*.env
 experiments/api-keys.txt
 experiments/test-data/
-experiments/node_modules/
-experiments/public/*.html           
 experiments/ponte_config.js
-experiments/ponte_config.example.js
-experiments/package-lock.json
-experiments/package.json
 
-# Ma MANTIENI se vuoi commitare:
-#experiments/*.js (script OK)
-#experiments/*.md (note OK)
-# !experiments/ponte-orchestrator.js  # Esplicitamente traccia lo script principale
+# MA TRACCIATI (non ignorati):
+# !experiments/ponte_config.example.js
+# !experiments/ponte-orchestrator.js
+# !experiments/*.md
