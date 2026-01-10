@@ -25,8 +25,11 @@ jobs:
       - name: Run Notion sync script
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-          PYTHONPATH: ${{ github.workspace }}/tools:${{ github.workspace }}
+          DB_CONTENT_ID: ${{ secrets.DB_CONTENT_ID }}
+          DB_PERSONAS_ID: ${{ secrets.DB_PERSONAS_ID }}
+          DB_PROJECT_ID: ${{ secrets.DB_PROJECT_ID }}
         run: |
+          export PYTHONPATH="${{ github.workspace }}/tools:${{ github.workspace }}:$PYTHONPATH"
           python tools/notion_to_jekyll_builder.py
       
       - name: Commit and push changes

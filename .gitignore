@@ -79,8 +79,10 @@ experiments/*.env
 experiments/api-keys.txt
 experiments/test-data/
 experiments/ponte_config.js
+experiments/public/*.html           # File HTML generati/test
 
 # MA TRACCIATI (non ignorati):
 # !experiments/ponte_config.example.js
 # !experiments/ponte-orchestrator.js
 # !experiments/*.md
+# !experiments/package.json          # Dipendenze Node.js (se necessario)
