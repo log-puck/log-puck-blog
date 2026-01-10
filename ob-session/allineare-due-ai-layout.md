@@ -1,7 +1,7 @@
 ---
 title: "Allineare due AI sul layout"
 slug: "allineare-due-ai-layout"
-date: "2026-01-07"
+date: "2025-12-07"
 section: "OB-Session"
 layout: "ob_session"
 permalink: /ob-session/allineare-due-ai-layout/
