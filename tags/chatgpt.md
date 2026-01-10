@@ -3,6 +3,7 @@ layout: ob_tag
 tag_name: "ChatGPT"
 title: "Tag: ChatGPT"
 permalink: /tags/chatgpt/
-description: "Tutti i contenuti con tag 'ChatGPT'"
+meta_title: "tag-chatgpt"
+meta_description: "Tutti i contenuti con tag 'ChatGPT'"
 ---
 
