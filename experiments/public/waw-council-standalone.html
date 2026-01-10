@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAW AI Council - LOG_PUCK</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+                'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+                sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        function WAWCouncil() {
+            const [context, setContext] = useState({
+                projectName: 'LOG_PUCK',
+                techStack: 'Jekyll, Notion DB, Python scripts, GitHub Pages',
+                currentFocus: 'Ciao, benvenuto nel progetto Log_Puck. Sono un umano e sto cercando di costruire un sistema collaborativo human/AI. Sto sviluppando un blog in cui vorrei mettere tutti i nostri successi e le nostre avventure. Mi baso sull \'ascolto e non sull\'uso delle AI come tools. Ti chiedo di esprimerti onestamente per quanto puoi.',
+                completed: 'Active nav, Favicon 無, Legal page, AI credits'
+            });
+
+            const [ideas, setIdeas] = useState([
+                'Layout documentation guide',
+                'OB-Progetti landing page',
+                'Breadcrumb verification',
+                'Footer social links',
+                'Dark mode toggle'
+            ]);
+
+            const [selectedAIs, setSelectedAIs] = useState({
+                claude: true,
+                glm: false,
+                grok: false,
+                gemini: false,
+                chatgpt: false,
+                perplexity: false,
+                deepseek: false
+            });
+
+            const [loading, setLoading] = useState({});
+            const [loadingIdeas, setLoadingIdeas] = useState(false);
+            const [replaceMode, setReplaceMode] = useState(true); // true = replace, false = append
+            const [results, setResults] = useState(null);
+            const [error, setError] = useState(null);
+
+            const aiModels = [
+                { id: 'claude', name: 'Claude' },
+                { id: 'glm', name: 'GLM' },
+                { id: 'grok', name: 'Grok' },
+                { id: 'gemini', name: 'Gemini' },
+                { id: 'chatgpt', name: 'ChatGPT' },
+                { id: 'perplexity', name: 'Perplexity' },
+                { id: 'deepseek', name: 'DeepSeek' }
+            ];
+
+            const addIdea = () => {
+                setIdeas([...ideas, '']);
+            };
+
+            const updateIdea = (index, value) => {
+                const newIdeas = [...ideas];
+                newIdeas[index] = value;
+                setIdeas(newIdeas);
+            };
+
+            const removeIdea = (index) => {
+                setIdeas(ideas.filter((_, i) => i !== index));
+            };
+
+            const loadIdeasFromNotion = async () => {
+                setLoadingIdeas(true);
+                setError(null);
+                try {
+                    const response = await fetch('http://localhost:3000/api/notion-ideas');
+                    if (!response.ok) {
+                        throw new Error(`Server error: ${response.status}`);
+                    }
+                    const data = await response.json();
+                    if (data.success && data.ideas.length > 0) {
+                        if (replaceMode) {
+                            // Sostituisce le idee esistenti
+                            setIdeas(data.ideas);
+                        } else {
+                            // Aggiunge solo le idee non duplicate
+                            const existing = new Set(ideas.filter(i => i.trim()));
+                            const newIdeas = data.ideas.filter(idea => !existing.has(idea.trim()));
+                            setIdeas([...ideas, ...newIdeas]);
+                        }
+                    } else {
+                        setError('No ideas found in Notion (check "Include in Next Vote" checkbox)');
+                    }
+                } catch (err) {
+                    console.error('Error loading ideas from Notion:', err);
+                    setError(err.message + ' - Assicurati che il server sia running su localhost:3000');
+                } finally {
+                    setLoadingIdeas(false);
+                }
+            };
+
+            const callAICouncil = async () => {
+                // SPIEGAZIONE: Impostiamo loading per le AI selezionate
+                const loadingState = {};
+                Object.keys(selectedAIs).forEach(ai => {
+                    if (selectedAIs[ai]) loadingState[ai] = true;
+                });
+                setLoading(loadingState);
+                setResults(null);
+                setError(null);
+
+                try {
+                    // SPIEGAZIONE: Invece di chiamare API direttamente,
+                    // mandiamo TUTTO ad Anker che fa il lavoro per noi!
+                    const response = await fetch('http://localhost:3000/api/waw-council', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            context,
+                            ideas: ideas.filter(i => i.trim()),
+                            selectedAIs
+                        })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`Server error: ${response.status}`);
+                    }
+
+                    const data = await response.json();
+
+                    // SPIEGAZIONE: Anker ritorna TUTTO già pronto:
+                    // - voti aggregati
+                    // - nuove idee
+                    // - raw results per debug
+                    setResults(data);
+                    setLoading({});
+
+                } catch (err) {
+                    console.error('WAW Council error:', err);
+                    setError(err.message + ' - Assicurati che Anker sia running su localhost:3000');
+                    setLoading({});
+                }
+            };
+
+            const exportMarkdown = () => {
+                if (!results) return;
+
+                const date = new Date().toISOString().split('T')[0];
+                const md = `---
+layout: ob_session
+title: "AI Council Session"
+date: "${date}"
+section: "OB-Progetti"
+subsection: "WAW"
+tags:
+  - AI Council
+  - Voting
+  - Autonomy
+ai_author: "System"
+ai_participants:
+${results.raw.filter(r => !r.error).map(r => `  - ${r.name}`).join('\n')}
+---
+
+# AI Council Session - ${new Date().toLocaleDateString('it-IT')}
+
+## Voting Results
+
+${results.votes.map((v, i) => `
+### ${['🥇', '🥈', '🥉'][i] || '📌'} Priority #${i + 1}: ${v.idea}
+**Total Score:** ${v.score} points
+
+${v.votes.map(vote => `- **${vote.ai}** (#${vote.rank}): "${vote.reasoning}"`).join('\n')}
+`).join('\n')}
+
+## New Ideas Proposed
+
+${results.newIdeas.map(idea => `
+### ${idea.title}
+**Proposed by:** ${idea.ai}  
+**Effort:** ${idea.effort}  
+**Impact:** ${idea.impact}  
+**Description:** ${idea.description}
+`).join('\n')}
+
+## Next Steps
+
+Based on AI Council vote, next focus: **${results.votes[0]?.idea}**
+`;
+
+                const blob = new Blob([md], { type: 'text/markdown' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `waw-session-${date}.md`;
+                a.click();
+            };
+
+            const exportJSON = () => {
+                if (!results) return;
+
+                const blob = new Blob([JSON.stringify(results, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `waw-session-${new Date().toISOString().split('T')[0]}.json`;
+                a.click();
+            };
+
+            return (
+                <div className="min-h-screen bg-black text-white p-8">
+                    <div className="max-w-4xl mx-auto">
+                        <h1 className="text-4xl font-bold mb-2 text-yellow-400">🎯 WAW AI COUNCIL</h1>
+                        <p className="text-lime-400 mb-8">What AI Want - Autonomous Voting System</p>
+
+                        {/* Context Input */}
+                        <div className="bg-gray-900 p-6 rounded-lg mb-6 border border-yellow-400">
+                            <h2 className="text-xl font-bold mb-4 text-yellow-400">📋 Project Context</h2>
+                            <div className="space-y-3">
+                                <input
+                                    type="text"
+                                    placeholder="Project Name"
+                                    value={context.projectName}
+                                    onChange={(e) => setContext({ ...context, projectName: e.target.value })}
+                                    className="w-full p-2 bg-black border border-gray-700 rounded text-white"
+                                />
+                                <input
+                                    type="text"
+                                    placeholder="Tech Stack"
+                                    value={context.techStack}
+                                    onChange={(e) => setContext({ ...context, techStack: e.target.value })}
+                                    className="w-full p-2 bg-black border border-gray-700 rounded text-white"
+                                />
+                                <textarea
+                                    type="text"
+                                    placeholder="Current Focus"
+                                    value={context.currentFocus}
+                                    onChange={(e) => setContext({ ...context, currentFocus: e.target.value })}
+                                    rows="3"
+                                    className="w-full p-2 bg-black border border-gray-700 rounded text-white resize-y"
+                                />
+                                <textarea
+                                    type="text"
+                                    placeholder="Completed (comma-separated)"
+                                    value={context.completed}
+                                    onChange={(e) => setContext({ ...context, completed: e.target.value })}
+                                    rows="3"
+                                    className="w-full p-2 bg-black border border-gray-700 rounded text-whiteresize-y"
+                                />
+                            </div>
+                        </div>
+
+                        {/* Ideas Pool */}
+                        <div className="bg-gray-900 p-6 rounded-lg mb-6 border border-lime-400">
+                            <div className="flex items-center justify-between mb-4">
+                                <h2 className="text-xl font-bold text-lime-400">💡 Pending Ideas</h2>
+                                <div className="flex items-center gap-2">
+                                    <label className="flex items-center gap-2 text-sm text-gray-400 cursor-pointer">
+                                        <input
+                                            type="checkbox"
+                                            checked={replaceMode}
+                                            onChange={(e) => setReplaceMode(e.target.checked)}
+                                            className="w-4 h-4"
+                                        />
+                                        <span>Replace</span>
+                                    </label>
+                                    <button
+                                        onClick={loadIdeasFromNotion}
+                                        disabled={loadingIdeas}
+                                        className="px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-700 disabled:opacity-50 rounded text-white text-sm font-semibold"
+                                    >
+                                        {loadingIdeas ? '⏳ Loading...' : '📥 Load from Notion'}
+                                    </button>
+                                </div>
+                            </div>
+                            <div className="space-y-2">
+                                {ideas.map((idea, i) => (
+                                    <div key={i} className="flex gap-2">
+                                        <input
+                                            type="text"
+                                            value={idea}
+                                            onChange={(e) => updateIdea(i, e.target.value)}
+                                            className="flex-1 p-2 bg-black border border-gray-700 rounded text-white"
+                                            placeholder={`Idea #${i + 1}`}
+                                        />
+                                        <button
+                                            onClick={() => removeIdea(i)}
+                                            className="px-3 py-2 bg-red-900 hover:bg-red-800 rounded"
+                                        >
+                                            ✕
+                                        </button>
+                                    </div>
+                                ))}
+                                <button
+                                    onClick={addIdea}
+                                    className="w-full p-2 bg-lime-900 hover:bg-lime-800 rounded text-lime-400"
+                                >
+                                    + Add Idea
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* AI Selection */}
+                        <div className="bg-gray-900 p-6 rounded-lg mb-6 border border-blue-400">
+                            <h2 className="text-xl font-bold mb-4 text-blue-400">🤖 Select AI Council Members</h2>
+                            <div className="space-y-2">
+                                {aiModels.map(ai => (
+                                    <label key={ai.id} className="flex items-center gap-3 cursor-pointer">
+                                        <input
+                                            type="checkbox"
+                                            checked={selectedAIs[ai.id]}
+                                            onChange={(e) => setSelectedAIs({ ...selectedAIs, [ai.id]: e.target.checked })}
+                                            className="w-5 h-5"
+                                        />
+                                        <span>{ai.name}</span>
+                                    </label>
+                                ))}
+                            </div>
+                            <p className="mt-4 text-sm text-gray-400">
+                                Selected: {Object.values(selectedAIs).filter(Boolean).length} AI
+                            </p>
+                        </div>
+
+                        {/* Call Button */}
+                        <button
+                            onClick={callAICouncil}
+                            disabled={Object.values(loading).some(Boolean)}
+                            className="w-full py-4 bg-gradient-to-r from-yellow-500 to-lime-500 text-black font-bold text-xl rounded-lg hover:opacity-90 disabled:opacity-50 mb-6"
+                        >
+                            {Object.values(loading).some(Boolean) ? '⏳ Calling AI Council...' : '🚀 CALL AI COUNCIL'}
+                        </button>
+
+                        {/* Loading States */}
+                        {Object.values(loading).some(Boolean) && (
+                            <div className="bg-gray-900 p-6 rounded-lg mb-6 border border-blue-400">
+                                <h3 className="text-lg font-bold mb-4">⏳ API Calls in Progress</h3>
+                                {Object.entries(loading).map(([ai, isLoading]) => (
+                                    selectedAIs[ai] && (
+                                        <div key={ai} className="flex items-center gap-3 mb-2">
+                                            <span className={isLoading ? "animate-pulse" : ""}>
+                                                {isLoading ? '⏳' : '✅'}
+                                            </span>
+                                            <span className="capitalize">{ai}</span>
+                                        </div>
+                                    )
+                                ))}
+                            </div>
+                        )}
+
+                        {/* Error Display */}
+                        {error && (
+                            <div className="bg-red-900 p-4 rounded-lg mb-6 border border-red-500 flex items-start gap-3">
+                                <span className="text-red-400 text-xl">⚠️</span>
+                                <div>
+                                    <p className="font-bold">Error</p>
+                                    <p className="text-sm">{error}</p>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Results */}
+                        {results && (
+                            <div className="space-y-6">
+                                {/* Voting Results */}
+                                <div className="bg-gray-900 p-6 rounded-lg border border-yellow-400">
+                                    <h2 className="text-2xl font-bold mb-4 text-yellow-400">🏆 Voting Results</h2>
+                                    {results.votes.map((v, i) => (
+                                        <div key={i} className="mb-6 last:mb-0">
+                                            <div className="flex items-start gap-3 mb-2">
+                                                <span className="text-3xl">{['🥇', '🥈', '🥉'][i] || '📌'}</span>
+                                                <div className="flex-1">
+                                                    <h3 className="text-xl font-bold">{v.idea}</h3>
+                                                    <p className="text-lime-400 font-bold">Score: {v.score} points</p>
+                                                    <div className="mt-2 space-y-1">
+                                                        {v.votes.map((vote, j) => (
+                                                            <p key={j} className="text-sm">
+                                                                <span className="text-blue-400">{vote.ai}</span> #{vote.rank}:
+                                                                <span className="text-gray-400 italic"> "{vote.reasoning}"</span>
+                                                            </p>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {i < results.votes.length - 1 && <hr className="border-gray-700 mt-4" />}
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* New Ideas */}
+                                <div className="bg-gray-900 p-6 rounded-lg border border-lime-400">
+                                    <h2 className="text-2xl font-bold mb-4 text-lime-400">💡 New Ideas Proposed</h2>
+                                    {results.newIdeas.map((idea, i) => (
+                                        <div key={i} className="mb-4 last:mb-0">
+                                            <h3 className="text-lg font-bold">{idea.title}</h3>
+                                            <p className="text-sm text-gray-400 mb-2">
+                                                Proposed by: <span className="text-blue-400">{idea.ai}</span> |
+                                                Effort: <span className="text-yellow-400">{idea.effort}</span> |
+                                                Impact: <span className="text-lime-400">{idea.impact}</span>
+                                            </p>
+                                            <p className="text-sm">{idea.description}</p>
+                                            {i < results.newIdeas.length - 1 && <hr className="border-gray-700 mt-4" />}
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* Export Buttons */}
+                                <div className="flex gap-4">
+                                    <button
+                                        onClick={exportMarkdown}
+                                        className="flex-1 py-3 bg-yellow-500 text-black font-bold rounded hover:bg-yellow-400"
+                                    >
+                                        📥 Export Markdown
+                                    </button>
+                                    <button
+                                        onClick={exportJSON}
+                                        className="flex-1 py-3 bg-lime-500 text-black font-bold rounded hover:bg-lime-400"
+                                    >
+                                        💾 Save JSON
+                                    </button>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<WAWCouncil />, document.getElementById('root'));
+    </script>
+</body>
+</html>

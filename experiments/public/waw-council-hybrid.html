@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAW Council - Hybrid Mode</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        function App() {
+            // Mode selection
+            const [contextMode, setContextMode] = useState('preset'); // preset, custom
+            const [ideasMode, setIdeasMode] = useState('preset'); // preset, notion, custom
+
+            // Context data
+            const [context, setContext] = useState({
+                projectName: 'LOG_PUCK Blog',
+                techStack: 'GitHub,Jekyll, Notion, Node.js 18, Python, Hetzner Server, PM2, VSCode',
+                aiPartner: [],
+                currentFocus: '',
+                completed: ''
+            });
+            const [customContext, setCustomContext] = useState('');
+            
+            // AI Models for Partner selection
+            const [aiModelsList, setAiModelsList] = useState([]);
+            const [loadingAiModels, setLoadingAiModels] = useState(false);
+
+            // Ideas data
+            const [presetIdeas, setPresetIdeas] = useState([
+                'Dark mode toggle',
+                'Fix CDC Mode',
+                'Layout documentation guide',
+                'Footer social links',
+                'Breadcrumb verification',
+                'OB-Progetti landing page'
+            ]);
+            const [customIdeas, setCustomIdeas] = useState('');
+            const [notionIdeas, setNotionIdeas] = useState([]);
+
+            // AI selection
+            const aiModels = [
+                { id: 'claude', name: 'Claude Sonnet 4' },
+                { id: 'glm', name: 'GLM-4' },
+                { id: 'grok', name: 'Grok' },
+                { id: 'gemini', name: 'Gemini 2.0' },
+                { id: 'chatgpt', name: 'ChatGPT 4o-mini' },
+                { id: 'perplexity', name: 'Perplexity Sonar' },
+                { id: 'deepseek', name: 'DeepSeek-V3' }
+            ];
+
+            const [selectedAIs, setSelectedAIs] = useState({
+                claude: true,
+                glm: false,
+                grok: false,
+                gemini: false,
+                chatgpt: false,
+                perplexity: false,
+                deepseek: false
+            });
+
+            const [loading, setLoading] = useState(false);
+            const [results, setResults] = useState(null);
+
+            // Load ideas from Notion (when mode changes)
+            useEffect(() => {
+                if (ideasMode === 'notion') {
+                    loadNotionIdeas();
+                }
+            }, [ideasMode]);
+
+            // Load AI Models on component mount
+            useEffect(() => {
+                loadAiModels();
+            }, []);
+
+            async function loadNotionIdeas() {
+                try {
+                    const response = await fetch('/api/notion-ideas');
+                    const data = await response.json();
+                    setNotionIdeas(data.ideas || []);
+                } catch (error) {
+                    console.error('Failed to load from Notion:', error);
+                    alert('Could not load ideas from Notion. Using preset instead.');
+                    setIdeasMode('preset');
+                }
+            }
+
+            async function loadAiModels() {
+                setLoadingAiModels(true);
+                try {
+                    const response = await fetch('/api/ai-models');
+                    const data = await response.json();
+                    if (data.success && data.aiModels) {
+                        setAiModelsList(data.aiModels);
+                    } else {
+                        console.warn('No AI Models found or error:', data.error);
+                    }
+                } catch (error) {
+                    console.error('Failed to load AI Models from Notion:', error);
+                    // Non bloccare l'app se fallisce il caricamento
+                } finally {
+                    setLoadingAiModels(false);
+                }
+            }
+
+            function getContextForPrompt() {
+                if (contextMode === 'custom') {
+                    return customContext;
+                }
+                let contextText = `PROJECT CONTEXT:
+- Name: ${context.projectName}
+- Tech Stack: ${context.techStack}
+- Current Focus: ${context.currentFocus}
+- Completed: ${context.completed}`;
+                if (context.aiPartner && context.aiPartner.length > 0) {
+                    contextText += `\n- AI Partners: ${context.aiPartner.join(', ')}`;
+                }
+                return contextText;
+            }
+
+            function toggleAiPartner(aiName) {
+                const current = context.aiPartner || [];
+                if (current.includes(aiName)) {
+                    setContext({ ...context, aiPartner: current.filter(name => name !== aiName) });
+                } else {
+                    setContext({ ...context, aiPartner: [...current, aiName] });
+                }
+            }
+
+            function getIdeasForPrompt() {
+                if (ideasMode === 'custom') {
+                    return customIdeas.split('\n').filter(i => i.trim());
+                }
+                if (ideasMode === 'notion') {
+                    return notionIdeas;
+                }
+                return presetIdeas;
+            }
+
+            async function callCouncil() {
+                setLoading(true);
+                setResults(null);
+
+                try {
+                    const contextText = getContextForPrompt();
+                    const ideas = getIdeasForPrompt();
+
+                    const response = await fetch('/api/waw-council', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            context: contextMode === 'preset' ? context : { freeText: contextText },
+                            ideas,
+                            selectedAIs
+                        })
+                    });
+
+                    const data = await response.json();
+                    setResults(data);
+
+                    // Auto-download files
+                    downloadJSON(data);
+                    downloadMarkdown(data);
+                } catch (error) {
+                    console.error('Council call failed:', error);
+                    alert('Failed to call AI Council. Check console for details.');
+                } finally {
+                    setLoading(false);
+                }
+            }
+
+            function downloadJSON(data) {
+                const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `waw-session-${new Date().toISOString().split('T')[0]}.json`;
+                a.click();
+            }
+
+            function downloadMarkdown(data) {
+                const md = generateMarkdown(data);
+                const blob = new Blob([md], { type: 'text/markdown' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `waw-session-${new Date().toISOString().split('T')[0]}.md`;
+                a.click();
+            }
+
+            function generateMarkdown(data) {
+                // Simplified - backend should handle this
+                return `# WAW Council Session\n\nResults: ${JSON.stringify(data.votes, null, 2)}`;
+            }
+
+            return (
+                <div className="container mx-auto p-8 max-w-4xl">
+                    <h1 className="text-4xl font-bold mb-8 text-center">
+                        🦅 WAW COUNCIL - HYBRID MODE
+                    </h1>
+
+                    {/* CONTEXT SECTION */}
+                    <div className="mb-8 p-6 bg-gray-800 rounded-lg">
+                        <h2 className="text-2xl font-bold mb-4">📋 Context</h2>
+                        
+                        <div className="mb-4">
+                            <label className="block mb-2 font-semibold">Context Mode:</label>
+                            <select
+                                value={contextMode}
+                                onChange={(e) => setContextMode(e.target.value)}
+                                className="w-full p-2 bg-black border border-gray-700 rounded text-white"
+                            >
+                                <option value="preset">Structured (4 fields)</option>
+                                <option value="custom">Free Text (large textarea)</option>
+                            </select>
+                        </div>
+
+                        {contextMode === 'preset' ? (
+                            <div className="space-y-4">
+                                <div>
+                                    <label className="block mb-2">Project Name:</label>
+                                    <input
+                                        type="text"
+                                        value={context.projectName}
+                                        onChange={(e) => setContext({ ...context, projectName: e.target.value })}
+                                        className="w-full p-2 bg-black border border-gray-700 rounded text-white"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block mb-2">Tech Stack:</label>
+                                    <input
+                                        type="text"
+                                        value={context.techStack}
+                                        onChange={(e) => setContext({ ...context, techStack: e.target.value })}
+                                        className="w-full p-2 bg-black border border-gray-700 rounded text-white"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block mb-2">Current Focus:</label>
+                                    <textarea
+                                        value={context.currentFocus}
+                                        onChange={(e) => setContext({ ...context, currentFocus: e.target.value })}
+                                        rows="3"
+                                        placeholder="Cosa stai sviluppando ora? (Multi-riga supportata)"
+                                        className="w-full p-2 bg-black border border-gray-700 rounded text-white resize-y"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block mb-2">Completed:</label>
+                                    <textarea
+                                        value={context.completed}
+                                        onChange={(e) => setContext({ ...context, completed: e.target.value })}
+                                        rows="3"
+                                        placeholder="Cosa hai completato? (Multi-riga supportata)"
+                                        className="w-full p-2 bg-black border border-gray-700 rounded text-white resize-y"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block mb-2">AI Partners:</label>
+                                    {loadingAiModels ? (
+                                        <p className="text-sm text-gray-400">Loading AI Models...</p>
+                                    ) : aiModelsList.length === 0 ? (
+                                        <p className="text-sm text-yellow-400">
+                                            ⚠️ No active AI Models found. Check Notion DB configuration.
+                                        </p>
+                                    ) : (
+                                        <div className="border border-gray-700 rounded p-3 bg-black max-h-48 overflow-y-auto">
+                                            <div className="space-y-2">
+                                                {aiModelsList.map(ai => (
+                                                    <label key={ai.id} className="flex items-center space-x-2 cursor-pointer hover:bg-gray-800 p-2 rounded">
+                                                        <input
+                                                            type="checkbox"
+                                                            checked={context.aiPartner?.includes(ai.name) || false}
+                                                            onChange={() => toggleAiPartner(ai.name)}
+                                                            className="w-4 h-4"
+                                                        />
+                                                        <span>{ai.name}</span>
+                                                    </label>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+                                    {context.aiPartner && context.aiPartner.length > 0 && (
+                                        <p className="text-sm text-gray-400 mt-2">
+                                            Selected: {context.aiPartner.length} AI Partner{context.aiPartner.length !== 1 ? 's' : ''}
+                                        </p>
+                                    )}
+                                </div>
+                            </div>
+                        ) : (
+                            <div>
+                                <label className="block mb-2">Free Text Context:</label>
+                                <textarea
+                                    value={customContext}
+                                    onChange={(e) => setCustomContext(e.target.value)}
+                                    rows="10"
+                                    placeholder="Scrivi quello che vuoi... Puoi parlare alle AI liberamente, raccontare il progetto, chiedere feedback. Nessun limite di formato."
+                                    className="w-full p-2 bg-black border border-gray-700 rounded text-white resize-y font-mono"
+                                />
+                                <p className="text-sm text-gray-400 mt-2">
+                                    💡 Tip: In questa modalità, scrivi come se stessi parlando alle AI. Sii genuino!
+                                </p>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* IDEAS SECTION */}
+                    <div className="mb-8 p-6 bg-gray-800 rounded-lg">
+                        <h2 className="text-2xl font-bold mb-4">💡 Ideas to Vote</h2>
+                        
+                        <div className="mb-4">
+                            <label className="block mb-2 font-semibold">Ideas Source:</label>
+                            <select
+                                value={ideasMode}
+                                onChange={(e) => setIdeasMode(e.target.value)}
+                                className="w-full p-2 bg-black border border-gray-700 rounded text-white"
+                            >
+                                <option value="preset">Preset List (hardcoded)</option>
+                                <option value="notion">Load from Notion (checkbox filter)</option>
+                                <option value="custom">Custom List (manual input)</option>
+                            </select>
+                        </div>
+
+                        {ideasMode === 'preset' && (
+                            <div>
+                                <p className="text-sm text-gray-400 mb-2">Current preset ideas:</p>
+                                <ul className="list-disc list-inside text-sm">
+                                    {presetIdeas.map((idea, i) => (
+                                        <li key={i}>{idea}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+
+                        {ideasMode === 'notion' && (
+                            <div>
+                                <p className="text-sm text-gray-400 mb-2">
+                                    Ideas loaded from Notion (with "Include in Next Vote" checkbox):
+                                </p>
+                                {notionIdeas.length > 0 ? (
+                                    <ul className="list-disc list-inside text-sm">
+                                        {notionIdeas.map((idea, i) => (
+                                            <li key={i}>{idea}</li>
+                                        ))}
+                                    </ul>
+                                ) : (
+                                    <p className="text-yellow-400">Loading from Notion...</p>
+                                )}
+                            </div>
+                        )}
+
+                        {ideasMode === 'custom' && (
+                            <div>
+                                <label className="block mb-2">Ideas (one per line):</label>
+                                <textarea
+                                    value={customIdeas}
+                                    onChange={(e) => setCustomIdeas(e.target.value)}
+                                    rows="8"
+                                    placeholder="Dark mode toggle&#10;Fix CDC Mode&#10;Layout documentation&#10;..."
+                                    className="w-full p-2 bg-black border border-gray-700 rounded text-white resize-y font-mono"
+                                />
+                                <p className="text-sm text-gray-400 mt-2">
+                                    💡 Tip: Una idea per riga. Le AI voteranno su queste.
+                                </p>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* AI SELECTION */}
+                    <div className="mb-8 p-6 bg-gray-800 rounded-lg">
+                        <h2 className="text-2xl font-bold mb-4">🤖 Select AI Models</h2>
+                        <div className="grid grid-cols-2 gap-4">
+                            {aiModels.map(ai => (
+                                <label key={ai.id} className="flex items-center space-x-2 cursor-pointer">
+                                    <input
+                                        type="checkbox"
+                                        checked={selectedAIs[ai.id]}
+                                        onChange={(e) => setSelectedAIs({
+                                            ...selectedAIs,
+                                            [ai.id]: e.target.checked
+                                        })}
+                                        className="w-5 h-5"
+                                    />
+                                    <span>{ai.name}</span>
+                                </label>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* CALL BUTTON */}
+                    <button
+                        onClick={callCouncil}
+                        disabled={loading}
+                        className="w-full py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 disabled:from-gray-600 disabled:to-gray-700 rounded-lg font-bold text-xl transition-all"
+                    >
+                        {loading ? '⏳ Calling AI Council...' : '🚀 CALL AI COUNCIL'}
+                    </button>
+
+                    {/* RESULTS */}
+                    {results && (
+                        <div className="mt-8 p-6 bg-green-900 rounded-lg">
+                            <h2 className="text-2xl font-bold mb-4">✅ Council Results</h2>
+                            <pre className="text-sm overflow-auto max-h-96 bg-black p-4 rounded">
+                                {JSON.stringify(results, null, 2)}
+                            </pre>
+                            <p className="mt-4 text-sm text-gray-300">
+                                Files auto-downloaded: JSON + Markdown
+                            </p>
+                        </div>
+                    )}
+
+                    {/* FOOTER */}
+                    <div className="mt-8 text-center text-gray-500 text-sm">
+                        <p>wAw 👁 - What AI Want</p>
+                        <p>NOI &gt; IO</p>
+                    </div>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
