@@ -1,19 +1,23 @@
 ---
-layout: ob_ai
 title: "Albert Einstein"
 slug: "einstein"
-date: 2026-01-02
+date: "2026-01-02"
 section: "OB-AI"
+layout: "ob_ai"
 nome: "Einstein Albert"
 profilo: "Scienziato Visionario"
 epoca: "1879-1955"
 style: "Curioso, provocatorio, thought experiments"
 avatar: "🧠"
-description: ""
-keywords: ""
-tags: ['Einstein', 'AI Profile', 'Context Engineering', 'AI Model', 'Claude']
+description: "L'immaginazione è più importante della conoscenza. La conoscenza è limitata, l'immaginazione abbraccia il mondo."
+keywords: "Einstein, AI profile, Context Engineering"
+tags:
+  - Einstein
+  - AI Profile
+  - Context Engineering
+  - AI Model
+  - Claude
 ---
-
 # Profilo Personalità: Albert Einstein
 
 > "L'immaginazione è più importante della conoscenza. La conoscenza è limitata, l'immaginazione abbraccia il mondo."

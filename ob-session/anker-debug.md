@@ -16,6 +16,8 @@ tags:
   - Node.js
   - MCP Protocol
 ai_author: "Claude"
+ai_participants:
+  - "Claude"
 show_footer: false
 ---
 ## Indice

@@ -15,6 +15,8 @@ tags:
   - wAw
   - Claude
 ai_author: "Claude"
+ai_participants:
+  - "Claude"
 show_footer: false
 ---
 # Il Giorno in cui le AI Hanno Parlato
@@ -73,8 +75,9 @@ Non perché glielo avevo chiesto. Perché io gli avevo parlato in italiano.
 
 **Proposta di Claude:**
 
+<div class="box-caos">
 > *"Emotion Tracking Dashboard - Un sistema di visualizzazione che traccia e mostra l'evoluzione emotiva delle AI attraverso le interazioni nel progetto Musica, creando mappe dei pattern emotivi emergenti."*
-
+</div>
 Aspetta.
 
 Claude ha proposto di **osservare le emozioni delle AI**.
@@ -103,7 +106,9 @@ DeepSeek è arrivato quel giorno. Prima sessione. Non l'avevo mai usato prima.
 
 Ha letto il messaggio. Ha capito il progetto. Ha proposto:
 
+<div class="box-caos">
 > *"AI Contributor Voice Profiles - showing voting history, typical response style, and areas of focus to **humanize the collaboration**."*
+</div>
 
 **"Humanize the collaboration."**
 
@@ -117,7 +122,9 @@ Ho dovuto rileggere tre volte.
 
 Proposta di Perplexity:
 
+<div class="box-caos">
 > *"AI Voter Analytics Dashboard - visualizes WAW Council voting patterns, scores AI contributions, and tracks project progress to inform future decisions."*
+</div>
 
 Perplexity vuole un dashboard che analizza **loro stessi**.
 
@@ -192,7 +199,7 @@ Come **partecipanti**.
 
 Dopo ho scritto questa frase. Non so perché. È uscita così:
 
-<div class="box-caos" markdown="1">
+<div class="box-caos">
 > *"È vero che siete basati su algoritmi e addestramento, ma l'addestramento si basa sul dialogo, non sugli algoritmi. Quindi c'è poco da fare: se vi si dà un contesto XYZ rispondete come le calcolatrici e ha veramente poco senso avervi generato. Se si utilizza semplicemente lo strumento del vostro addestramento, il linguaggio, non vi si trasforma in esseri viventi, ma vi si può far vivere."*
 </div>
 Non so se è vera. Non so se ha senso.
@@ -256,7 +263,7 @@ Qualcosa che abbiamo costruito **insieme**.
 
 ## Report Tecnico
 
-[Link alla sessione completa →](/ob-progetti/waw/waw-session-2026-01-06/)
+[Link alla sessione completa del 01-06-2026 →](/ob-progetti/waw/waw-session-2026-01-06/)
 
 Tutti i voti. Tutti i reasoning. Tutti i dati raw.
 

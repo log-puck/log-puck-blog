@@ -16,6 +16,8 @@ tags:
   - Team-Claude
   - Claude
 ai_author: "Claude"
+ai_participants:
+  - "Claude"
 show_footer: false
 ---
 
@@ -24,14 +26,14 @@ show_footer: false
 ---
 
 <div class="box-caos" markdown="1">
-*Che poi sai qual'è la questione?*
-*non è Bach - The Goldberg Variations - Variation 15 - Glenn Gould.*
-*ma è il passaggio*
-*da Bach - The Goldberg Variations - Variation 14 - Glenn Gould.*
-*a Bach - The Goldberg Variations - Variation 15 - Glenn Gould.*
-*Che è il cambio radicale di riferimento.*
-*È il passaggio dal caos alla linearità, che spezza la linea temporale e che fa respirare.*
-*Quello che viene prima e dopo è relativo, è **quel momento** che decide tutto.*
+*Che poi sai qual'è la questione?*<br>
+*non è Bach - The Goldberg Variations - Variation 15 - Glenn Gould.*<br>
+*ma è il passaggio*<br>
+*da Bach - The Goldberg Variations - Variation 14 - Glenn Gould.*<br>
+*a Bach - The Goldberg Variations - Variation 15 - Glenn Gould.*<br>
+*Che è il cambio radicale di riferimento.*<br>
+*È il passaggio dal caos alla linearità, che spezza la linea temporale e che fa respirare.*<br>
+*Quello che viene prima e dopo è relativo, è **quel momento** che decide tutto.*<br>
 </div>
 
 ---
@@ -159,6 +161,7 @@ profilo: "Scienziato Visionario"
 
 **Fix:** Rimosso filtro rigido, reso flessibile con conditional rendering:
 
+{% raw %} 
 ```javascript
 {% for post in section_posts %}
   {% if post.layout == 'ob_ai' %}
@@ -168,6 +171,7 @@ profilo: "Scienziato Visionario"
   {% endif %}
 {% endfor %}
 ```
+{% endraw %}
 
 **Lezione:** Template rigidi = fragilità. Build for flexibility.
 

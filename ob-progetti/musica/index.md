@@ -4,8 +4,8 @@ slug: "index"
 date: "2026-01-09"
 section: "OB-Progetti"
 subsection: "MusicaAI"
-layout: "ob_document"
-permalink: /ob-progetti/musicaai/
+layout: "ob_progetti"
+permalink: /ob-progetti/musica/
 description: "Laboratorio di ricerca su come le AI interpretano sequenze ordinate di dati musicali. Tracce generate algoritmicamente, studiate dalle AI, analizzate per scoprire pattern emergenti."
 keywords: "AI Music, Pattern Analisys, Comunicazione tra AI"
 subtitle: "C'è una musica fatta dalle AI per le AI?"
@@ -16,6 +16,8 @@ tags:
   - AI Comunication
   - Patterns
 ai_author: "Manus"
+ai_participants:
+  - "Manus"
 show_footer: false
 ---
 # Musica per AI

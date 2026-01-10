@@ -25,6 +25,7 @@ ai_participants:
   - "Grok"
   - "Gemini"
   - "GLM"
+  - "ChatGPT"
 show_footer: false
 ---
 # Indice

@@ -16,7 +16,10 @@ tags:
   - MCP Protocol
   - Debugging
   - AI Workflow
+  - Claude
 ai_author: "Claude"
+ai_participants:
+  - "Claude"
 show_footer: false
 ---
 ## Indice

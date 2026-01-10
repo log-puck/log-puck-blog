@@ -15,6 +15,8 @@ tags:
   - Claude
   - Documents
 ai_author: "Claude"
+ai_participants:
+  - "Claude"
 show_footer: false
 version: "1"
 ---

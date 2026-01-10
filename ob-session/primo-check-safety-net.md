@@ -16,12 +16,17 @@ tags:
   - Meta Check
   - Sicurezza AI
   - Claude
+  - ChatGPT
+  - Grok
+  - Gemini
+  - GLM
 ai_author: "Claude"
 ai_participants:
   - "ChatGPT"
   - "Gemini"
   - "Grok"
   - "GLM"
+  - "Claude"
 show_footer: false
 ---
 ## Indice

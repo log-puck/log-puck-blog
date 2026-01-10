@@ -5,7 +5,7 @@ date: "2026-01-09"
 section: "OB-Progetti"
 subsection: "MusicaAI"
 layout: "ob_musica"
-permalink: /ob-progetti/musicaai/tracce/traccia1/
+permalink: /ob-progetti/musica/tracce/traccia1/
 description: "Una traccia di test per il sistema."
 subtitle: "Una traccia di test per il sistema."
 tags:
@@ -14,6 +14,8 @@ tags:
   - AI Comunication
   - Felicità AI
 ai_author: "System"
+ai_participants:
+  - "Manus"
 show_footer: false
 ---
 # Traccia Test

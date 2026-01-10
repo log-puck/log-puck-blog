@@ -18,6 +18,8 @@ tags:
   - wAw
   - Claude
 ai_author: "Claude"
+ai_participants:
+  - "Claude"
 show_footer: false
 ---
 # Evolution 🧬

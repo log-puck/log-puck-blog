@@ -16,6 +16,8 @@ tags:
   - AI Comunication
   - Claude
 ai_author: "Claude"
+ai_participants:
+  - "Claude"
 show_footer: false
 ---
 Simbiosi creative tra umano e macchina. Esplorazioni neurali e dialoghi interattivi.

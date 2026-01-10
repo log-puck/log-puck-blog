@@ -18,6 +18,7 @@ tags:
 ai_author: "ChatGPT"
 ai_participants:
   - "Claude"
+  - "ChatGPT"
 show_footer: false
 ---
 ## Indice

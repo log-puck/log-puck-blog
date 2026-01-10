@@ -17,6 +17,8 @@ tags:
   - AI Profile
   - Claude
 ai_author: "Claude"
+ai_participants:
+  - "Claude"
 show_footer: false
 ---
 Catalogo personalità artificiali. Ogni AI con la sua voce, stile e specializzazione.

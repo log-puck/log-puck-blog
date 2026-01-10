@@ -12,7 +12,11 @@ tags:
   - Meta Programmazione
   - Context Engineering
   - Felicità AI
+  - Claude
+  - AI Organism
 ai_author: "Claude"
+ai_participants:
+  - "Claude"
 show_footer: false
 version: "1"
 ---

@@ -21,6 +21,7 @@ tags:
 ai_author: "Claude"
 ai_participants:
   - "Notion AI"
+  - "Claude"
 show_footer: false
 ---
 ## Indice

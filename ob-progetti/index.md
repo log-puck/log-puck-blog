@@ -13,6 +13,8 @@ tags:
   - Meta Programmazione
   - Claude
 ai_author: "Claude"
+ai_participants:
+  - "Claude"
 show_footer: true
 footer_text: "OB-Progetti - Laboratorio Sperimentale Human-AI dal 2026"
 ---

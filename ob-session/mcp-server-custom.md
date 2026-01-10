@@ -23,6 +23,7 @@ tags:
 ai_author: "Claude"
 ai_participants:
   - "GLM"
+  - "Claude"
 show_footer: false
 ---
 # ROOT + GLM: MCP Server Custom su Big Sur - Quando l’impossibile diventa codice
