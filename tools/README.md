@@ -12,8 +12,11 @@ Questo script legge contenuti da database Notion (DB CONTENT, DB PERSONAS, DB PR
 
 **Costanti:**
 - `OUTPUT_DIR`: Directory di output (default: ".")
-- `NOTION_FIELDS`: Mappa nomi campi Notion (centralizzata per manutenzione)
+- `NOTION_FIELDS`: Mappa nomi campi Notion (centralizzata per facilitare manutenzione)
+  - Contiene mapping tra nomi interni e nomi reali dei campi in Notion
+  - Facilita refactoring e manutenzione quando i nomi campi cambiano
 - `LAYOUT_MAP`: Mappa layout Notion -> layout Jekyll
+  - Converte valori layout da Notion (es. "session", "document") in nomi layout Jekyll (es. "ob_session", "ob_document")
 
 ### 2. Logging (Righe 57-65)
 
@@ -162,18 +165,78 @@ Questo script legge contenuti da database Notion (DB CONTENT, DB PERSONAS, DB PR
 
 ## Dipendenze
 
-- `requests`: Per chiamate API Notion
+Le dipendenze sono gestite tramite `requirements.txt` nella root del repository:
+
+- `requests>=2.31.0`: Per chiamate API Notion
+- `pyyaml>=6.0`: Per generazione file YAML (opzionale, ha fallback manuale)
+- `python-dotenv>=1.0.0`: Per gestione variabili d'ambiente (opzionale)
+
+**Dipendenze standard Python:**
 - `os`, `datetime`: Utilities standard Python
 - `typing`: Per type hints (Optional, List, Dict, Any, Union)
-- `notion_config`: Configurazione Notion (API key, database IDs)
+- `notion_config`: Configurazione Notion locale (API key, database IDs) - file `tools/notion_config.py`
+
+### Installazione
+
+```bash
+# Dalla root del repository
+pip install -r requirements.txt
+```
+
+## Script Correlati
+
+### `test_tag_generation.py`
+
+Script di test standalone per generazione pagine tag. Non richiede connessione a Notion API.
+
+**Funzionalità:**
+- Scansiona tutti i file `.md` nelle cartelle di contenuto
+- Estrae tag dai frontmatter
+- Genera pagine tag in `tags/`
+- Genera file `_data/top_tags.yml` con i top 5 tag
+
+**Uso:**
+```bash
+python tools/test_tag_generation.py
+```
+
+**Differenze con lo script principale:**
+- Non richiede dipendenze Notion API
+- Testa solo la logica di generazione tag
+- Utile per debug locale senza chiamate API
+
+## Esecuzione
+
+### Esecuzione Locale
+
+```bash
+# Assicurati di avere le dipendenze installate
+pip install -r requirements.txt
+
+# Esegui lo script dalla root del repository
+python tools/notion_to_jekyll_builder.py
+```
+
+**Nota:** Lo script deve essere eseguito dalla root del repository per generare i file nella posizione corretta (non da dentro `tools/`).
+
+### GitHub Actions
+
+Lo script è configurato per eseguirsi automaticamente tramite GitHub Actions (`.github/workflows/notion-sync.yml`):
+
+- **Trigger**: Ogni 6 ore (cron) o manuale (workflow_dispatch)
+- **Processo**: 
+  1. Installa dipendenze da `requirements.txt`
+  2. Esegue lo script
+  3. Committa e pusha i cambiamenti generati
 
 ## Note
 
-- Lo script genera file relativi alla directory corrente
+- Lo script genera file relativi alla directory corrente (root del repository)
 - Crea automaticamente directory necessarie
 - Aggiorna status build in Notion se infra_id fornito
 - Supporta paginazione per query Notion grandi
 - Gestisce errori gracefully con logging
+- Le dipendenze sono specificate in `requirements.txt` nella root
 
 ## Type Hints
 
