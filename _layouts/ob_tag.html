@@ -15,14 +15,14 @@ layout: default
             {% assign found_count = 0 %}
             {% for p in site.pages %}
                 {% if p.tags and p.tags.size > 0 %}
-                    {% for tag in p.tags %}
-                        {% if tag == page.tag_name %}
-                            {% assign found_count = found_count | plus: 1 %}
-                            {% assign post = p %}
-                            {% include article-card.html %}
-                            {% break %}
-                        {% endif %}
-                    {% endfor %}
+                    {% assign tags_joined = p.tags | join: "," %}
+                    {% assign tags_string = "," | append: tags_joined | append: "," %}
+                    {% assign tag_check = "," | append: page.tag_name | append: "," %}
+                    {% if tags_string contains tag_check %}
+                        {% assign found_count = found_count | plus: 1 %}
+                        {% assign post = p %}
+                        {% include article-card.html %}
+                    {% endif %}
                 {% endif %}
             {% endfor %}
             {% if found_count == 0 %}
