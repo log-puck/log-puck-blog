@@ -20,11 +20,12 @@ jobs:
       
       - name: Install dependencies
         run: |
-          pip install notion-client python-dotenv
+          pip install -r requirements.txt
       
       - name: Run Notion sync script
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          PYTHONPATH: ${{ github.workspace }}/tools:${{ github.workspace }}
         run: |
           python tools/notion_to_jekyll_builder.py
       
