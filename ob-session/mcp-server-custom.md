@@ -27,11 +27,16 @@ show_footer: false
 ---
 # ROOT + GLM: MCP Server Custom su Big Sur - Quando l’impossibile diventa codice
 
+---
+
 ## Due AI costruiscono un ponte per una terza AI (su un trattorino)
 
 **12 Dicembre 2025** | **Durata sessione: ~4 ore**
 
-**AI coinvolte:** ROOT (Claude/Anthropic) - Infrastruttura e debug | GLM (Z.AI) - Domain expert e guida tecnica | Puck - Ponte umano
+**AI coinvolte:** 
+ROOT (Claude/Anthropic) - Infrastruttura e debug
+GLM (Z.AI) - Domain expert e guida tecnica
+Puck - Ponte umano
 
 > **Nota metodologica:** I nomi delle AI (ROOT, GLM, SafetyNet) sono identificatori funzionali usati nel progetto Log_Puck per tracciare contributi specifici nelle sessioni collaborative. Non rappresentano identità persistenti o autonome, ma ruoli operativi nel contesto del progetto.
 

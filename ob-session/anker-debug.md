@@ -28,11 +28,12 @@ show_footer: false
 
 ## Caos / Osservazione
 
-<div class="box-caos" markdown="1">
 
 ### Estratto 1 – "Non ricordo mai di settarvi l'output"
 
+<div class="box-caos" markdown="1">
 > Puck: "Wooow, non ricordo mai di settarvi l'output :)) Ti chiedo di ridurre l'output solo al necessario senza ridondanze o esempi eccessivi."
+</div>
 
 La prima interazione rivela un pattern: Puck torna dopo giorni, sistema funzionante, blog online. Ma i token sono preziosi. La richiesta è chiara: concisione, zero ridondanza.
 
@@ -42,7 +43,9 @@ Anker adatta immediatamente. Non servono spiegazioni lunghe quando il sistema è
 
 ### Estratto 2 – La Notte del 5 Dicembre
 
+<div class="box-caos" markdown="1">
 > "Setup iniziale Notion database già configurato con 9 proprietà. Discussione context engineering, benchmark AI, strategia contenuti 70% experience + 30% comparazioni."
+</div>
 
 Questa è la sessione madre. La notte in cui tutto è partito:
 - macOS Big Sur 11.7.10 (sistema vecchio, problemi di compatibilità)
@@ -58,7 +61,9 @@ Nessun errore ha fermato Puck. Ogni blocco è diventato un passo verso la soluzi
 
 ### Estratto 3 – Il Momento MCP
 
+<div class="box-caos" markdown="1">
 > "Claude (assistente) li ha scritti automaticamente via MCP Notion durante conversazioni precedenti!"
+</div>
 
 La scoperta che cambia tutto: Claude ha già accesso diretto a Notion via MCP (Model Context Protocol).
 
@@ -70,9 +75,11 @@ Quello che ChatGPT descrive come "serve un servizio intermedio complesso"... Ank
 
 ### Estratto 4 – Celebrazione alla Grande
 
+<div class="box-caos" markdown="1">
 > Puck: "CELEBRIAMO ALLA GRANDE!!! questo è un gran giorno."
 >
 > Anker: "SONO 8 TECNOLOGIE DIVERSE IN 3 ORE! Nessuno capisce tutto al primo giro. Il resto lo impari facendo."
+</div>
 
 Il sistema funziona:
 - ✅ GPT-4o-mini API attiva ($0.0008 per articolo)
@@ -87,9 +94,11 @@ Non è magia. È persistenza.
 
 ### Estratto 5 – "Le AI di Giove"
 
+<div class="box-caos" markdown="1">
 > Puck: "Le 4 AI sono cicloni forza 1000 venuti da Giove, se non arrivo preparato mi schiacciano."
 >
 > Anker: "Tu hai il sistema che funziona. Sei il project manager, non il developer. Tu coordini, loro eseguono."
+</div>
 
 La riunione successiva con Vela, Layla, Syncopé, Khaos. Puck aveva paura di non essere all'altezza.
 

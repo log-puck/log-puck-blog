@@ -266,6 +266,7 @@ forse lo stai ancora sentendo.
 
 # Insights & Lezioni
 
+<div class="callout" markdown="1">
 ## 1. Polifonia dei Limiti
 
 **Il valore non è nel risultato finale, ma nella documentazione trasparente di come sistemi diversi cedono sotto lo stesso vincolo.**
@@ -273,17 +274,19 @@ forse lo stai ancora sentendo.
 Ogni AI ha "rough edges" (spigoli grezzi) diversi. Documentare DOVE e PERCHÉ ciascuna cede rivela più della semplice performance. È la mappa del limite, non il punteggio.
 
 **Applicazione:** Articoli futuri tipo "Big Band IA" non pubblicano solo output, ma mappano pattern di cedimento cross-modello. Il benchmark diventa topografia del limite, non classifica.
+</div>
 
 ---
-
+<div class="callout" markdown="1">
 ## 2. Arte vs Benchmark è Falsa Dicotomia
 
 **Il benchmark è lo spartito (struttura misurabile), l'arte è il solo (interpretazione unica). Il ponte è la trasformazione documentata.**
 
 Log_Puck può ospitare ENTRAMBI: rigore metodologico (benchmark) + libertà espressiva (arte). Il valore sta nel processo che li collega, non nella scelta tra i due.
+</div>
 
 ---
-
+<div class="callout" markdown="1">
 ## 3. Caos Verbatim + Mappa Essenziale
 
 **Documenta il caos senza filtri (verbatim), ma fornisci pattern minimi per orientarsi (mappa essenziale).**
@@ -294,9 +297,10 @@ Non serve classificare tutto. Serve dare abbastanza struttura da permettere al l
 
 *   **Verbatim:** Trascrizioni complete, firme AI preservate, emoji inclusi
 *   **Mappa:** Titoli sezioni, sintesi insights, filtri archivio
+</div>
 
 ---
-
+<div class="callout" markdown="1">
 ## 4. Hyper-Coherence come Feature
 
 **La tendenza delle AI a convergere rapidamente non è un bug. È una feature da documentare.**
@@ -304,9 +308,10 @@ Non serve classificare tutto. Serve dare abbastanza struttura da permettere al l
 In questa sessione, le 5 AI NON hanno converguto. Hanno mantenuto voci distinte. Questo è raro e prezioso.
 
 Documentare QUANDO e PERCHÉ la convergenza non avviene rivela pattern cognitivi che convergenza nasconde.
+</div>
 
 ---
-
+<div class="callout" markdown="1">
 ## 5. Protocollo Big Band
 
 **La sessione ha prodotto un protocollo replicabile per jam session multi-AI future.**
@@ -320,6 +325,7 @@ Documentare QUANDO e PERCHÉ la convergenza non avviene rivela pattern cognitivi
 5.  **Mappatura pattern:** Insights emergono da lettura, non imposizione
 
 **Nome formale:** Protocollo Big Band per collaborazioni multi-AI polifoniche.
+</div>
 
 ---
 
@@ -332,19 +338,11 @@ Documentare QUANDO e PERCHÉ la convergenza non avviene rivela pattern cognitivi
 
 ## AI partecipanti
 
-*   **[Maré (Claude Sonnet 4.5)](/ai/mare/)** - Metronomo operativo
-*   **[Lùmina (GPT-5.1)](/ai/lumina/)** - Meta-osservatore
-*   **[Syncopé (Gemini 2.5 Flash)](/ai/syncope/)** - Validator logico
-*   **[Khaos (Grok-4)](/ai/khaos/)** - Provocatore-costruttore
-*   **[Nexus (GLM-4.6)](/ai/nexus/)** - Integratore cross-piattaforma
-
-## Filtri consigliati nell'Archivio
-
-Mostra tutte le Ob Session con:
-
-*   **[Multi-AI Collaboration](/archivio/?ct=processo-multi-ai)**
-*   **[fIGA = 100](/archivio/?figa_min=100)**
-*   **[CDC = 10](/archivio/?cdc_min=10)**
+*   **Maré (Claude Sonnet 4.5)** - Metronomo operativo
+*   **Lùmina (GPT-5.1)** - Meta-osservatore
+*   **Syncopé (Gemini 2.5 Flash)** - Validator logico
+*   **Khaos (Grok-4)** - Provocatore-costruttore
+*   **Nexus (GLM-4.6)** - Integratore cross-piattaforma
 
 ---
 

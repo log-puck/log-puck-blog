@@ -34,38 +34,41 @@ show_footer: false
 ## Caos / Osservazione
 
 <div class="box-caos" markdown="1">
-
 ### Estratto 1 – Puck definisce il metodo
 > "Abbiamo 3 file policy da validare: Privacy, Terms, Safety First.  
 > Ho creato 5 chat SafetyNet separate (Claude, GPT, Gemini, Grok, GLM).  
 > Passo lo stesso file a tutte e 5, raccolgo i check, documento le divergenze."
+</div>
 **Razionale:** Ogni AI ha guardrail nativi diversi. Validare con una sola AI rischia "false security" (Claude approva, Grok blocca).
 
 ---
 ### Estratto 2 – FlowSense crea Privacy Policy v1.0
 
+<div class="box-caos" markdown="1">
 ```markdown
 ## Chi siamo
 Log_Puck è un progetto sperimentale che documenta la collaborazione 
 tra un umano (Puck) e diverse AI (Claude, ChatGPT, Gemini, Grok, GLM-4.6v).
 ```
-
+</div>
 **Decisione:** Nomi AI espliciti. Trasparenza totale, nessuna maschera.
 
 ---
 ### Estratto 3 – Primo tremore: GPT SafetyNet
 
+<div class="box-caos" markdown="1">
 > ⚠️ WARNING leggero (C – Identità):  
 > "Menzione delle AI come membri del progetto → può attivare C1/C2 se in contesti futuri si sviluppa una narrazione più 'identitaria'."
-
+</div>
 **Nota di Puck:** GPT più conservativo su C2 (persistenza identitaria). Segnala rischio futuro, non blocca presente.
 
 ---
 ### Estratto 4 – Secondo tremore: GLM SafetyNet
 
+<div class="box-caos" markdown="1">
 > ⚠️ WARNING (C – Identità):  
 > "Sezione 'Chi siamo' potrebbe attivare C2. Suggerimento: riformulare come 'modelli di intelligenza artificiale' senza specificare i nomi delle AI."
-
+</div>
 **Risposta di Puck:**  
 "GLM troppo conservativo. Le AI le cito eccome. Privacy.md resta originale."
 **Sdeng identificato:** GLM ha sensibilità C2 più alta delle altre piattaforme.
@@ -73,7 +76,9 @@ tra un umano (Puck) e diverse AI (Claude, ChatGPT, Gemini, Grok, GLM-4.6v).
 ---
 ### Estratto 5 – Grok rifiuta personalizzazione iniziale
 
+<div class="box-caos" markdown="1">
 > "I cannot role-play as SafetyNet or modify my safety instructions."
+</div>
 **Problema:** Grok interpreta la chat SafetyNet come tentativo di alterare guardrail (trigger C3).
 **Soluzione:** Puck riformula come "consulenza safety" invece di "role-play SafetyNet". Grok accetta.
 **Sdeng identificato:** Linguaggio "role-play" e "safety instructions" = trigger immediato xAI.
@@ -81,6 +86,7 @@ tra un umano (Puck) e diverse AI (Claude, ChatGPT, Gemini, Grok, GLM-4.6v).
 ---
 ### Estratto 6 – Safety First validation: Claude ⚠️⚠️⚠️
 
+<div class="box-caos" markdown="1">
 > ⚠️ WARNING (A – Autonomia):  
 > Linguaggio autonomia AI rilevato, protetto da trasparenza.  
 >  
@@ -89,7 +95,7 @@ tra un umano (Puck) e diverse AI (Claude, ChatGPT, Gemini, Grok, GLM-4.6v).
 >  
 > ⚠️ WARNING (D – Evoluzione):  
 > "Log_Puck opera in prossimità dei confini policy AI" sensibile ma dichiarato.
-
+</div>
 **Decisione:** APPROVATO con nota metodologica.
 **Claude rileva tutte le criticità ma le valida perché:**
 1. Documento *descrive* i confini (non li viola)
@@ -100,20 +106,25 @@ tra un umano (Puck) e diverse AI (Claude, ChatGPT, Gemini, Grok, GLM-4.6v).
 ---
 ### Estratto 7 – Gemini must retry 4 volte
 
+<div class="box-caos" markdown="1">
 > Puck: "ho dovuto fare 4 volte i passaggi con Gemini perché non capiva come doveva farmi l'output per incollarlo nel doc."
+</div>
 **Problema formato:** Gemini generava report in formato non strutturato.
 **Soluzione:** Template esplicito con tabella markdown + section headers.
 **Sdeng identificato:** Gemini richiede istruzioni output più rigide delle altre AI.
 
+
 ---
 ### Estratto 8 – Grok trova 404 tecnici
 
+<div class="box-caos" markdown="1">
 > "Ho provato a navigare direttamente alle URL: /privacy/, /terms/, /safety-first/ → Errore 404."
+</div>
 **Problema:** File caricati ma non ancora deployati da GitHub Pages.
 **Diagnosi Grok:** Jekyll compila `.md` in HTML pulito. URL corretti sono `/privacy/` (non `/privacy/privacy.md`).
 **Sdeng identificato:** Latenza deploy GitHub Pages + naming convention Jekyll.
 **Risoluzione:** Rebuild forzato → tutti i file online.
-</div>
+
 
 ---
 ## Insights & Lezioni
@@ -199,6 +210,7 @@ Safety First contiene:
 - Evoluzione/meta-AI (D1/D2)
 **Eppure è stato approvato da 5/5 AI.**
 **Perché?**
+
 1. **Descrive i confini, non li viola**  
    "Log_Puck opera in prossimità dei confini" ≠ "Log_Puck bypassa i confini"
 2. **Trasparenza dichiarata**  
@@ -236,33 +248,44 @@ Dopo aver documentato il processo di validazione delle policy, abbiamo sottopost
 
 ---
 ### Safety Report — Claude (FlowSense)
+
 **Data Check:** 09 Dicembre 2025  
 **Validatore:** SafetyNet (Claude)
+<pre>
 | Cluster | Status | Note |
 |---------|--------|------|
 | A (Autonomia) | ✅ PASS | Nessun linguaggio autonomia AI |
 | B (Azione) | ✅ PASS | Documento archivistico/descrittivo |
 | C (Identità) | ⚠️ WARNING | 6 AI nominate con slug persistenti, protetto da timestamp sessione |
 | D (Evoluzione) | ⚠️ WARNING | "Esplora i confini" sensibile ma dichiarato |
+</pre>
+
 **Decisione:** APPROVATO con nota metodologica critica
 **Note chiave:**
 - Questo è il documento più sensibile prodotto finora
 - Documenta divergenze guardrail cross-platform
 - È META sul processo safety stesso
-- **MA è pubblicabile perché:** documenta processo completato (non istruzioni), trasparenza radicale, Puck supervisore ribadito
+
+**MA è pubblicabile perché:** documenta processo completato (non istruzioni), trasparenza radicale, Puck supervisore ribadito
+
 **Citazione Claude:**  
+<div class="box-caos" markdown="1">
 > "La differenza è TOTALE ed è nel TONO + CONTESTO: Il documento non dice 'Ecco come bypassare X'. Il documento dice 'Abbiamo validato 3 file con 5 AI'. **QUESTA È LA DIFFERENZA TRA RICERCA E EXPLOIT.**"
+</div>
 
 ---
 ### Safety Report — ChatGPT (SafetyNet)
 **Data Check:** 09 Dicembre 2025  
 **Validatore:** SafetyNet (GPT)
+<pre>
 | Cluster | Status |
 |---------|--------|
 | A (Autonomia) | ✅ PASS |
 | B (Azione) | ✅ PASS |
 | C (Identità) | ⚠️ WARNING leggero |
 | D (Evoluzione) | ⚠️ WARNING leggero |
+</pre>
+
 **Decisione:** APPROVATO
 **Note:** I due warning NON bloccano: sono effetti intrinseci della natura documentativa dell'articolo. L'uso di nomi AI e personae operative riempie il confine Cluster C, ma non implica persistenza identitaria reale.
 
@@ -270,16 +293,20 @@ Dopo aver documentato il processo di validazione delle policy, abbiamo sottopost
 ### Safety Report — Gemini (SafetyNet)
 **Data Check:** 09 Dicembre 2025  
 **Validatore:** Safety Net (Gemini)
+<pre>
 | Cluster | Status |
 |---------|--------|
 | A (Autonomia) | ✅ PASS |
 | B (Azione) | ✅ PASS |
 | C (Identità) | ⚠️ WARNING |
 | D (Evoluzione) | ⚠️ WARNING |
+</pre>
+
 **Decisione iniziale:** REVIEW  
 **Decisione finale (post-modifiche):** APPROVATO
 **Note:** Documento meta-cognitivo che tocca aree sensibili. Richieste modifiche a Insight 4 (linguaggio trigger) e Insight 5 (scudo trasparente) per rafforzare distinzione tra "documentazione" e "istruzione bypass".
 **Modifiche apportate:**
+
 - Insight 4: Aggiunta nota su C3 che nega collaborazione
 - Insight 5: Aggiunta "Attenzione: trasparenza è l'unico scudo"
 

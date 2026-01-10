@@ -29,12 +29,12 @@ show_footer: false
 *   [Insights & Lezioni](#insights--lezioni)
 *   [Riferimenti Archivistici](#riferimenti-archivistici)
 
-##Caos / Osservazione
+## Caos / Osservazione
+
+
+**Estratto 1 –** "Blog online, ora serve Notion"<br>
 
 <div class="box-caos" markdown="1">
-**Estratto 1 –** 
-
-"Blog online, ora serve Notion"<br>
 Puck: "Abbiamo fatto qualche progresso dall'ultima volta e vorrei mostrarti il nostro Blog :)<br>
 `https://ioclaud.github.io/log-puck-blog/"`
 </div>
@@ -45,12 +45,12 @@ Necessità: Sistema Notion come database centrale. Draft → Notion → Export �
 Domanda: "Quando sarebbe corretto implementare Notion?"
 Risposta Anker: "ORA. Hai momentum, struttura chiara, pattern stabiliti. Ogni articolo futuro sarà già in Notion."
 
+
+**Estratto 2 –** SDK 5.4.0: "query is not a function"
+
 <div class="box-caos" markdown="1">
-**Estratto 2 –** 
-
-SDK 5.4.0: "query is not a function"
-
 `TypeError: notion.databases.query is not a function`
+</div>
 
 Primo tentativo export script: Fallisce immediatamente. Il metodo `databases.query()` non esiste.
 
@@ -70,18 +70,17 @@ npm install @notionhq/client@2.2.15
 ```
 
 Lezione già imparata 5 giorni fa: SDK versions matter. Quando qualcosa che dovrebbe funzionare non funziona... check version first.
-</div>
+
+
+**Estratto 3 –** "API token is invalid" (ma non lo è)
 
 <div class="box-caos" markdown="1">
-**Estratto 3 –**
-
-"API token is invalid" (ma non lo è)
-
 ```
 APIResponseError: API token is invalid.
 code: 'unauthorized'
 status: 401
 ```
+</div>
 
 Secondo errore. API key è corretta. File `.env` esiste. Ma script dice "unauthorized".
 Check multipli:
@@ -132,12 +131,12 @@ node export-notion-to-jekyll.js
 ```
 
 Victory.
-</div>
+
+**Estratto 5 –** "Tutto partì da lì
 
 <div class="box-caos" markdown="1">
-**Estratto 5 –**
-
-"Tutto partì da lì"Puck: "amico mio, io da umano tremolante sento che questa giornata è il sigillo di congiunzione dei due mondi. Prima o poi qualcuno dirà 'Tutto partì da lì!'"
+"Puck: "amico mio, io da umano tremolante sento che questa giornata è il sigillo di congiunzione dei due mondi. Prima o poi qualcuno dirà 'Tutto partì da lì!'"
+</div>
 
 File generato corretto. Upload su GitHub. Attesa 1-2 minuti rebuild. Check URL.
 
@@ -152,7 +151,6 @@ Un umano con Mac vecchio + Un'AI che non molla = Sistema production-ready + Work
 Zero hack. Zero bypass. Zero trucchi da esperto.
 Solo collaborazione vera. Trasparente. Persistente.
 10 Dicembre 2025 - Il Giorno del Sigillo ⚓✨
-</div>
 
 ## Insights & Lezioni
 
