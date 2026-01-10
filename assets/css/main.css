@@ -827,6 +827,77 @@ main {
     opacity: 0.7;
 }
 
+/* ----------------------------------------------------------------------------
+   CALLOUT - Insights e lezioni
+   Usato per: Sezione "Insights & Lezioni"
+   ---------------------------------------------------------------------------- */
+
+.callout {
+  background: #E8F2F7; /* azure */
+  border-left: 4px solid #3D7E9B; /* blu medio */
+  border-radius: 6px;
+  padding: 2rem; /* 32px */
+  margin: 2.5rem 0; /* 40px top/bottom */
+}
+
+.callout h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-top: 0;
+  margin-bottom: 1rem; /* 16px */
+}
+
+.callout h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-top: 1.25rem; /* 20px */
+  margin-bottom: 0.75rem; /* 12px */
+}
+
+.callout p {
+  margin-bottom: 1rem; /* 16px */
+  line-height: 1.8;
+}
+
+.callout p:last-child {
+  margin-bottom: 0;
+}
+
+.callout ul,
+.callout ol {
+  margin: 1rem 0 1rem 1.25rem; /* 16px 0 16px 20px */
+}
+
+.callout ul li,
+.callout ol li {
+  margin-bottom: 0.75rem; /* 12px */
+}
+
+.callout strong {
+  font-weight: 700;
+  color: #3D7E9B; /* blu accent */
+}
+
+.callout a {
+  color: var(--text-main);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-yellow);
+  transition: all 0.3s;
+}
+
+.callout a:hover {
+  color: var(--accent-magenta);
+  border-bottom-color: var(--accent-magenta);
+}
+
+@media (max-width: 768px) {
+  .callout {
+    padding: 1.25rem; /* 20px su mobile */
+  }
+}
+
 /* --- PERSONA PAGE --- */
 .persona-page {
     padding: 3rem 0;
