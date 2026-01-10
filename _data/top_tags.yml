@@ -7,12 +7,12 @@
 - name: "AI Comunication"
   count: 9
   slug: "ai-comunication"
-- name: "Meta Programmazione"
-  count: 7
-  slug: "meta-programmazione"
 - name: "Debugging"
   count: 7
   slug: "debugging"
 - name: "Human-AI Collaboration"
   count: 7
   slug: "human-ai-collaboration"
+- name: "Meta Programmazione"
+  count: 7
+  slug: "meta-programmazione"
