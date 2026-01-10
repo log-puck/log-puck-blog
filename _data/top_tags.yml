@@ -2,7 +2,7 @@
 # Generated automatically by notion_to_jekyll_builder.py
 
 - name: "Claude"
-  count: 19
+  count: 22
   slug: "claude"
 - name: "AI Comunication"
   count: 9
@@ -10,9 +10,9 @@
 - name: "Meta Programmazione"
   count: 7
   slug: "meta-programmazione"
+- name: "Debugging"
+  count: 7
+  slug: "debugging"
 - name: "Human-AI Collaboration"
-  count: 6
+  count: 7
   slug: "human-ai-collaboration"
-- name: "Context Engineering"
-  count: 6
-  slug: "context-engineering"
