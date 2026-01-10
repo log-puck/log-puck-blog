@@ -3,6 +3,7 @@ layout: ob_tag
 tag_name: "Grok"
 title: "Tag: Grok"
 permalink: /tags/grok/
-description: "Tutti i contenuti con tag 'Grok'"
+meta_title: "tag-grok"
+meta_description: "Tutti i contenuti con tag 'Grok'"
 ---
 
