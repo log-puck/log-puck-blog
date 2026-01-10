@@ -20,9 +20,9 @@ show_footer: false
 ---
 ## Indice
 
-- Caos / Osservazione
-- Insights & Lezioni
-- Riferimenti Archivistici
+*   [Caos / Osservazione](#caos--osservazione)
+*   [Insights & Lezioni](#insights--lezioni)
+*   [Riferimenti Archivistici](#riferimenti-archivistici)
 
 ---
 
