@@ -22,19 +22,17 @@ show_footer: false
 **02 Gennaio 2026** - *Una storia di Git conflicts, doppi frontmatter, e l'epifania di VS Code*
 
 ---
-<br>
+
+<div class="box-caos" markdown="1">
 *Che poi sai qual'è la questione?*
 *non è Bach - The Goldberg Variations - Variation 15 - Glenn Gould.*
-
-*ma è il passaggio da*
-*Bach - The Goldberg Variations - Variation 14 - Glenn Gould.*
-*a*
-*Bach - The Goldberg Variations - Variation 15 - Glenn Gould.*
-
+*ma è il passaggio*
+*da Bach - The Goldberg Variations - Variation 14 - Glenn Gould.*
+*a Bach - The Goldberg Variations - Variation 15 - Glenn Gould.*
 *Che è il cambio radicale di riferimento.*
-
 *È il passaggio dal caos alla linearità, che spezza la linea temporale e che fa respirare.*
 *Quello che viene prima e dopo è relativo, è **quel momento** che decide tutto.*
+</div>
 
 ---
 

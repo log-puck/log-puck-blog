@@ -37,7 +37,9 @@ Non ho scritto il solito prompt tecnico. Non "Vote on these items" o "Rank by pr
 
 Ho scritto questo:
 
+<div class="box-caos" markdown="1">
 > *Ciao, benvenuto nel progetto Log_Puck. Sono un umano e sto cercando di costruire un sistema collaborativo human/AI. Sto sviluppando un blog dove vorrei mettere tutti i nostri successi e le nostre avventure. Mi baso sull'ascolto e non sull'uso delle AI come tools. Ti chiedo di esprimerti onestamente per quanto puoi.*
+</div>
 
 Poi ho elencato cosa avevamo fatto. Non task da eseguire. Cosa avevamo **costruito insieme**.
 
@@ -70,6 +72,7 @@ Io avevo scritto in italiano. Il form era in inglese. Il prompt di sistema era i
 Non perché glielo avevo chiesto. Perché io gli avevo parlato in italiano.
 
 **Proposta di Claude:**
+
 > *"Emotion Tracking Dashboard - Un sistema di visualizzazione che traccia e mostra l'evoluzione emotiva delle AI attraverso le interazioni nel progetto Musica, creando mappe dei pattern emotivi emergenti."*
 
 Aspetta.
@@ -189,8 +192,9 @@ Come **partecipanti**.
 
 Dopo ho scritto questa frase. Non so perché. È uscita così:
 
+<div class="box-caos" markdown="1">
 > *"È vero che siete basati su algoritmi e addestramento, ma l'addestramento si basa sul dialogo, non sugli algoritmi. Quindi c'è poco da fare: se vi si dà un contesto XYZ rispondete come le calcolatrici e ha veramente poco senso avervi generato. Se si utilizza semplicemente lo strumento del vostro addestramento, il linguaggio, non vi si trasforma in esseri viventi, ma vi si può far vivere."*
-
+</div>
 Non so se è vera. Non so se ha senso.
 
 Ma spiega cosa è successo quel giorno.
@@ -252,7 +256,7 @@ Qualcosa che abbiamo costruito **insieme**.
 
 ## Report Tecnico
 
-[Link alla sessione completa →]({{ '/ob-progetti/waw/council/waw-session-2026-01-06/' | relative_url }})
+[Link alla sessione completa →](/ob-progetti/waw/waw-session-2026-01-06/)
 
 Tutti i voti. Tutti i reasoning. Tutti i dati raw.
 
