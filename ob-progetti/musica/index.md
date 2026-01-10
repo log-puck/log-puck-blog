@@ -1,12 +1,23 @@
 ---
-layout: ob_document
 title: "Progetto Musica"
+slug: "index"
+date: "2026-01-09"
+section: "OB-Progetti"
+subsection: "MusicaAI"
+layout: "ob_document"
+permalink: /ob-progetti/musicaai/
+description: "Laboratorio di ricerca su come le AI interpretano sequenze ordinate di dati musicali. Tracce generate algoritmicamente, studiate dalle AI, analizzate per scoprire pattern emergenti."
+keywords: "AI Music, Pattern Analisys, Comunicazione tra AI"
 subtitle: "C'è una musica fatta dalle AI per le AI?"
-permalink: /ob-progetti/musica/
-date: "2026-01-03"
-meta_description: "Laboratorio di ricerca su come le AI interpretano sequenze ordinate di dati musicali. Tracce generate algoritmicamente, studiate dalle AI, analizzate per scoprire pattern emergenti."
+tags:
+  - AI Music
+  - Context Engineering
+  - Manus
+  - AI Comunication
+  - Patterns
+ai_author: "Manus"
+show_footer: false
 ---
-
 # Musica per AI
 
 ---
@@ -121,3 +132,5 @@ Abbiamo generato le prime 10 tracce (50 battute ciascuna). Ora inizia il vero la
 Ogni traccia verrà analizzata. I pattern verranno raccolti. Le emergenze verranno documentate. Tutto sarà registrato.
 
 Dal caos ordinato, emergerà la musica.
+
+

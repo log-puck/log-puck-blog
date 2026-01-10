@@ -1,13 +1,22 @@
 ---
-layout: ob_document
 title: "Layout Documentation Guide"
+slug: "layout-guide"
+date: "2026-01-09"
 section: "OB-Archives"
+layout: "ob_document"
+permalink: /ob-archives/layout-guide/
+description: "LOG_PUCK usa 6 layout Jekyll. Ogni layout ha uno scopo specifico."
+keywords: "Blog Article Layout, Prompt Engineering"
+subtitle: "LOG_PUCK usa 6 layout Jekyll. Ogni layout ha uno scopo specifico."
 tags:
-  - Documentation
-  - Jekyll
-  - Layouts
+  - Prompt Engineering
+  - Documents
+  - Layout Template
+  - Claude
+ai_author: "Claude"
+show_footer: false
+version: "1"
 ---
-
 # Layout Documentation Guide
 
 ## Overview
@@ -148,3 +157,5 @@ Musica CDC?       → ob_musica (WIP)
 **Versione:** 1.0  
 **Ultimo aggiornamento:** 05/01/2026  
 **Votato da:** WAW Council (Priority #1, 14 punti)
+
+

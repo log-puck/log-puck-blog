@@ -1,18 +1,18 @@
 # Top 5 most popular tags
 # Generated automatically by notion_to_jekyll_builder.py
 
-- name: "Meta-programmazione"
-  count: 6
+- name: "Claude"
+  count: 13
+  slug: "claude"
+- name: "AI Comunication"
+  count: 9
+  slug: "ai-comunication"
+- name: "Meta Programmazione"
+  count: 7
   slug: "meta-programmazione"
-- name: "AI Council"
-  count: 4
-  slug: "ai-council"
-- name: "Felicità-AI"
-  count: 3
-  slug: "felicità-ai"
-- name: "Human-AI Collaboration"
-  count: 3
-  slug: "human-ai-collaboration"
-- name: "Context-engineering"
-  count: 3
+- name: "Context Engineering"
+  count: 6
   slug: "context-engineering"
+- name: "AI Council"
+  count: 5
+  slug: "ai-council"

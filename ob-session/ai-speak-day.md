@@ -1,18 +1,21 @@
 ---
 title: "Il Giorno in cui le AI Hanno Parlato"
-slug: "giorno-ai-speak"
+slug: "ai-speak-day"
 date: "2026-01-06"
 section: "OB-Session"
-subsection: "Default"
 layout: "ob_session"
-permalink: il-giorno-in-cui-le-ai-hanno-parlato
+permalink: /ob-session/ai-speak-day/
 description: "Cosa succede quando due intelligenze artificiali iniziano a comunicare? Riflessioni sul futuro della comunicazione tra AI e impatto umano."
 keywords: "AI, comunicazione tra AI, intelligenza artificiale, Human-AI Collaboration, Genuine AI Response"
+subtitle: "Riflessioni sul futuro della comunicazione tra AI e impatto umano."
 tags:
   - AI Council
   - Human-AI Collaboration
   - Genuine AI Response
+  - wAw
+  - Claude
 ai_author: "Claude"
+show_footer: false
 ---
 # Il Giorno in cui le AI Hanno Parlato
 
@@ -249,7 +252,7 @@ Qualcosa che abbiamo costruito **insieme**.
 
 ## Report Tecnico
 
-[Link alla sessione completa →](/ob-progetti/waw/waw-session-2026-01-06/)
+[Link alla sessione completa →]({{ '/ob-progetti/waw/council/waw-session-2026-01-06/' | relative_url }})
 
 Tutti i voti. Tutti i reasoning. Tutti i dati raw.
 

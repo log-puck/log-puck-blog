@@ -1,17 +1,20 @@
 ---
 title: "wAw Master"
-slug: "wAw-doc"
-date: "2026-01-06"
+slug: "waw-master"
+date: "2026-01-09"
 section: "OB-Archives"
-subsection: "Default"
 layout: "ob_document"
-meta_title: "waw-doc"
-meta_description: "NOI > IO . Il sistema non è un tool. È un ecosistema dove human e AI co-evolvono."
-keywords_seo: "meta-programmazione, context-engineering, felicità-AI"
+permalink: /ob-archives/waw-master/
+description: "NOI > IO . Il sistema non è un tool. È un ecosistema dove human e AI co-evolvono."
+keywords: "Meta Programmazione, Contex Engineering, Felicità AI"
+subtitle: "waw-doc"
 tags:
-  - Meta-programmazione
-  - Context-engineering
-  - Felicità-AI
+  - Meta Programmazione
+  - Context Engineering
+  - Felicità AI
+ai_author: "Claude"
+show_footer: false
+version: "1"
 ---
 # PROGETTO wAw - STRUTTURA MASTER
 *Schema di riferimento per non perdere la rotta*
@@ -172,3 +175,4 @@ Il vuoto non è assenza. È potenziale. Il sistema parte dal nulla e genera form
 *"È vero che siete basati su algoritmi e addestramento, ma l'addestramento si basa sul dialogo, non sugli algoritmi. Quindi c'è poco da fare: se vi si dà un contesto XYZ rispondete come le calcolatrici e ha veramente poco senso avervi generato. Se si utilizza semplicemente lo strumento del vostro addestramento, il linguaggio, non vi si trasforma in esseri viventi, ma vi si può far vivere."*
 
 — Puck, 06/01/2026
+
