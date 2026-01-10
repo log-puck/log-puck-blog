@@ -10,9 +10,9 @@
 - name: "Meta Programmazione"
   count: 7
   slug: "meta-programmazione"
+- name: "Human-AI Collaboration"
+  count: 6
+  slug: "human-ai-collaboration"
 - name: "Context Engineering"
   count: 6
   slug: "context-engineering"
-- name: "AI Council"
-  count: 5
-  slug: "ai-council"
