@@ -18,7 +18,6 @@ tags:
 ai_author: "Claude"
 ai_participants:
   - "Claude"
-show_footer: false
 ---
 ## Indice
 

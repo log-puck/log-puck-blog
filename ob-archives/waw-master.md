@@ -1,23 +1,12 @@
 ---
 title: "wAw Master"
 slug: "waw-master"
-date: "2026-01-09"
+date: "2026-01-06"
 section: "OB-Archives"
 layout: "ob_document"
 permalink: /ob-archives/waw-master/
-description: "NOI > IO . Il sistema non è un tool. È un ecosistema dove human e AI co-evolvono."
-keywords: "Meta Programmazione, Contex Engineering, Felicità AI"
-subtitle: "waw-doc"
-tags:
-  - Meta Programmazione
-  - Context Engineering
-  - Felicità AI
-  - Claude
-  - AI Organism
+description: "waw-doc"
 ai_author: "Claude"
-ai_participants:
-  - "Claude"
-show_footer: false
 version: "1"
 ---
 # PROGETTO wAw - STRUTTURA MASTER

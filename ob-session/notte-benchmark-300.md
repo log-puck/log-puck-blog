@@ -10,8 +10,6 @@ keywords: "collaborazione umano intelligenza artificiale nel lavoro quotidiano, 
 subtitle: "la-notte-benchmark-300"
 tags:
   - Debugging
-  - Prompt Engineering
-  - Notion
   - Human-AI Collaboration
   - Genuine AI Response
   - AI Workflow
@@ -19,7 +17,6 @@ tags:
 ai_author: "Claude"
 ai_participants:
   - "Claude"
-show_footer: false
 ---
 Questo non è solo il racconto di un bug tecnico, ma la storia di come un umano e un’AI possono lavorare insieme, sbagliare, fare UNDO e trasformare un problema in un metodo condiviso.
 ## Indice

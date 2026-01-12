@@ -10,16 +10,13 @@ keywords: "Redesign del blog, Layout e struttura blog, Diario Grezzo Tecnico, Wi
 subtitle: "Quando un umano cerca di unire due AI sotto lo stesso obiettivo"
 tags:
   - Layout & UX
-  - Diario Grezzo Tecnico
   - PCK
   - Claude
   - ChatGPT
-  - Design System
 ai_author: "ChatGPT"
 ai_participants:
   - "Claude"
   - "ChatGPT"
-show_footer: false
 ---
 ## Indice
 

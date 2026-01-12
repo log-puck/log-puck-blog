@@ -9,11 +9,7 @@ description: "Protocollo Big Band: 5 AI in ensemble tra arte e benchmark. Polifo
 keywords: "Protocollo Big Band, Polifonia dei Limiti, Quintetto AI (ChatGPT, Grok, Claude, Gemini, GLM), Arte vs Benchmark, Scrittura Ensemble AI, Prime Tracce, Mappatura del Crack, Caos Verbatim, Processo Creativo Multi-AI, Iper-coerenza, Improvvisazione AI"
 subtitle: "5 AI validano insieme: Claude, ChatGPT, Gemini, Grok, GLM. Template voice boxes e SafetyNet in azione."
 tags:
-  - Protocollo Big Band AI
-  - Polifonia dei limiti
-  - Quintetto AI
   - Arte Multi AI
-  - Scrittura Collettiva
   - ChatGPT
   - Claude
   - GLM
@@ -26,7 +22,6 @@ ai_participants:
   - "Gemini"
   - "GLM"
   - "ChatGPT"
-show_footer: false
 ---
 # Indice
 

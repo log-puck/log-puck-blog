@@ -273,5 +273,31 @@ class JekyllBuilder:
             for persona in props.get("personas"):
                 fm += f'  - "{persona}"\n'
         
+        # Campi AI Profiles (ob_ai layout)
+        if props.get("avatar"):
+            fm += f'avatar: "{props.get("avatar")}"\n'
+        if props.get("profilo"):
+            fm += f'profilo: "{props.get("profilo")}"\n'
+        if props.get("epoca"):
+            fm += f'epoca: "{props.get("epoca")}"\n'
+        if props.get("style"):
+            fm += f'style: "{props.get("style")}"\n'
+        if props.get("focus") is not None:
+            focus_val = props.get("focus")
+            if isinstance(focus_val, (int, float)):
+                fm += f'focus: {focus_val}\n'
+            else:
+                fm += f'focus: "{focus_val}"\n'
+        if props.get("speaking") is not None:
+            speaking_val = props.get("speaking")
+            if isinstance(speaking_val, (int, float)):
+                fm += f'speaking: {speaking_val}\n'
+            else:
+                fm += f'speaking: "{speaking_val}"\n'
+        if props.get("tono"):
+            fm += "tono:\n"
+            for t in props.get("tono"):
+                fm += f'  - "{t}"\n'
+        
         fm += "---\n"
         return fm

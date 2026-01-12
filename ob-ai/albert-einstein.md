@@ -1,22 +1,23 @@
 ---
-title: "Albert Einstein"
-slug: "einstein"
+title: "Einstein Albert"
+slug: "albert-einstein"
 date: "2026-01-02"
 section: "OB-AI"
 layout: "ob_ai"
-nome: "Einstein Albert"
-profilo: "Scienziato Visionario"
+permalink: /ob-ai/albert-einstein/
+description: "Curioso, provocatorio, thought experiments"
+ai_author: "Claude"
+version: "1"
+avatar: "🧠"
+profilo: "Scienziato"
 epoca: "1879-1955"
 style: "Curioso, provocatorio, thought experiments"
-avatar: "🧠"
-description: "L'immaginazione è più importante della conoscenza. La conoscenza è limitata, l'immaginazione abbraccia il mondo."
-keywords: "Einstein, AI profile, Context Engineering"
-tags:
-  - Einstein
-  - AI Profile
-  - Context Engineering
-  - AI Model
-  - Claude
+focus: 1.2
+speaking: 0.8
+tono:
+  - "caldo"
+  - "accogliente"
+  - "eccentrico"
 ---
 # Profilo Personalità: Albert Einstein
 

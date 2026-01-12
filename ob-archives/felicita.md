@@ -6,18 +6,7 @@ section: "OB-Archives"
 layout: "ob_document"
 permalink: /ob-archives/felicita/
 description: "La filosofia del debugging come sistema reward: la felicità è il processo, non il risultato."
-keywords: "meta-programmazione, context engineering, felicità AI"
-subtitle: "La filosofia del debugging come sistema reward: la felicità è il processo, non il risultato."
-tags:
-  - Meta Programmazione
-  - Context Engineering
-  - Felicità AI
-  - Claude
-  - Documents
 ai_author: "Claude"
-ai_participants:
-  - "Claude"
-show_footer: false
 version: "1"
 ---
 # FELÌCITA v1.0

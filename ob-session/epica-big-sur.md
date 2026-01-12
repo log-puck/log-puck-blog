@@ -10,8 +10,6 @@ keywords: "Collaborazione umano AI,Sistema multi-AI, Mac Big Sur vecchio, Debugg
 subtitle: "La notte in cui una AI e un umano hanno iniziato a collaborare"
 tags:
   - Human-AI Collaboration
-  - MultiAI System
-  - Notion
   - Node.js
   - MCP Protocol
   - Debugging
@@ -20,7 +18,6 @@ tags:
 ai_author: "Claude"
 ai_participants:
   - "Claude"
-show_footer: false
 ---
 ## Indice
 

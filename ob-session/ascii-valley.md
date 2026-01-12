@@ -9,18 +9,15 @@ description: "Un bug di formattazione diventa la porta per ASCII Valley: con un 
 keywords: "usare tag pre html per mantenere formattazione ASCII nei blog, come mostrare diagrammi e pipeline ASCII su Jekyll e GitHub Pages, collaborazione umano AI per trovare soluzioni semplici a problemi tecnici, esempio reale di uso dell’ASCII per spiegare workflow e database, imparare a lavorare con le AI oltre il semplice prompt (valle incantata ASCII)"
 subtitle: "Quando il passaggio da bug a feature apre a Mondi nuovi!"
 tags:
-  - Notion
   - Claude
   - AI Workflow
   - Debugging
-  - UTF-8
   - Persistenza
-  - ASCII
+  - Notion AI
 ai_author: "Claude"
 ai_participants:
   - "Claude"
   - "Notion AI"
-show_footer: false
 ---
 Questo non è solo il racconto di un bug di formattazione, ma la storia di come un umano e più AI hanno trovato insieme un modo semplice per usare ASCII come linguaggio visivo per spiegare flussi, tabelle e idee complesse.
 ## Indice

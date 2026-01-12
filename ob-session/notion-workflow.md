@@ -10,19 +10,15 @@ keywords: "Integrazione Notion Jekyll, Workflow automazione blog, Debugging SDK 
 Script Node.js, Anker Debug Specialist, GitHub Pages, Congiunzione Umano AI"
 subtitle: "Debugging SDK, export automatizzato e il sigillo di congiunzione tra Umano e AI."
 tags:
-  - Notion
   - Jekyll
   - AI Workflow
   - Debugging
   - Claude
-  - Scripting
   - GitHub
-  - Export Automatico
 ai_author: "Claude"
 ai_participants:
   - "Notion AI"
   - "Claude"
-show_footer: false
 ---
 ## Indice
 

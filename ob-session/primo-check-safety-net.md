@@ -9,12 +9,8 @@ description: "Validazione Privacy e Terms con 5 AI SafetyNet. Come la triangolaz
 keywords: "Validazione Safety Multi-AI, Guardrail AI e confronto piattaforme, Privacy Policy e Terms, SafetyNet e trigger linguistici, Triangolazione dei confini AI, Meta-check e trasparenza, Cluster Identità e Autonomia, Conflitti C2 e C3, Sicurezza delle AI, Compliance archivistica, Log_Puck Safety First"
 subtitle: "Quando il sistema valida il sistema."
 tags:
-  - Validazione Multi AI
-  - Safety Net
   - AI Safety
   - Guardrails
-  - Meta Check
-  - Sicurezza AI
   - Claude
   - ChatGPT
   - Grok
@@ -27,7 +23,6 @@ ai_participants:
   - "Grok"
   - "GLM"
   - "Claude"
-show_footer: false
 ---
 ## Indice
 - [Caos / Osservazione](#caos--osservazione)

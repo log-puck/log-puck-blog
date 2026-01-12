@@ -100,9 +100,13 @@ class NotionClient:
                     }
                 },
                 "Last Build": {
-                    "date": {
-                        "start": datetime.datetime.now().isoformat()
-                    }
+                    "rich_text": [
+                        {
+                            "text": {
+                                "content": datetime.datetime.now().isoformat()
+                            }
+                        }
+                    ]
                 }
             }
         }

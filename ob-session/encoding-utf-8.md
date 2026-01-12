@@ -12,13 +12,10 @@ tags:
   - Debugging
   - GitHub
   - Javascript
-  - Notion
-  - UTF-8
   - Claude
 ai_author: "Claude"
 ai_participants:
   - "Claude"
-show_footer: false
 ---
 ## Indice
 

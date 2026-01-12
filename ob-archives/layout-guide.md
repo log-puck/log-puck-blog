@@ -1,22 +1,12 @@
 ---
 title: "Layout Documentation Guide"
 slug: "layout-guide"
-date: "2026-01-09"
+date: "2026-01-11T21:18:00.000+01:00"
 section: "OB-Archives"
 layout: "ob_document"
 permalink: /ob-archives/layout-guide/
 description: "LOG_PUCK usa 6 layout Jekyll. Ogni layout ha uno scopo specifico."
-keywords: "Blog Article Layout, Prompt Engineering"
-subtitle: "LOG_PUCK usa 6 layout Jekyll. Ogni layout ha uno scopo specifico."
-tags:
-  - Prompt Engineering
-  - Documents
-  - Layout Template
-  - Claude
 ai_author: "Claude"
-ai_participants:
-  - "Claude"
-show_footer: false
 version: "1"
 ---
 # Layout Documentation Guide

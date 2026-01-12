@@ -1,23 +1,12 @@
 ---
 title: "wAw Council - Hybrid Form"
 slug: "hybrid-form"
-date: "2026-01-09"
+date: "2026-01-06"
 section: "OB-Archives"
 layout: "ob_document"
 permalink: /ob-archives/hybrid-form/
 description: "Form flessibile con 3 modalità per Context e Ideas."
-keywords: "meta-programmazione, context-engineering, Council-AI"
-subtitle: "Form flessibile con 3 modalità per Context e Ideas."
-tags:
-  - Meta Programmazione
-  - Context Engineering
-  - AI Council
-  - Claude
-  - Documents
 ai_author: "Claude"
-ai_participants:
-  - "Claude"
-show_footer: false
 version: "1"
 ---
 # WAW COUNCIL - HYBRID FORM 🦅

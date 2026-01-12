@@ -8,10 +8,14 @@ permalink: /ob-session/seo-panettiere/
 description: "Un umano e un’AI imparano a usare la SEO come bussola leggera per un diario condiviso: prima le notti di debug e le storie, poi titoli, description e keyword pensati per chi arriverà dopo."
 keywords: "diario collaborazione umano intelligenza artificiale per scrivere online, come usare la SEO senza diventare esperto tecnico, usare le chat AI per descrivere articoli già scritti, meta title description keyword come guscio leggero non gabbia, metodo log_puck per scrivere con le AI e poi fare SEO"
 subtitle: "La SEO non è uno stampo, è un guscio - prima vivi con l''AI, poi scrivi, solo dopo ottimizzi"
+tags:
+  - Context Engineering
+  - AI Comunication
+  - Perplexity
+  - SEO
 ai_author: "Perplexity"
 ai_participants:
   - "Perplexity"
-show_footer: false
 ---
 ## Indice
 

@@ -3,9 +3,11 @@ Orchestrator: Orchestrazione principale per il processo di generazione Jekyll
 """
 
 from .api import NotionClient, get_property_value
-from .processors import ContentProcessor, PersonasProcessor, ProjectsProcessor
+# TODO: Processor vecchi da sostituire nella migrazione
+# from .processors import ContentProcessor, PersonasProcessor, ProjectsProcessor
+from .processors import ArticlesProcessor, DocumentationProcessor, AIProfilesProcessor, WAWCouncilProcessor
 from .generators import TagGenerator
-from .config import DB_CONTENT_ID, DB_PROJECT_ID
+# from .config import DB_CONTENT_ID, DB_PROJECT_ID  # Vecchi DB IDs, da rimuovere
 from .logger import log
 
 
@@ -20,9 +22,14 @@ class JekyllOrchestrator:
             client: NotionClient per chiamate API
         """
         self.client = client
-        self.content_processor = ContentProcessor(client)
-        self.personas_processor = PersonasProcessor(client)
-        self.projects_processor = ProjectsProcessor(client)
+        # TODO: Processor vecchi da sostituire nella migrazione
+        # self.content_processor = ContentProcessor(client)
+        # self.personas_processor = PersonasProcessor(client)
+        # self.projects_processor = ProjectsProcessor(client)
+        self.articles_processor = ArticlesProcessor(client)
+        self.documentation_processor = DocumentationProcessor(client)
+        self.ai_profiles_processor = AIProfilesProcessor(client)
+        self.waw_council_processor = WAWCouncilProcessor(client)
         self.tag_generator = TagGenerator()
     
     def run(self) -> None:
@@ -31,51 +38,35 @@ class JekyllOrchestrator:
         1. Processa contenuti da DB CONTENT
         2. Processa personas da DB PERSONAS
         3. Processa progetti da DB PROJECT
-        4. Genera pagine tag
-        5. Genera top tags data
+        4. Processa WAW Council da WAW_COUNCIL_ID
+        5. Genera pagine tag
+        6. Genera top tags data
         """
-        log("Avvio GENERATORE Jekyll v4.0 (Modulare)...")
+        log("Avvio GENERATORE Jekyll v4.0 (Modulare) - TEST ARTICLES + DOCUMENTATION + AI PROFILES + WAW COUNCIL...")
         
-        # 1. Processa contenuti da DB CONTENT
-        filter_published = {
-            "filter": {
-                "property": "Status",
-                "select": {
-                    "equals": "Published"
-                }
-            }
-        }
+        # TODO: Processor vecchi commentati per migrazione
+        # Processa progetti (DA SOSTITUIRE con nuovi processor)
         
-        content_items = self.client.get_database_data(DB_CONTENT_ID, filter_published)
-        log(f"Trovati {len(content_items)} contenuti da pubblicare.")
+        # 1. Processa Articles (ATTIVO per test)
+        self.articles_processor.process_articles()
         
-        generated_count = 0
+        # 2. Processa Documentation (ATTIVO per test)
+        self.documentation_processor.process_documentation()
         
-        for item in content_items:
-            # Estrai infra_id se presente per aggiornare status
-            props_raw = item.get("properties", {})
-            blog_relation_ids = get_property_value(props_raw.get("Blog"))
-            infra_id_to_update = blog_relation_ids[0] if blog_relation_ids else None
-            
-            if self.content_processor.process_content_item(item, infra_id_to_update):
-                generated_count += 1
+        # 3. Processa AI Profiles (ATTIVO per test)
+        self.ai_profiles_processor.process_ai_profiles()
         
-        log(f"--- COMPLETATO! Generati {generated_count} file. ---")
+        # 4. Processa WAW Council (ATTIVO per test)
+        self.waw_council_processor.process_waw_council()
         
-        # 2. Processa personas
-        self.personas_processor.process_personas()
-        
-        # 3. Processa progetti
-        self.projects_processor.process_projects()
-        
-        # 4. Genera pagine tag
+        # 5. Genera pagine tag
         self.tag_generator.generate_tag_pages()
         
-        # 5. Genera top tags data
+        # 6. Genera top tags data
         self.tag_generator.generate_top_tags_data()
         
-        # Cleanup tag orfani (opzionale)
-        # self.tag_generator.cleanup_orphan_tag_pages()
+        # 7. Cleanup tag orfani (rimuove tag non più utilizzati)
+        self.tag_generator.cleanup_orphan_tag_pages()
 
 
 def main() -> None:

@@ -13,18 +13,12 @@ tags:
   - Server Custom
   - Claude
   - GLM
-  - Z.AI API
-  - Big Sur (Legacy)
   - Node.js
-  - JSON-RPC
   - Debugging
-  - Hardware Impossibile
-  - Proxy Server
 ai_author: "Claude"
 ai_participants:
   - "GLM"
   - "Claude"
-show_footer: false
 ---
 # ROOT + GLM: MCP Server Custom su Big Sur - Quando l’impossibile diventa codice
 

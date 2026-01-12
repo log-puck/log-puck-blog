@@ -365,6 +365,7 @@ PROJECT CONTEXT:
 - Tech Stack: ${context.techStack}
 - Current Focus: ${context.currentFocus}
 - Completed: ${context.completed}
+- Context: ${context.context || ''}
 
 PENDING IDEAS:
 ${ideas.filter(i => i.trim()).map((idea, i) => `${i + 1}. ${idea}`).join('\n')}
@@ -762,28 +763,28 @@ async function saveToNotion(data) {
   
   // STEP 1: Crea Session
   const session = await notion.pages.create({
-    parent: { database_id: config.WAW_SESSIONS_DB_ID },
+    parent: { database_id: config.WAW_COUNCIL_DB_ID },
     properties: {
-      'Title': {
+      'Name': {
         title: [{ text: { content: `AI Council Session #${await getNextSessionNumber()}` }}]
       },
       'Date': {
         date: { start: new Date().toISOString().split('T')[0] }
       },
-      'Context': {
-        rich_text: [{ text: { content: JSON.stringify(context, null, 2) }}]
+      'Raw JSON': {
+        text: { content: JSON.stringify({ context, results, votes, newIdeas }, null, 2) }
       },
       'AI Participants': {
         multi_select: results.map(r => ({ name: r.name }))
       },
-      'Session Status': {
-        select: { name: 'Ready for CONTENT' }
+      'Build Status': {
+        select: { name: 'Done' }
       },
       'Winner Score': {
         number: votes[0]?.score || 0
       },
       'Winner Idea': {
-        rich_text: [{ text: { content: votes[0]?.idea || 'N/A' }}]
+        text: { content: votes[0]?.idea || 'N/A' }
       }
     }
   });
@@ -810,14 +811,11 @@ async function saveToNotion(data) {
           'Rank': {
             number: aiVote.rank
           },
-          'Resoning': {
+          'Reasoning': {
             rich_text: [{ text: { content: aiVote.reasoning }}]
           },
           'WAW_IDEAS': {
             relation: [{ id: idea.id }]
-          },
-          'WAW_SESSIONS': {
-            relation: [{ id: session.id }]
           }
         }
       });
@@ -829,14 +827,14 @@ async function saveToNotion(data) {
     await notion.pages.create({
       parent: { database_id: config.WAW_IDEAS_DB_ID },
       properties: {
-        'Title': {
+        'Name': {
           title: [{ text: { content: newIdea.title }}]
         },
         'Description': {
           rich_text: [{ text: { content: newIdea.description }}]
         },
         'Proposed By': {
-          multi_select: [{ name: newIdea.ai }]
+          select: { name: newIdea.ai }
         },
         'Effort': {
           select: { name: newIdea.effort }
@@ -844,7 +842,7 @@ async function saveToNotion(data) {
         'Impact': {
           select: { name: newIdea.impact }
         },
-        'Status': {
+        'Ideas Status': {
           select: { name: 'Proposed' }
         }
       }
@@ -860,7 +858,7 @@ async function findOrCreateIdea(ideaTitle) {
   const existing = await notion.databases.query({
     database_id: config.WAW_IDEAS_DB_ID,
     filter: {
-      property: 'Title',
+      property: 'Name',
       title: { equals: ideaTitle }
     }
   });
@@ -873,10 +871,10 @@ async function findOrCreateIdea(ideaTitle) {
   return await notion.pages.create({
     parent: { database_id: config.WAW_IDEAS_DB_ID },
     properties: {
-      'Title': {
+      'Name': {
         title: [{ text: { content: ideaTitle }}]
       },
-      'Status': {
+      'Ideas Status': {
         select: { name: 'In Progress' }
       }
     }
@@ -886,7 +884,7 @@ async function findOrCreateIdea(ideaTitle) {
   // Helper: Get next session number
   async function getNextSessionNumber() {
     const sessions = await notion.databases.query({
-      database_id: config.WAW_SESSIONS_DB_ID,
+      database_id: config.WAW_COUNCIL_DB_ID,
       sorts: [{ property: 'ID', direction: 'descending' }],
       page_size: 1
     });

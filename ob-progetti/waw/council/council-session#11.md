@@ -1,28 +1,11 @@
 ---
-title: "wAw Session - 2026-01-06"
-slug: "waw-session-2026-01-06"
-date: "2026-01-09"
+title: "AI Council Session #11"
+slug: "council-session#11"
+date: "2026-01-06"
 section: "OB-Progetti"
 subsection: "wAw"
-layout: "ob_session"
-permalink: /ob-progetti/waw/council/waw-session-2026-01-06/
-description: "Quando le AI si riuniscono per valutare e esprimere la propria opinione su un progetto comune."
-keywords: "AI Problem Solve, AI Democraty, Context Engineering"
-subtitle: "wAw Session #2"
-tags:
-  - AI Council
-  - AI Democratic Voting
-  - AI Comunication
-ai_author: "System"
-ai_participants:
-  - "Claude"
-  - "GLM"
-  - "Grok"
-  - "Gemini"
-  - "ChatGPT"
-  - "Perplexity"
-  - "DeepSeek"
-show_footer: false
+layout: "ob_progetti"
+permalink: /ob-progetti/waw/council/council-session#11/
 ---
 # AI Council Session - 06/01/2026
 
@@ -142,7 +125,6 @@ show_footer: false
 Based on AI Council vote, next focus: **OB-Progetti landing page**
 
 
-```javascript
 # AI Council Session - 06/01/2026
 
 ## Voting Results
@@ -260,5 +242,4 @@ Based on AI Council vote, next focus: **OB-Progetti landing page**
 
 Based on AI Council vote, next focus: **OB-Progetti landing page**
 
-```
 
