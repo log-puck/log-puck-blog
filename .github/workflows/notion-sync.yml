@@ -25,9 +25,14 @@ jobs:
       - name: Run Notion sync script
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-          DB_CONTENT_ID: ${{ secrets.DB_CONTENT_ID }}
-          DB_PERSONAS_ID: ${{ secrets.DB_PERSONAS_ID }}
-          DB_PROJECT_ID: ${{ secrets.DB_PROJECT_ID }}
+          # Nuovi Database IDs (schema modulare)
+          ARTICLES_ID: ${{ secrets.ARTICLES_ID }}
+          DOCUMENT_ID: ${{ secrets.DOCUMENT_ID }}
+          AI_PROFILES_ID: ${{ secrets.AI_PROFILES_ID }}
+          PROJECT_DATA_ID: ${{ secrets.PROJECT_DATA_ID }}
+          MUSICA_ID: ${{ secrets.MUSICA_ID }}
+          STUDI_MUSICA_ID: ${{ secrets.STUDI_MUSICA_ID }}
+          WAW_COUNCIL_ID: ${{ secrets.WAW_COUNCIL_ID }}
         run: |
           export PYTHONPATH="${{ github.workspace }}/tools:${{ github.workspace }}:$PYTHONPATH"
           python tools/notion_to_jekyll_builder.py
