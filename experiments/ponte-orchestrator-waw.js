@@ -169,44 +169,24 @@ app.get('/api/notion-ideas', async (req, res) => {
   }
 });
 
-// GET active AI Models from Notion (for AI Partner selection)
+// GET available AI Models (hardcoded list based on implemented APIs)
 app.get('/api/ai-models', async (req, res) => {
   try {
-    console.log('🤖 Fetching active AI Models from Notion...');
+    console.log('🤖 Returning available AI Models...');
     
-    if (!config.AI_MODELS_DB_ID) {
-      return res.status(400).json({ 
-        success: false, 
-        error: 'AI_MODELS_DB_ID not configured in ponte_config.js' 
-      });
-    }
-    
-    const response = await notion.databases.query({
-      database_id: config.AI_MODELS_DB_ID,
-      filter: {
-        property: 'Status', // Select field
-        select: {
-          equals: 'Active'
-        }
-      },
-      sorts: [
-        {
-          property: 'Nome AI', // Sort by AI name
-          direction: 'ascending'
-        }
-      ]
-    });
+    // Lista delle AI disponibili basata su quelle implementate nello script
+    // Queste corrispondono alle AI che possono essere chiamate tramite API
+    const aiModels = [
+      { id: 'claude', name: 'Claude', status: 'Active' },
+      { id: 'glm', name: 'GLM', status: 'Active' },
+      { id: 'grok', name: 'Grok', status: 'Active' },
+      { id: 'gemini', name: 'Gemini', status: 'Active' },
+      { id: 'chatgpt', name: 'ChatGPT', status: 'Active' },
+      { id: 'perplexity', name: 'Perplexity', status: 'Active' },
+      { id: 'deepseek', name: 'DeepSeek', status: 'Active' }
+    ];
 
-    const aiModels = response.results.map(page => {
-      const nomeProp = page.properties['Nome AI'] || page.properties.Name;
-      const nomeContent = nomeProp?.title || nomeProp?.rich_text || [];
-      return {
-        id: page.id,
-        name: nomeContent[0]?.text?.content || 'Untitled'
-      };
-    });
-
-    console.log(`✅ Found ${aiModels.length} active AI Models`);
+    console.log(`✅ Returning ${aiModels.length} available AI Models`);
     res.json({ 
       success: true, 
       aiModels,
@@ -214,7 +194,7 @@ app.get('/api/ai-models', async (req, res) => {
     });
 
   } catch (error) {
-    console.error('❌ Error fetching AI Models from Notion:', error.message);
+    console.error('❌ Error returning AI Models:', error.message);
     res.status(500).json({ 
       success: false, 
       error: error.message 
@@ -518,13 +498,13 @@ IMPORTANT: Return ONLY valid JSON, no markdown formatting.`;
             const jsonMatch = text.match(/\{[\s\S]*\}/);
             return {
               id: 'deepseek',
-              name: 'DeepSeek-V3',
+              name: 'DeepSeek',
               data: jsonMatch ? JSON.parse(jsonMatch[0]) : null
             };
           })
           .catch(err => ({ 
             id: 'deepseek', 
-            name: 'DeepSeek-V3', 
+            name: 'DeepSeek', 
             error: err.message 
           }))
       );
@@ -741,12 +721,14 @@ async function callGLMWithSearch(query) {
 async function callDeepSeek(prompt) {
   try {
     const completion = await deepseekClient.chat.completions.create({
-      model: 'deepseek-reasoner',
+      model: 'deepseek-chat',
       
       messages: [{ role: 'user', content: prompt }],
       max_tokens: 1000
     });
-    return completion.choices[0].message.content;
+    const response = completion.choices[0].message.content;
+    console.log('🔍 DeepSeek RAW response:', response); // ← AGGIUNGI QUESTA
+    return response;
   } catch (error) {
 
     console.error('DeepSeek error:', error.message);
@@ -772,7 +754,7 @@ async function saveToNotion(data) {
         date: { start: new Date().toISOString().split('T')[0] }
       },
       'Raw JSON': {
-        text: { content: JSON.stringify({ context, results, votes, newIdeas }, null, 2) }
+        rich_text: [{ text: { content: JSON.stringify({ context, results, votes, newIdeas }, null, 2) } }]
       },
       'AI Participants': {
         multi_select: results.map(r => ({ name: r.name }))
@@ -784,7 +766,7 @@ async function saveToNotion(data) {
         number: votes[0]?.score || 0
       },
       'Winner Idea': {
-        text: { content: votes[0]?.idea || 'N/A' }
+        rich_text: [{ text: { content: votes[0]?.idea || 'N/A' } }]
       }
     }
   });
@@ -802,8 +784,8 @@ async function saveToNotion(data) {
           'Name': {
             title: [{ text: { content: `${vote.idea} - ${aiVote.ai}` }}]
           },
-          'Voters': {
-            select: [{ name: aiVote.ai }]
+          'AI Voter': {
+            select: { name: aiVote.ai }
           },
           'Score': {
             number: [3, 2, 1][aiVote.rank - 1] // rank 1=3pt, 2=2pt, 3=1pt

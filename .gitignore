@@ -95,3 +95,10 @@ experiments/public/*.html           # File HTML generati/test
 # !experiments/ponte-orchestrator.js
 # !experiments/*.md
 # !experiments/package.json          # Dipendenze Node.js (se necessario)
+
+# ============================================================================
+# WAW COUNCIL - Council Calling
+# ============================================================================
+
+ob-progetti/waw/council/calling/*.md
+ob-progetti/waw/council/calling/*.json
