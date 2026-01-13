@@ -102,3 +102,20 @@ experiments/public/*.html           # File HTML generati/test
 
 ob-progetti/waw/council/calling/*.md
 ob-progetti/waw/council/calling/*.json
+
+# ============================================================================
+# TEMPLATE - Template
+# ============================================================================
+template/*.md
+template/*.json
+template/*.html
+template/*.css
+template/*.js
+template/*.php
+template/*.py
+template/*.rb
+template/*.java
+template/*.c
+template/*.cpp
+template/*.h
+template/*.hpp
