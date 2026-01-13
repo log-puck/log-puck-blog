@@ -3,11 +3,8 @@ Orchestrator: Orchestrazione principale per il processo di generazione Jekyll
 """
 
 from .api import NotionClient, get_property_value
-# TODO: Processor vecchi da sostituire nella migrazione
-# from .processors import ContentProcessor, PersonasProcessor, ProjectsProcessor
 from .processors import ArticlesProcessor, DocumentationProcessor, AIProfilesProcessor, WAWCouncilProcessor
 from .generators import TagGenerator
-# from .config import DB_CONTENT_ID, DB_PROJECT_ID  # Vecchi DB IDs, da rimuovere
 from .logger import log
 
 
@@ -22,10 +19,6 @@ class JekyllOrchestrator:
             client: NotionClient per chiamate API
         """
         self.client = client
-        # TODO: Processor vecchi da sostituire nella migrazione
-        # self.content_processor = ContentProcessor(client)
-        # self.personas_processor = PersonasProcessor(client)
-        # self.projects_processor = ProjectsProcessor(client)
         self.articles_processor = ArticlesProcessor(client)
         self.documentation_processor = DocumentationProcessor(client)
         self.ai_profiles_processor = AIProfilesProcessor(client)
@@ -35,28 +28,26 @@ class JekyllOrchestrator:
     def run(self) -> None:
         """
         Esegue il processo completo di generazione:
-        1. Processa contenuti da DB CONTENT
-        2. Processa personas da DB PERSONAS
-        3. Processa progetti da DB PROJECT
+        1. Processa Articles da DB_ARTICLES_ID
+        2. Processa Documentation da DB_DOCUMENTATION_ID
+        3. Processa AI Profiles da DB_AI_PROFILES_ID
         4. Processa WAW Council da WAW_COUNCIL_ID
         5. Genera pagine tag
         6. Genera top tags data
+        7. Cleanup tag orfani
         """
-        log("Avvio GENERATORE Jekyll v4.0 (Modulare) - TEST ARTICLES + DOCUMENTATION + AI PROFILES + WAW COUNCIL...")
+        log("Avvio GENERATORE Jekyll v4.0 (Modulare) - ARTICLES + DOCUMENTATION + AI PROFILES + WAW COUNCIL...")
         
-        # TODO: Processor vecchi commentati per migrazione
-        # Processa progetti (DA SOSTITUIRE con nuovi processor)
-        
-        # 1. Processa Articles (ATTIVO per test)
+        # 1. Processa Articles
         self.articles_processor.process_articles()
         
-        # 2. Processa Documentation (ATTIVO per test)
+        # 2. Processa Documentation
         self.documentation_processor.process_documentation()
         
-        # 3. Processa AI Profiles (ATTIVO per test)
+        # 3. Processa AI Profiles
         self.ai_profiles_processor.process_ai_profiles()
         
-        # 4. Processa WAW Council (ATTIVO per test)
+        # 4. Processa WAW Council
         self.waw_council_processor.process_waw_council()
         
         # 5. Genera pagine tag
@@ -65,7 +56,7 @@ class JekyllOrchestrator:
         # 6. Genera top tags data
         self.tag_generator.generate_top_tags_data()
         
-        # 7. Cleanup tag orfani (rimuove tag non più utilizzati)
+        # 7. Cleanup tag orfani
         self.tag_generator.cleanup_orphan_tag_pages()
 
 
