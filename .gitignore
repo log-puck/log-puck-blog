@@ -136,4 +136,20 @@ TASK/WORKFLOW_TRACKING_DASHBOARD/VISUAL/*.html
 # ============================================================================
 spec/
 
-
+# ============================================================================
+# download - file di download
+# ============================================================================
+download/
+download/*.md
+download/*.json
+download/*.html
+download/*.css
+download/*.js
+download/*.php
+download/*.py
+download/*.rb
+download/*.java
+download/*.c
+download/*.cpp
+download/*.h
+download/*.hpp
