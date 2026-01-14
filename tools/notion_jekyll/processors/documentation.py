@@ -79,6 +79,7 @@ class DocumentationProcessor:
             version = get_property_value(props_raw.get("Version"))
             last_review = get_property_value(props_raw.get("Last Review"))
             ai_reviewer = get_property_value(props_raw.get("AI Reviewer"))
+            subsection = get_property_value(props_raw.get("Subsection"))  # Formula field: "Documents"
             
             # Validazione campi obbligatori
             if not all([name, slug, date]):
@@ -102,13 +103,14 @@ class DocumentationProcessor:
                 log(f"SKIP [NO BODY]: {name}", "WARN")
                 continue
             
-            # 3. Genera permalink
+            # 3. Genera permalink e path (con subsection)
             section = "OB-Archives"
-            permalink = self.builder.generate_permalink(section, None, None, slug)
+            # subsection è "Documents" (da formula Notion)
+            permalink = self.builder.generate_permalink(section, subsection, None, slug)
             
             # 4. Genera percorso file
             layout_notion = "ob_document"  # Layout fisso per Documentation
-            file_path = self.builder.generate_build_path(section, slug, layout_notion, None, None)
+            file_path = self.builder.generate_build_path(section, slug, layout_notion, subsection, None)
             
             # 5. Valida percorso
             try:
@@ -123,6 +125,7 @@ class DocumentationProcessor:
                 "slug": slug,
                 "date": date,
                 "section": section,
+                "subsection": subsection,  # "Documents" (da formula Notion)
                 "description": description,
                 "permalink": permalink,
                 "ai_author": ai_author,

@@ -115,7 +115,6 @@ class TimelineProcessor:
                     # Extract properties usando pattern corretto
                     title = get_property_value(props_raw.get("Name")) or ""
                     description = get_property_value(props_raw.get("Descrizione")) or ""
-                    notion_url = get_property_value(props_raw.get("URL")) or page.get("url", "")
                     
                     # Created time: Notion lo restituisce come property "Created time" (created_time type)
                     created_time_prop = props_raw.get("Created time")
@@ -139,7 +138,6 @@ class TimelineProcessor:
                         "category": category,
                         "title": title,
                         "description": description,
-                        "notion_url": notion_url,
                         "is_latest": (idx == 0)  # First item is latest
                     }
                     

@@ -15,6 +15,10 @@ layout: default
             {% assign section_posts = site.pages | where: "section", page.filter_section %}
             {% assign section_posts = section_posts | where_exp: "p", "p.slug != 'index'" %}
             {% assign section_posts = section_posts | where_exp: "p", "p.layout != 'ob_tag'" %}
+            {% assign section_posts = section_posts | where_exp: "p", "p.layout != 'ob_workflow'" %}
+            {% if page.subsection %}
+            {% assign section_posts = section_posts | where: "subsection", page.subsection %}
+            {% endif %}
             {% assign section_posts = section_posts | sort: "date" | reverse %}
             
             {% if section_posts.size > 0 %}

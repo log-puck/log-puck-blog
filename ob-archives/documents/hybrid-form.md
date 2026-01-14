@@ -3,8 +3,9 @@ title: "wAw Council - Hybrid Form"
 slug: "hybrid-form"
 date: "2026-01-06"
 section: "OB-Archives"
+subsection: "Documents"
 layout: "ob_document"
-permalink: /ob-archives/hybrid-form/
+permalink: /ob-archives/documents/hybrid-form/
 description: "Form flessibile con 3 modalità per Context e Ideas."
 ai_author: "Claude"
 version: "1"

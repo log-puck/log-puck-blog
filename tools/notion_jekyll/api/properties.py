@@ -9,7 +9,7 @@ def get_property_value(prop: Optional[Dict[str, Any]]) -> Union[str, List[str], 
     """
     Estrae il valore 'pulito' da un oggetto proprietà Notion.
     
-    Gestisce: title, rich_text, select, multi_select, date, relation, checkbox, number
+    Gestisce: title, rich_text, select, multi_select, date, relation, checkbox, number, formula
     
     Args:
         prop: Oggetto proprietà Notion (dict con campo "type" e dati specifici)
@@ -58,4 +58,21 @@ def get_property_value(prop: Optional[Dict[str, Any]]) -> Union[str, List[str], 
         return prop.get("checkbox", False)
     elif prop_type == "number":
         return prop.get("number")
+    elif prop_type == "formula":
+        # Formula fields: il valore dipende dal tipo di formula
+        formula_obj = prop.get("formula", {})
+        formula_type = formula_obj.get("type")
+        if formula_type == "string":
+            return formula_obj.get("string", "")
+        elif formula_type == "rich_text":
+            rich_text_list = formula_obj.get("rich_text", [])
+            if rich_text_list:
+                return rich_text_list[0].get("plain_text", "")
+            return ""
+        elif formula_type == "number":
+            return formula_obj.get("number")
+        elif formula_type == "boolean":
+            return formula_obj.get("boolean", False)
+        # Altri tipi di formula non supportati per ora
+        return None
     return None

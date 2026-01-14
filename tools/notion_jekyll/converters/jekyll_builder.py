@@ -50,6 +50,8 @@ class JekyllBuilder:
             sub_sub = "musica"
         elif "giochi" in sub_sub:
             sub_sub = "giochiAI"
+        elif sub_sub == "documents":
+            sub_sub = "documents"  # Mantieni "documents" per OB-Archives
         
         return sub_sub
     

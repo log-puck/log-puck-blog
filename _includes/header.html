@@ -22,7 +22,16 @@
                 </li>
                 
                 <li><a href="{{ '/ob-ai/' | relative_url }}" class="nav-link {% if page.url contains '/ob-ai/' %}active{% endif %}">OB-AI</a></li>
-                <li><a href="{{ '/ob-archives/' | relative_url }}" class="nav-link {% if page.url contains '/ob-archives/' %}active{% endif %}">OB-Archivio</a></li>
+                
+                <li class="nav-dropdown">
+                    <a href="{{ '/ob-archives/documents/' | relative_url }}" class="nav-link {% if page.url contains '/ob-archives/' %}active{% endif %}">
+                        OB-Archivio <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ '/ob-archives/documents/' | relative_url }}" {% if page.url contains '/ob-archives/documents/' %}class="active"{% endif %}>Documents</a></li>
+                        <li><a href="{{ '/ob-archives/wtd/' | relative_url }}" {% if page.url contains '/ob-archives/wtd/' %}class="active"{% endif %}>WTD</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </div>

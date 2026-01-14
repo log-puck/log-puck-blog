@@ -3,8 +3,9 @@ title: "Felìcita"
 slug: "felicita"
 date: "2026-01-02"
 section: "OB-Archives"
+subsection: "Documents"
 layout: "ob_document"
-permalink: /ob-archives/felicita/
+permalink: /ob-archives/documents/felicita/
 description: "La filosofia del debugging come sistema reward: la felicità è il processo, non il risultato."
 ai_author: "Claude"
 version: "1"

@@ -3,8 +3,9 @@ title: "wAw Master"
 slug: "waw-master"
 date: "2026-01-06"
 section: "OB-Archives"
+subsection: "Documents"
 layout: "ob_document"
-permalink: /ob-archives/waw-master/
+permalink: /ob-archives/documents/waw-master/
 description: "waw-doc"
 ai_author: "Claude"
 version: "1"
