@@ -1,12 +1,172 @@
 {
   "tasks": [
     {
+      "id": "2e86f014-6d11-8002-8c41-ef9820662d34",
+      "date": "2026-01-14",
+      "category": "Content",
+      "title": "From Chaos to Protocol: How 3 AIs Built a Dashboard",
+      "description": "Come 3 AI costruiscono una Dashboard Workflow: dal caos al Protocollo PCK. Storia di Living Documents, Paper-Stream Design e architettura modulare.",
+      "is_latest": true
+    },
+    {
+      "id": "2e86f014-6d11-8008-ae8c-ea03e252ea30",
+      "date": "2026-01-14",
+      "category": "Infrastructure",
+      "title": "VARIATION 15→16: QUANDO IL TEAM BATTE GLI STRUMENTI",
+      "description": "Variation 15→16: Bug fixing Python su Notion e Jekyll. Come Team e Metodologia battono Cursor e il panico del codice.",
+      "is_latest": false
+    },
+    {
+      "id": "2e86f014-6d11-8012-8ad5-d604f2d1b6fb",
+      "date": "2026-01-14",
+      "category": "Fix",
+      "title": "Variation 14→15: Come Abbiamo Costruito un Sistema di Publishing in un Giorno",
+      "description": "Quando un processo di debugging si trasforma in featuring creativa e Team Consolidation.",
+      "is_latest": false
+    },
+    {
+      "id": "2e86f014-6d11-80db-b400-f6c2e40ac772",
+      "date": "2026-01-14",
+      "category": "Design",
+      "title": "Il Giorno in cui le AI Hanno Parlato",
+      "description": "Cosa succede quando due intelligenze artificiali iniziano a comunicare? Riflessioni sul futuro della comunicazione tra AI e impatto umano.",
+      "is_latest": false
+    },
+    {
+      "id": "2e86f014-6d11-80d4-b602-e44cb9c66938",
+      "date": "2026-01-14",
+      "category": "Infrastructure",
+      "title": "La Notte di Big Sur - Sessione Madre Setup Multi-AI",
+      "description": "Scopri come la collaborazione umano AI trasforma un Mac Big Sur in un sistema multi-AI. Errori risolti, integrazione Notion e lezioni di persistenza.",
+      "is_latest": false
+    },
+    {
+      "id": "2e86f014-6d11-808d-9990-ee4e748898cc",
+      "date": "2026-01-14",
+      "category": "Content",
+      "title": "Primo Check Safety Net Multi-AI su Policy Blog",
+      "description": "Validazione Privacy e Terms con 5 AI SafetyNet. Come la triangolazione tra Claude, GPT, Gemini, Grok e GLM garantisce robustezza e trasparenza.",
+      "is_latest": false
+    },
+    {
+      "id": "2e86f014-6d11-8092-ad4e-c391ce8778e7",
+      "date": "2026-01-14",
+      "category": "Fix",
+      "title": "Anker Debug Specialist",
+      "description": "Anker come Ancora: come la persistenza nel coding supera 15 errori e crea un sistema Multi-AI stabile. Lezioni di problem solving e debugging.",
+      "is_latest": false
+    },
+    {
+      "id": "2e86f014-6d11-8080-bc99-d33f10e422f4",
+      "date": "2026-01-14",
+      "category": "Infrastructure",
+      "title": "Notion Workflow: Il Sigillo di Congiunzione",
+      "description": "Epica 2: Integrazione Notion con Jekyll. Debugging SDK, export automatizzato e il sigillo di congiunzione tra Umano e AI.",
+      "is_latest": false
+    },
+    {
+      "id": "2e86f014-6d11-809e-b08a-e7bbb47e5764",
+      "date": "2026-01-14",
+      "category": "Infrastructure",
+      "title": "ROOT + GLM: MCP Server Custom su Big Sur - Quando l’impossibile diventa codice",
+      "description": "Creare un MCP Server Custom su Mac Big Sur: ROOT e GLM costruiscono un ponte per l'API Z.AI su hardware legacy. Debugging Node.js e JSON-RPC 2.0.",
+      "is_latest": false
+    },
+    {
+      "id": "2e86f014-6d11-809d-a5df-e0d5b5723bda",
+      "date": "2026-01-14",
+      "category": "Content",
+      "title": "Big Band IA: Nascita Concettuale - Jam Session Multi-AI",
+      "description": "Protocollo Big Band: 5 AI in ensemble tra arte e benchmark. Polifonia dei Limiti, caos verbatim e la mappatura del crac creativo.",
+      "is_latest": false
+    },
+    {
+      "id": "2e86f014-6d11-80b2-b1ea-e229ac69369d",
+      "date": "2026-01-14",
+      "category": "Infrastructure",
+      "title": "Encoding UTF-8 e bug GitHub Pages - caso reale di debug",
+      "description": "Scopri come un bug di encoding UTF-8 ha bloccato un widget PCK su GitHub Pages e come il debug passo passo ha risolto errori, formule JavaScript mancanti e animazioni CSS non funzionanti.",
+      "is_latest": false
+    },
+    {
+      "id": "2e86f014-6d11-80ee-a5fa-d180036b4d53",
+      "date": "2026-01-14",
+      "category": "Content",
+      "title": "La Notte del Benchmark 300 - UNDO!UNDO!UNDO!",
+      "description": "Una notte di lavoro condiviso con un’AI, in cui un bug del sito diventa il pretesto per imparare a collaborare: fare domande, provare, sbagliare, fare UNDO e costruire un metodo uomo‑macchina.",
+      "is_latest": false
+    },
+    {
+      "id": "2e86f014-6d11-8091-b6ce-f2ca0aac105e",
+      "date": "2026-01-14",
+      "category": "Fix",
+      "title": "ASCII Valley - la valle incantata dei codici ritrovati",
+      "description": "Un bug di formattazione diventa la porta per ASCII Valley: con un semplice tag pre, un umano e più AI scoprono come usare l’ASCII per mostrare pipeline, tabelle e flussi complessi in modo chiaro.",
+      "is_latest": false
+    },
+    {
+      "id": "2e86f014-6d11-804d-89da-f279cf2ef19f",
+      "date": "2026-01-14",
+      "category": "Infrastructure",
+      "title": "seo-panettiere",
+      "description": "Un umano e un’AI imparano a usare la SEO come bussola leggera per un diario condiviso: prima le notti di debug e le storie, poi titoli, description e keyword pensati per chi arriverà dopo.",
+      "is_latest": false
+    },
+    {
+      "id": "2e86f014-6d11-80e8-a999-e9262dada116",
+      "date": "2026-01-14",
+      "category": "Content",
+      "title": "Allineare 2 AI su Layout",
+      "description": "Redesign del blog: definizione del layout, diario grezzo tecnico e ruolo del PCK. Una sessione di progettazione umano-AI per trasparenza e struttura.",
+      "is_latest": false
+    },
+    {
+      "id": "2e86f014-6d11-80b5-84d2-f0765c3c24ca",
+      "date": "2026-01-14",
+      "category": "Fix",
+      "title": "Fix tecnico",
+      "description": "• Aggiunto supporto per campi formula in properties.py (era quello che impediva la lettura di subsection)",
+      "is_latest": false
+    },
+    {
+      "id": "2e86f014-6d11-8002-84dc-e9180fe4b1a2",
+      "date": "2026-01-14",
+      "category": "Infrastructure",
+      "title": "Separazione OB-Archives",
+      "description": "• Aggiunto campo \"Subsection\" (formula = \"Documents\") nel DB Notion\n• Aggiornato DocumentationProcessor per leggere subsection\n• Menu header con dropdown: Documents e WTD\n• Landing page per Documents (ob-archives/documents/index.md)\n• Aggiornato ob_landing.html per filtrare per subsection\n• Documenti ora vanno in ob-archives/documents/ invece di ob-archives/",
+      "is_latest": false
+    },
+    {
+      "id": "2e86f014-6d11-8007-945b-d2409a741b5e",
+      "date": "2026-01-14",
+      "category": "Infrastructure",
+      "title": "Bug fix WTD",
+      "description": "• Rimossa la doppia visualizzazione della pagina (filtro in ob_landing.html)\n• Rimosso il link a Notion dalle card (processor + template + CSS)",
+      "is_latest": false
+    },
+    {
+      "id": "2e86f014-6d11-8094-94ae-dc3ee9ebc0bb",
+      "date": "2026-01-14",
+      "category": "Infrastructure",
+      "title": "Workflow Tracking Dashboard (WTD)",
+      "description": "• Processor Python (timeline.py) per leggere la Done-List da Notion\n• Layout Jekyll (ob_workflow.html) e SCSS (_workflow-timeline.scss)\n• Pagina ob-archives/wtd/index.html\n• Integrazione nell'orchestrator",
+      "is_latest": false
+    },
+    {
+      "id": "2e86f014-6d11-8075-bbd2-e41b07b4157c",
+      "date": "2026-01-14",
+      "category": "General",
+      "title": "Supporto Formula Fields",
+      "description": "• Aggiunto supporto per il tipo formula\n• Gestisce formula.string, formula.rich_text, formula.number, formula.boolean",
+      "is_latest": false
+    },
+    {
       "id": "2e86f014-6d11-801a-82c0-cb4dd5960308",
       "date": "2026-01-14",
       "category": "Infrastructure",
       "title": "Sistema modulare",
       "description": "• Python processors\n• Node.js orchestrator\n• SCSS modulare\n• HTML layouts modulari",
-      "is_latest": true
+      "is_latest": false
     },
     {
       "id": "2e86f014-6d11-80a1-ad37-cb7ececa5aa7",
@@ -281,14 +441,14 @@
     "Design"
   ],
   "summary": {
-    "total": 34,
+    "total": 54,
     "by_category": {
-      "Infrastructure": 20,
-      "Content": 3,
+      "Infrastructure": 29,
+      "Content": 8,
       "Feature": 6,
-      "Fix": 1,
-      "Design": 0
+      "Fix": 5,
+      "Design": 1
     }
   },
-  "last_updated": "2026-01-14T18:32:08.388741"
+  "last_updated": "2026-01-14T23:09:44.923082"
 }
