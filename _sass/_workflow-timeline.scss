@@ -1,0 +1,320 @@
+// Workflow Timeline Dashboard
+// Design: Paper-Stream concept (Gemini)
+// Versione: v1.0
+
+// ========================================
+// Workflow Page Container
+// ========================================
+
+.workflow-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.workflow-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.workflow-description {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    opacity: 0.8;
+    max-width: 600px;
+    margin: 1rem auto 0;
+}
+
+// ========================================
+// Sticky Header - Control Panel
+// ========================================
+
+.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--slot-bg);
+    border-bottom: 2px dashed var(--border-color);
+    padding: 15px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    flex-wrap: wrap;
+}
+
+// ========================================
+// Filter Buttons & Counters
+// ========================================
+
+.filter-btn {
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    padding: 5px 12px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.filter-btn:hover {
+    background: var(--accent-yellow);
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: var(--accent-yellow);
+    border-color: var(--accent-yellow-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.filter-btn.active .counter {
+    background: var(--text-main);
+    color: var(--accent-yellow);
+}
+
+.counter {
+    background: var(--text-main);
+    color: var(--bg-main);
+    padding: 0 6px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+// ========================================
+// Timeline Container - Paper Stream
+// ========================================
+
+.timeline-container {
+    position: relative;
+    max-width: 800px;
+    width: 100%;
+    margin: 30px auto 0;
+}
+
+// La linea tratteggiata centrale (Paper-Stream)
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 5px,
+        var(--accent-lime) 5px,
+        var(--accent-lime) 10px
+    );
+    transform: translateX(-50%);
+}
+
+// ========================================
+// Timeline Items - Left/Right Alternating
+// ========================================
+
+.timeline-item {
+    margin-bottom: 40px;
+    position: relative;
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+// Alternanza destra/sinistra
+.timeline-item.left { 
+    left: 0; 
+    text-align: right; 
+    padding-right: 40px; 
+}
+
+.timeline-item.right { 
+    left: 50%; 
+    text-align: left; 
+    padding-left: 40px; 
+}
+
+// ========================================
+// Node Shapes - Category Indicators
+// ========================================
+
+.node {
+    position: absolute;
+    top: 25px;
+    width: 16px;
+    height: 16px;
+    background: var(--accent-yellow);
+    border: 2px solid var(--text-main);
+    z-index: 10;
+}
+
+.left .node { right: -11px; }
+.right .node { left: -11px; }
+
+// Forme diverse per categoria
+.node.infrastructure { 
+    border-radius: 0; // Quadrato
+}
+
+.node.content { 
+    border-radius: 50% 50% 0 50%; 
+    transform: rotate(45deg); // Tag rotato
+}
+
+.node.feature { 
+    border-radius: 50%; 
+    box-shadow: 0 0 10px var(--accent-yellow); // Pulse circle
+}
+
+.node.fix { 
+    border-radius: 0; // Quadrato (come infrastructure)
+}
+
+.node.design { 
+    border-radius: 50% 50% 0 50%; 
+    transform: rotate(45deg); // Tag (come content)
+}
+
+// ========================================
+// Card - Espandibile
+// ========================================
+
+.card {
+    background: var(--slot-bg);
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    box-shadow: 5px 5px 0px var(--border-color);
+    transition: transform 0.2s ease;
+    cursor: pointer;
+    max-height: 80px; // Altezza da chiusa
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s;
+    position: relative;
+}
+
+.card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0px var(--accent-yellow-dark);
+}
+
+.card.expanded {
+    max-height: 500px; // Altezza massima da aperta
+}
+
+// Effetto sfumatura per hint "c'è altro sotto"
+.card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background: linear-gradient(transparent, var(--slot-bg));
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.card.expanded::after {
+    opacity: 0; // Scompare quando è aperta
+}
+
+// ========================================
+// Card Content
+// ========================================
+
+.card h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.1rem;
+    line-height: 1.2;
+}
+
+.category-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--accent-magenta);
+    margin-bottom: 5px;
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+.date {
+    font-size: 0.75rem;
+    display: inline-block;
+    margin-right: 10px;
+    opacity: 0.6;
+}
+
+.details {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--border-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.expanded .details {
+    opacity: 1;
+}
+
+.notion-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--accent-magenta);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.notion-link:hover {
+    text-decoration: underline;
+}
+
+// ========================================
+// Responsive - Mobile
+// ========================================
+
+@media (max-width: 768px) {
+    .sticky-header {
+        padding: 10px;
+        gap: 5px;
+    }
+    
+    .filter-btn {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+    }
+    
+    .timeline-container {
+        max-width: 100%;
+    }
+    
+    // Mobile: timeline verticale semplice (no alternanza)
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        text-align: left !important;
+        padding: 15px !important;
+        padding-left: 40px !important;
+    }
+    
+    .timeline-container::before {
+        left: 20px;
+    }
+    
+    .node {
+        left: 12px !important;
+        right: auto !important;
+    }
+    
+    .card {
+        max-height: 70px;
+    }
+}

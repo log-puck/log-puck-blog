@@ -7,7 +7,7 @@ from typing import Optional, Dict, Any
 from ..api import NotionClient, get_property_value
 from ..converters import NotionToMarkdownConverter, JekyllBuilder
 from ..generators import FileWriter
-from ..config import WAW_COUNCIL_ID, OUTPUT_DIR
+from ..config import DB_WAW_COUNCIL_ID, OUTPUT_DIR
 from ..logger import log
 
 
@@ -35,8 +35,8 @@ class WAWCouncilProcessor:
         """
         log("Inizio generazione WAW COUNCIL...")
         
-        if not WAW_COUNCIL_ID or WAW_COUNCIL_ID == "TBD":
-            log("WAW_COUNCIL_ID non configurato, skip WAW Council", "WARN")
+        if not DB_WAW_COUNCIL_ID or DB_WAW_COUNCIL_ID == "TBD":
+            log("DB_WAW_COUNCIL_ID non configurato, skip WAW Council", "WARN")
             return
         
         # Filtra per Build Status = Done E Published = checked
@@ -59,7 +59,7 @@ class WAWCouncilProcessor:
             }
         }
         
-        council_items = self.client.get_database_data(WAW_COUNCIL_ID, filter_done)
+        council_items = self.client.get_database_data(DB_WAW_COUNCIL_ID, filter_done)
         log(f"Trovati {len(council_items)} sessioni WAW Council da pubblicare.")
         
         generated_count = 0

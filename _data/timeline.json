@@ -1,0 +1,292 @@
+{
+  "tasks": [
+    {
+      "id": "2e86f014-6d11-8054-9a8c-ee896f73e4ca",
+      "date": "2026-01-14",
+      "category": "General",
+      "title": "Architettura modulare completata",
+      "description": "\n1. ",
+      "notion_url": "https://www.notion.so/Architettura-modulare-completata-2e86f0146d1180549a8cee896f73e4ca",
+      "is_latest": true
+    },
+    {
+      "id": "2e76f014-6d11-8054-8df0-ef5c2c3aec1b",
+      "date": "2026-01-13",
+      "category": "Infrastructure",
+      "title": "Cleanup/manutenzione",
+      "description": "refactor: remove deprecated processors and update orchestrator- Removed old processors (ContentProcessor, PersonasProcessor, ProjectsProcessor) that are no longer in use.- Updated JekyllOrchestrator to reflect changes in processing logic, focusing on Articles, Documentation, AI Profiles, and WAW Council.- Cleaned up comments and improved logging messages for clarity.- Adjusted the run method to streamline the content processing workflow.",
+      "notion_url": "https://www.notion.so/Cleanup-manutenzione-2e76f0146d1180548df0ef5c2c3aec1b",
+      "is_latest": false
+    },
+    {
+      "id": "2e76f014-6d11-80d0-a6cd-fdc0432f401a",
+      "date": "2026-01-13",
+      "category": "General",
+      "title": "Protocollo di comunicazione PCK - creati 4 template base",
+      "description": "1. TASK_PRESENTATION\n2. WORK_PROPOSAL\n3. CONFRONTO_SINTESI\n4. REPORT_FINALE",
+      "notion_url": "https://www.notion.so/Protocollo-di-comunicazione-PCK-creati-4-template-base-2e76f0146d1180d0a6cdfdc0432f401a",
+      "is_latest": false
+    },
+    {
+      "id": "2e76f014-6d11-8081-b3fe-cbb850a3fbcc",
+      "date": "2026-01-13",
+      "category": "Infrastructure",
+      "title": "fix Action Notion_to_Jekyll su GitHub",
+      "description": "- regolarizzata la fonte di pages su GitHub —> Deploy\n- fatto fix chiavi Notion + codici db in github secrets\n- aggiornato script su GitHub",
+      "notion_url": "https://www.notion.so/fix-Action-Notion_to_Jekyll-su-GitHub-2e76f0146d118081b3fecbb850a3fbcc",
+      "is_latest": false
+    },
+    {
+      "id": "2e76f014-6d11-803f-90f4-c7ccf84e40ff",
+      "date": "2026-01-13",
+      "category": "Infrastructure",
+      "title": "Implementazione metodo di revisione per articoli blog - step 1",
+      "description": "- passaggio della bozza per analisi markdown, \n- correzione errori di formattazione, \n- implementazione SEO description, keywords e tags\nMetodo: \nregole —> check —> action\nregole —> check —> action",
+      "notion_url": "https://www.notion.so/Implementazione-metodo-di-revisione-per-articoli-blog-step-1-2e76f0146d11803f90f4c7ccf84e40ff",
+      "is_latest": false
+    },
+    {
+      "id": "2e76f014-6d11-80f2-bffb-c7015d906230",
+      "date": "2026-01-13",
+      "category": "Infrastructure",
+      "title": "Script load-session",
+      "description": "creato script per analizzare report Council in caso di errore di scrittura su Notion in fase di chiamata iniziale",
+      "notion_url": "https://www.notion.so/Script-load-session-2e76f0146d1180f2bffbc7015d906230",
+      "is_latest": false
+    },
+    {
+      "id": "2e76f014-6d11-80c9-b174-d2af5a50ac58",
+      "date": "2026-01-13",
+      "category": "Infrastructure",
+      "title": "Fix DeepSeek bug ",
+      "description": "fatto fix su errore di chiamata API per DeepSeek",
+      "notion_url": "https://www.notion.so/Fix-DeepSeek-bug-2e76f0146d1180c9b174d2af5a50ac58",
+      "is_latest": false
+    },
+    {
+      "id": "2e66f014-6d11-8020-9bd2-caf87f88793e",
+      "date": "2026-01-12",
+      "category": "Content",
+      "title": "Session Memory System",
+      "description": "Aggiunta funzione ",
+      "notion_url": "https://www.notion.so/Session-Memory-System-2e66f0146d1180209bd2caf87f88793e",
+      "is_latest": false
+    },
+    {
+      "id": "2e66f014-6d11-80b2-bf88-ccfebae12522",
+      "date": "2026-01-12",
+      "category": "Infrastructure",
+      "title": "ristrutturazione db",
+      "description": "Ristrutturazione DB completata:\n- 9 DB specializzati creati\n- Script modulare implementato\n- Migrazione records completata\n- Sistema testato e funzionante",
+      "notion_url": "https://www.notion.so/ristrutturazione-db-2e66f0146d1180b2bf88ccfebae12522",
+      "is_latest": false
+    },
+    {
+      "id": "2e66f014-6d11-80e2-8420-e84c9d83ea3e",
+      "date": "2026-01-12",
+      "category": "Infrastructure",
+      "title": "Site processor and database migration",
+      "description": "• Processors implementati (Articles, Documentation, AI Profiles, WAW Council)\n• Migrazione architettura modulare completata\n• Fix path e layout\n• Cleanup tag orfani\n• File documentazione esclusi dal repo\n",
+      "notion_url": "https://www.notion.so/Site-processor-and-database-migration-2e66f0146d1180e28420e84c9d83ea3e",
+      "is_latest": false
+    },
+    {
+      "id": "2e36f014-6d11-80d8-a445-fcc9588a606f",
+      "date": "2026-01-09",
+      "category": "Fix",
+      "title": "Site Restructured and fixed",
+      "description": "\n",
+      "notion_url": "https://www.notion.so/Site-Restructured-and-fixed-2e36f0146d1180d8a445fcc9588a606f",
+      "is_latest": false
+    },
+    {
+      "id": "2e16f014-6d11-8080-afcd-f3548ba25b0b",
+      "date": "2026-01-07",
+      "category": "Infrastructure",
+      "title": "wAw Ristrutturazione Organismo",
+      "description": "Title: \"wAw da progetto a organismo (Council + Metabolism + Evolution)\"\nStatus: DONE ✅\nCategory: Architecture\nImplemented: 2026-01-07\nDescription: Ristrutturazione wAw in 3 sistemi: Council (cervello), Metabolism (digestione), Evolution (DNA). Landing organismo + 3 sotto-landing.\nImpact: Scalabilità progetto, struttura per esperimenti futuri",
+      "notion_url": "https://www.notion.so/wAw-Ristrutturazione-Organismo-2e16f0146d118080afcdf3548ba25b0b",
+      "is_latest": false
+    },
+    {
+      "id": "2e16f014-6d11-80a8-8ad3-cb12b65ef63d",
+      "date": "2026-01-07",
+      "category": "Infrastructure",
+      "title": "GitHub Actions Auto-Tag Generation",
+      "description": "Title: \"GitHub Actions per generazione automatica tag pages\"\nStatus: DONE ✅\nCategory: Infrastructure\nImplemented: 2026-01-07\nDescription: Workflow automatico che genera /tags/*.md e _data/top_tags.yml ad ogni push di articolo. Zero intervento manuale.\nImpact: Tag sempre funzionanti, niente più 404",
+      "notion_url": "https://www.notion.so/GitHub-Actions-Auto-Tag-Generation-2e16f0146d1180a88ad3cb12b65ef63d",
+      "is_latest": false
+    },
+    {
+      "id": "2e16f014-6d11-8073-8a31-d8f2001f6575",
+      "date": "2026-01-07",
+      "category": "Feature",
+      "title": "COUNCIL UPDATE",
+      "description": "✅ GIÀ FATTO:",
+      "notion_url": "https://www.notion.so/COUNCIL-UPDATE-2e16f0146d1180738a31d8f2001f6575",
+      "is_latest": false
+    },
+    {
+      "id": "2e06f014-6d11-8064-8930-f6db79d71013",
+      "date": "2026-01-06",
+      "category": "Feature",
+      "title": "Fixed layout",
+      "description": "Restyling completo Home: hero manifesto, tag “log-style”, card OB con CTA lime, feed “paper”, footer rifinito con Koan Mu; workflow Git a branch e micro-commit consolidato.",
+      "notion_url": "https://www.notion.so/Fixed-layout-2e06f0146d1180648930f6db79d71013",
+      "is_latest": false
+    },
+    {
+      "id": "2e06f014-6d11-8062-a345-f44bc7c3f0c2",
+      "date": "2026-01-06",
+      "category": "Infrastructure",
+      "title": "Adds Tags link + Tags research ",
+      "description": "Abbiamo reso cliccabili i tags, sviluppando uno script che genera direttamente le landing di group di ogni tags. Poi abbiamo sviluppato la funzione che quantifica i 5 tags più utilizzati e li mostra in Home-page. ",
+      "notion_url": "https://www.notion.so/Adds-Tags-link-Tags-research-2e06f0146d118062a345f44bc7c3f0c2",
+      "is_latest": false
+    },
+    {
+      "id": "2e06f014-6d11-8018-9cd6-c17f6cb461e9",
+      "date": "2026-01-06",
+      "category": "Feature",
+      "title": "Fixed layout top sticky",
+      "description": "remove breacrumb at sticky top and add sticky top style to Head and hamburger menu",
+      "notion_url": "https://www.notion.so/Fixed-layout-top-sticky-2e06f0146d1180189cd6c17f6cb461e9",
+      "is_latest": false
+    },
+    {
+      "id": "2e06f014-6d11-803e-90ae-e3284178586e",
+      "date": "2026-01-06",
+      "category": "Feature",
+      "title": "implemented Form Council Votation",
+      "description": "✅ ",
+      "notion_url": "https://www.notion.so/implemented-Form-Council-Votation-2e06f0146d11803e90aee3284178586e",
+      "is_latest": false
+    },
+    {
+      "id": "2df6f014-6d11-80ee-a8ab-d3e505237d05",
+      "date": "2026-01-05",
+      "category": "General",
+      "title": "Breadcrumb Verification and Current Page Highlight",
+      "description": "Realizzato breadcrumb per Percorso navigazione in alto pagina e Current Page Highlight su menu di navigazione",
+      "notion_url": "https://www.notion.so/Breadcrumb-Verification-and-Current-Page-Highlight-2df6f0146d1180eea8abd3e505237d05",
+      "is_latest": false
+    },
+    {
+      "id": "2df6f014-6d11-8026-a762-d1dc4c63bc3e",
+      "date": "2026-01-05",
+      "category": "Infrastructure",
+      "title": "LOG-PUCK ENGINE",
+      "description": "GitHub, Notion, Node 18, Jekyll, HETZNER, PM2, VSCode (Cursor)",
+      "notion_url": "https://www.notion.so/LOG-PUCK-ENGINE-2df6f0146d118026a762d1dc4c63bc3e",
+      "is_latest": false
+    },
+    {
+      "id": "2df6f014-6d11-80e5-b9ec-c77c44e16b91",
+      "date": "2026-01-05",
+      "category": "Infrastructure",
+      "title": "Form HTML Votazione Council",
+      "description": "Form per chiamata API alle AI che danno endpoint, per valutare lo stato attuale del progetto Log-Puck e portare la loro voce sulla direzione da seguire",
+      "notion_url": "https://www.notion.so/Form-HTML-Votazione-Council-2df6f0146d1180e5b9ecc77c44e16b91",
+      "is_latest": false
+    },
+    {
+      "id": "2df6f014-6d11-80bd-90c6-d94966ce4e03",
+      "date": "2026-01-05",
+      "category": "Infrastructure",
+      "title": "Server Hetzner + PM2",
+      "description": "Server Linux su Hetzner configurato con Node 18 con sistema attivo h 24",
+      "notion_url": "https://www.notion.so/Server-Hetzner-PM2-2df6f0146d1180bd90c6d94966ce4e03",
+      "is_latest": false
+    },
+    {
+      "id": "2df6f014-6d11-809c-a34e-c05a5d0bba5e",
+      "date": "2026-01-05",
+      "category": "Content",
+      "title": "LOG-PUCK ONLINE",
+      "description": "Homepage\n  - OB-Session: blog\n  - OB-Progetti:\n    - Musica: cercare le emozioni delle AI attraverso lo studio dei pattern\n    - Giochi: sviluppare le abilità logiche delle AI attraverso collaborazioni multiAI\n    - WAW: Concilio Decisionale composto da AI",
+      "notion_url": "https://www.notion.so/LOG-PUCK-ONLINE-2df6f0146d11809ca34ec05a5d0bba5e",
+      "is_latest": false
+    },
+    {
+      "id": "2df6f014-6d11-8028-aefd-fdd825377698",
+      "date": "2026-01-05",
+      "category": "Infrastructure",
+      "title": "AI COINVOLTE",
+      "description": "Gemini, ChatGPT, Claude, Grok, Perplexity, GLM, DeepSeek, Manus, Julius, NotionAI, Copilot, GitHub, Cursor, ChatGPT-Codex, Claude-Code",
+      "notion_url": "https://www.notion.so/AI-COINVOLTE-2df6f0146d118028aefdfdd825377698",
+      "is_latest": false
+    },
+    {
+      "id": "2df6f014-6d11-8001-bc45-fec92d8fe642",
+      "date": "2026-01-05",
+      "category": "Feature",
+      "title": "WAW Council",
+      "description": "Sistema di votazione multi-modello AI per decisioni collaborative su priorità progettuali",
+      "notion_url": "https://www.notion.so/WAW-Council-2df6f0146d118001bc45fec92d8fe642",
+      "is_latest": false
+    },
+    {
+      "id": "2df6f014-6d11-802b-82eb-d24526885432",
+      "date": "2026-01-05",
+      "category": "Infrastructure",
+      "title": "Notion Integration",
+      "description": "Sistema di persistenza dati con database relazionali per tracking votazioni e proposte",
+      "notion_url": "https://www.notion.so/Notion-Integration-2df6f0146d11802b82ebd24526885432",
+      "is_latest": false
+    },
+    {
+      "id": "2df6f014-6d11-8008-a009-faf7248da829",
+      "date": "2026-01-05",
+      "category": "Content",
+      "title": "Layout System",
+      "description": "Framework modulare di template per diverse tipologie di contenuto (articoli, progetti, documenti)",
+      "notion_url": "https://www.notion.so/Layout-System-2df6f0146d118008a009faf7248da829",
+      "is_latest": false
+    },
+    {
+      "id": "2df6f014-6d11-804f-a36c-ec4ac1608e85",
+      "date": "2026-01-05",
+      "category": "Infrastructure",
+      "title": "Ponte Orchestrator",
+      "description": "Server di orchestrazione per chiamate parallele a modelli AI multipli con aggregazione risultati",
+      "notion_url": "https://www.notion.so/Ponte-Orchestrator-2df6f0146d11804fa36cec4ac1608e85",
+      "is_latest": false
+    },
+    {
+      "id": "2df6f014-6d11-8099-9b44-c082922cd573",
+      "date": "2026-01-05",
+      "category": "Infrastructure",
+      "title": "Horus",
+      "description": "Script supervisore automatico per gestione capacità database con archiviazione periodica",
+      "notion_url": "https://www.notion.so/Horus-2df6f0146d1180999b44c082922cd573",
+      "is_latest": false
+    },
+    {
+      "id": "2df6f014-6d11-80a9-9efb-c1b7f05331b2",
+      "date": "2026-01-05",
+      "category": "Feature",
+      "title": "LOG-PUCK",
+      "description": "Laboratorio di collaborazione Umano / AI\nAI non come tools, AI come AI",
+      "notion_url": "https://www.notion.so/LOG-PUCK-2df6f0146d1180a99efbc1b7f05331b2",
+      "is_latest": false
+    }
+  ],
+  "categories": [
+    "Infrastructure",
+    "Content",
+    "Feature",
+    "Fix",
+    "Design"
+  ],
+  "summary": {
+    "total": 30,
+    "by_category": {
+      "Infrastructure": 17,
+      "Content": 3,
+      "Feature": 6,
+      "Fix": 1,
+      "Design": 0
+    }
+  },
+  "last_updated": "2026-01-14T17:25:48.340763"
+}

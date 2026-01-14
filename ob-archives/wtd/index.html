@@ -1,0 +1,101 @@
+---
+layout: ob_workflow
+title: "Workflow Tracking Dashboard"
+section: "OB-Archives"
+subsection: "WTD"
+description: "Timeline visual dei lavori completati"
+---
+
+{% assign timeline = site.data.timeline %}
+
+<!-- STICKY HEADER - Filter Controls -->
+<div class="sticky-header">
+  <button class="filter-btn active" data-filter="all">
+    TUTTI 
+    <span class="counter">{{ timeline.summary.total }}</span>
+  </button>
+  
+  <button class="filter-btn" data-filter="Infrastructure">
+    INFRA 
+    <span class="counter">{{ timeline.summary.by_category.Infrastructure }}</span>
+  </button>
+  
+  <button class="filter-btn" data-filter="Content">
+    CONTENT 
+    <span class="counter">{{ timeline.summary.by_category.Content }}</span>
+  </button>
+  
+  <button class="filter-btn" data-filter="Feature">
+    FEAT 
+    <span class="counter">{{ timeline.summary.by_category.Feature }}</span>
+  </button>
+  
+  <button class="filter-btn" data-filter="Fix">
+    FIX 
+    <span class="counter">{{ timeline.summary.by_category.Fix }}</span>
+  </button>
+  
+  <button class="filter-btn" data-filter="Design">
+    DESIGN 
+    <span class="counter">{{ timeline.summary.by_category.Design }}</span>
+  </button>
+</div>
+
+<!-- TIMELINE - Paper Stream -->
+<h1>LOG_PUCK > WORKFLOW</h1>
+
+<div class="timeline-container">
+  {% for task in timeline.tasks %}
+    <div class="timeline-item {% cycle 'right', 'left' %}" data-category="{{ task.category }}">
+      
+      <!-- Node con forma categoria -->
+      <div class="node {{ task.category | downcase }}"></div>
+      
+      <!-- Card espandibile -->
+      <div class="card" onclick="this.classList.toggle('expanded')">
+        <h3>{{ task.title }}</h3>
+        <span class="date">{{ task.date }}</span>
+        <span class="category-label">{{ task.category }}</span>
+        
+        <div class="details">
+          <p>{{ task.description }}</p>
+          {% if task.notion_url != "" %}
+            <a href="{{ task.notion_url }}" class="notion-link" target="_blank">↗ Vedi su Notion</a>
+          {% endif %}
+        </div>
+      </div>
+      
+    </div>
+  {% endfor %}
+</div>
+
+<!-- FILTER LOGIC - JavaScript -->
+<script>
+  // Initialize filters
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const timelineItems = document.querySelectorAll('.timeline-item');
+  
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+      
+      // Update active state
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      
+      // Filter timeline items
+      timelineItems.forEach(item => {
+        const itemCategory = item.dataset.category;
+        
+        if (filter === 'all' || itemCategory === filter) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+  
+  // Set "TUTTI" as active by default (already in HTML class)
+  console.log('Timeline Dashboard loaded: {{ timeline.summary.total }} tasks');
+</script>

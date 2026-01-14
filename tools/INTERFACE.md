@@ -106,14 +106,18 @@ Quando lavori su questo progetto, assicurati che i dati di input rispettino ques
 
 ### Database IDs
 
-**Python (`tools/notion_jekyll/config.py`):**
-- Convenzione: `DB_*_ID` o `*_ID` (verificare esistenti in `config.py`)
-- Esempi: `DB_ARTICLES_ID`, `DB_DOCUMENTATION_ID`, `WAW_COUNCIL_ID`
-- **Importante:** Verificare naming esistente prima di aggiungere nuovi ID
+**Python (`tools/notion_jekyll/config.py` e `.env` per Python):**
+- **Standard:** `DB_*_ID` (DB all'inizio, obbligatorio)
+- **Pattern:** `DB_{NOME}_ID`
+- **Esempi:** `DB_ARTICLES_ID`, `DB_DOCUMENTATION_ID`, `DB_WAW_COUNCIL_ID`, `DB_DONE_LIST_ID`
+- **Importante:** Tutti i Database IDs Python devono seguire `DB_*_ID`
+- **Retrocompatibilità:** Supporta anche `*_ID` e `*_DB_ID` (deprecati)
 
-**JavaScript (`experiments/ponte_config.js`):**
-- Convenzione: `*_ID` (senza prefisso `DB_`)
-- Esempi: `WAW_COUNCIL_DB_ID`, `ARTICLES_ID`, `DONE_LIST_ID`
+**JavaScript/Node (`experiments/ponte_config.js`):**
+- **Standard:** `*_ID` (senza prefisso `DB_`)
+- **Pattern:** `{NOME}_ID` o `{NOME}_DB_ID` (opzionale)
+- **Esempi:** `WAW_COUNCIL_DB_ID`, `ARTICLES_ID`, `DONE_LIST_ID`
+- **Nota:** Convenzione diversa da Python (pattern più corto)
 
 ### Sections
 

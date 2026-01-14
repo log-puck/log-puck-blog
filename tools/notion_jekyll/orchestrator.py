@@ -3,7 +3,7 @@ Orchestrator: Orchestrazione principale per il processo di generazione Jekyll
 """
 
 from .api import NotionClient, get_property_value
-from .processors import ArticlesProcessor, DocumentationProcessor, AIProfilesProcessor, WAWCouncilProcessor
+from .processors import ArticlesProcessor, DocumentationProcessor, AIProfilesProcessor, WAWCouncilProcessor, TimelineProcessor
 from .generators import TagGenerator
 from .logger import log
 
@@ -23,6 +23,7 @@ class JekyllOrchestrator:
         self.documentation_processor = DocumentationProcessor(client)
         self.ai_profiles_processor = AIProfilesProcessor(client)
         self.waw_council_processor = WAWCouncilProcessor(client)
+        self.timeline_processor = TimelineProcessor(client)
         self.tag_generator = TagGenerator()
     
     def run(self) -> None:
@@ -36,7 +37,7 @@ class JekyllOrchestrator:
         6. Genera top tags data
         7. Cleanup tag orfani
         """
-        log("Avvio GENERATORE Jekyll v4.0 (Modulare) - ARTICLES + DOCUMENTATION + AI PROFILES + WAW COUNCIL...")
+        log("Avvio GENERATORE Jekyll v4.0 (Modulare) - ARTICLES + DOCUMENTATION + AI PROFILES + WAW COUNCIL + TIMELINE...")
         
         # 1. Processa Articles
         self.articles_processor.process_articles()
@@ -50,7 +51,10 @@ class JekyllOrchestrator:
         # 4. Processa WAW Council
         self.waw_council_processor.process_waw_council()
         
-        # 5. Genera pagine tag
+        # 5. Processa Timeline
+        self.timeline_processor.process_timeline()
+        
+        # 6. Genera pagine tag
         self.tag_generator.generate_tag_pages()
         
         # 6. Genera top tags data
