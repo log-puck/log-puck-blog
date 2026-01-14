@@ -4,7 +4,7 @@ Strumenti per la conversione automatica di contenuti Notion in file Markdown per
 
 ## Architettura Modulare
 
-Il sistema è stato refactorizzato in un'architettura modulare completa. Vedi [ARCHITETTURA_MODULARE.md](./ARCHITETTURA_MODULARE.md) per i dettagli.
+Il sistema è stato refactorizzato in un'architettura modulare completa. Vedi `SPEC_PROCESSORS.md` nella root del progetto per i dettagli completi.
 
 ## Installazione
 
@@ -70,8 +70,7 @@ tools/
 │   ├── generators/         # Generatori file (tag, etc.)
 │   └── processors/         # Processori contenuti
 ├── notion_to_jekyll_builder.py  # Entry point
-├── notion_config.py.example     # Template configurazione
-└── ARCHITETTURA_MODULARE.md     # Documentazione architettura
+└── notion_config.py.example     # Template configurazione
 ```
 
 ## File da Committare
@@ -80,9 +79,7 @@ tools/
 - Tutti i moduli in `notion_jekyll/`
 - `notion_to_jekyll_builder.py`
 - `notion_config.py.example` (template)
-- `ARCHITETTURA_MODULARE.md`
-- `ESEMPIO_USO_MODULI.py`
-- `requirements.txt`
+- `README.md` (questa documentazione)
 
 ❌ **NON committare**:
 - `notion_config.py` (contiene credenziali)
@@ -104,7 +101,7 @@ python3 -c "from notion_jekyll.orchestrator import main; print('OK')"
 2. Aggiorna `__init__.py` della cartella per esportare la classe/funzione
 3. Aggiorna l'orchestrator se necessario
 
-Vedi [ARCHITETTURA_MODULARE.md](./ARCHITETTURA_MODULARE.md) per i dettagli.
+Vedi `SPEC_PROCESSORS.md` nella root del progetto per i dettagli completi.
 
 ## Troubleshooting
 
