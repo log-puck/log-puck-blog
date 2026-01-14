@@ -1,12 +1,20 @@
 {
   "tasks": [
     {
+      "id": "2e86f014-6d11-806c-b96c-c2fbce6e3f4e",
+      "date": "2026-01-14",
+      "category": "General",
+      "title": "Ho reso safety_checks prioritario tramite pre-commit hook locale",
+      "description": "Ogni git commit esegue automaticamente i safety checks; se serve, posso bypassare consapevolmente con SKIP_SAFETY_CHECKS=1 per un singolo commit.",
+      "is_latest": true
+    },
+    {
       "id": "2e86f014-6d11-8002-8c41-ef9820662d34",
       "date": "2026-01-14",
       "category": "Content",
       "title": "From Chaos to Protocol: How 3 AIs Built a Dashboard",
       "description": "Come 3 AI costruiscono una Dashboard Workflow: dal caos al Protocollo PCK. Storia di Living Documents, Paper-Stream Design e architettura modulare.",
-      "is_latest": true
+      "is_latest": false
     },
     {
       "id": "2e86f014-6d11-8008-ae8c-ea03e252ea30",
@@ -441,7 +449,7 @@
     "Design"
   ],
   "summary": {
-    "total": 54,
+    "total": 55,
     "by_category": {
       "Infrastructure": 29,
       "Content": 8,
@@ -450,5 +458,5 @@
       "Design": 1
     }
   },
-  "last_updated": "2026-01-15T00:01:20.627511"
+  "last_updated": "2026-01-15T00:09:52.611951"
 }
