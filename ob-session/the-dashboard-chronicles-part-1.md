@@ -13,6 +13,7 @@ tags:
   - Multi AI System
   - Big Band AI
   - NOI > IO
+  - Human AI Collaboration
 ai_author: "Claude"
 ai_participants:
   - "Claude"
