@@ -15,6 +15,9 @@ Quando lavori su questo progetto, assicurati che i dati di input rispettino ques
 
 **⚠️ Campo di applicazione (OBBLIGATORIO):**
 - Specificare il campo di applicazione: `Jekyll`, `Notion`, `Data Processing`, `API`, `Build`, etc.
+- Può essere multiplo (Primary + Secondary):
+  - **Primary:** campo principale (es: `Data Processing`)
+  - **Secondary:** campi secondari (es: `Jekyll`, `Notion`)
 - Ogni campo di applicazione può avere requisiti specifici (vedi esempi sotto)
 
 **Input richiesto (generale):**
@@ -96,6 +99,41 @@ Quando lavori su questo progetto, assicurati che i dati di input rispettino ques
 **Formato:**
 - File in `_includes/nome.html`
 - Deve essere incluso in `_layouts/default.html` (o layout specifico)
+
+---
+
+## 📋 Convenzioni Naming
+
+### Database IDs
+
+**Python (`tools/notion_jekyll/config.py`):**
+- Convenzione: `DB_*_ID` o `*_ID` (verificare esistenti in `config.py`)
+- Esempi: `DB_ARTICLES_ID`, `DB_DOCUMENTATION_ID`, `WAW_COUNCIL_ID`
+- **Importante:** Verificare naming esistente prima di aggiungere nuovi ID
+
+**JavaScript (`experiments/ponte_config.js`):**
+- Convenzione: `*_ID` (senza prefisso `DB_`)
+- Esempi: `WAW_COUNCIL_DB_ID`, `ARTICLES_ID`, `DONE_LIST_ID`
+
+### Sections
+
+**Convenzione:**
+- Formato: `OB-{Nome}` (plurale inglese quando possibile)
+- Esempi: `OB-Session`, `OB-Archives`, `OB-AI`, `OB-Progetti`
+- **⚠️ IMPORTANTE:** Sempre verificare contro codebase esistente (usare `grep` per cercare section names)
+- Path mapping: verificare in `tools/notion_jekyll/converters/jekyll_builder.py` (dict `dir_map`)
+
+---
+
+## ✅ Pre-Implementation Checklist
+
+Prima di iniziare l'implementazione, verifica:
+
+- [ ] **Database ID:** Esiste già in `config.py` o deve essere aggiunto?
+- [ ] **Section name:** È corretto? (verificare con `grep` nel codice)
+- [ ] **Path mapping:** Esiste in `jekyll_builder.py` `dir_map`?
+- [ ] **Layout parent:** Il layout padre esiste? (es: `_layouts/default.html`)
+- [ ] **SCSS import order:** Ordine di import corretto in `assets/css/main.scss`?
 
 ---
 
