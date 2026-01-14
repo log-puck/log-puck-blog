@@ -167,6 +167,11 @@ Prima di committare modifiche, verifica:
    - NON usare processori obsoleti (`content.py`, `personas.py`, `projects.py`)
    - Usare solo processori v4.0: `articles.py`, `documentation.py`, `ai_profiles.py`, `waw_council.py`
 
+**Pre-commit hook (prioritario):**
+- Il pre-commit esegue `spec/safety_checks.py` (locale, gitignored)
+- Abilita una volta: `./tools/setup_git_hooks.sh`
+- Bypass singolo commit: `SKIP_SAFETY_CHECKS=1 git commit -m "..."`
+
 ---
 
 ## 🔗 Riferimenti Pubblici

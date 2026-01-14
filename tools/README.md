@@ -40,9 +40,11 @@ Puoi anche usare variabili d'ambiente invece di `notion_config.py`:
 
 ```bash
 export NOTION_TOKEN="your_token_here"
-export DB_CONTENT_ID="your_db_id"
-export DB_PERSONAS_ID="your_personas_db_id"
-export DB_PROJECT_ID="your_project_db_id"
+export DB_ARTICLES_ID="your_db_id"
+export DB_DOCUMENTATION_ID="your_db_id"
+export DB_AI_PROFILES_ID="your_db_id"
+export DB_WAW_COUNCIL_ID="your_db_id"
+export DB_DONE_LIST_ID="your_db_id"
 ```
 
 Questo è utile per GitHub Actions (usa GitHub Secrets).
@@ -55,10 +57,42 @@ Questo è utile per GitHub Actions (usa GitHub Secrets).
 python notion_to_jekyll_builder.py
 ```
 
+### Solo Tag Pages
+
+Per rigenerare solo le pagine tag e `_data/top_tags.yml`:
+
+```bash
+python -m tools.notion_jekyll.generators.run_tags
+```
+
 ### GitHub Actions
 
 Lo script può essere eseguito automaticamente tramite GitHub Actions.
 Vedi `.github/workflows/notion-sync.yml` per la configurazione.
+
+### Git Hooks (pre-commit)
+
+Questo progetto usa un pre-commit hook che esegue `spec/safety_checks.py` (locale, gitignored).
+Per abilitarlo una volta:
+
+```bash
+./tools/setup_git_hooks.sh
+```
+
+Per bypassare **solo per un commit**:
+
+```bash
+SKIP_SAFETY_CHECKS=1 git commit -m "..."
+```
+
+### Safety Checks (locale)
+
+Prima di modifiche strutturali, esegui i controlli locali:
+
+```bash
+cd ../spec
+python safety_checks.py
+```
 
 ## Struttura Moduli
 
@@ -70,6 +104,7 @@ tools/
 │   ├── generators/         # Generatori file (tag, etc.)
 │   └── processors/         # Processori contenuti
 ├── notion_to_jekyll_builder.py  # Entry point
+├── notion_jekyll/generators/run_tags.py  # Entry point tag generator
 └── notion_config.py.example     # Template configurazione
 ```
 

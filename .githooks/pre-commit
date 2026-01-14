@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR="$(git rev-parse --show-toplevel)"
+CHECKER_PATH="$ROOT_DIR/spec/safety_checks.py"
+
+if [ "${SKIP_SAFETY_CHECKS:-}" = "1" ]; then
+  echo "SKIP_SAFETY_CHECKS=1 set, skipping safety checks."
+  exit 0
+fi
+
+if [ ! -f "$CHECKER_PATH" ]; then
+  echo "ERROR: safety_checks.py not found at $CHECKER_PATH"
+  echo "Create it locally (kept gitignored) or disable hooks explicitly."
+  exit 1
+fi
+
+python "$CHECKER_PATH"
