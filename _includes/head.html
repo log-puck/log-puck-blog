@@ -1,0 +1,145 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
+    <title>{% if page.title %}{{ page.title }}{% if page.title != site.title %} | {{ site.title }}{% endif %}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="keywords" content="{% if page.keywords %}{{ page.keywords }}{% else %}{{ site.keywords }}{% endif %}">
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    
+    {% comment %} Open Graph / Facebook {% endcomment %}
+    <meta property="og:type" content="{% if page.url == '/' %}website{% else %}article{% endif %}">
+    <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% if page.title != site.title %} | {{ site.title }}{% endif %}{% else %}{{ site.title }}{% endif %}">
+    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="og:site_name" content="{{ site.title }}">
+    {% if page.og_image %}
+    <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ page.og_image }}">
+    {% endif %}
+    
+    {% comment %} Twitter Card {% endcomment %}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+    <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% if page.title != site.title %} | {{ site.title }}{% endif %}{% else %}{{ site.title }}{% endif %}">
+    <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    {% if page.twitter_image %}
+    <meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}{{ page.twitter_image }}">
+    {% endif %}
+    
+    {% comment %} JSON-LD Structured Data {% endcomment %}
+    {% if page.url == '/' %}
+        {% comment %} Homepage: Organization + WebSite schema {% endcomment %}
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Organization",
+                    "name": "{{ site.title }}",
+                    "url": "{{ site.url }}{{ site.baseurl }}",
+                    "description": "{{ site.description | escape }}",
+                    "logo": "{{ site.url }}{{ site.baseurl }}/assets/images/favicon.svg"
+                },
+                {
+                    "@type": "WebSite",
+                    "name": "{{ site.title }}",
+                    "url": "{{ site.url }}{{ site.baseurl }}",
+                    "description": "{{ site.description | escape }}",
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "{{ site.title }}"
+                    },
+                    "potentialAction": {
+                        "@type": "SearchAction",
+                        "target": {
+                            "@type": "EntryPoint",
+                            "urlTemplate": "{{ site.url }}{{ site.baseurl }}/search?q={search_term_string}"
+                        },
+                        "query-input": "required name=search_term_string"
+                    }
+                }
+            ]
+        }
+        </script>
+    {% elsif page.date and page.layout != 'ob_progetti' and page.layout != 'ob_landing' and page.layout != 'ob_tag' %}
+        {% comment %} Articoli/Blog Posts: Article schema {% endcomment %}
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "{% if page.layout == 'ob_session' or page.layout == 'ob_document' %}BlogPosting{% else %}Article{% endif %}",
+            "headline": "{{ page.title | escape }}",
+            "description": "{{ page.description | default: site.description | escape }}",
+            "url": "{{ site.url }}{{ site.baseurl }}{{ page.url }}",
+            "datePublished": "{{ page.date | date: '%Y-%m-%d' }}",
+            {% if page.date_modified %}
+            "dateModified": "{{ page.date_modified | date: '%Y-%m-%d' }}",
+            {% else %}
+            "dateModified": "{{ page.date | date: '%Y-%m-%d' }}",
+            {% endif %}
+            "author": {
+                "@type": "Organization",
+                "name": "{{ site.title }}",
+                "url": "{{ site.url }}{{ site.baseurl }}"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "{{ site.title }}",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "{{ site.url }}{{ site.baseurl }}/assets/images/favicon.svg"
+                }
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "{{ site.url }}{{ site.baseurl }}{{ page.url }}"
+            }
+            {% if page.tags %}
+            ,"keywords": "{{ page.tags | join: ', ' | escape }}"
+            {% endif %}
+        }
+        </script>
+    {% endif %}
+    
+    {% if page.url != '/' %}
+        {% if page.section or page.subsection %}
+        {% comment %} BreadcrumbList schema per pagine con breadcrumb {% endcomment %}
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "{{ site.url }}{{ site.baseurl }}/"
+                }{% if page.section %},
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "{{ page.section }}",
+                    "item": "{{ site.url }}{{ site.baseurl }}/{{ page.section | downcase | replace: ' ', '-' }}/"
+                }{% endif %}{% if page.subsection %},
+                {
+                    "@type": "ListItem",
+                    "position": {% if page.section %}3{% else %}2{% endif %},
+                    "name": "{{ page.subsection }}",
+                    "item": "{{ site.url }}{{ site.baseurl }}/{{ page.section | downcase | replace: ' ', '-' }}/{{ page.subsection | downcase | replace: ' ', '-' }}/"
+                }{% endif %}{% if page.title and page.title != page.subsection %},
+                {
+                    "@type": "ListItem",
+                    "position": {% if page.subsection %}{% if page.section %}4{% else %}3{% endif %}{% else %}{% if page.section %}3{% else %}2{% endif %}{% endif %},
+                    "name": "{{ page.title | escape }}",
+                    "item": "{{ site.url }}{{ site.baseurl }}{{ page.url }}"
+                }{% endif %}
+            ]
+        }
+        </script>
+        {% endif %}
+    {% endif %}
+    
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{{ '/assets/images/favicon.svg' | relative_url }}">
+    <link rel="icon" type="image/svg+xml" sizes="16x16" href="{{ '/assets/images/favicon-16x16.svg' | relative_url }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/apple-touch-icon.svg' | relative_url }}">
+</head>

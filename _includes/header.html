@@ -1,0 +1,29 @@
+<header class="site-header">
+    <div class="container">
+        <h1 class="logo"><a href="{{ '/' | relative_url }}">LOG_PUCK</a></h1>
+        <nav class="main-nav">
+            <button class="nav-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="{{ '/ob-session/' | relative_url }}" class="nav-link {% if page.url contains '/ob-session/' %}active{% endif %}">OB-Session</a></li>
+                
+                <li class="nav-dropdown">
+                    <a href="{{ '/ob-progetti/' | relative_url }}" class="nav-link {% if page.url contains '/ob-progetti/' %}active{% endif %}">
+                        OB-Progetti <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ '/ob-progetti/musicaai/' | relative_url }}" {% if page.url contains '/ob-progetti/musicaai/' %}class="active"{% endif %}>Musica</a></li>
+                        <li><a href="{{ '/ob-progetti/giochiai/' | relative_url }}" {% if page.url contains '/ob-progetti/giochiai/' %}class="active"{% endif %}>Giochi</a></li>
+                        <li><a href="{{ '/ob-progetti/waw/' | relative_url }}" {% if page.url contains '/ob-progetti/waw/' %}class="active"{% endif %}>wAw</a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="{{ '/ob-ai/' | relative_url }}" class="nav-link {% if page.url contains '/ob-ai/' %}active{% endif %}">OB-AI</a></li>
+                <li><a href="{{ '/ob-archives/' | relative_url }}" class="nav-link {% if page.url contains '/ob-archives/' %}active{% endif %}">OB-Archivio</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>

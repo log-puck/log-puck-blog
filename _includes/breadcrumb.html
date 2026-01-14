@@ -1,0 +1,21 @@
+{% if page.url != '/' %}
+<div class="breadcrumb-wrapper">
+    <div class="container">
+        <nav class="breadcrumb">
+            <a href="{{ '/' | relative_url }}">Home</a>
+            {% if page.section %}
+            <span class="separator">></span>
+            <a href="{{ '/' | append: page.section | downcase | replace: ' ', '-' | append: '/' | relative_url }}">{{ page.section }}</a>
+            {% endif %}
+            {% if page.subsection %}
+            <span class="separator">></span>
+            <a href="{{ '/' | append: page.section | downcase | replace: ' ', '-' | append: '/' | append: page.subsection | downcase | replace: ' ', '-' | append: '/' | relative_url }}">{{ page.subsection }}</a>
+            {% endif %}
+            {% if page.title and page.title != page.subsection %}
+            <span class="separator">></span>
+            <span class="current">{{ page.title }}</span>
+            {% endif %}
+        </nav>
+    </div>
+</div>
+{% endif %}
