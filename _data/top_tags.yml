@@ -1,18 +1,18 @@
 # Top 5 most popular tags
 # Generated automatically by notion_to_jekyll_builder.py
 
-- name: "Claude"
+- name: Claude
   count: 19
-  slug: "claude"
-- name: "Debugging"
+  slug: claude
+- name: Debugging
   count: 9
-  slug: "debugging"
-- name: "AI Comunication"
+  slug: debugging
+- name: AI Comunication
   count: 9
-  slug: "ai-comunication"
-- name: "Human-AI Collaboration"
+  slug: ai-comunication
+- name: Human-AI Collaboration
   count: 7
-  slug: "human-ai-collaboration"
-- name: "AI Workflow"
+  slug: human-ai-collaboration
+- name: AI Workflow
   count: 6
-  slug: "ai-workflow"
+  slug: ai-workflow
