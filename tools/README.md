@@ -4,7 +4,7 @@ Strumenti per la conversione automatica di contenuti Notion in file Markdown per
 
 ## Architettura Modulare
 
-Il sistema è stato refactorizzato in un'architettura modulare completa. Vedi `SPEC_PROCESSORS.md` nella root del progetto per i dettagli completi.
+Il sistema è stato refactorizzato in un'architettura modulare completa. Vedi `spec/SPEC_PROCESSORS.md` per i dettagli completi (cartella locale, non su GitHub).
 
 ## Installazione
 
@@ -101,7 +101,7 @@ python3 -c "from notion_jekyll.orchestrator import main; print('OK')"
 2. Aggiorna `__init__.py` della cartella per esportare la classe/funzione
 3. Aggiorna l'orchestrator se necessario
 
-Vedi `SPEC_PROCESSORS.md` nella root del progetto per i dettagli completi.
+Vedi `spec/SPEC_PROCESSORS.md` per i dettagli completi (cartella locale, non su GitHub).
 
 ## Troubleshooting
 

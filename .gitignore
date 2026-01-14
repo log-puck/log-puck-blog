@@ -131,4 +131,9 @@ TASK/WORKFLOW_TRACKING_DASHBOARD/VISUAL/*.md
 TASK/WORKFLOW_TRACKING_DASHBOARD/VISUAL/*.json
 TASK/WORKFLOW_TRACKING_DASHBOARD/VISUAL/*.html
 
+# ============================================================================
+# SPEC - Specifiche Tecniche (uso interno)
+# ============================================================================
+spec/
+
 
