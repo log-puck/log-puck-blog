@@ -1,0 +1,182 @@
+/* ----------------------------------------------------------------------------
+   CALLOUT - Insights e lezioni
+   Usato per: Sezione "Insights & Lezioni"
+   ---------------------------------------------------------------------------- */
+
+.callout {
+  background: #E8F2F7; /* azure */
+  border-left: 4px solid #3D7E9B; /* blu medio */
+  border-radius: 6px;
+  padding: 2rem; /* 32px */
+  margin: 2.5rem 0; /* 40px top/bottom */
+}
+
+.callout h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-top: 0;
+  margin-bottom: 1rem; /* 16px */
+}
+
+.callout h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-top: 1.25rem; /* 20px */
+  margin-bottom: 0.75rem; /* 12px */
+}
+
+.callout p {
+  margin-bottom: 1rem; /* 16px */
+  line-height: 1.8;
+}
+
+.callout p:last-child {
+  margin-bottom: 0;
+}
+
+.callout ul,
+.callout ol {
+  margin: 1rem 0 1rem 1.25rem; /* 16px 0 16px 20px */
+}
+
+.callout ul li,
+.callout ol li {
+  margin-bottom: 0.75rem; /* 12px */
+}
+
+.callout strong {
+  font-weight: 700;
+  color: #3D7E9B; /* blu accent */
+}
+
+.callout a {
+  color: var(--text-main);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-yellow);
+  transition: all 0.3s;
+}
+
+.callout a:hover {
+  color: var(--accent-magenta);
+  border-bottom-color: var(--accent-magenta);
+}
+
+@media (max-width: 768px) {
+  .callout {
+    padding: 1.25rem; /* 20px su mobile */
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   BOX-CAOS - Sezione "Caos / Osservazione"
+   Usato per: Estratti e osservazioni principali
+   ---------------------------------------------------------------------------- */
+
+.box-caos {
+    background: #EFECE4; /* warm neutral */
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    padding: 2.5rem; /* 40px */
+    margin: 2.5rem 0; /* 40px top/bottom */
+}
+
+.box-caos h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-top: 0;
+    margin-bottom: 1.25rem; /* 20px */
+}
+
+.box-caos h3:not(:first-child) {
+    margin-top: 2.5rem; /* 40px tra sezioni */
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.box-caos h4 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-top: 2rem; /* 32px */
+    margin-bottom: 1rem; /* 16px */
+}
+
+.box-caos p {
+    margin-bottom: 1.25rem; /* 20px */
+    line-height: 1.8;
+}
+
+.box-caos p:last-child {
+    margin-bottom: 0;
+}
+
+.box-caos ul,
+.box-caos ol {
+    margin: 1rem 0 1.25rem 2rem; /* 16px 0 20px 32px */
+    padding-left: 0;
+}
+
+.box-caos ul li,
+.box-caos ol li {
+    margin-bottom: 0.75rem; /* 12px */
+    line-height: 1.8;
+}
+
+.box-caos pre {
+    background: #E8E5DD; /* darken(#EFECE4, 3%) */
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    padding: 1rem; /* 16px */
+    margin: 1.25rem 0; /* 20px */
+    overflow-x: auto;
+}
+
+.box-caos pre code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    background: transparent;
+    padding: 0;
+    border: none;
+}
+
+.box-caos code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    background: #E3E0D9; /* darken(#EFECE4, 5%) */
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 1px solid var(--border-color);
+}
+
+.box-caos hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 2rem 0; /* 32px */
+}
+
+.box-caos strong {
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.box-caos a {
+    color: var(--text-main);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.box-caos a:hover {
+    border-bottom-color: var(--accent-yellow);
+    color: var(--accent-magenta);
+}
+
+@media (max-width: 768px) {
+    .box-caos {
+        padding: 2rem; /* 32px su mobile */
+    }
+}

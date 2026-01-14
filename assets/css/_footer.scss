@@ -1,0 +1,53 @@
+/* --- FOOTER --- */
+.site-footer {
+    padding: 5rem 0;
+    background: var(--footer-bg);
+    color: var(--bg-main);
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.koan {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-style: italic;
+    font-size: 1.1rem;
+    text-align: center;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    width: min(520px, 85%);
+    margin: 0 auto 2rem;
+    opacity: 0.9;
+    padding: 1rem 1.25rem;
+}
+
+.koan::before {
+    content: "";
+    display: block;
+    width: min(520px, 85%);
+    margin: 0 auto 2rem;
+    border-top: 2px solid var(--border-color);
+}
+
+.koan::after {
+    content: "";
+    display: block;
+    width: min(520px, 85%);
+    margin: 2rem auto 0;
+    border-top: 2px solid var(--border-color);
+}
+
+.footer-nav a { 
+    color: var(--bg-main); 
+    text-decoration: none; 
+    margin: 0 10px; 
+    opacity: 0.7; 
+    transition: opacity 0.3s;
+}
+
+.footer-nav a:hover { opacity: 1; }
+
+.footer-meta { 
+    margin-top: 2rem; 
+    font-size: 0.8rem; 
+    opacity: 0.5; 
+}

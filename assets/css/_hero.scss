@@ -1,0 +1,60 @@
+/* --- HERO & TAGS --- */
+.hero {
+    padding: 3.5rem 0 4.5rem;  /* più respiro sopra e soprattutto sotto */
+  }
+  
+  .tags-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: flex-start; /* oppure center se li vuoi centrati */
+    margin-bottom: 3rem; /* Tag row → H1 (più aria) */
+  }
+  
+  /* H1 / title */
+  .hero-title {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    line-height: 1.1;
+    margin: 0 0 2rem; /* H1 → testo */
+  }
+  
+  /* blocco testo lungo */
+  .hero-description {
+    max-width: 65ch;      /* colonna editoriale */
+    font-size: 1.08rem;
+    line-height: 1.75;
+  }
+  
+  .hero-description p {
+    margin-bottom: 1.15rem; /* ritmo tra paragrafi */
+  }  
+
+.tag {
+    background-color: var(--slot-bg); 
+    color: var(--text-main);
+    padding: 0.45rem 0.65rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 6px;
+    display: inline-flex;
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    align-items: center;
+    vertical-align: middle;
+    line-height: 1.2;
+    box-sizing: border-box;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    gap: 0.4rem;
+}
+
+.tag:hover { 
+    background-color: rgba(153, 255, 0, 0.60);
+    border-color: var(--accent-yellow-dark);
+    border: 2px solid var(--accent-yellow-dark);
+    font-weight: 600;
+    text-decoration: none;
+    color: #111;
+}

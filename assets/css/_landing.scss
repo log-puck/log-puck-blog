@@ -1,0 +1,112 @@
+/* --- LANDING PAGE --- */
+.landing-page {
+    padding: 3rem 0;
+}
+
+.landing-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.landing-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.landing-description {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.landing-content {
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.landing-content h2 {
+    font-size: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--accent-yellow);
+    padding-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.landing-content h3 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.landing-content p {
+    margin-bottom: 1.5rem;
+}
+
+.landing-content ul,
+.landing-content ol {
+    margin-left: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.landing-content li {
+    margin-bottom: 0.5rem;
+}
+
+.landing-content blockquote {
+    border-left: 4px solid var(--accent-yellow);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.landing-content hr {
+    border: none;
+    border-top: 2px solid var(--border-color);
+    margin: 3rem 0;
+}
+
+.landing-content a {
+    color: var(--text-main);
+    text-decoration: underline;
+    text-decoration-color: var(--accent-yellow);
+    transition: all 0.3s;
+}
+
+.landing-content a:hover {
+    color: var(--accent-magenta);
+    text-decoration-color: var(--accent-magenta);
+}
+
+.landing-content strong {
+    font-weight: 600;
+}
+
+/* wAw Internal CTA Links */
+.waw-project .landing-content a[href*="/waw/"] {
+    display: inline-block;
+    color: var(--text-main);
+    background: rgba(163, 230, 53, 0.15);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: 1px solid rgba(163, 230, 53, 0.5);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(163, 230, 53, 0.1);
+}
+
+.waw-project .landing-content a[href*="/waw/"]:hover {
+    background: rgba(163, 230, 53, 0.25);
+    border-color: rgba(163, 230, 53, 0.75);
+    color: var(--text-main);
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(163, 230, 53, 0.35);
+}

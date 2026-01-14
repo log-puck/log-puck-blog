@@ -1,0 +1,30 @@
+/* --- BREADCRUMB --- */
+.breadcrumb-wrapper {
+    position: relative;
+    z-index: 1;
+    background: var(--slot-bg);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.breadcrumb {
+    font-size: 0.85rem;
+}
+
+.breadcrumb a {
+    color: var(--text-main);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb .separator {
+    margin: 0 0.5rem;
+    opacity: 0.5;
+}
+
+.breadcrumb .current {
+    font-weight: 600;
+}

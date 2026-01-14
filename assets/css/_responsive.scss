@@ -1,0 +1,25 @@
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .grid-container { flex-direction: column; }
+    .feed-row { grid-template-columns: 1fr; gap: 0.5rem; }
+    .article-title { font-size: 2rem; }
+    .hero-title { font-size: clamp(2.2rem, 8vw, 3rem); }
+    .hero { padding: 3rem 0 4rem; }
+    .tag { font-size: 0.85rem; }
+    .tags-cloud { margin-bottom: 2.25rem; }
+    .hero-description { font-size: 1rem; }
+    .hero-description p { margin-bottom: 1rem; }
+    .articles-grid { grid-template-columns: 1fr;} 
+    .landing-title { font-size: 2rem; }
+    .landing-description { font-size: 1rem; }
+    .persona-content { padding: 0 1rem;}
+    .persona-content h2 { font-size: 1.8rem; }
+    .persona-content h3 { font-size: 1.4rem; }
+    .persona-content ul { margin-left: 1.5rem; }
+    .persona-content blockquote { font-size: 1rem; }
+    .persona-content code { font-size: 0.9em; }
+    .persona-content pre { font-size: 0.9em; }
+    .document-content { padding: 0 1rem; font-size: 1rem;}
+    .document-title { font-size: 2rem; }
+    .document-content p {text-align: left; }
+}
