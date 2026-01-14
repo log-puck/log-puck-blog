@@ -123,3 +123,15 @@ python notion_to_jekyll_builder.py
 ### Errori di Import
 
 Se vedi errori di import, verifica che tutti i `__init__.py` esistano in ogni sottocartella.
+
+## Interfacce e Contratti
+
+Prima di lavorare sul progetto, consulta `INTERFACE.md` per i contratti e le interfacce pubbliche necessarie.
+
+Il file `INTERFACE.md` definisce:
+- Input richiesti (formato, caratteristiche)
+- Validazioni necessarie
+- Cosa NON fare
+- Riferimenti per dettagli implementativi
+
+**⚠️ Nota:** Dettagli implementativi completi (safety checks, stato sistema) sono in `spec/` (locale, non su GitHub).
