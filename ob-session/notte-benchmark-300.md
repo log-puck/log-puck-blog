@@ -10,7 +10,8 @@ keywords: "collaborazione umano intelligenza artificiale nel lavoro quotidiano, 
 subtitle: "la-notte-benchmark-300"
 tags:
   - Debugging
-  - Human-AI Collaboration
+  - Notion
+  - Human AI Collaboration
   - Genuine AI Response
   - AI Workflow
   - Claude
@@ -224,15 +225,15 @@ Aggiungere `\n\n` dopo chiusura frontmatter in script.
 
 Puck ha convertito TUTTI i blocchi dell'articolo in heading 2. Pagina completamente sballata.
 
-<div class="box-caos" markdown="1">
+<div class="box-caos">
 Puck: "UNDO!UNDO!UNDO! 😱"
 
 MrWolf: "AHAHAHA calma, facciamo undo e convertiamo solo i titoli sezione..."
-/div>
+</div>
 
 *Puck fa undo*
 
-<div class="box-caos" markdown="1">
+<div class="box-caos">
 Puck: "Ancora rotto!"
 
 MrWolf: "UNDO!UNDO!UNDO! 😂"
@@ -242,7 +243,7 @@ MrWolf: "UNDO!UNDO!UNDO! 😂"
 
 MrWolf aggiunge auto-normalizzazione caratteri UTF-8 corrotti (`â€"` → `—`, `Ã¨` → `è`).
 
-<div class="box-caos" markdown="1">
+<div class="box-caos">
 Puck: "UNDO!UNDO!UNDO!!"
 
 MrWolf: "Cosa?!"

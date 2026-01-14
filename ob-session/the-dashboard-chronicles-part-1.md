@@ -42,9 +42,9 @@ E Puck, da buon orchestratore, aveva un'idea: **coordinare più AI per progettar
 La conversazione iniziò così:
 
 <div class="box-caos">
-> **Puck:** "Ciao Claude, puoi farmi dei template per organizzare il lavoro con più AI? Presentazione task, confronto proposte, sintesi, report finale?"
-> 
-> **Claude:** "Certo! Ecco TEMPLATE_TASK_PRESENTATION, TEMPLATE_WORK_PROPOSAL, TEMPLATE_CONFRONTO_SINTESI, TEMPLATE_REPORT_FINALE - **Suite Completa** pronta!"
+<em>Puck:</em> "Ciao Claude, puoi farmi dei template per organizzare il lavoro con più AI? Presentazione task, confronto proposte, sintesi, report finale?"
+
+<em>Claude:</em> "Certo! Ecco TEMPLATE_TASK_PRESENTATION, TEMPLATE_WORK_PROPOSAL, TEMPLATE_CONFRONTO_SINTESI, TEMPLATE_REPORT_FINALE - <em>Suite Completa</em> pronta!"
 </div>
 
 **1 mossa. Scacco matto.**
@@ -54,7 +54,7 @@ Quattro template, modulari, adattabili, pensati per collaborazione multi-AI. Tut
 Poi Puck provò a usarli.
 
 <div class="box-caos">
-> **Puck:** *(testa bassa)* "È tutto bellissimo ma... non riesco a usarli. Non riesco a dividere il lavoro, a definire i ruoli, a capire cosa va dove."
+<em>Puck:</em> <i>(testa bassa)<i> "È tutto bellissimo ma... non riesco a usarli. Non riesco a dividere il lavoro, a definire i ruoli, a capire cosa va dove."
 </div>
 
 E qui successe qualcosa di inaspettato.
@@ -62,7 +62,7 @@ E qui successe qualcosa di inaspettato.
 Invece di dire "riprova" o "leggi meglio", Claude disse:
 
 <div class="box-caos">
-> **Claude:** "IL PROBLEMA NON SEI TU - il template è troppo rigido per il CDC!"
+<em>Claude:</em> "IL PROBLEMA NON SEI TU - il template è troppo rigido per il CDC!"
 </div>
 
 **Mr Wolf mode: attivato.** 🎺
@@ -112,7 +112,7 @@ Risultato: **dispersione totale**. Dove avevamo discusso quel punto? In quale fi
 Puck propose qualcosa di radicale:
 
 <div class"box-caos>
-> **Puck:** "E se invece di file separati, usassimo un **singolo file che cresce**?"
+<em>Puck:</em> "E se invece di file separati, usassimo un <em>singolo file che cresce?</em>"
 </div>
 
 **Pattern:**
@@ -143,7 +143,7 @@ WTD_WORKFLOW.md (unico file)
 E poi Puck notò qualcosa:
 
 <div class="box-caos">
-> **Puck:** "Se il file supera le 500 righe, è un segnale che il task è troppo complesso - va diviso in subtask."
+<em>Puck:</em> "Se il file supera le 500 righe, è un segnale che il task è troppo complesso - va diviso in subtask."
 </div>
 
 **Sistema auto-regolante.**
@@ -153,7 +153,7 @@ Non era solo un file. Era un **organismo vivente**. Cresceva. Segnalava quando c
 Claude capì immediatamente:
 
 <div class="box-caos">
-> **Claude:** "Hai scoperto un **sistema auto-organizzante**! La lunghezza del file = indicatore di complessità!"
+<em>Claude:</em> "Hai scoperto un <em>sistema auto-organizzante!</em> La lunghezza del file = indicatore di complessità!"
 </div>
 
 **Living Document era nato.**
@@ -178,7 +178,7 @@ Con metodologia in mano, serviva assemblare il team per il Workflow Tracking Das
 **Il problema:**
 
 <div class="box-caos">
-> **Puck:** "Non riesco a definire i ruoli. Claude e Gemini sono troppo simili - entrambi fanno design, entrambi fanno backend..."
+<em>Puck:</em> "Non riesco a definire i ruoli. Claude e Gemini sono troppo simili - entrambi fanno design, entrambi fanno backend..."
 </div>
 
 **La soluzione:**
@@ -205,16 +205,16 @@ E con questo setup, iniziò il design vero e proprio.
 
 **Task presentata** (Claude aveva compilato per Puck usando il nuovo template):
 
-> **Problema:** Nessun modo visuale di vedere la timeline del lavoro completato. Done-List su Notion = solo testo. Serve visualizzazione grafica, raggruppata per tipo, filtrabile, linkabile ai dettagli Notion.
->
-> **Team:** Claude (backend/data), Gemini (visual/UX), Puck (decisioni/orchestrazione)
->
-> **Obiettivi:**
-> 1. Pagina visual `/workflow` che mostra Done-List graficamente
-> 2. Auto-aggiornamento quando Done-List cresce
-> 3. Utile per Council (contesto visual vs testo)
->
-> **Constraint:** No database SQL (solo Notion), deve funzionare con Jekyll statico, solo tool gratuiti, 1 settimana per prototipo.
+**Problema:** Nessun modo visuale di vedere la timeline del lavoro completato. Done-List su Notion = solo testo. Serve visualizzazione grafica, raggruppata per tipo, filtrabile, linkabile ai dettagli Notion.
+
+**Team:** Claude (backend/data), Gemini (visual/UX), Puck (decisioni/orchestrazione)
+
+**Obiettivi:**
+1. Pagina visual `/workflow` che mostra Done-List graficamente
+2. Auto-aggiornamento quando Done-List cresce
+3. Utile per Council (contesto visual vs testo)
+
+**Constraint:** No database SQL (solo Notion), deve funzionare con Jekyll statico, solo tool gratuiti, 1 settimana per prototipo.
 
 Gemini rispose con una proposta da 400 righe in **Living Document format**.
 
@@ -464,7 +464,7 @@ filterButtons.forEach(btn => {
 Durante il design, Puck ebbe un'intuizione:
 
 <div class="box-caos">
-> **Puck:** "Se funzionano come flusso di lavoro, perché non implementare la struttura a template?"
+ <em>Puck:</em> "Se funzionano come flusso di lavoro, perché non implementare la struttura a template?"
 </div>
 
 **= CDC già codificato in best practices architetturali!**
@@ -498,7 +498,6 @@ Timeline Processor avrebbe seguito questo pattern.
 **Architettura Python:**
 
 <pre>
-```
 tools/notion_jekyll/
 ├── orchestrator.py          # Entry point
 ├── config.py                # DB IDs, paths
@@ -508,11 +507,11 @@ tools/notion_jekyll/
 │   ├── ai_profiles.py
 │   ├── waw_council.py
 │   └── timeline.py          # ← NUOVO
-```
 </pre>
-<pre>
+
 **Architettura Jekyll:**
-```
+
+<pre>
 _layouts/
 ├── default.html             # Base
 ├── ob_session.html
@@ -525,9 +524,8 @@ _sass/
 ├── _base.scss
 ├── _layouts.scss
 └── _workflow-timeline.scss  # ← NUOVO
-```
 </pre>
-<pre>
+
 **SCSS Modular:** 1550 righe totali (era single file), ora diviso in partial con import order critico.
 
 **Convenzioni:**
@@ -535,7 +533,7 @@ _sass/
 - CSS classes: kebab-case (`.article-page`, `.nav-link`)
 - Python files: `nome_processor.py` (snake_case)
 - Python classes: `NomeProcessor` (PascalCase)
-</pre>
+
 
 ---
 
@@ -607,7 +605,7 @@ Puck passò il documento a Cursor per coding.
 E Cursor rispose:
 
 <div class="box-caos">
-> **Cursor:** "STOP. Ho trovato errori. 🔴"
+<em>Cursor:</em> "STOP. Ho trovato errori. 🔴"
 </div>
 
 **Errori?** Ma avevamo fatto 10 round! Design perfetto! Convergenza totale!
@@ -673,23 +671,23 @@ Architettura modulare è CDC che è diventato pattern replicabile.
 ## Citazioni Memorabili
 
 <div class="callout">
-> "IL PROBLEMA NON SEI TU - template troppo formale per CDC style!"
-> — Claude, Mr Wolf mode activated
+"IL PROBLEMA NON SEI TU - template troppo formale per CDC style!"
+— Claude, Mr Wolf mode activated
 </div>
 
 <div class="callout">
-> "Living Document = sistema auto-organizzante!"
-> — Puck, discovering emergent complexity
+"Living Document = sistema auto-organizzante!"
+— Puck, discovering emergent complexity
 </div>
 
 <div class="callout">
-> "Se funzionano come flusso di lavoro, perchè non implementare la struttura a template?"
-> — Puck, connecting workflow to architecture
+"Se funzionano come flusso di lavoro, perchè non implementare la struttura a template?"
+— Puck, connecting workflow to architecture
 </div>
 
 <div class="callout">
-> "C'è qualcuno che ha già CDC più di me!"
-> — Puck, recognizing universal principles
+"C'è qualcuno che ha già CDC più di me!"
+— Puck, recognizing universal principles
 </div>
 
 ---
