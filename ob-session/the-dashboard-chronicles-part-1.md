@@ -243,7 +243,7 @@ Notion Done-List → Python Script (JSON Export) → Jekyll Page (JS Render) →
 
 **Trade-off:** Sacrifica complessità statistica (grafici a torta/barre) per chiarezza narrativa cronologica.
 
-![Screenshot: Mockup visuale Paper-Stream concept di Gemini - timeline verticale con nodi lime](https://github.com/log-puck/log-puck-blog/assets/images/Mockup-visuale-Paper-Stream.png)
+![Mockup visuale Paper-Stream concept di Gemini - timeline verticale con nodi lime](assets/images/Mockup-visuale-Paper-Stream.png)
 
 ---
 
