@@ -10,9 +10,9 @@
 - name: "AI Comunication"
   count: 9
   slug: "ai-comunication"
-- name: "Human-AI Collaboration"
-  count: 7
-  slug: "human-ai-collaboration"
 - name: "AI Workflow"
   count: 6
   slug: "ai-workflow"
+- name: "Human-AI Collaboration"
+  count: 6
+  slug: "human-ai-collaboration"
