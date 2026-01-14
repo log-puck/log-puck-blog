@@ -25,6 +25,10 @@ Quando lavori su questo progetto, assicurati che i dati di input rispettino ques
 - Fonte dati: Notion Database, File System, API, etc.
 - Formato input: JSON, Markdown, YAML, etc.
 
+**Entry points già disponibili (riutilizzare quando possibile):**
+- `tools/notion_to_jekyll_builder.py` - Generazione completa (Notion → Jekyll)
+- `python -m tools.notion_jekyll.generators.run_tags` - Solo tag pages + top tags + cleanup
+
 **Se interagisce con Notion Database:**
 - Database ID Notion (stringa, formato UUID)
 - Properties Notion (lista completa con dettagli)
