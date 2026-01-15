@@ -26,12 +26,17 @@ jobs:
         with:
           python-version: '3.x'
       
-      # 3. Gira script
+      # 3. Install dependencies
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+      
+      # 4. Gira script
       - name: Generate tag pages
         run: |
           python -m tools.notion_jekyll.generators.run_tags
       
-      # 4. Commit se ci sono cambiamenti
+      # 5. Commit se ci sono cambiamenti
       - name: Commit changes
         run: |
           git config --local user.email "action@github.com"
@@ -39,7 +44,7 @@ jobs:
           git add tags/ _data/top_tags.yml
           git diff --quiet && git diff --staged --quiet || git commit -m "chore: auto-generate tag pages [skip ci]"
       
-      # 5. Push
+      # 6. Push
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
