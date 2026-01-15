@@ -188,8 +188,6 @@ E disse qualcosa che cambiò tutto:
 <em>"No. Fissiamo il sistema."</em>
 </div>
 
-
-
 ## INTERFACE.md: La Nascita
 
 Invece di correggere velocemente e procedere, Puck si sedette con Cursor e disse:
@@ -323,8 +321,6 @@ Non filtra. Non blocca. Non omogeneizza.
 INTERFACE.md è Pre-Processing materializzato in protocollo.
 
 ---
-
-
 
 ## Il Sistema Auto-Correttivo
 
