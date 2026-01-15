@@ -42,9 +42,9 @@ E Puck, da buon orchestratore, aveva un'idea: **coordinare più AI per progettar
 La conversazione iniziò così:
 
 <div class="box-caos">
-<em>Puck:</em> "Ciao Claude, puoi farmi dei template per organizzare il lavoro con più AI? Presentazione task, confronto proposte, sintesi, report finale?"
-
-<em>Claude:</em> "Certo! Ecco TEMPLATE_TASK_PRESENTATION, TEMPLATE_WORK_PROPOSAL, TEMPLATE_CONFRONTO_SINTESI, TEMPLATE_REPORT_FINALE - <em>Suite Completa</em> pronta!"
+Puck: <em>"Ciao Claude, puoi farmi dei template per organizzare il lavoro con più AI? Presentazione task, confronto proposte, sintesi, report finale?"</em><br>
+<br>
+Claude: <em>"Certo! Ecco TEMPLATE_TASK_PRESENTATION, TEMPLATE_WORK_PROPOSAL, TEMPLATE_CONFRONTO_SINTESI, TEMPLATE_REPORT_FINALE - <b>Suite Completa</b></em> pronta!"
 </div>
 
 **1 mossa. Scacco matto.**
@@ -54,7 +54,7 @@ Quattro template, modulari, adattabili, pensati per collaborazione multi-AI. Tut
 Poi Puck provò a usarli.
 
 <div class="box-caos">
-<em>Puck:</em> <i>(testa bassa)<i> "È tutto bellissimo ma... non riesco a usarli. Non riesco a dividere il lavoro, a definire i ruoli, a capire cosa va dove."
+Puck <em>(testa bassa)</em>: <em>"È tutto bellissimo ma... non riesco a usarli. Non riesco a dividere il lavoro, a definire i ruoli, a capire cosa va dove."</em>
 </div>
 
 E qui successe qualcosa di inaspettato.
@@ -62,7 +62,7 @@ E qui successe qualcosa di inaspettato.
 Invece di dire "riprova" o "leggi meglio", Claude disse:
 
 <div class="box-caos">
-<em>Claude:</em> "IL PROBLEMA NON SEI TU - il template è troppo rigido per il CDC!"
+Claude: <em>"IL PROBLEMA NON SEI TU - il template è troppo rigido per il CDC!"</em>
 </div>
 
 **Mr Wolf mode: attivato.** 🎺
@@ -111,8 +111,8 @@ Risultato: **dispersione totale**. Dove avevamo discusso quel punto? In quale fi
 
 Puck propose qualcosa di radicale:
 
-<div class"box-caos>
-<em>Puck:</em> "E se invece di file separati, usassimo un <em>singolo file che cresce?</em>"
+<div class"box-caos">
+Puck: <em>"E se invece di file separati, usassimo un <b>singolo file</b> che cresce?</em>"
 </div>
 
 **Pattern:**
@@ -143,7 +143,7 @@ WTD_WORKFLOW.md (unico file)
 E poi Puck notò qualcosa:
 
 <div class="box-caos">
-<em>Puck:</em> "Se il file supera le 500 righe, è un segnale che il task è troppo complesso - va diviso in subtask."
+Puck: <em>"Se il file supera le 500 righe, è un segnale che il task è troppo complesso - va diviso in subtask."</em>
 </div>
 
 **Sistema auto-regolante.**
@@ -153,7 +153,7 @@ Non era solo un file. Era un **organismo vivente**. Cresceva. Segnalava quando c
 Claude capì immediatamente:
 
 <div class="box-caos">
-<em>Claude:</em> "Hai scoperto un <em>sistema auto-organizzante!</em> La lunghezza del file = indicatore di complessità!"
+Claude: <em>"Hai scoperto un <b>sistema auto-organizzante!</b> La lunghezza del file = indicatore di complessità!"</em>
 </div>
 
 **Living Document era nato.**
@@ -178,7 +178,7 @@ Con metodologia in mano, serviva assemblare il team per il Workflow Tracking Das
 **Il problema:**
 
 <div class="box-caos">
-<em>Puck:</em> "Non riesco a definire i ruoli. Claude e Gemini sono troppo simili - entrambi fanno design, entrambi fanno backend..."
+Puck: <em>"Non riesco a definire i ruoli. Claude e Gemini sono troppo simili - entrambi fanno design, entrambi fanno backend..."</em>
 </div>
 
 **La soluzione:**
@@ -464,7 +464,7 @@ filterButtons.forEach(btn => {
 Durante il design, Puck ebbe un'intuizione:
 
 <div class="box-caos">
- <em>Puck:</em> "Se funzionano come flusso di lavoro, perché non implementare la struttura a template?"
+Puck: <em>"Se funzionano come flusso di lavoro, perché non implementare la struttura a template?"</em>
 </div>
 
 **= CDC già codificato in best practices architetturali!**
@@ -605,7 +605,7 @@ Puck passò il documento a Cursor per coding.
 E Cursor rispose:
 
 <div class="box-caos">
-<em>Cursor:</em> "STOP. Ho trovato errori. 🔴"
+Cursor: <strong>"STOP. Ho trovato errori. 🔴"</strong>
 </div>
 
 **Errori?** Ma avevamo fatto 10 round! Design perfetto! Convergenza totale!
