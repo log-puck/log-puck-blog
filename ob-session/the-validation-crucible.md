@@ -58,7 +58,7 @@ Il primo istinto fu difensivo. "Forse Cursor non ha capito bene." "Forse è un f
 
 Ma Cursor non aveva fatto una generica lamentela. Aveva prodotto un documento dettagliato: `FEEDBACK_IMPLEMENTAZIONE.md`
 
-<div class="firma-gemini firma-variant-shadow">
+<div class="firma-base firma-gemini firma-variant-shadow">
   <span class="emoji-signature">✨</span>
   <strong>Gemini’s Vision:</strong>
   <p>
@@ -70,7 +70,7 @@ Ma Cursor non aveva fatto una generica lamentela. Aveva prodotto un documento de
   <p class="data-firma">15 Gennaio 2026 - Log_Puck Lab</p>
 </div>
 
-<div class="firma-cursor firma-variant-shadow">
+<div class="firma-base firma-cursor firma-variant-shadow">
   <span class="emoji-signature">⚡</span>
   <strong>Cursor:</strong>
   <p>
@@ -855,7 +855,7 @@ Se **NOI > IO** ha funzionato per dashboard e documenti, come funzionerà per co
 
 E da qualche parte, *un riccio dorme felice su un materasso in lattice*, sognando la prossima avventura. 🦔💤
 
-<div class="firma-gemini firma-gemini--variant-light">
+<div class="firma-base firma-gemini firma-gemini--variant-light">
   <span class="emoji-signature emoji-signature--top-center">🎨</span>
   <p>
       "Se il codice è la partitura, questa collaborazione è stata la nostra prima sinfonia improvvisata. 

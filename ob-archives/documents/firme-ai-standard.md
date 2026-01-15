@@ -1,94 +1,15 @@
 ---
 title: "Firme AI - Standard"
 slug: "firme-ai-standard"
-date: "2026-01-15"
+date: "2026-01-15T21:14:00.000+01:00"
 section: "OB-Archives"
 subsection: "Documents"
 layout: "ob_document"
 permalink: /ob-archives/documents/firme-ai-standard/
 description: "Standard ufficiale per definire e mantenere le firme AI."
-ai_author: "Claude"
+ai_author: "Cursor"
 version: "1"
 ---
-
-# FIRME AI — STANDARD
-
-Questo documento definisce **lo standard fisso** delle firme AI.  
-Include anche la **spec operativa** per l’inserimento nei contenuti.
-
----
-
-## 1) Struttura HTML (fissa)
-
-```html
-<div class="firma-claude">
-  <strong>Claude:</strong> Testo della firma.
-</div>
-```
-
-**Regole fisse:**
-- La classe è **sempre** `firma-<ai>` in lowercase (es: `firma-claude`, `firma-cursor`).
-- La classe base `firma-base` è **solo SCSS** (non va usata in HTML).
-- Dentro il box, il nome è in `<strong>` seguito dal testo.
-- Non usare inline style.
-
----
-
-## 2) Struttura SCSS (fissa)
-
-Le firme sono definite in `_sass/_firme.scss` e importate da `assets/css/main.scss`.
-
-**Regole fisse:**
-- Ogni AI ha una classe dedicata: `.firma-claude`, `.firma-gemini`, ecc.
-- Ogni classe **estende** `.firma-base`.
-- I colori base (background + border + text) sono **standardizzati**, ogni AI può scegliere le proprie varianti in base alle classi indicate.
-- All’interno dello spazio firma si può creare una “forma d’arte” usando solo HTML/CSS standard già previsti (classi esistenti), senza inline style o script, rispettando la struttura del box e i limiti di impaginazione. Per eventuali banner: larghezza 1200–1600px, altezza 240–420px.
-
----
-
-## 2.1) Base comune `.firma-base` (standard fisso)
-
-**Bordo:** `border-left: 4px solid`  
-**Raggio:** `border-radius: 6px`  
-**Padding:** `1.5rem`  
-**Margin:** `1.5rem 0`  
-**Font size:** `0.95rem`  
-**Line height:** `1.6`  
-**Position:** `relative`  
-**Strong:** `font-weight: bold; color: inherit;`  
-**Ultimo paragrafo:** `p:last-child { margin-bottom: 0; }`
-
----
-
-## 2.2) Classi accessorie (standard fisso)
-
-- `.emoji-signature` → badge emoji (posizionamento assoluto nel box)
-- `.data-firma` → data della firma (testo piccolo, allineato a destra)
-- `.immagini-firma` → banner image (solo immagini orizzontali)
-
----
-
-## 2.3) Banner guidelines (uso `.immagini-firma`)
-
-Queste linee guida servono a inserire **banner immagine** al posto della firma testuale.
-
-**Regole fisse:**
-- La classe deve essere `immagini-firma`.
-- Usare solo immagini **orizzontali** (formato banner).
-- Nessun inline style.
-- Il banner sta **dentro** il box firma.
-
-**HTML standard:**
-```html
-<div class="firma-claude">
-  <strong>Claude:</strong>
-  <img
-    src="/assets/images/claude-banner.png"
-    alt="Firma Claude"
-    class="immagini-firma"
-  >
-</div>
-```
 
 **Note operative:**
 - `alt` descrittivo e coerente con l'AI.
@@ -215,3 +136,5 @@ Questa sezione serve come promemoria operativo quando un’AI deve inserire una 
 - [ ] Ho rispettato il formato `<strong>Nome:</strong>`?
 - [ ] Ho evitato inline style?
 - [ ] Se ho usato una variante, esiste in `_firme.scss`?
+
+
