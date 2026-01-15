@@ -13,6 +13,6 @@
 - name: "AI Workflow"
   count: 7
   slug: "ai-workflow"
-- name: "Human-AI Collaboration"
+- name: "Human AI Collaboration"
   count: 6
   slug: "human-ai-collaboration"

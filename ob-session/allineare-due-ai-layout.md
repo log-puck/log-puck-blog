@@ -31,9 +31,9 @@ ai_participants:
 <div class="box-caos" markdown="1">
 ### Estratto 1 – Puck imposta la partita
 
-> "Dobbiamo rifare il layout del blog da zero.  
-> Non sono pratico di blog, io porto le idee, tutta la parte di struttura l'ho sempre fatta tramite voi AI.  
-> Vi chiedo di lavorare step-by-step, senza guardare al tempo, e di dirmi cosa abbiamo già e cosa manca per partire."
+"Dobbiamo rifare il layout del blog da zero.  
+Non sono pratico di blog, io porto le idee, tutta la parte di struttura l'ho sempre fatta tramite voi AI.  
+Vi chiedo di lavorare step-by-step, senza guardare al tempo, e di dirmi cosa abbiamo già e cosa manca per partire."
 </div>
 
 ---
@@ -41,9 +41,9 @@ ai_participants:
 <div class="box-caos" markdown="1">
 ### Estratto 2 – Layla fa l'inventario
 
-> "Il materiale che hai prodotto non è 'nasale', è già un corpus fondamentale.  
-> Abbiamo: sitemap completa, template OB Session, specifiche PCK, regole GEO/legali, governance newsletter.  
-> Quello che manca è solo: mood visivo, micro-kit d'identità, esempi reali e una scelta su cosa far vedere per primo in Home."
+"Il materiale che hai prodotto non è 'nasale', è già un corpus fondamentale.  
+Abbiamo: sitemap completa, template OB Session, specifiche PCK, regole GEO/legali, governance newsletter.  
+Quello che manca è solo: mood visivo, micro-kit d'identità, esempi reali e una scelta su cosa far vedere per primo in Home."
 </div>
 
 ---
@@ -51,9 +51,9 @@ ai_participants:
 <div class="box-caos" markdown="1">
 ### Estratto 3 – Vela entra come revisore critico
 
-> "Attenzione: il mood 'Laboratorio Minimal' rischia di sembrare freddo e di perdere il diario.  
-> 'Atlante Archivistico' è forte sull'archivio ma troppo istituzionale.  
-> Propongo MOOD B: Diario Grezzo Tecnico + fondamenta solide di A."
+"Attenzione: il mood 'Laboratorio Minimal' rischia di sembrare freddo e di perdere il diario.  
+'Atlante Archivistico' è forte sull'archivio ma troppo istituzionale.  
+Propongo MOOD B: Diario Grezzo Tecnico + fondamenta solide di A."
 </div>
 
 ---
@@ -61,16 +61,16 @@ ai_participants:
 <div class="box-caos" markdown="1">
 ### Estratto 4 – Nodo AI vs CT
 
-> Puck:  
-> "Stiamo dando la priorità a CT, ma non ha più senso dare priorità alle AI nelle visualizzazioni?"  
->  
-> Layla:  
-> "Sì. L'identità del progetto sei tu + le 4 AI, non il tipo di chat.  
-> 'Cosa ha detto Claude?' è domanda primaria. CT è metadato analitico, non identità."  
->  
-> Vela:  
-> "Confermo. LOG_PUCK CORE dice che le 4 AI hanno natura e confini propri.  
-> Le AI sono i personaggi, CT è contesto."
+Puck:  
+<em>"Stiamo dando la priorità a CT, ma non ha più senso dare priorità alle AI nelle visualizzazioni?"</em>
+ 
+Layla:  
+<em>"Sì. L'identità del progetto sei tu + le 4 AI, non il tipo di chat.</em><br>  
+<em>'Cosa ha detto Claude?' è domanda primaria. CT è metadato analitico, non identità."</em>  
+ 
+Vela:  
+<em>"Confermo. LOG_PUCK CORE dice che le 4 AI hanno natura e confini propri.</em><br>  
+<em>Le AI sono i personaggi, CT è contesto."</em>
 </div>
 
 ---
@@ -78,9 +78,9 @@ ai_participants:
 <div class="box-caos" markdown="1">
 ### Estratto 5 – Micro-entropia sui dettagli
 
-> "H2–paragrafo a 12px è stretto, rischia di far sembrare il testo attaccato."  
-> "TOC mobile non deve chiudersi allo scroll, altrimenti frustra chi sta scegliendo la sezione."  
-> "Il colore oro non può significare tre cose diverse: SC, callout e highlight."
+"H2–paragrafo a 12px è stretto, rischia di far sembrare il testo attaccato."  
+"TOC mobile non deve chiudersi allo scroll, altrimenti frustra chi sta scegliendo la sezione."  
+"Il colore oro non può significare tre cose diverse: SC, callout e highlight."
 
 Queste note emergono come **micro-sdeng**: non bloccanti, ma rivelano il livello di granularità necessario quando si progetta con due AI in parallelo.
 </div>
