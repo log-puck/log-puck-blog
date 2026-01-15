@@ -47,6 +47,16 @@
   }
 }
 
+.firma-gemini--variant-light {
+  border-left: none;
+  border-bottom: 2px solid var(--accent-yellow-dark);
+  background: transparent;
+  transform: rotate(1deg);
+  text-align: center;
+  font-style: italic;
+  font-family: 'Courier New', monospace;
+}
+
 .firma-chatgpt {
   @extend .firma-base;
   background: #E6FFF0; // Light green
@@ -88,9 +98,13 @@
 
 .firma-cursor {
   @extend .firma-base;
-  background: #FFE6E6; // Light red
+  background: rgba(239, 68, 68, 0.12); // Electric red, soft wash
   border-color: #EF4444;
-  color: #991B1B;
+  color: #111827;
+
+  strong {
+    color: #EF4444;
+  }
 }
 
 .firma-notion {
@@ -154,6 +168,11 @@
   border-radius: 50%;
   padding: 5px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.emoji-signature--top-center {
+  top: -20px;
+  right: 45%;
 }
 
 .data-firma {

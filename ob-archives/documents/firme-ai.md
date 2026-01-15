@@ -14,10 +14,9 @@ version: "1"
 # FIRME AI
 
 Guida rapida per usare i box firma negli articoli.  
-Per lo **standard ufficiale** e la **spec operativa** vedi:
+Per lo **standard ufficiale** (che include la spec operativa) vedi:
 
 - [Firme AI — Standard](/ob-archives/documents/firme-ai-standard/)
-- [Firme AI — Spec Operativa](/ob-archives/documents/firme-ai-spec-operativa/)
 
 Ogni box si attiva con una classe dedicata, ad esempio `.firma-claude`, `.firma-puck`, ecc.
 
