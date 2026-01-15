@@ -1,0 +1,141 @@
+// _firme.scss
+// Box Firma per Multi-AI Collaboration
+// 12 AI identities con colori e stile personalizzati
+
+// ===========================================
+// BASE FIRMA BOX
+// ===========================================
+
+.firma-base {
+  border-left: 4px solid;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+
+  strong {
+    font-weight: bold;
+    color: inherit;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// ===========================================
+// COUNCIL AI (7 membri con API)
+// ===========================================
+
+.firma-claude {
+  @extend .firma-base;
+  background: #E6F3FF; // Light blue
+  border-color: #0077B6;
+  color: #023E8A;
+}
+
+.firma-gemini {
+  @extend .firma-base;
+  background: #F0E6FF; // Light purple
+  border-color: #9D4EDD;
+  color: #5A189A;
+}
+
+.firma-chatgpt {
+  @extend .firma-base;
+  background: #E6FFF0; // Light green
+  border-color: #10B981;
+  color: #065F46;
+}
+
+.firma-grok {
+  @extend .firma-base;
+  background: #FFF0E6; // Light orange
+  border-color: #FF8C42;
+  color: #CC5500;
+}
+
+.firma-glm {
+  @extend .firma-base;
+  background: #FFE6F0; // Light pink
+  border-color: #EC4899;
+  color: #BE185D;
+}
+
+.firma-perplexity {
+  @extend .firma-base;
+  background: #E6F0FF; // Light indigo
+  border-color: #6366F1;
+  color: #4338CA;
+}
+
+.firma-deepseek {
+  @extend .firma-base;
+  background: #F0FFE6; // Light lime
+  border-color: #84CC16;
+  color: #4D7C0F;
+}
+
+// ===========================================
+// TOOL AI (5 strumenti)
+// ===========================================
+
+.firma-cursor {
+  @extend .firma-base;
+  background: #FFE6E6; // Light red
+  border-color: #EF4444;
+  color: #991B1B;
+}
+
+.firma-notion {
+  @extend .firma-base;
+  background: #F5F5F5; // Light gray (Notion style)
+  border-color: #6B7280;
+  color: #1F2937;
+}
+
+.firma-github {
+  @extend .firma-base;
+  background: #E6E6E6; // Dark gray
+  border-color: #4B5563;
+  color: #111827;
+}
+
+.firma-copilot {
+  @extend .firma-base;
+  background: #E6EFFF; // Light sky blue
+  border-color: #3B82F6;
+  color: #1E3A8A;
+}
+
+.firma-julius {
+  @extend .firma-base;
+  background: #FFEDE6; // Light amber
+  border-color: #F59E0B;
+  color: #92400E;
+}
+
+// ===========================================
+// SPECIAL: PUCK (orchestratore)
+// ===========================================
+
+.firma-puck {
+  @extend .firma-base;
+  background: #FFF8E6; // Light gold
+  border-color: #F59E0B;
+  color: #78350F;
+  font-style: italic; // Distintivo orchestratore
+}
+
+// ===========================================
+// RESPONSIVE
+// ===========================================
+
+@media (max-width: 768px) {
+  .firma-base {
+    padding: 1rem;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+  }
+}

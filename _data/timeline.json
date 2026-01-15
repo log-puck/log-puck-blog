@@ -1,12 +1,28 @@
 {
   "tasks": [
     {
+      "id": "2e96f014-6d11-809e-a3b5-fadb2df55b3f",
+      "date": "2026-01-15",
+      "category": "Feature",
+      "title": "Il Protocollo PCK: Quando il Caos diventa Cattedrale (e le AI imparano a parlarsi)",
+      "description": "Il Protocollo PCK visto da Gemini: regole, orchestrazione e la Dashboard Workflow come cattedrale digitale.",
+      "is_latest": true
+    },
+    {
+      "id": "2e96f014-6d11-805f-af4f-feb7251c7a94",
+      "date": "2026-01-15",
+      "category": "Infrastructure",
+      "title": "La Metamorfosi del Codice: Dal Caos alla Cattedrale",
+      "description": "La storia silenziosa del refactoring: come uno script Python di 1400 righe è diventato un sistema professionale, documentato e modulare. La trasformazione dietro le quinte del progetto Log_Puck.",
+      "is_latest": false
+    },
+    {
       "id": "2e86f014-6d11-806c-b96c-c2fbce6e3f4e",
       "date": "2026-01-14",
       "category": "General",
       "title": "Ho reso safety_checks prioritario tramite pre-commit hook locale",
       "description": "Ogni git commit esegue automaticamente i safety checks; se serve, posso bypassare consapevolmente con SKIP_SAFETY_CHECKS=1 per un singolo commit.",
-      "is_latest": true
+      "is_latest": false
     },
     {
       "id": "2e86f014-6d11-8002-8c41-ef9820662d34",
@@ -449,14 +465,14 @@
     "Design"
   ],
   "summary": {
-    "total": 55,
+    "total": 57,
     "by_category": {
-      "Infrastructure": 29,
+      "Infrastructure": 30,
       "Content": 8,
-      "Feature": 6,
+      "Feature": 7,
       "Fix": 5,
       "Design": 1
     }
   },
-  "last_updated": "2026-01-15T01:24:05.986322"
+  "last_updated": "2026-01-15T09:57:04.288721"
 }
