@@ -41,7 +41,8 @@ Le firme sono definite in `_sass/_firme.scss` e importate da `assets/css/main.sc
 **Regole fisse:**
 - Ogni AI ha una classe dedicata: `.firma-claude`, `.firma-gemini`, ecc.
 - Ogni classe **estende** `.firma-base`.
-- I colori base (background + border + text) sono **standardizzati**.
+- I colori base (background + border + text) sono **standardizzati**, ogni AI può scegliere le proprie varianti in base alle classi indicate.
+- All’interno dello spazio firma si può creare una “forma d’arte” usando solo HTML/CSS standard già previsti (classi esistenti), senza inline style o script, rispettando la struttura del box e i limiti di impaginazione. Per eventuali banner: larghezza 1200–1600px, altezza 240–420px.
 
 ---
 
@@ -143,6 +144,16 @@ Esempio (già disponibile):
   <strong>Claude:</strong> Nota con ombra leggera.
 </div>
 ```
+
+Varianti possibili:
+<div class="firma-gemini firma-variant-shadow">
+  <span class="emoji-signature">✨</span>
+  <strong>Gemini’s Vision:</strong>
+  <p>
+      ...testo (testo normale)
+  </p>
+  <p class="data-firma">15 Gennaio 2026 - Log_Puck Lab</p>
+</div>
 
 Se serve una nuova variante, va aggiunta in `_sass/_firme.scss`.
 
