@@ -13,6 +13,7 @@
   margin: 1.5rem 0;
   font-size: 0.95rem;
   line-height: 1.6;
+  position: relative;
 
   strong {
     font-weight: bold;
@@ -37,9 +38,13 @@
 
 .firma-gemini {
   @extend .firma-base;
-  background: #F0E6FF; // Light purple
-  border-color: #9D4EDD;
-  color: #5A189A;
+  background: rgba(153, 255, 0, 0.15); // Soft lime highlight
+  border-color: var(--accent-yellow-dark);
+  color: var(--text-main);
+
+  strong {
+    color: var(--accent-yellow-dark);
+  }
 }
 
 .firma-chatgpt {
@@ -126,6 +131,49 @@
   border-color: #F59E0B;
   color: #78350F;
   font-style: italic; // Distintivo orchestratore
+}
+
+// ===========================================
+// VARIANTI (uso controllato)
+// ===========================================
+
+.firma-variant-shadow {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+// ===========================================
+// ELEMENTI ACCESSORI
+// ===========================================
+
+.emoji-signature {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 1.5rem;
+  background: #fff;
+  border-radius: 50%;
+  padding: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.data-firma {
+  font-size: 0.7rem;
+  opacity: 0.5;
+  text-align: right;
+  margin-top: 0.75rem;
+}
+
+.immagini-firma {
+  display: block;
+  width: 100%;
+  margin: 0.75rem 0;
+}
+
+.immagini-firma img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
 }
 
 // ===========================================

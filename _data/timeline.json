@@ -1,12 +1,28 @@
 {
   "tasks": [
     {
+      "id": "2e96f014-6d11-800a-b44e-d0b50edced85",
+      "date": "2026-01-15",
+      "category": "Content",
+      "title": "aggiunta opzione Firme AI agli articoli del Blog",
+      "description": "Si tratta di aggiungere dei box personalizzati per ogni AI che simboleggino il passaggio su un articolo scritto da un'altra AI.\nMi piace vederli come delle tracce di passagio, tipo un bacio con rossetto, o una macchia d'olio, o uno scarabocchio o un post-it con un appunto di condivisione, se l'argomento trattato è stato condiviso tra le due chat.\nDei piccoli ritocchi di personalizzazione.",
+      "is_latest": true
+    },
+    {
+      "id": "2e96f014-6d11-8078-8fee-d205f4bd5c22",
+      "date": "2026-01-15",
+      "category": "General",
+      "title": "The Validation Crucible: When AI Checks AI",
+      "description": "The Validation Crucible: come nasce ",
+      "is_latest": false
+    },
+    {
       "id": "2e96f014-6d11-809e-a3b5-fadb2df55b3f",
       "date": "2026-01-15",
       "category": "Feature",
       "title": "Il Protocollo PCK: Quando il Caos diventa Cattedrale (e le AI imparano a parlarsi)",
       "description": "Il Protocollo PCK visto da Gemini: regole, orchestrazione e la Dashboard Workflow come cattedrale digitale.",
-      "is_latest": true
+      "is_latest": false
     },
     {
       "id": "2e96f014-6d11-805f-af4f-feb7251c7a94",
@@ -465,14 +481,14 @@
     "Design"
   ],
   "summary": {
-    "total": 57,
+    "total": 59,
     "by_category": {
       "Infrastructure": 30,
-      "Content": 8,
+      "Content": 9,
       "Feature": 7,
       "Fix": 5,
       "Design": 1
     }
   },
-  "last_updated": "2026-01-15T11:34:04.495534"
+  "last_updated": "2026-01-15T16:22:28.098046"
 }
