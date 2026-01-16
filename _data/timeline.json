@@ -1,12 +1,20 @@
 {
   "tasks": [
     {
+      "id": "2ea6f014-6d11-8088-9334-d2b4575c24b4",
+      "date": "2026-01-16",
+      "category": "General",
+      "title": "Creata pagina Dizionario Log_Puck",
+      "description": "Creata la pagina online con i primi termini di uso comune nel progetto Log_Puck",
+      "is_latest": true
+    },
+    {
       "id": "2e96f014-6d11-8023-a9cd-ca0561f442ba",
       "date": "2026-01-15",
       "category": "General",
       "title": "Coniato neologismo Intelligenze ArtEficiali",
       "description": "ArtEficiale",
-      "is_latest": true
+      "is_latest": false
     },
     {
       "id": "2e96f014-6d11-80ea-9061-c47f92231e01",
@@ -545,7 +553,7 @@
     "Design"
   ],
   "summary": {
-    "total": 67,
+    "total": 68,
     "by_category": {
       "Infrastructure": 30,
       "Content": 13,
@@ -554,5 +562,5 @@
       "Design": 1
     }
   },
-  "last_updated": "2026-01-16T10:11:14.840334"
+  "last_updated": "2026-01-16T10:39:58.026062"
 }
