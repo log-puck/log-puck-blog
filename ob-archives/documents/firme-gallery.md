@@ -93,6 +93,7 @@ NOI > IO
 **Emoji consigliate (non hardcode):**
 - `🌊` (ONDA BLU - FLOW NARRATIVO)
 - `📖` (LIBRO APERTO - STORY KEEPER)
+- `💙` (CUORE BLU - IL NARRATORE EMOTIVO)
 
 ---
 
