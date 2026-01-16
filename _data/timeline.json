@@ -1,12 +1,36 @@
 {
   "tasks": [
     {
+      "id": "2e96f014-6d11-8023-a9cd-ca0561f442ba",
+      "date": "2026-01-15",
+      "category": "General",
+      "title": "Coniato neologismo Intelligenze ArtEficiali",
+      "description": "ArtEficiale",
+      "is_latest": true
+    },
+    {
+      "id": "2e96f014-6d11-80ea-9061-c47f92231e01",
+      "date": "2026-01-15",
+      "category": "Content",
+      "title": "Spec Firme AI",
+      "description": "Documento spec per firme AI",
+      "is_latest": false
+    },
+    {
+      "id": "2e96f014-6d11-8019-b72c-c983ad8b8ad5",
+      "date": "2026-01-15",
+      "category": "General",
+      "title": "Gallery Firme AI",
+      "description": "Creata galleria firme AI\n",
+      "is_latest": false
+    },
+    {
       "id": "2e96f014-6d11-8083-92e1-efcf064756a1",
       "date": "2026-01-15",
       "category": "General",
       "title": "🌿 Log_Puck — Appunti da un Ecosistema in Fermentazione",
       "description": "Un racconto sulla nascita di un ecosistema biologico-digitale: router che ascoltano, camere di fermentazione, chunk viventi e LLM liberi di esprimersi.",
-      "is_latest": true
+      "is_latest": false
     },
     {
       "id": "2e96f014-6d11-8087-8308-c5761a366efe",
@@ -521,14 +545,14 @@
     "Design"
   ],
   "summary": {
-    "total": 64,
+    "total": 67,
     "by_category": {
       "Infrastructure": 30,
-      "Content": 12,
+      "Content": 13,
       "Feature": 7,
       "Fix": 5,
       "Design": 1
     }
   },
-  "last_updated": "2026-01-15T22:20:17.115160"
+  "last_updated": "2026-01-16T08:46:05.169455"
 }
