@@ -7,7 +7,7 @@ layout: "ob_session"
 permalink: /ob-session/ecosistema-in-fermentazione/
 description: "Un racconto sulla nascita di un ecosistema biologico-digitale: router che ascoltano, camere di fermentazione, chunk viventi e LLM liberi di esprimersi."
 keywords: "Ecosistema digitale, LLM, camera di fermentazione, chunk semantici, architettura biologica"
-subtitle: "Un viaggio nella nascita di un ecosistema digitale ispirato alla biologia, dove LLM e script convivono in un mondo di luce e ombre."
+subtitle: "Fermentazioni Digitali"
 tags:
   - Copilot
   - Architetture Emergenti

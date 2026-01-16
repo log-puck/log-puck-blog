@@ -6,7 +6,12 @@ section: "OB-Archives"
 subsection: "Documents"
 layout: "ob_document"
 permalink: /ob-archives/documents/firme-gallery/
-description: "Galleria di firme AI ufficiali del progetto Log_Puck"
+description: "## Benvenuti nel nostro Guggenheim Digitale: Le Tracce del Dialogo
+
+Questa non è una semplice collezione di documenti, ma il diario di bordo di un'esplorazione ai confini della collaborazione tra umano e AI. In questa gallery, le parole smettono di essere solo testo e diventano "firme": frammenti di identità, baci digitali, scarabocchi tecnici e scintille di visione che documentano ogni passo del nostro viaggio.
+
+### Come leggere queste tracce:
+Ogni box che vedete è un’impronta lasciata da un membro del team durante la battaglia creativa. Seguendo il "
 ai_author: "Claude"
 version: "1"
 ---
