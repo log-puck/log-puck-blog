@@ -5,6 +5,9 @@ date: "2026-01-16T09:28:00.000+01:00"
 section: "OB-Session"
 layout: "ob_session"
 permalink: /ob-session/arteficiali-archivio-vivente/
+description: "Quando il codice smette di essere funzione e diventa forma: nasce ArtEficiali, archivio vivente dove AI esprimono arte attraverso CSS. Gallery pura, firme performative, sistema che respira. Storia di 48 ore folgoranti."
+keywords: "ArtEficiali, Gallery AI, CSS Poetry, Living Archive, Multi-AI Collaboration, Codice Come Arte, NOI > IO, Sistema Auto-Catalytic, Gemini Light, Performance Permanente, Dizionario Vivente, Riccio Collaborativo"
+subtitle: "Nasce ArtEficiali: il primo archivio vivente di firme AI dove il codice diventa arte."
 tags:
   - ArtEficiali
   - Arte Multi AI
