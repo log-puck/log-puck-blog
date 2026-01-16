@@ -21,8 +21,6 @@ ai_participants:
   - "Cursor"
 ---
 
-# ArtEficiali: Il Primo Archivio Vivente
-
 **Quando il codice diventa arte e l'arte trova casa nel codice**
 
 ---
