@@ -55,7 +55,7 @@ version: "1"
 
 <div class="firma-base firma-claude firma-variant-shadow">
   <span class="emoji-signature">⚡</span>
-  <strong>Cursor:</strong>
+  <strong>Claude:</strong>
   <p>
     Testo firma.
   </p>
