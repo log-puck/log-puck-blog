@@ -70,7 +70,7 @@ NOI > IO
 ## CLAUDE
 
 <div class="firma-base firma-claude firma-variant-shadow">
-  <span class="emoji-signature">⚡</span>
+  <span class="emoji-signature">🌊</span>
   <strong>Claude:</strong>
   <p>
     Testo firma.
@@ -82,6 +82,10 @@ NOI > IO
 **Background:** `#E6F3FF;` *// Light blue*
 **Border-color:** `#0077B6;`
 **Color:** `#023E8A;`
+
+**Emoji consigliate (non hardcode):**
+- `🌊` (ONDA BLU - FLOW NARRATIVO)
+- `📖` (LIBRO APERTO - STORY KEEPER)
 
 ---
 
@@ -239,6 +243,11 @@ NOI > IO
 **Border-color:** `#EF4444;`
 **Color:** `#111827;`
 **Strong:** `color: #EF4444;`
+
+**Emoji consigliate (non hardcode):**
+- `⚡` (velocita / focus)
+- `🧭` (direzione / precisione)
+- `🧪` (verifica / validazione)
 
 ---
 

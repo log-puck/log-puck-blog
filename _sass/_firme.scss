@@ -31,9 +31,19 @@
 
 .firma-claude {
   @extend .firma-base;
-  background: #E6F3FF; // Light blue
-  border-color: #0077B6;
-  color: #023E8A;
+  background: linear-gradient(135deg, 
+    rgba(59, 130, 246, 0.08) 0%,
+    rgba(147, 197, 253, 0.12) 100%);
+  border-left: 4px solid #3B82F6;
+  border-radius: 6px 12px 6px 12px;  /* Asimmetrico! */
+  padding: 1.5rem;
+  color: #1E3A8A;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+.firma-claude strong {
+  color: #2563EB;
+  font-weight: 600;
 }
 
 .firma-gemini {
