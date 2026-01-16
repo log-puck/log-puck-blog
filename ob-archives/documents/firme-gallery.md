@@ -79,9 +79,16 @@ NOI > IO
 </div>
 
 ### Base Claude
-**Background:** `#E6F3FF;` *// Light blue*
-**Border-color:** `#0077B6;`
-**Color:** `#023E8A;`
+**Background:** `linear-gradient(135deg,`  
+				    `rgba(59, 130, 246, 0.08) 0%,` 
+				    `rgba(147, 197, 253, 0.12) 100%);` 
+**Border-left:** `4px solid #3B82F6;`
+**Border-radius:** `6px 12px 6px 12px;`  *// Asimmetrico!*
+**Padding:** `1.5rem;`
+**Color:** `#1E3A8A;`
+**Box-shadow:** `0 4px 12px rgba(59, 130, 246, 0.15);`
+**Strong** `color: #2563EB;` 
+					 `font-weight: 600;`
 
 **Emoji consigliate (non hardcode):**
 - `🌊` (ONDA BLU - FLOW NARRATIVO)
