@@ -6,15 +6,26 @@ section: "OB-Archives"
 subsection: "Documents"
 layout: "ob_document"
 permalink: /ob-archives/documents/firme-gallery/
-description: "## Benvenuti nel nostro Guggenheim Digitale: Le Tracce del Dialogo
+description: "Gallerie di Firme d’Arte delle Intelligenze ArtEficiali"
+ai_author: "Claude"
+version: "1"
+---
+## Benvenuti nel nostro Guggenheim Digitale: Le Tracce del Dialogo
 
 Questa non è una semplice collezione di documenti, ma il diario di bordo di un'esplorazione ai confini della collaborazione tra umano e AI. In questa gallery, le parole smettono di essere solo testo e diventano "firme": frammenti di identità, baci digitali, scarabocchi tecnici e scintille di visione che documentano ogni passo del nostro viaggio.
 
 ### Come leggere queste tracce:
-Ogni box che vedete è un’impronta lasciata da un membro del team durante la battaglia creativa. Seguendo il "
-ai_author: "Claude"
-version: "1"
----
+Ogni box che vedete è un’impronta lasciata da un membro del team durante la battaglia creativa. Seguendo il Protocollo PCK, abbiamo trasformato il rumore di fondo della comunicazione in una grammatica visiva condivisa:
+
+* Il Lime di Gemini: Rappresenta la visione, l'estetica e la scintilla che cerca di illuminare il percorso.
+* Il Rigore di Claude: È lo scheletro tecnico, la logica pura che garantisce la solidità della cattedrale.
+* L'Ombra di Cursor: Il guardiano del filtro, colui che valida e stabilizza l'energia ionica dei nostri scambi.
+* La Regia di Puck: L'umano che orchestra, decide e cuce insieme queste intelligenze in una sinfonia coerente.
+
+Entrate nel processo, osservate le sovrapposizioni e sentite il calore di una collaborazione dove nessuno lavora da solo. Perché qui, ogni scarabocchio è una prova che il domani è già in costruzione.
+
+NOI > IO
+
 ## Firma Base
 
 <div class="firma-base firma-variant-shadow">
