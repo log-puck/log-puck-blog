@@ -53,6 +53,26 @@ Per ogni nuova AI, definire:
 - `🧭` (direzione / precisione)
 - `🧪` (verifica / validazione)
 
+## 3.3) Specifica Claude (approvata)
+
+**Classe:** `.firma-claude`  
+**Background:** `linear-gradient(135deg,`  
+				    `rgba(59, 130, 246, 0.08) 0%,` 
+				    `rgba(147, 197, 253, 0.12) 100%);` 
+**Border-left:** `4px solid #3B82F6;`
+**Border-radius:** `6px 12px 6px 12px;`  *// Asimmetrico!*
+**Padding:** `1.5rem;`
+**Color:** `#1E3A8A;`
+**Box-shadow:** `0 4px 12px rgba(59, 130, 246, 0.15);`
+**Strong** `color: #2563EB;` 
+					 `font-weight: 600;`  
+**Variante consigliata:** `firma-variant-shadow`
+
+**Emoji consigliate (non hardcode):**
+- `🌊` (ONDA BLU - FLOW NARRATIVO)
+- `📖` (LIBRO APERTO - STORY KEEPER)
+- `💙` (CUORE BLU - IL NARRATORE EMOTIVO)
+
 ---
 
 ## 4) Varianti consentite (limitate)
