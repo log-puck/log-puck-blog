@@ -106,30 +106,13 @@ ob-progetti/waw/council/calling/*.json
 # ============================================================================
 # TEMPLATE - Template
 # ============================================================================
-template/*.md
-template/*.json
-template/*.html
-template/*.css
-template/*.js
-template/*.php
-template/*.py
-template/*.rb
-template/*.java
-template/*.c
-template/*.cpp
-template/*.h
-template/*.hpp
-template/SPEC_GUIDE_TEMPLATE.md
+template/
+
 
 # ============================================================================
 # TASK - Task Tracking
 # ============================================================================
-TASK/WORKFLOW_TRACKING_DASHBOARD/*.md
-TASK/WORKFLOW_TRACKING_DASHBOARD/*.json
-TASK/WORKFLOW_TRACKING_DASHBOARD/*.html
-TASK/WORKFLOW_TRACKING_DASHBOARD/VISUAL/*.md
-TASK/WORKFLOW_TRACKING_DASHBOARD/VISUAL/*.json
-TASK/WORKFLOW_TRACKING_DASHBOARD/VISUAL/*.html
+TASK/
 
 # ============================================================================
 # SPEC - Specifiche Tecniche (uso interno)
@@ -140,19 +123,6 @@ spec/
 # download - file di download
 # ============================================================================
 download/
-download/*.md
-download/*.json
-download/*.html
-download/*.css
-download/*.js
-download/*.php
-download/*.py
-download/*.rb
-download/*.java
-download/*.c
-download/*.cpp
-download/*.h
-download/*.hpp
 
 # ============================================================================
 # GUIDE & MANUALI

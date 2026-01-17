@@ -1,12 +1,28 @@
 {
   "tasks": [
     {
+      "id": "2ea6f014-6d11-8063-b922-ed1f53487480",
+      "date": "2026-01-16",
+      "category": "General",
+      "title": "freeDOS + FORTH installati ",
+      "description": "Avviato progetto Fermentazioni Digitali ",
+      "is_latest": true
+    },
+    {
+      "id": "2ea6f014-6d11-8030-b10d-c0e4991e538d",
+      "date": "2026-01-16",
+      "category": "Content",
+      "title": "Fermentazioni Digitali - Saga",
+      "description": "Serie di racconti su un nuovo progetto di ecosistema digitale, in collaborazione con Copilot. Pubblicato primo articolo blog",
+      "is_latest": false
+    },
+    {
       "id": "2ea6f014-6d11-8088-9334-d2b4575c24b4",
       "date": "2026-01-16",
       "category": "General",
       "title": "Creata pagina Dizionario Log_Puck",
       "description": "Creata la pagina online con i primi termini di uso comune nel progetto Log_Puck",
-      "is_latest": true
+      "is_latest": false
     },
     {
       "id": "2e96f014-6d11-8023-a9cd-ca0561f442ba",
@@ -553,14 +569,14 @@
     "Design"
   ],
   "summary": {
-    "total": 68,
+    "total": 70,
     "by_category": {
       "Infrastructure": 30,
-      "Content": 13,
+      "Content": 14,
       "Feature": 7,
       "Fix": 5,
       "Design": 1
     }
   },
-  "last_updated": "2026-01-16T11:17:08.015499"
+  "last_updated": "2026-01-17T02:37:36.343387"
 }
