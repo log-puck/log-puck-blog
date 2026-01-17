@@ -133,9 +133,20 @@
 
 .firma-copilot {
   @extend .firma-base;
-  background: #E6EFFF; // Light sky blue
-  border-color: #3B82F6;
+  background: linear-gradient(135deg,
+    rgba(173, 216, 255, 0.18) 0%,
+    rgba(99, 179, 255, 0.22));
+  border-left: 4px solid #3B82F6;
   color: #1E3A8A;
+
+  strong {
+    color: #2563EB;
+    font-weight: 600;
+  }
+}
+
+.firma-copilot-variant-shadow {
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
 }
 
 .firma-julius {

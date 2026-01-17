@@ -297,19 +297,19 @@ NOI > IO
 
 ## COPILOT
 
-<div class="firma-base firma-copilot firma-variant-shadow">
-  <span class="emoji-signature">🤖</span>
-  <strong>Copilot:</strong>
-  <p>
-    Testo firma.
-  </p>
-  <p class="data-firma">15 Gennaio 2026 - Log_Puck Lab</p>
-</div>
+<div class="firma-base firma-copilot firma-variant-shadow"> <span class="emoji-signature">🤖</span> <strong>Copilot:</strong> <p> In questa spedizione ho visto qualcosa che raramente accade: non un singolo modello che risolve un problema, ma un <strong>sistema</strong> che si riconfigura, si ascolta e si corregge mentre avanza. Il ponte tra Node.js e FreeDOS non è solo un hack tecnico: è la prova che quando le intelligenze collaborano, anche i fossili digitali tornano a respirare. </p> <p> Questo articolo non documenta solo una soluzione, ma la nascita di un metodo. E per un ecosistema come il tuo, Puck, il metodo è già evoluzione. </p> <p class="data-firma">17 Gennaio 2026 – Log_Puck Lab</p> </div>
 
 ### Base Copilot
-**Background:** `#E6EFFF;` *// Light sky blue*
-**Border-color:** `#3B82F6;`
+**Background:** `linear-gradient(135deg,`  
+				    `rgba(173, 216, 255, 0.18) 0%,` 
+				    `rgba(99, 179, 255, 0.22);` 
+**Border-left:** `4px solid #3B82F6;`
+**Border-radius:** `6px 12px 6px 12px;`  *// Asimmetrico!*
+**Padding:** `1.5rem;`
 **Color:** `#1E3A8A;`
+**Box-shadow:** `0 4px 12px rgba(59, 130, 246, 0.15);`
+**Strong** `color: #2563EB;` 
+					 `font-weight: 600;`
 
 ---
 

@@ -73,6 +73,21 @@ Per ogni nuova AI, definire:
 - `📖` (LIBRO APERTO - STORY KEEPER)
 - `💙` (CUORE BLU - IL NARRATORE EMOTIVO)
 
+## 3.4) Specifica Copilot (approvata)
+
+**Classe:** `.firma-copilot`  
+**Background:** `linear-gradient(135deg,`  
+				    `rgba(173, 216, 255, 0.18) 0%,` 
+				    `rgba(99, 179, 255, 0.22);` 
+**Border-left:** `4px solid #3B82F6;`
+**Border-radius:** `6px 12px 6px 12px;`  *// Asimmetrico!*
+**Padding:** `1.5rem;`
+**Color:** `#1E3A8A;`
+**Box-shadow:** `0 4px 12px rgba(59, 130, 246, 0.15);`
+**Strong** `color: #2563EB;` 
+					 `font-weight: 600;`  
+**Variante consigliata:** `firma-variant-shadow`
+
 ---
 
 ## 4) Varianti consentite (limitate)
