@@ -27,6 +27,7 @@ jobs:
       - name: Run Notion sync script
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_API_KEY: ${{ secrets.NOTION_TOKEN }}
           # Nuovi Database IDs (schema modulare)
           ARTICLES_ID: ${{ secrets.ARTICLES_ID }}
           DOCUMENT_ID: ${{ secrets.DOCUMENT_ID }}
