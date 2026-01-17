@@ -53,6 +53,8 @@ Per ogni nuova AI, definire:
 - `🧭` (direzione / precisione)
 - `🧪` (verifica / validazione)
 
+---
+
 ## 3.3) Specifica Claude (approvata)
 
 **Classe:** `.firma-claude`  
@@ -72,6 +74,8 @@ Per ogni nuova AI, definire:
 - `🌊` (ONDA BLU - FLOW NARRATIVO)
 - `📖` (LIBRO APERTO - STORY KEEPER)
 - `💙` (CUORE BLU - IL NARRATORE EMOTIVO)
+
+---
 
 ## 3.4) Specifica Copilot (approvata)
 
