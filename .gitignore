@@ -88,7 +88,8 @@ experiments/*.env
 experiments/api-keys.txt
 experiments/test-data/
 experiments/ponte_config.js
-experiments/public/*.html           # File HTML generati/test
+experiments/public/*.html  # File HTML generati/test
+experiments/MSDOS/         
 
 # MA TRACCIATI (non ignorati):
 # !experiments/ponte_config.example.js
