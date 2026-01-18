@@ -8,12 +8,29 @@ const { Client } = require('@notionhq/client');
 const fs = require('fs');
 const path = require('path');
 
-const notion = new Client({ auth: process.env.NOTION_API_KEY });
+const NOTION_TOKEN = process.env.NOTION_TOKEN || process.env.NOTION_API_KEY;
+if (!NOTION_TOKEN) {
+  throw new Error('Missing NOTION_TOKEN (or NOTION_API_KEY) in environment');
+}
+
+const notion = new Client({ auth: NOTION_TOKEN });
 
 // Database IDs
-const WAW_COUNCIL_DB_ID = '2de6f0146d11805090d0c1e957a1321a';
-const WAW_IDEAS_DB_ID = '5b9b8ad34225436e8a78d0207528b675';
-const WAW_VOTES_DB_ID = '2de6f0146d11808d9349c08a168ddc4f';
+const getEnvId = (key, aliases = []) => {
+  for (const name of [key, ...aliases]) {
+    const value = process.env[name];
+    if (value) return value;
+  }
+  return null;
+};
+
+const WAW_COUNCIL_DB_ID = getEnvId('WAW_COUNCIL_DB_ID', ['WAW_COUNCIL_ID']);
+const WAW_IDEAS_DB_ID = getEnvId('WAW_IDEAS_DB_ID', ['WAW_IDEAS_ID']);
+const WAW_VOTES_DB_ID = getEnvId('WAW_VOTES_DB_ID', ['WAW_VOTES_ID']);
+
+if (!WAW_COUNCIL_DB_ID || !WAW_IDEAS_DB_ID || !WAW_VOTES_DB_ID) {
+  throw new Error('Missing WAW DB IDs in environment (.env)');
+}
 
 // ============================================
 // MAIN FUNCTION
