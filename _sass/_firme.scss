@@ -162,9 +162,9 @@
 
 .firma-puck {
   @extend .firma-base;
-  background: #FFF8E6; // Light gold
-  border-color: #F59E0B;
-  color: #78350F;
+  background: linear-gradient(to bottom right, #713f12, #7c2d12); /* yellow-900 → orange-900 */
+  border: 2px solid var(--accent-lime);
+  color: var(--accent-magenta);
   font-style: italic; // Distintivo orchestratore
 }
 

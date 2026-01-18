@@ -25,7 +25,7 @@ function createApp() {
 
   // Middleware
   app.use(express.json());
-  app.use(express.static(path.join(__dirname, '../../public'))); // Serve index.html da cartella public
+  app.use(express.static(path.join(__dirname, '../public'))); // Serve index.html da cartella public
 
   // Registra routes
   registerTemplatesRoute(app);
