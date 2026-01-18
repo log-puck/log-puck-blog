@@ -34,6 +34,17 @@ Quando lavori su questo progetto, assicurati che i dati di input rispettino ques
 - Properties Notion (lista completa con dettagli)
 - Tipo operazione Notion: `read` (query), `write` (create/update), `sync` (bidirezionale)
 
+**Se il file deve essere condivisibile (senza dati sensibili):**
+- Non hardcodare ID o token nel file
+- Leggere sempre da variabili d'ambiente (`.env`)
+- Esporre nel documento solo i **nomi** delle variabili richieste (non i valori)
+- Fornire un `.env.example` con placeholder
+
+**Formato variabili d'ambiente (esempio):**
+- `NOTION_TOKEN` (o `NOTION_API_KEY` per compatibilità)
+- `WAW_COUNCIL_DB_ID`, `WAW_IDEAS_DB_ID`, `WAW_VOTES_DB_ID`
+- Ogni script deve validare la presenza delle variabili richieste
+
 **Formato Properties Notion:**
 - Ogni property deve avere: `name` (stringa), `type` (stringa: `title`, `rich_text`, `date`, `multi_select`, `checkbox`, `select`, `status`, `number`, `formula` (specificare la formula)).
 - Ogni property deve avere l'indicazione `Obbligatoria` se è ritenuta bloccante, altrimenti sarà ritenuta `Facoltativa`.
