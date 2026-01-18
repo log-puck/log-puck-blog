@@ -239,15 +239,19 @@
                             <div className="space-y-4">
                                 <div>
                                     <label className="block mb-2">Current Focus:</label>
-                                    <input type="text" value={context.currentFocus}
+                                    <textarea 
+                                        value={context.currentFocus}
                                         onChange={(e) => setContext({...context, currentFocus: e.target.value})}
-                                        className="w-full p-2 bg-black border border-gray-700 rounded text-white"/>
+                                        placeholder="Cosa stai sviluppando ora? (Multi-riga supportata)"
+                                        rows="4"className="w-full p-2 bg-black border border-gray-700 rounded text-white resize-y"/>
                                 </div>
                                 <div>
                                     <label className="block mb-2">Recently Completed:</label>
-                                    <textarea value={context.completed}
+                                    <textarea 
+                                        value={context.completed}
                                         onChange={(e) => setContext({...context, completed: e.target.value})}
-                                        rows="3" className="w-full p-2 bg-black border border-gray-700 rounded text-white resize-y"/>
+                                        placeholder="Cosa hai completato?"
+                                        rows="4" className="w-full p-2 bg-black border border-gray-700 rounded text-white resize-y"/>
                                 </div>
                             </div>
                         ) : (
