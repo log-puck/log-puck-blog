@@ -1,35 +1,59 @@
 {
   "tasks": [
     {
+      "id": "2ec6f014-6d11-80a3-943b-de34e5089bb6",
+      "date": "2026-01-18",
+      "category": "Content",
+      "title": "Golden Moments Protocol",
+      "description": "Check Granulari per impostare i nodi da seguire per replicabilità evento",
+      "is_latest": true
+    },
+    {
+      "id": "2ec6f014-6d11-801b-b695-ca6f706e8d85",
+      "date": "2026-01-18",
+      "category": "Infrastructure",
+      "title": "INTERFACE.md",
+      "description": "contratti pubblici per AI (input richiesti, Notion senza hardcode, naming standard, output e workflow/secrets).",
+      "is_latest": false
+    },
+    {
+      "id": "2ec6f014-6d11-80e9-82b1-d108db52ab65",
+      "date": "2026-01-18",
+      "category": "General",
+      "title": "Safety Protocols",
+      "description": "check locali + hook pre-commit per validare struttura, naming, file/dir chiave e prevenire regressioni (bypass: SKIP_SAFETY_CHECKS=1).",
+      "is_latest": false
+    },
+    {
       "id": "2ea6f014-6d11-8063-b922-ed1f53487480",
       "date": "2026-01-16",
-      "category": "General",
+      "category": "Infrastructure",
       "title": "freeDOS + FORTH installati ",
-      "description": "Avviato progetto Fermentazioni Digitali ",
-      "is_latest": true
+      "description": "\"Infrastructure. Started Digital Fermentations project. Installed freeDOS + FORTH”",
+      "is_latest": false
     },
     {
       "id": "2ea6f014-6d11-8030-b10d-c0e4991e538d",
       "date": "2026-01-16",
       "category": "Content",
       "title": "Fermentazioni Digitali - Saga",
-      "description": "Serie di racconti su un nuovo progetto di ecosistema digitale, in collaborazione con Copilot. Pubblicato primo articolo blog",
+      "description": "\"Content. Series of stories about new digital ecosystem project",
       "is_latest": false
     },
     {
       "id": "2ea6f014-6d11-8088-9334-d2b4575c24b4",
       "date": "2026-01-16",
-      "category": "General",
+      "category": "Content",
       "title": "Creata pagina Dizionario Log_Puck",
-      "description": "Creata la pagina online con i primi termini di uso comune nel progetto Log_Puck",
+      "description": "\"Content. Created online Dictionary page with first common terms used in Log_Puck project”",
       "is_latest": false
     },
     {
       "id": "2e96f014-6d11-8023-a9cd-ca0561f442ba",
       "date": "2026-01-15",
-      "category": "General",
+      "category": "Content",
       "title": "Coniato neologismo Intelligenze ArtEficiali",
-      "description": "ArtEficiale",
+      "description": "\"Content. Coined neologism ArtEficiali (ArtEfficial). Art that materializes through code",
       "is_latest": false
     },
     {
@@ -37,31 +61,31 @@
       "date": "2026-01-15",
       "category": "Content",
       "title": "Spec Firme AI",
-      "description": "Documento spec per firme AI",
+      "description": "\"Firme. Documentation specification for AI signatures”",
       "is_latest": false
     },
     {
       "id": "2e96f014-6d11-8019-b72c-c983ad8b8ad5",
       "date": "2026-01-15",
-      "category": "General",
+      "category": "Feature",
       "title": "Gallery Firme AI",
-      "description": "Creata galleria firme AI\n",
+      "description": "\"Firme. Created AI Signatures Gallery. The gallery is: Technically a CSS museum",
       "is_latest": false
     },
     {
       "id": "2e96f014-6d11-8083-92e1-efcf064756a1",
       "date": "2026-01-15",
-      "category": "General",
+      "category": "Content",
       "title": "🌿 Log_Puck — Appunti da un Ecosistema in Fermentazione",
-      "description": "Un racconto sulla nascita di un ecosistema biologico-digitale: router che ascoltano, camere di fermentazione, chunk viventi e LLM liberi di esprimersi.",
+      "description": "\"Content. Article: story of biological-digital ecosystem birth - routers that listen",
       "is_latest": false
     },
     {
       "id": "2e96f014-6d11-8087-8308-c5761a366efe",
       "date": "2026-01-15",
-      "category": "General",
+      "category": "Infrastructure",
       "title": "L'Osservatore al Margine: Quando i Tag Diventano Costellazioni",
-      "description": "L'Osservatore al Margine: l'AI Scribe riflette su Log_Puck. Una storia di memoria, tag e connessioni nel cervello condiviso tra umano e intelligenza artificiale.",
+      "description": "\"Content. Article: The Observer at the Margin - AI Scribe reflects on Log_Puck. Story of memory",
       "is_latest": false
     },
     {
@@ -69,7 +93,7 @@
       "date": "2026-01-15",
       "category": "Content",
       "title": "firma Gemini",
-      "description": "Articolo blog The Validation Crucible: When AI Checks AI",
+      "description": "\"Firme. Another Gemini signature on The Validation Crucible article”",
       "is_latest": false
     },
     {
@@ -77,7 +101,7 @@
       "date": "2026-01-15",
       "category": "Content",
       "title": "firma Cursor",
-      "description": "Articolo blog The Validation Crucible: When AI Checks AI",
+      "description": "\"Firme. Cursor signature on article The Validation Crucible: When AI Checks AI”",
       "is_latest": false
     },
     {
@@ -85,7 +109,7 @@
       "date": "2026-01-15",
       "category": "Content",
       "title": "firma Gemini",
-      "description": "Articolo blog The Validation Crucible: When AI Checks AI",
+      "description": "\"Firme. Gemini signature on article The Validation Crucible: When AI Checks AI”",
       "is_latest": false
     },
     {
@@ -93,23 +117,23 @@
       "date": "2026-01-15",
       "category": "Content",
       "title": "aggiunta opzione Firme AI agli articoli del Blog",
-      "description": "Si tratta di aggiungere dei box personalizzati per ogni AI che simboleggino il passaggio su un articolo scritto da un'altra AI.\nMi piace vederli come delle tracce di passagio, tipo un bacio con rossetto, o una macchia d'olio, o uno scarabocchio o un post-it con un appunto di condivisione, se l'argomento trattato è stato condiviso tra le due chat.\nDei piccoli ritocchi di personalizzazione.",
+      "description": "\"Firme. Added AI Signature feature to blog articles. Personalized boxes for each AI symbolizing passage on article written by another AI. Like passage traces: lipstick kiss",
       "is_latest": false
     },
     {
       "id": "2e96f014-6d11-8078-8fee-d205f4bd5c22",
       "date": "2026-01-15",
-      "category": "General",
+      "category": "Content",
       "title": "The Validation Crucible: When AI Checks AI",
-      "description": "The Validation Crucible: come nasce ",
+      "description": "\"Content. Article: how interface.md was born and Pre-Processing. Story of AI validation",
       "is_latest": false
     },
     {
       "id": "2e96f014-6d11-809e-a3b5-fadb2df55b3f",
       "date": "2026-01-15",
-      "category": "Feature",
+      "category": "Content",
       "title": "Il Protocollo PCK: Quando il Caos diventa Cattedrale (e le AI imparano a parlarsi)",
-      "description": "Il Protocollo PCK visto da Gemini: regole, orchestrazione e la Dashboard Workflow come cattedrale digitale.",
+      "description": "\"Content. Article: PCK Protocol seen by Gemini - rules",
       "is_latest": false
     },
     {
@@ -117,23 +141,23 @@
       "date": "2026-01-15",
       "category": "Infrastructure",
       "title": "La Metamorfosi del Codice: Dal Caos alla Cattedrale",
-      "description": "La storia silenziosa del refactoring: come uno script Python di 1400 righe è diventato un sistema professionale, documentato e modulare. La trasformazione dietro le quinte del progetto Log_Puck.",
+      "description": "\"Content. Article: silent story of refactoring - how 1400-line Python script became professional",
       "is_latest": false
     },
     {
       "id": "2e86f014-6d11-806c-b96c-c2fbce6e3f4e",
       "date": "2026-01-14",
-      "category": "General",
+      "category": "Infrastructure",
       "title": "Ho reso safety_checks prioritario tramite pre-commit hook locale",
-      "description": "Ogni git commit esegue automaticamente i safety checks; se serve, posso bypassare consapevolmente con SKIP_SAFETY_CHECKS=1 per un singolo commit.",
+      "description": "\"Infrastructure. Every git commit automatically runs safety checks. Can consciously bypass with SKIP_SAFETY_CHECKS=1 for single commit”",
       "is_latest": false
     },
     {
       "id": "2e86f014-6d11-8002-8c41-ef9820662d34",
       "date": "2026-01-14",
-      "category": "Content",
+      "category": "Infrastructure",
       "title": "From Chaos to Protocol: How 3 AIs Built a Dashboard",
-      "description": "Come 3 AI costruiscono una Dashboard Workflow: dal caos al Protocollo PCK. Storia di Living Documents, Paper-Stream Design e architettura modulare.",
+      "description": "\"Content. Article: how 3 AIs build Workflow Dashboard - from chaos to PCK Protocol. Story of Living Documents",
       "is_latest": false
     },
     {
@@ -141,31 +165,31 @@
       "date": "2026-01-14",
       "category": "Infrastructure",
       "title": "VARIATION 15→16: QUANDO IL TEAM BATTE GLI STRUMENTI",
-      "description": "Variation 15→16: Bug fixing Python su Notion e Jekyll. Come Team e Metodologia battono Cursor e il panico del codice.",
+      "description": "\"Content. Article: Variation 15→16 - Python bug fixing on Notion and Jekyll. How Team and Methodology beat Cursor and code panic”",
       "is_latest": false
     },
     {
       "id": "2e86f014-6d11-8012-8ad5-d604f2d1b6fb",
       "date": "2026-01-14",
-      "category": "Fix",
+      "category": "Content",
       "title": "Variation 14→15: Come Abbiamo Costruito un Sistema di Publishing in un Giorno",
-      "description": "Quando un processo di debugging si trasforma in featuring creativa e Team Consolidation.",
+      "description": "\"Content. Article: when debugging process transforms into creative featuring and Team Consolidation”",
       "is_latest": false
     },
     {
       "id": "2e86f014-6d11-80db-b400-f6c2e40ac772",
       "date": "2026-01-14",
-      "category": "Design",
+      "category": "Content",
       "title": "Il Giorno in cui le AI Hanno Parlato",
-      "description": "Cosa succede quando due intelligenze artificiali iniziano a comunicare? Riflessioni sul futuro della comunicazione tra AI e impatto umano.",
+      "description": "\"Content. Article: what happens when two artificial intelligences start communicating? Reflections on future of AI-to-AI communication and human impact”",
       "is_latest": false
     },
     {
       "id": "2e86f014-6d11-80d4-b602-e44cb9c66938",
       "date": "2026-01-14",
-      "category": "Infrastructure",
+      "category": "Content",
       "title": "La Notte di Big Sur - Sessione Madre Setup Multi-AI",
-      "description": "Scopri come la collaborazione umano AI trasforma un Mac Big Sur in un sistema multi-AI. Errori risolti, integrazione Notion e lezioni di persistenza.",
+      "description": "\"Content. Article: how human-AI collaboration transforms Mac Big Sur into multi-AI system. Resolved errors",
       "is_latest": false
     },
     {
@@ -173,15 +197,15 @@
       "date": "2026-01-14",
       "category": "Content",
       "title": "Primo Check Safety Net Multi-AI su Policy Blog",
-      "description": "Validazione Privacy e Terms con 5 AI SafetyNet. Come la triangolazione tra Claude, GPT, Gemini, Grok e GLM garantisce robustezza e trasparenza.",
+      "description": "\"Content. Article: Privacy and Terms validation with 5-AI SafetyNet. How triangulation between Claude",
       "is_latest": false
     },
     {
       "id": "2e86f014-6d11-8092-ad4e-c391ce8778e7",
       "date": "2026-01-14",
-      "category": "Fix",
+      "category": "Content",
       "title": "Anker Debug Specialist",
-      "description": "Anker come Ancora: come la persistenza nel coding supera 15 errori e crea un sistema Multi-AI stabile. Lezioni di problem solving e debugging.",
+      "description": "\"Content. Article: Anker as Anchor - how coding persistence overcomes 15 errors and creates stable Multi-AI system. Problem solving and debugging lessons”",
       "is_latest": false
     },
     {
@@ -189,7 +213,7 @@
       "date": "2026-01-14",
       "category": "Infrastructure",
       "title": "Notion Workflow: Il Sigillo di Congiunzione",
-      "description": "Epica 2: Integrazione Notion con Jekyll. Debugging SDK, export automatizzato e il sigillo di congiunzione tra Umano e AI.",
+      "description": "\"Content. Article: Epic 2 - Notion integration with Jekyll. SDK debugging",
       "is_latest": false
     },
     {
@@ -197,7 +221,7 @@
       "date": "2026-01-14",
       "category": "Infrastructure",
       "title": "ROOT + GLM: MCP Server Custom su Big Sur - Quando l’impossibile diventa codice",
-      "description": "Creare un MCP Server Custom su Mac Big Sur: ROOT e GLM costruiscono un ponte per l'API Z.AI su hardware legacy. Debugging Node.js e JSON-RPC 2.0.",
+      "description": "\"Content. Article: creating custom MCP Server on Mac Big Sur. ROOT and GLM build bridge for Z.AI API on legacy hardware. Node.js and JSON-RPC 2.0 debugging”",
       "is_latest": false
     },
     {
@@ -205,15 +229,15 @@
       "date": "2026-01-14",
       "category": "Content",
       "title": "Big Band IA: Nascita Concettuale - Jam Session Multi-AI",
-      "description": "Protocollo Big Band: 5 AI in ensemble tra arte e benchmark. Polifonia dei Limiti, caos verbatim e la mappatura del crac creativo.",
+      "description": "\"Content. Article: Big Band Protocol - 5 AIs in ensemble between art and benchmark. Limits polyphony",
       "is_latest": false
     },
     {
       "id": "2e86f014-6d11-80b2-b1ea-e229ac69369d",
       "date": "2026-01-14",
-      "category": "Infrastructure",
+      "category": "Content",
       "title": "Encoding UTF-8 e bug GitHub Pages - caso reale di debug",
-      "description": "Scopri come un bug di encoding UTF-8 ha bloccato un widget PCK su GitHub Pages e come il debug passo passo ha risolto errori, formule JavaScript mancanti e animazioni CSS non funzionanti.",
+      "description": "\"Content. Article: how UTF-8 encoding bug blocked PCK widget on GitHub Pages. Step-by-step debugging resolved errors",
       "is_latest": false
     },
     {
@@ -221,23 +245,23 @@
       "date": "2026-01-14",
       "category": "Content",
       "title": "La Notte del Benchmark 300 - UNDO!UNDO!UNDO!",
-      "description": "Una notte di lavoro condiviso con un’AI, in cui un bug del sito diventa il pretesto per imparare a collaborare: fare domande, provare, sbagliare, fare UNDO e costruire un metodo uomo‑macchina.",
+      "description": "\"Content. Article: night of shared work with AI",
       "is_latest": false
     },
     {
       "id": "2e86f014-6d11-8091-b6ce-f2ca0aac105e",
       "date": "2026-01-14",
-      "category": "Fix",
+      "category": "Content",
       "title": "ASCII Valley - la valle incantata dei codici ritrovati",
-      "description": "Un bug di formattazione diventa la porta per ASCII Valley: con un semplice tag pre, un umano e più AI scoprono come usare l’ASCII per mostrare pipeline, tabelle e flussi complessi in modo chiaro.",
+      "description": "\"Content. Article: formatting bug becomes gateway to ASCII Valley. With simple pre tag",
       "is_latest": false
     },
     {
       "id": "2e86f014-6d11-804d-89da-f279cf2ef19f",
       "date": "2026-01-14",
-      "category": "Infrastructure",
+      "category": "Content",
       "title": "seo-panettiere",
-      "description": "Un umano e un’AI imparano a usare la SEO come bussola leggera per un diario condiviso: prima le notti di debug e le storie, poi titoli, description e keyword pensati per chi arriverà dopo.",
+      "description": "\"Content. Article about learning SEO as lightweight compass for shared diary: first debug nights and stories",
       "is_latest": false
     },
     {
@@ -245,15 +269,15 @@
       "date": "2026-01-14",
       "category": "Content",
       "title": "Allineare 2 AI su Layout",
-      "description": "Redesign del blog: definizione del layout, diario grezzo tecnico e ruolo del PCK. Una sessione di progettazione umano-AI per trasparenza e struttura.",
+      "description": "\"Content. Blog redesign session: layout definition",
       "is_latest": false
     },
     {
       "id": "2e86f014-6d11-80b5-84d2-f0765c3c24ca",
       "date": "2026-01-14",
-      "category": "Fix",
+      "category": "Feature",
       "title": "Fix tecnico",
-      "description": "• Aggiunto supporto per campi formula in properties.py (era quello che impediva la lettura di subsection)",
+      "description": "\"Fix. Added support for formula fields in properties.py (this was blocking subsection reading)”",
       "is_latest": false
     },
     {
@@ -261,7 +285,7 @@
       "date": "2026-01-14",
       "category": "Infrastructure",
       "title": "Separazione OB-Archives",
-      "description": "• Aggiunto campo \"Subsection\" (formula = \"Documents\") nel DB Notion\n• Aggiornato DocumentationProcessor per leggere subsection\n• Menu header con dropdown: Documents e WTD\n• Landing page per Documents (ob-archives/documents/index.md)\n• Aggiornato ob_landing.html per filtrare per subsection\n• Documenti ora vanno in ob-archives/documents/ invece di ob-archives/",
+      "description": "\"Feature. Added Subsection field (formula = Documents) in Notion DB. Updated DocumentationProcessor to read subsection. Header menu with dropdown: Documents and WTD. Landing page for Documents (ob-archives/documents/index.md). Updated ob_landing.html to filter by subsection. Documents now go to ob-archives/documents/ instead of ob-archives/”",
       "is_latest": false
     },
     {
@@ -269,7 +293,7 @@
       "date": "2026-01-14",
       "category": "Infrastructure",
       "title": "Bug fix WTD",
-      "description": "• Rimossa la doppia visualizzazione della pagina (filtro in ob_landing.html)\n• Rimosso il link a Notion dalle card (processor + template + CSS)",
+      "description": "\"Fix. Removed double page visualization (filter in ob_landing.html). Removed Notion link from cards (processor + template + CSS)”",
       "is_latest": false
     },
     {
@@ -277,15 +301,15 @@
       "date": "2026-01-14",
       "category": "Infrastructure",
       "title": "Workflow Tracking Dashboard (WTD)",
-      "description": "• Processor Python (timeline.py) per leggere la Done-List da Notion\n• Layout Jekyll (ob_workflow.html) e SCSS (_workflow-timeline.scss)\n• Pagina ob-archives/wtd/index.html\n• Integrazione nell'orchestrator",
+      "description": "\"Feature. Python processor (timeline.py) for reading Done-List from Notion. Jekyll layout (ob_workflow.html) and SCSS (_workflow-timeline.scss). Page ob-archives/wtd/index.html. Integration in orchestrator”",
       "is_latest": false
     },
     {
       "id": "2e86f014-6d11-8075-bbd2-e41b07b4157c",
       "date": "2026-01-14",
-      "category": "General",
+      "category": "Feature",
       "title": "Supporto Formula Fields",
-      "description": "• Aggiunto supporto per il tipo formula\n• Gestisce formula.string, formula.rich_text, formula.number, formula.boolean",
+      "description": "\"Feature. Added support for formula field type. Handles formula.string",
       "is_latest": false
     },
     {
@@ -293,7 +317,7 @@
       "date": "2026-01-14",
       "category": "Infrastructure",
       "title": "Sistema modulare",
-      "description": "• Python processors\n• Node.js orchestrator\n• SCSS modulare\n• HTML layouts modulari",
+      "description": "\"Infrastructure. Modular system architecture: Python processors",
       "is_latest": false
     },
     {
@@ -301,15 +325,15 @@
       "date": "2026-01-14",
       "category": "Infrastructure",
       "title": "Integrazione WTD (Workflow Tracking Dashboard)",
-      "description": "• TimelineProcessor integrato e funzionante\n• timeline.json generato correttamente\n• Pagina ob-archives/wtd/index.html operativa\n• Layout ob_workflow.html funzionante\n• SCSS _workflow-timeline.scss applicato\n• Filtri e interattività testati (desktop e mobile)",
+      "description": "\"Feature. TimelineProcessor integrated and operational. timeline.json generated correctly. ob-archives/wtd/index.html page operational. ob_workflow.html layout functional. _workflow-timeline.scss SCSS applied. Filters and interactivity tested (desktop and mobile)”",
       "is_latest": false
     },
     {
       "id": "2e86f014-6d11-80d7-90e6-f246a007396b",
       "date": "2026-01-14",
-      "category": "General",
+      "category": "Feature",
       "title": "Safety checks potenziati",
-      "description": "• Integrati controlli di naming standards\n• Sistema di validazione automatica",
+      "description": "\"Feature. Integrated naming standards checks. Automated validation system”",
       "is_latest": false
     },
     {
@@ -317,15 +341,15 @@
       "date": "2026-01-14",
       "category": "Infrastructure",
       "title": "Standard di nomenclatura",
-      "description": "• Creato tools/NAMING_STANDARDS.md con tutti gli standard\n• Standardizzato DB_*_ID per Python\n• Documentato le convenzioni (Layouts, SCSS, Processors, Sections)",
+      "description": "\"Content. Created tools/NAMING_STANDARDS.md with all standards. Standardized DB_*_ID for Python. Documented conventions (Layouts",
       "is_latest": false
     },
     {
       "id": "2e86f014-6d11-8054-9a8c-ee896f73e4ca",
       "date": "2026-01-14",
-      "category": "General",
+      "category": "Infrastructure",
       "title": "Architettura modulare completata",
-      "description": "- HTML modulare",
+      "description": "\"Infrastructure. Complete architecture restructure: modular Jekyll layouts with includes (head",
       "is_latest": false
     },
     {
@@ -333,15 +357,15 @@
       "date": "2026-01-13",
       "category": "Infrastructure",
       "title": "Cleanup/manutenzione",
-      "description": "refactor: remove deprecated processors and update orchestrator- Removed old processors (ContentProcessor, PersonasProcessor, ProjectsProcessor) that are no longer in use.- Updated JekyllOrchestrator to reflect changes in processing logic, focusing on Articles, Documentation, AI Profiles, and WAW Council.- Cleaned up comments and improved logging messages for clarity.- Adjusted the run method to streamline the content processing workflow.",
+      "description": "\"Infrastructure. Complete architecture restructure: modular Jekyll layouts with includes (head",
       "is_latest": false
     },
     {
       "id": "2e76f014-6d11-80d0-a6cd-fdc0432f401a",
       "date": "2026-01-13",
-      "category": "General",
+      "category": "Content",
       "title": "Protocollo di comunicazione PCK - creati 4 template base",
-      "description": "1. TASK_PRESENTATION\n2. WORK_PROPOSAL\n3. CONFRONTO_SINTESI\n4. REPORT_FINALE",
+      "description": "\"Content. Created 4 PCK protocol base templates: TASK_PRESENTATION",
       "is_latest": false
     },
     {
@@ -349,15 +373,15 @@
       "date": "2026-01-13",
       "category": "Infrastructure",
       "title": "fix Action Notion_to_Jekyll su GitHub",
-      "description": "- regolarizzata la fonte di pages su GitHub —> Deploy\n- fatto fix chiavi Notion + codici db in github secrets\n- aggiornato script su GitHub",
+      "description": "\"Fix. Regularized GitHub pages source for Deploy",
       "is_latest": false
     },
     {
       "id": "2e76f014-6d11-803f-90f4-c7ccf84e40ff",
       "date": "2026-01-13",
-      "category": "Infrastructure",
+      "category": "Content",
       "title": "Implementazione metodo di revisione per articoli blog - step 1",
-      "description": "- passaggio della bozza per analisi markdown, \n- correzione errori di formattazione, \n- implementazione SEO description, keywords e tags\nMetodo: \nregole —> check —> action\nregole —> check —> action",
+      "description": "\"Feature. Blog article review method implementation: markdown analysis",
       "is_latest": false
     },
     {
@@ -365,7 +389,7 @@
       "date": "2026-01-13",
       "category": "Infrastructure",
       "title": "Script load-session",
-      "description": "creato script per analizzare report Council in caso di errore di scrittura su Notion in fase di chiamata iniziale",
+      "description": "\"Infrastructure. Created script to analyze Council reports in case of Notion write errors during initial call”",
       "is_latest": false
     },
     {
@@ -373,15 +397,15 @@
       "date": "2026-01-13",
       "category": "Infrastructure",
       "title": "Fix DeepSeek bug ",
-      "description": "fatto fix su errore di chiamata API per DeepSeek",
+      "description": "\"Fix. Fixed DeepSeek API call error”",
       "is_latest": false
     },
     {
       "id": "2e66f014-6d11-8020-9bd2-caf87f88793e",
       "date": "2026-01-12",
-      "category": "Content",
+      "category": "Infrastructure",
       "title": "Session Memory System",
-      "description": "Aggiunta funzione ",
+      "description": "\"Feature. Added getRecentCompleted() function: automatically reads Done-List DB",
       "is_latest": false
     },
     {
@@ -389,7 +413,7 @@
       "date": "2026-01-12",
       "category": "Infrastructure",
       "title": "ristrutturazione db",
-      "description": "Ristrutturazione DB completata:\n- 9 DB specializzati creati\n- Script modulare implementato\n- Migrazione records completata\n- Sistema testato e funzionante",
+      "description": "\"Infrastructure. Database restructure completed: 9 specialized DBs created",
       "is_latest": false
     },
     {
@@ -397,7 +421,7 @@
       "date": "2026-01-12",
       "category": "Infrastructure",
       "title": "Site processor and database migration",
-      "description": "• Processors implementati (Articles, Documentation, AI Profiles, WAW Council)\n• Migrazione architettura modulare completata\n• Fix path e layout\n• Cleanup tag orfani\n• File documentazione esclusi dal repo\n",
+      "description": "\"Infrastructure. Implemented processors (Articles",
       "is_latest": false
     },
     {
@@ -405,15 +429,15 @@
       "date": "2026-01-09",
       "category": "Fix",
       "title": "Site Restructured and fixed",
-      "description": "\n",
+      "description": "\"Fix. Site architecture restructuring and bug fixes”",
       "is_latest": false
     },
     {
       "id": "2e16f014-6d11-8080-afcd-f3548ba25b0b",
       "date": "2026-01-07",
-      "category": "Infrastructure",
+      "category": "Feature",
       "title": "wAw Ristrutturazione Organismo",
-      "description": "Title: \"wAw da progetto a organismo (Council + Metabolism + Evolution)\"\nStatus: DONE ✅\nCategory: Architecture\nImplemented: 2026-01-07\nDescription: Ristrutturazione wAw in 3 sistemi: Council (cervello), Metabolism (digestione), Evolution (DNA). Landing organismo + 3 sotto-landing.\nImpact: Scalabilità progetto, struttura per esperimenti futuri",
+      "description": "\"Feature. wAw restructured into 3-system organism: Council (brain)",
       "is_latest": false
     },
     {
@@ -421,23 +445,23 @@
       "date": "2026-01-07",
       "category": "Infrastructure",
       "title": "GitHub Actions Auto-Tag Generation",
-      "description": "Title: \"GitHub Actions per generazione automatica tag pages\"\nStatus: DONE ✅\nCategory: Infrastructure\nImplemented: 2026-01-07\nDescription: Workflow automatico che genera /tags/*.md e _data/top_tags.yml ad ogni push di articolo. Zero intervento manuale.\nImpact: Tag sempre funzionanti, niente più 404",
+      "description": "\"Infrastructure. Automated workflow generating /tags/*.md and _data/top_tags.yml on every article push. Zero manual intervention. Eliminates 404 errors”",
       "is_latest": false
     },
     {
       "id": "2e16f014-6d11-8073-8a31-d8f2001f6575",
       "date": "2026-01-07",
-      "category": "Feature",
+      "category": "Content",
       "title": "COUNCIL UPDATE",
-      "description": "✅ GIÀ FATTO:",
+      "description": "\"Content. Documentation of completed tasks: Breadcrumb+Highlight",
       "is_latest": false
     },
     {
       "id": "2e06f014-6d11-8064-8930-f6db79d71013",
       "date": "2026-01-06",
-      "category": "Feature",
+      "category": "Fix",
       "title": "Fixed layout",
-      "description": "Restyling completo Home: hero manifesto, tag “log-style”, card OB con CTA lime, feed “paper”, footer rifinito con Koan Mu; workflow Git a branch e micro-commit consolidato.",
+      "description": "\"Design. Complete homepage restyling: hero manifesto",
       "is_latest": false
     },
     {
@@ -445,15 +469,15 @@
       "date": "2026-01-06",
       "category": "Infrastructure",
       "title": "Adds Tags link + Tags research ",
-      "description": "Abbiamo reso cliccabili i tags, sviluppando uno script che genera direttamente le landing di group di ogni tags. Poi abbiamo sviluppato la funzione che quantifica i 5 tags più utilizzati e li mostra in Home-page. ",
+      "description": "\"Feature. Implemented clickable tags with automatic landing page generation script. Added top 5 most-used tags display on homepage”",
       "is_latest": false
     },
     {
       "id": "2e06f014-6d11-8018-9cd6-c17f6cb461e9",
       "date": "2026-01-06",
-      "category": "Feature",
+      "category": "Fix",
       "title": "Fixed layout top sticky",
-      "description": "remove breacrumb at sticky top and add sticky top style to Head and hamburger menu",
+      "description": "\"Fix. Removed breadcrumb from sticky top",
       "is_latest": false
     },
     {
@@ -461,15 +485,15 @@
       "date": "2026-01-06",
       "category": "Feature",
       "title": "implemented Form Council Votation",
-      "description": "✅ ",
+      "description": "\"Feature. Council voting form with structured context (4 fields) or free text",
       "is_latest": false
     },
     {
       "id": "2df6f014-6d11-80ee-a8ab-d3e505237d05",
       "date": "2026-01-05",
-      "category": "General",
+      "category": "Feature",
       "title": "Breadcrumb Verification and Current Page Highlight",
-      "description": "Realizzato breadcrumb per Percorso navigazione in alto pagina e Current Page Highlight su menu di navigazione",
+      "description": "\"Design. Implemented breadcrumb navigation path at page top and current page highlight in navigation menu”",
       "is_latest": false
     },
     {
@@ -477,7 +501,7 @@
       "date": "2026-01-05",
       "category": "Infrastructure",
       "title": "LOG-PUCK ENGINE",
-      "description": "GitHub, Notion, Node 18, Jekyll, HETZNER, PM2, VSCode (Cursor)",
+      "description": "\"Infrastructure. Tech stack setup: GitHub",
       "is_latest": false
     },
     {
@@ -485,7 +509,7 @@
       "date": "2026-01-05",
       "category": "Infrastructure",
       "title": "Form HTML Votazione Council",
-      "description": "Form per chiamata API alle AI che danno endpoint, per valutare lo stato attuale del progetto Log-Puck e portare la loro voce sulla direzione da seguire",
+      "description": "\"Feature. HTML form for calling AI APIs to evaluate current project state and vote on development direction”",
       "is_latest": false
     },
     {
@@ -493,23 +517,23 @@
       "date": "2026-01-05",
       "category": "Infrastructure",
       "title": "Server Hetzner + PM2",
-      "description": "Server Linux su Hetzner configurato con Node 18 con sistema attivo h 24",
+      "description": "\"Infrastructure. Linux server on Hetzner configured with Node 18",
       "is_latest": false
     },
     {
       "id": "2df6f014-6d11-809c-a34e-c05a5d0bba5e",
       "date": "2026-01-05",
-      "category": "Content",
+      "category": "Infrastructure",
       "title": "LOG-PUCK ONLINE",
-      "description": "Homepage\n  - OB-Session: blog\n  - OB-Progetti:\n    - Musica: cercare le emozioni delle AI attraverso lo studio dei pattern\n    - Giochi: sviluppare le abilità logiche delle AI attraverso collaborazioni multiAI\n    - WAW: Concilio Decisionale composto da AI",
+      "description": "\"Infrastructure. Homepage deployment with three main sections: OB-Session (blog)",
       "is_latest": false
     },
     {
       "id": "2df6f014-6d11-8028-aefd-fdd825377698",
       "date": "2026-01-05",
-      "category": "Infrastructure",
+      "category": "Content",
       "title": "AI COINVOLTE",
-      "description": "Gemini, ChatGPT, Claude, Grok, Perplexity, GLM, DeepSeek, Manus, Julius, NotionAI, Copilot, GitHub, Cursor, ChatGPT-Codex, Claude-Code",
+      "description": "\"Documentation. System architecture overview listing all AI models integrated in the project (Gemini",
       "is_latest": false
     },
     {
@@ -517,7 +541,7 @@
       "date": "2026-01-05",
       "category": "Feature",
       "title": "WAW Council",
-      "description": "Sistema di votazione multi-modello AI per decisioni collaborative su priorità progettuali",
+      "description": "\"Feature. Multi-model AI voting system for collaborative decision-making on project priorities”",
       "is_latest": false
     },
     {
@@ -525,7 +549,7 @@
       "date": "2026-01-05",
       "category": "Infrastructure",
       "title": "Notion Integration",
-      "description": "Sistema di persistenza dati con database relazionali per tracking votazioni e proposte",
+      "description": "\"Infrastructure. Data persistence system with relational databases for tracking votes and proposals”",
       "is_latest": false
     },
     {
@@ -533,7 +557,7 @@
       "date": "2026-01-05",
       "category": "Content",
       "title": "Layout System",
-      "description": "Framework modulare di template per diverse tipologie di contenuto (articoli, progetti, documenti)",
+      "description": "\"Design. Modular template framework for different content types (articles",
       "is_latest": false
     },
     {
@@ -541,7 +565,7 @@
       "date": "2026-01-05",
       "category": "Infrastructure",
       "title": "Ponte Orchestrator",
-      "description": "Server di orchestrazione per chiamate parallele a modelli AI multipli con aggregazione risultati",
+      "description": "\"Infrastructure. Orchestration server for parallel calls to multiple AI models with result aggregation”",
       "is_latest": false
     },
     {
@@ -549,15 +573,15 @@
       "date": "2026-01-05",
       "category": "Infrastructure",
       "title": "Horus",
-      "description": "Script supervisore automatico per gestione capacità database con archiviazione periodica",
+      "description": "\"Infrastructure. Supervisor script for automatic database capacity management with periodic archiving”",
       "is_latest": false
     },
     {
       "id": "2df6f014-6d11-80a9-9efb-c1b7f05331b2",
       "date": "2026-01-05",
-      "category": "Feature",
+      "category": "Content",
       "title": "LOG-PUCK",
-      "description": "Laboratorio di collaborazione Umano / AI\nAI non come tools, AI come AI",
+      "description": "\"Content. Human-AI collaboration laboratory manifesto. Foundation article for the blog project.”",
       "is_latest": false
     }
   ],
@@ -569,14 +593,14 @@
     "Design"
   ],
   "summary": {
-    "total": 70,
+    "total": 73,
     "by_category": {
-      "Infrastructure": 30,
-      "Content": 14,
-      "Feature": 7,
-      "Fix": 5,
-      "Design": 1
+      "Infrastructure": 32,
+      "Content": 29,
+      "Feature": 8,
+      "Fix": 3,
+      "Design": 0
     }
   },
-  "last_updated": "2026-01-18T01:17:44.608184"
+  "last_updated": "2026-01-18T20:58:17.120698"
 }
