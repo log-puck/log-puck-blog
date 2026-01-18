@@ -343,7 +343,7 @@ NOI > IO
 </div>
 
 ### Base Puck
-**Background:** `#FFF8E6;` *// Light blue*
+**Background:** linear-gradient(to bottom right, #713f12, #7c2d12); *// Light blue*
 **Border-color:** `#F59E0B;`
 **Color:** `#78350F;`
 **Font-style:** `italic;` *// Distintivo orchestratore*
