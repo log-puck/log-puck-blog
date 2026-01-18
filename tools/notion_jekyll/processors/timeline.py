@@ -52,7 +52,7 @@ class TimelineProcessor:
         elif any(word in text for word in [
             'feature', 'new', 'implement', 'add', 'create',
             'dashboard', 'tool', 'system', 'workflow', 'council',
-            'waw', 'voting', 'timeline', 'automation'
+            'waw', 'voting', 'timeline', 'automation', 'framework'
         ]):
             return 'Feature'
         
