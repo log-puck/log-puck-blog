@@ -1,13 +1,7 @@
 name: Generate Tag Pages
 
 on:
-  push:
-    branches: [ main ]
-    paths:
-      - 'ob-session/**/*.md'
-      - 'ob-ai/**/*.md'
-      - 'ob-progetti/**/*.md'
-      - 'ob-archives/**/*.md'
+  workflow_dispatch:
 
 jobs:
   generate-tags:
