@@ -70,6 +70,13 @@ class TimelineProcessor:
             'frontend', 'responsive', 'mobile'
         ]):
             return 'Design'
+
+        # Firme keywords
+        elif any(word in text for word in [
+            'firma', 'signature', 'style', 'artficiali', 
+            'galleria', 'css signature', 'artistic', 'artwork'
+        ]):
+            return 'Firme'
         
         # Default fallback
         else:
