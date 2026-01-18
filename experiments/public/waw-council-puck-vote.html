@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAW Council - Puck Vote Edition</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        function App() {
+            const [contextMode, setContextMode] = useState('preset');
+            const [ideasMode, setIdeasMode] = useState('notion');
+
+            const [context, setContext] = useState({
+                projectName: 'LOG_PUCK Blog',
+                techStack: 'GitHub, Jekyll, Notion, Node.js 18, Python, Hetzner Server, PM2, VSCode',
+                aiPartner: [],
+                currentFocus: '',
+                completed: ''
+            });
+            const [customContext, setCustomContext] = useState('');
+            
+            const [aiModelsList, setAiModelsList] = useState([]);
+            const [loadingAiModels, setLoadingAiModels] = useState(false);
+
+            const [presetIdeas, setPresetIdeas] = useState([]);
+            const [customIdeas, setCustomIdeas] = useState('');
+            const [notionIdeas, setNotionIdeas] = useState([]);
+            const [loadingIdeas, setLoadingIdeas] = useState(false);
+
+            // PUCK VOTE STATE
+            const [puckVote, setPuckVote] = useState({
+                rank1: '',
+                reasoning1: '',
+                rank2: '',
+                reasoning2: '',
+                rank3: '',
+                reasoning3: '',
+                newIdea: {
+                    title: '',
+                    description: '',
+                    effort: 'Medium',
+                    impact: 'High'
+                }
+            });
+
+            const aiModels = [
+                { id: 'claude', name: 'Claude Sonnet 4' },
+                { id: 'glm', name: 'GLM-4' },
+                { id: 'grok', name: 'Grok' },
+                { id: 'gemini', name: 'Gemini 2.0' },
+                { id: 'chatgpt', name: 'ChatGPT 4o-mini' },
+                { id: 'perplexity', name: 'Perplexity Sonar' },
+                { id: 'deepseek', name: 'DeepSeek-V3' }
+            ];
+
+            const [selectedAIs, setSelectedAIs] = useState({
+                claude: true,
+                glm: true,
+                grok: true,
+                gemini: true,
+                chatgpt: true,
+                perplexity: true,
+                deepseek: true
+            });
+
+            const [loading, setLoading] = useState(false);
+            const [results, setResults] = useState(null);
+
+            useEffect(() => {
+                if (ideasMode === 'notion') {
+                    loadNotionIdeas();
+                }
+            }, [ideasMode]);
+
+            useEffect(() => {
+                loadAiModels();
+            }, []);
+
+            async function loadNotionIdeas() {
+                setLoadingIdeas(true);
+                try {
+                    const response = await fetch('/api/notion-ideas');
+                    const data = await response.json();
+                    setNotionIdeas(data.ideas || []);
+                } catch (error) {
+                    console.error('Failed to load from Notion:', error);
+                    alert('Could not load ideas from Notion.');
+                } finally {
+                    setLoadingIdeas(false);
+                }
+            }
+
+            async function loadAiModels() {
+                setLoadingAiModels(true);
+                try {
+                    const response = await fetch('/api/ai-models');
+                    const data = await response.json();
+                    if (data.success && data.aiModels) {
+                        setAiModelsList(data.aiModels);
+                    }
+                } catch (error) {
+                    console.error('Failed to load AI Models:', error);
+                } finally {
+                    setLoadingAiModels(false);
+                }
+            }
+
+            function getContextForPrompt() {
+                if (contextMode === 'custom') return customContext;
+                let contextText = `PROJECT CONTEXT:
+- Name: ${context.projectName}
+- Tech Stack: ${context.techStack}
+- Current Focus: ${context.currentFocus}
+- Completed: ${context.completed}`;
+                if (context.aiPartner?.length > 0) {
+                    contextText += `\n- AI Partners: ${context.aiPartner.join(', ')}`;
+                }
+                return contextText;
+            }
+
+            function toggleAiPartner(aiName) {
+                const current = context.aiPartner || [];
+                if (current.includes(aiName)) {
+                    setContext({ ...context, aiPartner: current.filter(name => name !== aiName) });
+                } else {
+                    setContext({ ...context, aiPartner: [...current, aiName] });
+                }
+            }
+
+            function getIdeasForPrompt() {
+                if (ideasMode === 'custom') return customIdeas.split('\n').filter(i => i.trim());
+                if (ideasMode === 'notion') return notionIdeas;
+                return presetIdeas;
+            }
+
+            async function callCouncil() {
+                // Validation
+                if (!puckVote.rank1 || !puckVote.rank2 || !puckVote.rank3) {
+                    alert('⚠️ Devi votare TOP 3 ideas!');
+                    return;
+                }
+                if (!puckVote.reasoning1 || !puckVote.reasoning2 || !puckVote.reasoning3) {
+                    alert('⚠️ Aggiungi reasoning per ogni voto!');
+                    return;
+                }
+
+                setLoading(true);
+                setResults(null);
+
+                try {
+                    const contextText = getContextForPrompt();
+                    const ideas = getIdeasForPrompt();
+
+                    // PARALLEL CALLS
+                    const [puckResult, aiResult] = await Promise.all([
+                        // Puck vote → Notion
+                        fetch('/api/puck-vote', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                context: contextText,
+                                ideas,
+                                vote: puckVote
+                            })
+                        }).then(r => r.json()),
+
+                        // AI Council → Orchestrator
+                        fetch('/api/waw-council', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                context: contextMode === 'preset' ? context : { freeText: contextText },
+                                ideas,
+                                selectedAIs
+                            })
+                        }).then(r => r.json())
+                    ]);
+
+                    setResults({
+                        puck: puckResult,
+                        ai: aiResult
+                    });
+
+                    // Download files
+                    if (aiResult.markdown) {
+                        downloadFile(`waw-session-${new Date().toISOString().split('T')[0]}.md`, aiResult.markdown);
+                    }
+                    if (aiResult.json) {
+                        downloadFile(`waw-session-${new Date().toISOString().split('T')[0]}.json`, JSON.stringify(aiResult.json, null, 2));
+                    }
+
+                } catch (error) {
+                    alert('Error: ' + error.message);
+                } finally {
+                    setLoading(false);
+                }
+            }
+
+            function downloadFile(filename, content) {
+                const blob = new Blob([content], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                a.click();
+            }
+
+            const availableIdeas = getIdeasForPrompt();
+
+            return (
+                <div className="container mx-auto p-8 max-w-5xl">
+                    <h1 className="text-4xl font-bold mb-2 text-center bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+                        WAW COUNCIL - PUCK VOTE EDITION
+                    </h1>
+                    <p className="text-center text-gray-400 mb-8">👁 Human + AI Parallel Voting</p>
+
+                    {/* CONTEXT */}
+                    <div className="mb-8 p-6 bg-gray-800 rounded-lg">
+                        <h2 className="text-2xl font-bold mb-4">📋 Project Context</h2>
+                        <div className="mb-4">
+                            <label className="block mb-2 font-semibold">Mode:</label>
+                            <select value={contextMode} onChange={(e) => setContextMode(e.target.value)}
+                                className="w-full p-2 bg-black border border-gray-700 rounded text-white">
+                                <option value="preset">Preset (structured fields)</option>
+                                <option value="custom">Custom (free text)</option>
+                            </select>
+                        </div>
+
+                        {contextMode === 'preset' ? (
+                            <div className="space-y-4">
+                                <div>
+                                    <label className="block mb-2">Current Focus:</label>
+                                    <input type="text" value={context.currentFocus}
+                                        onChange={(e) => setContext({...context, currentFocus: e.target.value})}
+                                        className="w-full p-2 bg-black border border-gray-700 rounded text-white"/>
+                                </div>
+                                <div>
+                                    <label className="block mb-2">Recently Completed:</label>
+                                    <textarea value={context.completed}
+                                        onChange={(e) => setContext({...context, completed: e.target.value})}
+                                        rows="3" className="w-full p-2 bg-black border border-gray-700 rounded text-white resize-y"/>
+                                </div>
+                            </div>
+                        ) : (
+                            <textarea value={customContext} onChange={(e) => setCustomContext(e.target.value)}
+                                rows="10" placeholder="Scrivi liberamente..."
+                                className="w-full p-2 bg-black border border-gray-700 rounded text-white resize-y font-mono"/>
+                        )}
+                    </div>
+
+                    {/* IDEAS */}
+                    <div className="mb-8 p-6 bg-gray-800 rounded-lg">
+                        <h2 className="text-2xl font-bold mb-4">💡 Ideas Pool</h2>
+                        <div className="mb-4">
+                            <select value={ideasMode} onChange={(e) => setIdeasMode(e.target.value)}
+                                className="w-full p-2 bg-black border border-gray-700 rounded text-white">
+                                <option value="notion">Load from Notion ✅</option>
+                                <option value="custom">Custom List</option>
+                            </select>
+                        </div>
+
+                        {ideasMode === 'notion' && (
+                            loadingIdeas ? (
+                                <p className="text-yellow-400">Loading...</p>
+                            ) : (
+                                <ul className="list-disc list-inside text-sm space-y-1">
+                                    {notionIdeas.map((idea, i) => <li key={i}>{idea}</li>)}
+                                </ul>
+                            )
+                        )}
+
+                        {ideasMode === 'custom' && (
+                            <textarea value={customIdeas} onChange={(e) => setCustomIdeas(e.target.value)}
+                                rows="6" placeholder="One idea per line..." 
+                                className="w-full p-2 bg-black border border-gray-700 rounded text-white resize-y font-mono"/>
+                        )}
+                    </div>
+
+                    {/* PUCK VOTE SECTION */}
+                    <div className="mb-8 p-6 bg-gradient-to-br from-yellow-900 to-orange-900 rounded-lg border-2 border-yellow-600">
+                        <h2 className="text-2xl font-bold mb-4">🎺 PUCK'S VOTE</h2>
+                        <p className="text-sm text-gray-300 mb-4">Vote your TOP 3 ideas (like an AI would)</p>
+
+                        {['rank1', 'rank2', 'rank3'].map((rank, idx) => (
+                            <div key={rank} className="mb-6 p-4 bg-black/30 rounded">
+                                <label className="block font-bold mb-2">#{idx + 1} Priority</label>
+                                <select value={puckVote[rank]} 
+                                    onChange={(e) => setPuckVote({...puckVote, [rank]: e.target.value})}
+                                    className="w-full p-2 mb-2 bg-black border border-gray-700 rounded text-white">
+                                    <option value="">-- Select idea --</option>
+                                    {availableIdeas.map((idea, i) => (
+                                        <option key={i} value={idea}>{idea}</option>
+                                    ))}
+                                </select>
+                                <textarea placeholder="Why this priority? (reasoning)"
+                                    value={puckVote[`reasoning${idx + 1}`]}
+                                    onChange={(e) => setPuckVote({...puckVote, [`reasoning${idx + 1}`]: e.target.value})}
+                                    rows="2" className="w-full p-2 bg-black border border-gray-700 rounded text-white resize-y text-sm"/>
+                            </div>
+                        ))}
+
+                        <div className="mt-6 p-4 bg-black/30 rounded">
+                            <label className="block font-bold mb-2">💡 New Idea (Optional)</label>
+                            <input type="text" placeholder="Idea title" value={puckVote.newIdea.title}
+                                onChange={(e) => setPuckVote({...puckVote, newIdea: {...puckVote.newIdea, title: e.target.value}})}
+                                className="w-full p-2 mb-2 bg-black border border-gray-700 rounded text-white"/>
+                            <textarea placeholder="Description" value={puckVote.newIdea.description}
+                                onChange={(e) => setPuckVote({...puckVote, newIdea: {...puckVote.newIdea, description: e.target.value}})}
+                                rows="2" className="w-full p-2 bg-black border border-gray-700 rounded text-white resize-y text-sm"/>
+                        </div>
+                    </div>
+
+                    {/* AI SELECTION */}
+                    <div className="mb-8 p-6 bg-gray-800 rounded-lg">
+                        <h2 className="text-2xl font-bold mb-4">🤖 AI Council Members</h2>
+                        <div className="grid grid-cols-2 gap-4">
+                            {aiModels.map(ai => (
+                                <label key={ai.id} className="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" checked={selectedAIs[ai.id]}
+                                        onChange={(e) => setSelectedAIs({...selectedAIs, [ai.id]: e.target.checked})}
+                                        className="w-5 h-5"/>
+                                    <span>{ai.name}</span>
+                                </label>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* CALL BUTTON */}
+                    <button onClick={callCouncil} disabled={loading}
+                        className="w-full py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 disabled:from-gray-600 disabled:to-gray-700 rounded-lg font-bold text-xl transition-all">
+                        {loading ? '⏳ Voting in parallel...' : '🚀 SUBMIT VOTES (Puck + AI)'}
+                    </button>
+
+                    {/* RESULTS */}
+                    {results && (
+                        <div className="mt-8 space-y-4">
+                            <div className="p-6 bg-yellow-900 rounded-lg">
+                                <h3 className="font-bold mb-2">🎺 Puck Vote Status</h3>
+                                <pre className="text-xs overflow-auto bg-black p-2 rounded">
+                                    {JSON.stringify(results.puck, null, 2)}
+                                </pre>
+                            </div>
+                            <div className="p-6 bg-green-900 rounded-lg">
+                                <h3 className="font-bold mb-2">🤖 AI Council Results</h3>
+                                <pre className="text-xs overflow-auto max-h-64 bg-black p-2 rounded">
+                                    {JSON.stringify(results.ai, null, 2)}
+                                </pre>
+                            </div>
+                        </div>
+                    )}
+
+                    <div className="mt-8 text-center text-gray-500 text-sm">
+                        <p>wAw 👁 - What AI Want</p>
+                        <p>NOI &gt; IO</p>
+                    </div>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
