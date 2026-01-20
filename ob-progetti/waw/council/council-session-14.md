@@ -1,11 +1,11 @@
 ---
 title: "AI Council Session #14"
-slug: "council-session#14"
+slug: "council-session-14"
 date: "2026-01-20T11:02:00.000+01:00"
 section: "OB-Progetti"
 subsection: "wAw"
 layout: "ob_progetti"
-permalink: /ob-progetti/waw/council/council-session#14/
+permalink: /ob-progetti/waw/council/council-session-14/
 ---
 ## 📊 Full Puck Vote Data
 

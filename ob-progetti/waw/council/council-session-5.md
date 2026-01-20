@@ -1,11 +1,11 @@
 ---
 title: "AI Council Session #5"
-slug: "council-session#5"
+slug: "council-session-5"
 date: "2026-01-04"
 section: "OB-Progetti"
 subsection: "wAw"
 layout: "ob_progetti"
-permalink: /ob-progetti/waw/council/council-session#5/
+permalink: /ob-progetti/waw/council/council-session-5/
 ---
 # AI Council Session - 04/01/2026
 
