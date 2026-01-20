@@ -7,6 +7,33 @@ const { notion, config } = require('../api/clients');
 const fs = require('fs').promises;
 const path = require('path');
 
+let cachedVotesSessionRelationProp = null;
+
+async function resolveVotesSessionRelationProperty() {
+  if (cachedVotesSessionRelationProp) return cachedVotesSessionRelationProp;
+  try {
+    const db = await notion.databases.retrieve({
+      database_id: config.WAW_VOTES_DB_ID
+    });
+    const properties = db?.properties || {};
+    for (const [name, prop] of Object.entries(properties)) {
+      if (prop?.type === 'relation' && prop?.relation?.database_id === config.WAW_COUNCIL_DB_ID) {
+        cachedVotesSessionRelationProp = name;
+        return name;
+      }
+    }
+    const fallbackNames = ['Session', 'WAW_COUNCIL', 'WAW Council'];
+    const fallback = fallbackNames.find((name) => properties[name]);
+    if (fallback) {
+      cachedVotesSessionRelationProp = fallback;
+      return fallback;
+    }
+  } catch (error) {
+    console.warn(`⚠️ Could not inspect WAW_VOTES schema: ${error.message}`);
+  }
+  return null;
+}
+
 async function tryUpdateStatus(pageId, statusName) {
   try {
     await notion.pages.update({
@@ -155,30 +182,37 @@ function registerPuckVoteRoute(app) {
         { rank: 3, idea: vote.rank3, reasoning: vote.reasoning3, score: 1 }
       ];
 
+      const sessionRelationProp = await resolveVotesSessionRelationProperty();
+
       for (const voteData of votesData) {
         try {
+          const voteProperties = {
+            'Name': {
+              title: [{ text: { content: `${voteData.idea.substring(0, 50)} - Puck` } }]
+            },
+            'AI Voter': {
+              select: { name: 'Puck (Human)' }
+            },
+            'Score': {
+              number: voteData.score
+            },
+            'Rank': {
+              number: voteData.rank
+            },
+            'Reasoning': {
+              rich_text: [{ text: { content: voteData.reasoning.substring(0, 2000) } }]
+            }
+          };
+
+          if (sessionRelationProp) {
+            voteProperties[sessionRelationProp] = {
+              relation: [{ id: sessionId }]
+            };
+          }
+
           await notion.pages.create({
             parent: { database_id: config.WAW_VOTES_DB_ID },
-            properties: {
-              'Name': {
-                title: [{ text: { content: `${voteData.idea.substring(0, 50)} - Puck` } }]
-              },
-              'AI Voter': {
-                select: { name: 'Puck (Human)' }
-              },
-              'Score': {
-                number: voteData.score
-              },
-              'Rank': {
-                number: voteData.rank
-              },
-              'Reasoning': {
-                rich_text: [{ text: { content: voteData.reasoning.substring(0, 2000) } }]
-              },
-              'Session': {
-                relation: [{ id: sessionId }]
-              }
-            }
+            properties: voteProperties
           });
           console.log(`   ✓ Rank #${voteData.rank}: ${voteData.idea} (${voteData.score}pt)`);
         } catch (error) {
@@ -190,6 +224,7 @@ function registerPuckVoteRoute(app) {
 
       // STEP 3: Create new idea (if provided)
       let newIdeaId = null;
+      let newIdeaDetails = null;
       if (vote.newIdea?.title && vote.newIdea?.description) {
         console.log(`\n💡 Creating Puck's new idea...`);
         
@@ -219,6 +254,12 @@ function registerPuckVoteRoute(app) {
           });
           
           newIdeaId = newIdeaPage.id;
+          newIdeaDetails = {
+            title: vote.newIdea.title,
+            description: vote.newIdea.description,
+            effort: vote.newIdea.effort || 'Medium',
+            impact: vote.newIdea.impact || 'High'
+          };
           console.log(`✅ New idea created: ${vote.newIdea.title}`);
         } catch (error) {
           console.error(`✗ Failed to create new idea: ${error.message}`);
@@ -237,6 +278,7 @@ function registerPuckVoteRoute(app) {
         sessionUrl: councilPage.url,
         votesCreated: 3,
         newIdeaId,
+        newIdea: newIdeaDetails,
         message: 'Puck vote saved! Waiting for AI Council results...'
       });
 

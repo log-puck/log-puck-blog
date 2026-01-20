@@ -268,7 +268,8 @@ Based on AI Council vote, next focus: **${results.votes?.[0]?.idea || 'N/A'}**
                             context: contextPayload,
                             ideas,
                             selectedAIs,
-                            sessionId: puckResult.sessionId
+                            sessionId: puckResult.sessionId,
+                            puckVote
                         })
                     });
 
@@ -276,6 +277,11 @@ Based on AI Council vote, next focus: **${results.votes?.[0]?.idea || 'N/A'}**
                         puck: puckResult,
                         ai: aiResult
                     });
+
+                    // Auto-download files (in addition to manual buttons)
+                    const markdown = buildMarkdown(aiResult);
+                    downloadFile(`waw-session-${new Date().toISOString().split('T')[0]}.md`, markdown, 'text/markdown');
+                    downloadFile(`waw-session-${new Date().toISOString().split('T')[0]}.json`, JSON.stringify(aiResult, null, 2), 'application/json');
 
                 } catch (error) {
                     alert('Error: ' + error.message);

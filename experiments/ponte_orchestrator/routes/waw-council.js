@@ -22,7 +22,7 @@ function safeParseAIResponse(text) {
 function registerWAWCouncilRoute(app) {
   app.post('/api/waw-council', async (req, res) => {
     try {
-      const { context, ideas, selectedAIs, sessionId } = req.body;
+      const { context, ideas, selectedAIs, sessionId, puckVote } = req.body;
       const aiNameMap = {
         claude: 'Claude',
         glm: 'GLM',
@@ -248,6 +248,16 @@ IMPORTANT: Return ONLY valid JSON, no markdown formatting.`;
           });
         }
       });
+
+      if (puckVote) {
+        const puckRanks = [puckVote.rank1, puckVote.rank2, puckVote.rank3];
+        puckRanks.forEach((idea, index) => {
+          const points = [3, 2, 1][index];
+          if (idea) {
+            voteScores[idea] = (voteScores[idea] || 0) + points;
+          }
+        });
+      }
 
       // SPIEGAZIONE: Ordina idee per punteggio (più alto = più votata)
       const sortedVotes = Object.entries(voteScores)
