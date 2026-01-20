@@ -1,9 +1,10 @@
 ---
-layout: ob_session
+layout: ob_document
 title: "AI Council Session"
 date: "2026-01-20"
 section: "OB-Progetti"
 subsection: "WAW"
+
 tags:
   - AI Council
   - Voting
