@@ -176,10 +176,14 @@ tags:
   - Autonomy
 ai_author: "System"
 ai_participants:
-${(results.raw || []).filter(r => !r.error).map(r => `  - ${r.name}`).join('\n')}
+${(results.requestedParticipants || []).map(name => `  - ${name}`).join('\n')}
 ---
 
 # AI Council Session - ${new Date().toLocaleDateString('it-IT')}
+
+## AI Participants
+
+${(results.requestedParticipants || []).map(name => `- ${name}`).join('\n')}
 
 ## Voting Results
 
@@ -206,6 +210,21 @@ Based on AI Council vote, next focus: **${results.votes?.[0]?.idea || 'N/A'}**
 `;
             }
 
+            function exportMarkdown() {
+                if (!results?.ai) return;
+                const markdown = buildMarkdown(results.ai);
+                downloadFile(`waw-session-${new Date().toISOString().split('T')[0]}.md`, markdown, 'text/markdown');
+            }
+
+            function exportJSON() {
+                if (!results?.ai) return;
+                downloadFile(
+                    `waw-session-${new Date().toISOString().split('T')[0]}.json`,
+                    JSON.stringify(results.ai, null, 2),
+                    'application/json'
+                );
+            }
+
             async function callCouncil() {
                 // Validation
                 if (!puckVote.rank1 || !puckVote.rank2 || !puckVote.rank3) {
@@ -222,7 +241,12 @@ Based on AI Council vote, next focus: **${results.votes?.[0]?.idea || 'N/A'}**
 
                 try {
                     const contextText = getContextForPrompt();
-                    const contextPayload = contextMode === 'preset' ? context : { freeText: contextText };
+                    const selectedAiNames = aiModels
+                        .filter((ai) => selectedAIs[ai.id])
+                        .map((ai) => ai.name);
+                    const contextPayload = contextMode === 'preset'
+                        ? { ...context, aiPartner: selectedAiNames }
+                        : { freeText: contextText, aiPartner: selectedAiNames };
                     const ideas = getIdeasForPrompt();
 
                     // SEQUENTIAL CALLS (Puck first -> Council with sessionId)
@@ -252,11 +276,6 @@ Based on AI Council vote, next focus: **${results.votes?.[0]?.idea || 'N/A'}**
                         puck: puckResult,
                         ai: aiResult
                     });
-
-                    // Download files (auto)
-                    const markdown = buildMarkdown(aiResult);
-                    downloadFile(`waw-session-${new Date().toISOString().split('T')[0]}.md`, markdown, 'text/markdown');
-                    downloadFile(`waw-session-${new Date().toISOString().split('T')[0]}.json`, JSON.stringify(aiResult, null, 2), 'application/json');
 
                 } catch (error) {
                     alert('Error: ' + error.message);
@@ -418,6 +437,20 @@ Based on AI Council vote, next focus: **${results.votes?.[0]?.idea || 'N/A'}**
                                 <pre className="text-xs overflow-auto max-h-64 bg-black p-2 rounded">
                                     {JSON.stringify(results.ai, null, 2)}
                                 </pre>
+                            </div>
+                            <div className="flex gap-4">
+                                <button
+                                    onClick={exportMarkdown}
+                                    className="flex-1 py-3 bg-yellow-500 text-black font-bold rounded hover:bg-yellow-400"
+                                >
+                                    📥 Export Markdown
+                                </button>
+                                <button
+                                    onClick={exportJSON}
+                                    className="flex-1 py-3 bg-lime-500 text-black font-bold rounded hover:bg-lime-400"
+                                >
+                                    💾 Save JSON
+                                </button>
                             </div>
                         </div>
                     )}

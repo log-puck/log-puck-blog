@@ -23,10 +23,22 @@ function registerWAWCouncilRoute(app) {
   app.post('/api/waw-council', async (req, res) => {
     try {
       const { context, ideas, selectedAIs, sessionId } = req.body;
+      const aiNameMap = {
+        claude: 'Claude',
+        glm: 'GLM',
+        grok: 'Grok',
+        gemini: 'Gemini',
+        chatgpt: 'ChatGPT',
+        perplexity: 'Perplexity',
+        deepseek: 'DeepSeek'
+      };
+      const requestedParticipants = Object.keys(selectedAIs || {})
+        .filter((key) => selectedAIs[key])
+        .map((key) => aiNameMap[key] || key);
 
       console.log('\n🎯 WAW COUNCIL REQUEST');
       console.log(`Ideas to vote: ${ideas.length}`);
-      console.log(`AIs selected: ${Object.keys(selectedAIs).filter(k => selectedAIs[k]).join(', ')}`);
+      console.log(`AIs selected: ${requestedParticipants.join(', ')}`);
 
       // ✨ AUTO-LOAD COMPLETED WORK FROM DONE-LIST
       const autoCompleted = await getRecentCompleted(10);
@@ -282,6 +294,7 @@ IMPORTANT: Return ONLY valid JSON, no markdown formatting.`;
         success: true,
         raw: allResults,                    // Risposte grezze (per debug)
         failed: failedResults,             // Errori parsing/chiamata
+        requestedParticipants,             // AI coinvolte (anche se fallite)
         votes: sortedVotes,                 // Classifica votazioni
         newIdeas                            // Nuove idee proposte
       });

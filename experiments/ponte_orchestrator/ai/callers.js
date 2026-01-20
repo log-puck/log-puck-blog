@@ -180,7 +180,6 @@ async function callDeepSeek(prompt) {
       max_tokens: 1000
     });
     const response = completion.choices[0].message.content;
-    console.log('🔍 DeepSeek RAW response:', response);
     return response;
   } catch (error) {
     console.error('DeepSeek error:', error.message);

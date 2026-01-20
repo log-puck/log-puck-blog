@@ -97,9 +97,6 @@ async function saveToNotion(data) {
 
   if (sessionId) {
     const updateProperties = {
-      'Build Status': {
-        status: { name: 'Done' }
-      },
       'Winner Score': {
         number: votes[0]?.score || 0
       },
@@ -110,6 +107,11 @@ async function saveToNotion(data) {
         multi_select: results.map(r => ({ name: r.name }))
       }
     };
+    if (contextObject?.techStack) {
+      updateProperties['Tech Stack'] = {
+        rich_text: [{ text: { content: contextObject.techStack.substring(0, 1999) } }]
+      };
+    }
 
     session = await notion.pages.update({
       page_id: sessionId,
@@ -131,9 +133,6 @@ async function saveToNotion(data) {
       'AI Participants': {
         multi_select: results.map(r => ({ name: r.name }))
       },
-      'Build Status': {
-        status: { name: 'Done' }
-      },
       'Winner Score': {
         number: votes[0]?.score || 0
       },
@@ -151,6 +150,11 @@ async function saveToNotion(data) {
     if (contextObject?.completed) {
       sessionProperties['Ideas Completed'] = {
         rich_text: [{ text: { content: contextObject.completed.substring(0, 1999) } }]
+      };
+    }
+    if (contextObject?.techStack) {
+      sessionProperties['Tech Stack'] = {
+        rich_text: [{ text: { content: contextObject.techStack.substring(0, 1999) } }]
       };
     }
 

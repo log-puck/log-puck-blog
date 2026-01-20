@@ -7,6 +7,21 @@ const { notion, config } = require('../api/clients');
 const fs = require('fs').promises;
 const path = require('path');
 
+async function tryUpdateStatus(pageId, statusName) {
+  try {
+    await notion.pages.update({
+      page_id: pageId,
+      properties: {
+        'Build Status': {
+          status: { name: statusName }
+        }
+      }
+    });
+  } catch (error) {
+    console.warn(`⚠️ Could not set Build Status to "${statusName}": ${error.message}`);
+  }
+}
+
 function registerPuckVoteRoute(app) {
   app.post('/api/puck-vote', async (req, res) => {
     try {
@@ -49,9 +64,6 @@ function registerPuckVoteRoute(app) {
           'AI Participants': {
             multi_select: [{ name: 'Puck (Human)' }]
           },
-          'Build Status': {
-            status: { name: 'In Progress' }
-          },
           'Context': {
             rich_text: [{
               text: {
@@ -72,12 +84,20 @@ function registerPuckVoteRoute(app) {
                 text: { content: contextObject.completed.substring(0, 1999) }
               }]
             }
+          } : {}),
+          ...(contextObject?.techStack ? {
+            'Tech Stack': {
+              rich_text: [{
+                text: { content: contextObject.techStack.substring(0, 1999) }
+              }]
+            }
           } : {})
         }
       });
 
       const sessionId = councilPage.id;
       console.log(`✅ Session created: ${councilPage.url}`);
+      await tryUpdateStatus(sessionId, 'Working');
 
       // Add full JSON as code blocks (split if needed)
       try {
