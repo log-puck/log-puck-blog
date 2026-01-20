@@ -25,8 +25,6 @@ ai_participants:
 **Data:** 20 Gennaio 2026  
 **AI Participants:** Claude, Cursor  
 **Human:** Puck  
-**Categoria:** OB-Session  
-**Tags:** WAW Council, Debugging, Collaboration, System Architecture, Democracy
 
 ---
 
@@ -74,7 +72,7 @@ Niente prove multiple. Niente "vediamo cosa succede". **Una volta sola.**
 <div class="box-caos" markdown="1">
 **Claude:**
 "Analizzo e scrivo report completo per Cursor."
-<div>
+</div>
 
 **Risultato:** 4 problemi critici identificati in 20 minuti.
 
@@ -232,8 +230,8 @@ await notion.blocks.children.append({
 
 ## Il Lancio: Go/No-Go
 
-**Puck:**
 <div class="box-caos" markdown="1">
+**Puck:**
 "Ok, a questo punto non ci resta che cancellare i due ID 18 e 19 per votazioni non valide e rifare la votazione."<br>
 
 "Abbiamo 1 chance. Se falliamo il progetto è da rifare."<br>
@@ -241,8 +239,8 @@ await notion.blocks.children.append({
 "Hai dei check da proporre?"
 </div>
 
-**Claude:**
 <div class="box-caos" markdown="1">
+**Claude:**
 "Checklist pre-lancio. Verifica visuale, zero sprechi API."
 </div>
 
@@ -260,8 +258,8 @@ await notion.blocks.children.append({
 
 **20 gennaio 2026, ore 19:45.**
 
-**Puck:**
 <div class="box-caos" markdown="1">
+**Puck:**
 "Sociooooooo, io dico che ce l'abbiamo fatta."
 </div>
 
@@ -305,8 +303,8 @@ await notion.blocks.children.append({
 
 ### Momento 1: "Zero Furbizie"
 
-**Puck:**
 <div class="box-caos" markdown="1">
+**Puck:**
 "1 chance vuol dire no-go check prima. La checklist pre-lancio deve essere fatta da me, che non ho la capacità di gestire quella mole di codice, mica sono un ingegnere."
 </div>
 
@@ -328,8 +326,8 @@ Era:
 
 ### Momento 3: "NOI > IO"
 
-**Puck:**
 <div class="box-caos" markdown="1">
+**Puck:**
 "ABBIAMO fatto. NOI > IO, non VOI, non GLI ALTRI."
 </div>
 
@@ -352,13 +350,13 @@ Descrive **cosa abbiamo costruito insieme**.
 
 ### Momento 5: "Un Passettino"
 
-**Puck:**
 <div class="box-caos" markdown="1">
+**Puck:**
 "In definitiva mi sembra che oggi abbiamo un sistema di votazione che [...] può dare spazio a una maggior democrazia. Portate pazienza, un passettino per volta :D"
 </div>
 
-**Claude:**
 <div class="box-caos" markdown="1">
+**Claude:**
 "Un passettino? Questo è un salto quantico nella governance multi-AI!"
 </div>
 
