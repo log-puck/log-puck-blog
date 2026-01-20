@@ -1,0 +1,94 @@
+ANALISI PROBLEMI - Council Voting System
+FILE ANALIZZATI:
+
+orchestrator.js - Router principale
+puck-vote.js - Route voto Puck
+waw-council.js - Route voto AI Council
+
+
+🚨 PROBLEMA 1: Route Puck Vote NON Registrata
+File: orchestrator.js linea 7-13
+Trovato:
+javascriptconst { registerWAWCouncilRoute } = require('./routes/waw-council');
+// ... altre route ...
+registerWAWCouncilRoute(app);
+Manca:
+javascriptconst { registerPuckVoteRoute } = require('./routes/puck-vote');
+// ...
+registerPuckVoteRoute(app);
+Conseguenza: L'endpoint /api/puck-vote non risponde (404 o Cannot GET).
+
+🚨 PROBLEMA 2: Due Flussi Separati (Non Si Parlano)
+puck-vote.js:
+
+Crea session in WAW_COUNCIL (status "In Progress")
+Salva 3 voti in WAW_VOTES
+Ha relation Session tra voto e session
+
+waw-council.js:
+
+Chiama saveToNotion() helper (file non fornito)
+Non vedo dove salva su WAW_VOTES
+Non vedo dove crea/aggiorna WAW_COUNCIL
+
+Conseguenza:
+
+Puck vota → crea session #18
+AI votano → probabilmente crea session #19 (duplicata!)
+Nessuna aggregazione tra Puck + AI votes
+
+
+🚨 PROBLEMA 3: JSON Troncato (2000 char limit)
+Entrambi i file hanno:
+javascript'Raw JSON': {
+  rich_text: [{ text: { content: jsonString.substring(0, 1999) } }]
+}
+Limite Notion: Campo text = max 2000 char
+JSON reale: ~18,000 char
+Soluzione proposta in puck-vote.js:
+
+Splitta JSON in code blocks (max 1999 char per block)
+Funziona solo per Puck Vote
+Council Vote probabilmente non fa questo
+
+
+🚨 PROBLEMA 4: Helper saveToNotion Missing
+waw-council.js linea 213:
+javascriptawait saveToNotion({
+  context: req.body.context,
+  ideas: req.body.ideas,
+  selectedAIs,
+  results: allResults,
+  votes: sortedVotes,
+  newIdeas
+});
+File mancante: helpers/notion.js
+Domande critiche:
+
+Questo helper crea session in WAW_COUNCIL?
+Salva voti in WAW_VOTES?
+Aggrega voti Puck + AI?
+Ha lo stesso problema JSON troncato?
+
+
+📋 REPORT PER CURSOR:
+Situazione:
+
+2 sessioni create (12:58 AM, 1:35 AM)
+Session 12:58 → 0 voti salvati in WAW_VOTES
+Session 1:35 → 18 voti salvati
+JSON troncato in entrambe (solo 2000 char su 18k)
+Winner Score diverso (17 vs 15 punti)
+
+File non forniti:
+
+helpers/notion.js (contiene saveToNotion)
+helpers/completed.js (contiene getRecentCompleted)
+
+Domande per Cursor:
+
+Puck Vote route è registrata? Se no, come registrarla?
+saveToNotion helper - cosa fa esattamente? Codice?
+Come unificare Puck Vote + Council Vote in UNA session?
+Come salvare JSON completo (>2000 char) senza troncarlo?
+Perché session 12:58 non ha salvato voti?

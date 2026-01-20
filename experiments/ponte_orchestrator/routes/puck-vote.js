@@ -4,11 +4,15 @@
  */
 
 const { notion, config } = require('../api/clients');
+const fs = require('fs').promises;
+const path = require('path');
 
 function registerPuckVoteRoute(app) {
   app.post('/api/puck-vote', async (req, res) => {
     try {
-      const { context, ideas, vote } = req.body;
+      const { context, contextText, ideas, vote } = req.body;
+      const contextObject = context && typeof context === 'object' && !Array.isArray(context) ? context : null;
+      const contextValue = contextText || (typeof context === 'string' ? context : JSON.stringify(context || {}));
 
       console.log('\n🎺 PUCK VOTE - Starting...');
       console.log(`Ideas pool: ${ideas.length}`);
@@ -21,6 +25,11 @@ function registerPuckVoteRoute(app) {
       // STEP 1: Create WAW_SESSION (In Progress)
       console.log(`\n📋 Creating Council Session #${sessionNumber}...`);
       
+      // Prepare full JSON data
+      const fullJson = { puckVote: vote, context, ideas };
+      const jsonString = JSON.stringify(fullJson, null, 2);
+
+      // Create page with summary in Raw JSON
       const councilPage = await notion.pages.create({
         parent: { database_id: config.WAW_COUNCIL_DB_ID },
         properties: {
@@ -33,7 +42,7 @@ function registerPuckVoteRoute(app) {
           'Raw JSON': {
             rich_text: [{ 
               text: { 
-                content: JSON.stringify({ puckVote: vote, context, ideas }, null, 2).substring(0, 2000)
+                content: `Puck Vote - ${jsonString.length} chars (see Full Data below)`
               } 
             }]
           },
@@ -44,15 +53,78 @@ function registerPuckVoteRoute(app) {
             status: { name: 'In Progress' }
           },
           'Context': {
-            rich_text: [{ 
-              text: { content: typeof context === 'string' ? context : JSON.stringify(context) } 
+            rich_text: [{
+              text: {
+                content: contextValue.substring(0, 1999)
+              }
             }]
-          }
+          },
+          ...(contextObject?.currentFocus ? {
+            'Current Focus': {
+              rich_text: [{
+                text: { content: contextObject.currentFocus.substring(0, 1999) }
+              }]
+            }
+          } : {}),
+          ...(contextObject?.completed ? {
+            'Ideas Completed': {
+              rich_text: [{
+                text: { content: contextObject.completed.substring(0, 1999) }
+              }]
+            }
+          } : {})
         }
       });
 
       const sessionId = councilPage.id;
       console.log(`✅ Session created: ${councilPage.url}`);
+
+      // Add full JSON as code blocks (split if needed)
+      try {
+        const maxBlockSize = 1999;
+        const jsonChunks = [];
+        
+        for (let i = 0; i < jsonString.length; i += maxBlockSize) {
+          jsonChunks.push(jsonString.substring(i, i + maxBlockSize));
+        }
+
+        const blocks = [
+          {
+            object: 'block',
+            type: 'heading_2',
+            heading_2: {
+              rich_text: [{
+                type: 'text',
+                text: { content: '📊 Full Puck Vote Data' }
+              }]
+            }
+          }
+        ];
+
+        // Add each chunk as a code block
+        jsonChunks.forEach((chunk, idx) => {
+          blocks.push({
+            object: 'block',
+            type: 'code',
+            code: {
+              language: 'json',
+              rich_text: [{
+                type: 'text',
+                text: { content: chunk }
+              }]
+            }
+          });
+        });
+
+        await notion.blocks.children.append({
+          block_id: sessionId,
+          children: blocks
+        });
+        
+        console.log(`✅ Full JSON saved as ${jsonChunks.length} code block(s)`);
+      } catch (uploadError) {
+        console.error(`⚠️ Failed to save full JSON: ${uploadError.message}`);
+      }
 
       // STEP 2: Create 3 VOTES for Puck
       console.log(`\n🗳️ Creating Puck's 3 votes...`);

@@ -11,6 +11,7 @@ const { registerTasksRoute } = require('./routes/tasks');
 const { registerIdeasRoute } = require('./routes/ideas');
 const { registerAIModelsRoute } = require('./routes/ai-models');
 const { registerSubmitToAIRoute } = require('./routes/submit-to-ai');
+const { registerPuckVoteRoute } = require('./routes/puck-vote');
 const { registerWriteToNotionRoute } = require('./routes/write-to-notion');
 const { registerWAWCouncilRoute } = require('./routes/waw-council');
 
@@ -28,6 +29,7 @@ function createApp() {
   app.use(express.static(path.join(__dirname, '../public'))); // Serve index.html da cartella public
 
   // Registra routes
+  registerPuckVoteRoute(app);
   registerTemplatesRoute(app);
   registerTasksRoute(app);
   registerIdeasRoute(app);

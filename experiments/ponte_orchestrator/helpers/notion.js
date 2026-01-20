@@ -48,11 +48,40 @@ async function getNextSessionNumber() {
     sorts: [{ property: 'ID', direction: 'descending' }],
     page_size: 1
   });
-  
+
   if (sessions.results.length === 0) return 1;
-  
-  const lastId = sessions.results[0].properties.ID.unique_id.number;
-  return lastId + 1;
+
+  const session = sessions.results[0];
+  const uniqueId = session?.properties?.ID?.unique_id?.number;
+  if (typeof uniqueId === 'number') return uniqueId + 1;
+
+  const title = session?.properties?.Name?.title?.[0]?.text?.content || '';
+  const match = title.match(/#(\d+)/);
+  return match ? parseInt(match[1], 10) + 1 : 1;
+}
+
+const WAW_VOTES_RELATION_PROP = 'WAW_VOTES';
+
+async function appendVotesToIdeaRelation(ideaId, voteIds) {
+  if (!voteIds.length) return;
+
+  const ideaPage = await notion.pages.retrieve({ page_id: ideaId });
+  const relationProp = ideaPage?.properties?.[WAW_VOTES_RELATION_PROP];
+
+  if (!relationProp || relationProp.type !== 'relation') {
+    console.warn(`⚠️ Relation property "${WAW_VOTES_RELATION_PROP}" not found on WAW_IDEAS`);
+    return;
+  }
+
+  const existing = (relationProp.relation || []).map((rel) => rel.id);
+  const merged = Array.from(new Set([...existing, ...voteIds])).map((id) => ({ id }));
+
+  await notion.pages.update({
+    page_id: ideaId,
+    properties: {
+      [WAW_VOTES_RELATION_PROP]: { relation: merged }
+    }
+  });
 }
 
 /**
@@ -61,12 +90,34 @@ async function getNextSessionNumber() {
  * @returns {Promise<Object>} Sessione creata in Notion
  */
 async function saveToNotion(data) {
-  const { context, results, votes, newIdeas } = data;
+  const { sessionId, context, results, votes, newIdeas } = data;
+  const contextObject = context && typeof context === 'object' && !Array.isArray(context) ? context : null;
   
-  // STEP 1: Crea Session
-  const session = await notion.pages.create({
-    parent: { database_id: config.WAW_COUNCIL_DB_ID },
-    properties: {
+  let session;
+
+  if (sessionId) {
+    const updateProperties = {
+      'Build Status': {
+        status: { name: 'Done' }
+      },
+      'Winner Score': {
+        number: votes[0]?.score || 0
+      },
+      'Winner Idea': {
+        rich_text: [{ text: { content: votes[0]?.idea || 'N/A' } }]
+      },
+      'AI Participants': {
+        multi_select: results.map(r => ({ name: r.name }))
+      }
+    };
+
+    session = await notion.pages.update({
+      page_id: sessionId,
+      properties: updateProperties
+    });
+  } else {
+    // STEP 1: Crea Session
+    const sessionProperties = {
       'Name': {
         title: [{ text: { content: `AI Council Session #${await getNextSessionNumber()}` }}]
       },
@@ -74,13 +125,13 @@ async function saveToNotion(data) {
         date: { start: new Date().toISOString().split('T')[0] }
       },
       'Raw JSON': {
-        rich_text: [{ text: { content: JSON.stringify({ context, results, votes, newIdeas }, null, 2) } }]
+        rich_text: [{ text: { content: JSON.stringify({ context, results, votes, newIdeas }, null, 2).substring(0, 1999) } }]
       },
       'AI Participants': {
         multi_select: results.map(r => ({ name: r.name }))
       },
       'Build Status': {
-        select: { name: 'Done' }
+        status: { name: 'Done' }
       },
       'Winner Score': {
         number: votes[0]?.score || 0
@@ -88,9 +139,74 @@ async function saveToNotion(data) {
       'Winner Idea': {
         rich_text: [{ text: { content: votes[0]?.idea || 'N/A' } }]
       }
+    };
+
+    if (contextObject?.currentFocus) {
+      sessionProperties['Current Focus'] = {
+        rich_text: [{ text: { content: contextObject.currentFocus.substring(0, 1999) } }]
+      };
     }
-  });
+
+    if (contextObject?.completed) {
+      sessionProperties['Ideas Completed'] = {
+        rich_text: [{ text: { content: contextObject.completed.substring(0, 1999) } }]
+      };
+    }
+
+    session = await notion.pages.create({
+      parent: { database_id: config.WAW_COUNCIL_DB_ID },
+      properties: sessionProperties
+    });
+  }
   
+  const ideaVotesMap = new Map();
+
+  // Add full JSON as code blocks
+try {
+  const fullJson = { context, results, votes, newIdeas };
+  const jsonString = JSON.stringify(fullJson, null, 2);
+  const maxBlockSize = 1999;
+  const jsonChunks = [];
+  
+  for (let i = 0; i < jsonString.length; i += maxBlockSize) {
+    jsonChunks.push(jsonString.substring(i, i + maxBlockSize));
+  }
+
+  const blocks = [
+    {
+      object: 'block',
+      type: 'heading_2',
+      heading_2: {
+        rich_text: [{
+          type: 'text',
+          text: { content: '📊 Full Council Data' }
+        }]
+      }
+    }
+  ];
+
+  jsonChunks.forEach((chunk) => {
+    blocks.push({
+      object: 'block',
+      type: 'code',
+      code: {
+        language: 'json',
+        rich_text: [{
+          type: 'text',
+          text: { content: chunk }
+        }]
+      }
+    });
+  });
+
+  await notion.blocks.children.append({
+    block_id: session.id,
+    children: blocks
+  });
+} catch (uploadError) {
+  console.error(`⚠️ Failed to save full JSON: ${uploadError.message}`);
+}
+
   // STEP 2: Per ogni idea votata
   for (const vote of votes) {
     // Find or create idea
@@ -98,30 +214,40 @@ async function saveToNotion(data) {
     
     // Crea voto per ogni AI che l'ha votata
     for (const aiVote of vote.votes) {
-      await notion.pages.create({
-        parent: { database_id: config.WAW_VOTES_DB_ID },
-        properties: {
-          'Name': {
-            title: [{ text: { content: `${vote.idea} - ${aiVote.ai}` }}]
-          },
-          'AI Voter': {
-            select: { name: aiVote.ai }
-          },
-          'Score': {
-            number: [3, 2, 1][aiVote.rank - 1] // rank 1=3pt, 2=2pt, 3=1pt
-          },
-          'Rank': {
-            number: aiVote.rank
-          },
-          'Reasoning': {
-            rich_text: [{ text: { content: aiVote.reasoning }}]
-          },
-          'WAW_IDEAS': {
-            relation: [{ id: idea.id }]
-          }
+      const voteProperties = {
+        'Name': {
+          title: [{ text: { content: `${vote.idea} - ${aiVote.ai}` }}]
+        },
+        'AI Voter': {
+          select: { name: aiVote.ai }
+        },
+        'Score': {
+          number: [3, 2, 1][aiVote.rank - 1] // rank 1=3pt, 2=2pt, 3=1pt
+        },
+        'Rank': {
+          number: aiVote.rank
+        },
+        'Reasoning': {
+          rich_text: [{ text: { content: aiVote.reasoning }}]
+        },
+        'Session': {
+          relation: [{ id: session.id }]
         }
+      };
+
+      const votePage = await notion.pages.create({
+        parent: { database_id: config.WAW_VOTES_DB_ID },
+        properties: voteProperties
       });
+
+      const existing = ideaVotesMap.get(idea.id) || [];
+      existing.push(votePage.id);
+      ideaVotesMap.set(idea.id, existing);
     }
+  }
+
+  for (const [ideaId, voteIds] of ideaVotesMap.entries()) {
+    await appendVotesToIdeaRelation(ideaId, voteIds);
   }
   
   // STEP 3: Per ogni nuova idea

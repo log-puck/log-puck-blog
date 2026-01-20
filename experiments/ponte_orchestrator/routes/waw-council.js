@@ -6,10 +6,23 @@ const { callGemini, callClaude, callChatGPT, callGrok, callGLM, callPerplexity, 
 const { saveToNotion } = require('../helpers/notion');
 const { getRecentCompleted } = require('../helpers/completed');
 
+function safeParseAIResponse(text) {
+  const jsonMatch = text.match(/\{[\s\S]*\}/);
+  if (!jsonMatch) {
+    return { data: null, error: 'No JSON object found in response' };
+  }
+
+  try {
+    return { data: JSON.parse(jsonMatch[0]), error: null };
+  } catch (error) {
+    return { data: null, error: `Invalid JSON: ${error.message}` };
+  }
+}
+
 function registerWAWCouncilRoute(app) {
   app.post('/api/waw-council', async (req, res) => {
     try {
-      const { context, ideas, selectedAIs } = req.body;
+      const { context, ideas, selectedAIs, sessionId } = req.body;
 
       console.log('\n🎯 WAW COUNCIL REQUEST');
       console.log(`Ideas to vote: ${ideas.length}`);
@@ -63,11 +76,12 @@ IMPORTANT: Return ONLY valid JSON, no markdown formatting.`;
         apiCalls.push(
           callClaude(prompt)
             .then(text => {
-              const jsonMatch = text.match(/\{[\s\S]*\}/);
+              const { data, error } = safeParseAIResponse(text);
               return {
                 id: 'claude',
                 name: 'Claude',
-                data: jsonMatch ? JSON.parse(jsonMatch[0]) : null
+                data,
+                error
               };
             })
             .catch(err => ({ 
@@ -82,11 +96,12 @@ IMPORTANT: Return ONLY valid JSON, no markdown formatting.`;
         apiCalls.push(
           callGLM(prompt)
             .then(text => {
-              const jsonMatch = text.match(/\{[\s\S]*\}/);
+              const { data, error } = safeParseAIResponse(text);
               return {
                 id: 'glm',
                 name: 'GLM',
-                data: jsonMatch ? JSON.parse(jsonMatch[0]) : null
+                data,
+                error
               };
             })
             .catch(err => ({ 
@@ -101,11 +116,12 @@ IMPORTANT: Return ONLY valid JSON, no markdown formatting.`;
         apiCalls.push(
           callGrok(prompt)
             .then(text => {
-              const jsonMatch = text.match(/\{[\s\S]*\}/);
+              const { data, error } = safeParseAIResponse(text);
               return {
                 id: 'grok',
                 name: 'Grok',
-                data: jsonMatch ? JSON.parse(jsonMatch[0]) : null
+                data,
+                error
               };
             })
             .catch(err => ({ 
@@ -120,11 +136,12 @@ IMPORTANT: Return ONLY valid JSON, no markdown formatting.`;
         apiCalls.push(
           callGemini(prompt)
             .then(text => {
-              const jsonMatch = text.match(/\{[\s\S]*\}/);
+              const { data, error } = safeParseAIResponse(text);
               return {
                 id: 'gemini',
                 name: 'Gemini',
-                data: jsonMatch ? JSON.parse(jsonMatch[0]) : null
+                data,
+                error
               };
             })
             .catch(err => ({ 
@@ -139,11 +156,12 @@ IMPORTANT: Return ONLY valid JSON, no markdown formatting.`;
         apiCalls.push(
           callChatGPT(prompt)
             .then(text => {
-              const jsonMatch = text.match(/\{[\s\S]*\}/);
+              const { data, error } = safeParseAIResponse(text);
               return {
                 id: 'chatgpt',
                 name: 'ChatGPT',
-                data: jsonMatch ? JSON.parse(jsonMatch[0]) : null
+                data,
+                error
               };
             })
             .catch(err => ({ 
@@ -158,11 +176,12 @@ IMPORTANT: Return ONLY valid JSON, no markdown formatting.`;
         apiCalls.push(
           callPerplexity(prompt)
             .then(text => {
-              const jsonMatch = text.match(/\{[\s\S]*\}/);
+              const { data, error } = safeParseAIResponse(text);
               return {
                 id: 'perplexity',
                 name: 'Perplexity',
-                data: jsonMatch ? JSON.parse(jsonMatch[0]) : null
+                data,
+                error
               };
             })
             .catch(err => ({ 
@@ -177,11 +196,12 @@ IMPORTANT: Return ONLY valid JSON, no markdown formatting.`;
         apiCalls.push(
           callDeepSeek(prompt)
             .then(text => {
-              const jsonMatch = text.match(/\{[\s\S]*\}/);
+              const { data, error } = safeParseAIResponse(text);
               return {
                 id: 'deepseek',
                 name: 'DeepSeek',
-                data: jsonMatch ? JSON.parse(jsonMatch[0]) : null
+                data,
+                error
               };
             })
             .catch(err => ({ 
@@ -195,6 +215,10 @@ IMPORTANT: Return ONLY valid JSON, no markdown formatting.`;
       // SPIEGAZIONE: Aspetta che TUTTE le chiamate finiscano
       const allResults = await Promise.all(apiCalls);
       console.log(`✅ Received ${allResults.length} responses`);
+      const failedResults = allResults.filter(r => r.error || !r.data);
+      if (failedResults.length) {
+        console.warn('⚠️ Some AI responses were invalid:', failedResults.map(r => `${r.name}: ${r.error || 'no data'}`).join(' | '));
+      }
 
       // SPIEGAZIONE: Aggregazione voti
       // priority_1 = 3 punti, priority_2 = 2 punti, priority_3 = 1 punto
@@ -238,6 +262,7 @@ IMPORTANT: Return ONLY valid JSON, no markdown formatting.`;
       // ✨ NEW: SALVA IN NOTION
       try {
         await saveToNotion({
+          sessionId,
           context: req.body.context,
           ideas: req.body.ideas,
           selectedAIs,
@@ -256,6 +281,7 @@ IMPORTANT: Return ONLY valid JSON, no markdown formatting.`;
       res.json({
         success: true,
         raw: allResults,                    // Risposte grezze (per debug)
+        failed: failedResults,             // Errori parsing/chiamata
         votes: sortedVotes,                 // Classifica votazioni
         newIdeas                            // Nuove idee proposte
       });
