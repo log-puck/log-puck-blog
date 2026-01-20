@@ -115,6 +115,7 @@ async function saveToNotion(data) {
       page_id: sessionId,
       properties: updateProperties
     });
+    console.log(`📝 Updating existing session: ${sessionId}`);
   } else {
     // STEP 1: Crea Session
     const sessionProperties = {
