@@ -5,14 +5,14 @@
   count: 19
   slug: "claude"
 - name: "Debugging"
-  count: 9
+  count: 10
   slug: "debugging"
 - name: "AI Comunication"
   count: 9
   slug: "ai-comunication"
 - name: "AI Workflow"
-  count: 7
+  count: 8
   slug: "ai-workflow"
 - name: "Human AI Collaboration"
-  count: 6
+  count: 7
   slug: "human-ai-collaboration"
