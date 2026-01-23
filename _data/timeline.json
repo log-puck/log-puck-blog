@@ -1,12 +1,36 @@
 {
   "tasks": [
     {
+      "id": "2f16f014-6d11-8042-a507-f1e82acfaa23",
+      "date": "2026-01-23",
+      "category": "Infrastructure",
+      "title": "Format Server Hetzner",
+      "description": "Critical Decision 1: Formatted disk on Hetzner server, restoring necessary applications",
+      "is_latest": true
+    },
+    {
+      "id": "2ef6f014-6d11-8037-acd7-ec188f382325",
+      "date": "2026-01-21",
+      "category": "Content",
+      "title": "add new AI Council session documentation",
+      "description": "Introduced new markdown files for AI Council Sessions #12, #13, and #14, detailing voting results and proposed ideas.",
+      "is_latest": false
+    },
+    {
+      "id": "2ef6f014-6d11-80a5-9f2e-e8c74b8967cc",
+      "date": "2026-01-21",
+      "category": "Infrastructure",
+      "title": "enhance Puck Vote and WAW Council integration with session tracking",
+      "description": "Introduced a caching mechanism for resolving session relation properties in Puck Vote.\n- Updated Puck Vote route to dynamically include session relation properties when creating votes.\n- Modified WAW Council route to process and tally votes from Puck Vote submissions.\n- Enhanced HTML to include Puck Vote data in API calls for improved session management.\n- Added new markdown and JSON files to document the AI Council session outcomes and proposed ideas.",
+      "is_latest": false
+    },
+    {
       "id": "2ec6f014-6d11-80a3-943b-de34e5089bb6",
       "date": "2026-01-18",
       "category": "Content",
       "title": "Golden Moments Protocol",
       "description": "Check Granulari per impostare i nodi da seguire per replicabilità evento",
-      "is_latest": true
+      "is_latest": false
     },
     {
       "id": "2ec6f014-6d11-801b-b695-ca6f706e8d85",
@@ -593,14 +617,14 @@
     "Design"
   ],
   "summary": {
-    "total": 73,
+    "total": 76,
     "by_category": {
-      "Infrastructure": 32,
-      "Content": 29,
+      "Infrastructure": 34,
+      "Content": 30,
       "Feature": 8,
       "Fix": 3,
       "Design": 0
     }
   },
-  "last_updated": "2026-01-20T21:32:38.028423"
+  "last_updated": "2026-01-23T07:57:08.711983"
 }
