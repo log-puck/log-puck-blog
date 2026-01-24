@@ -1,12 +1,20 @@
 {
   "tasks": [
     {
+      "id": "2f26f014-6d11-8005-b399-eaca7b724dec",
+      "date": "2026-01-24",
+      "category": "Infrastructure",
+      "title": "Added gateway on server with https protocol",
+      "description": "Add Caddy reverse proxy and Docker Compose setup for Node.js service; update .gitignore and ",
+      "is_latest": true
+    },
+    {
       "id": "2f16f014-6d11-801c-9c70-f7e5d3d75190",
       "date": "2026-01-23",
       "category": "General",
       "title": "Alligned Spec file at today State",
       "description": "Describe all parts of our Site in specific spec",
-      "is_latest": true
+      "is_latest": false
     },
     {
       "id": "2f16f014-6d11-8042-a507-f1e82acfaa23",
@@ -625,14 +633,14 @@
     "Design"
   ],
   "summary": {
-    "total": 77,
+    "total": 78,
     "by_category": {
-      "Infrastructure": 34,
+      "Infrastructure": 35,
       "Content": 30,
       "Feature": 8,
       "Fix": 3,
       "Design": 0
     }
   },
-  "last_updated": "2026-01-24T17:52:39.836873"
+  "last_updated": "2026-01-24T19:53:21.107764"
 }
