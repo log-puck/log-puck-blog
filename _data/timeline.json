@@ -1,12 +1,20 @@
 {
   "tasks": [
     {
+      "id": "2f16f014-6d11-801c-9c70-f7e5d3d75190",
+      "date": "2026-01-23",
+      "category": "General",
+      "title": "Alligned Spec file at today State",
+      "description": "Describe all parts of our Site in specific spec",
+      "is_latest": true
+    },
+    {
       "id": "2f16f014-6d11-8042-a507-f1e82acfaa23",
       "date": "2026-01-23",
       "category": "Infrastructure",
       "title": "Format Server Hetzner",
       "description": "Critical Decision 1: Formatted disk on Hetzner server, restoring necessary applications",
-      "is_latest": true
+      "is_latest": false
     },
     {
       "id": "2ef6f014-6d11-8037-acd7-ec188f382325",
@@ -617,7 +625,7 @@
     "Design"
   ],
   "summary": {
-    "total": 76,
+    "total": 77,
     "by_category": {
       "Infrastructure": 34,
       "Content": 30,
@@ -626,5 +634,5 @@
       "Design": 0
     }
   },
-  "last_updated": "2026-01-23T09:34:29.940161"
+  "last_updated": "2026-01-24T13:44:05.252595"
 }
