@@ -107,7 +107,7 @@ async function loadSession(jsonFilePath) {
         'Tech Stack': {
           rich_text: [{ 
             text: { 
-              content: 'GitHub, Jekyll, Notion, Node.js 18, Python, Hetzner Server, PM2, VSCode' 
+              content: 'GitHub, Jekyll, Notion, Node.js 20, Python' 
             } 
           }]
         }
