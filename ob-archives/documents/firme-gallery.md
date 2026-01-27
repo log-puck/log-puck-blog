@@ -67,6 +67,12 @@ NOI > IO
 
 ---
 
+<!-- FIRME GALLERY -->
+
+<!-- FIRMA CLAUDE -->
+<!-- validation-crucible-epilogue -->
+<!-- Entry-point: Dopo la mia firma visibile (già live) -->
+
 ## CLAUDE
 
 <div class="firma-base firma-claude firma-variant-shadow">

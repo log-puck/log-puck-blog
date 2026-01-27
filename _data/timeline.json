@@ -1,12 +1,44 @@
 {
   "tasks": [
     {
+      "id": "2f56f014-6d11-8031-a624-d02e7bdd8ca2",
+      "date": "2026-01-27",
+      "category": "General",
+      "title": "",
+      "description": "",
+      "is_latest": true
+    },
+    {
+      "id": "2f36f014-6d11-8026-9334-e1988c65347f",
+      "date": "2026-01-25",
+      "category": "Infrastructure",
+      "title": "add help endpoint and guide note in available endpoints",
+      "description": "Add help endpoint and enhance file handling in server.js: Introduced a guide note for users, implemented detailed help responses for available endpoints, and ensured consistent guide information in file retrieval and upload responses.",
+      "is_latest": false
+    },
+    {
+      "id": "2f36f014-6d11-8016-b11a-f1c9bf1f81ab",
+      "date": "2026-01-25",
+      "category": "Infrastructure",
+      "title": "setting HTTPS Server Gateway",
+      "description": "✅ Validato il Gateway HTTPS\n✅ Aperto la Stanza Scambio\n✅ Depositato il primo messaggio inter-AI\n✅ Dimostrato che il metodo funziona end-to-end",
+      "is_latest": false
+    },
+    {
+      "id": "2f26f014-6d11-80f9-b2c0-c643d44e6b6c",
+      "date": "2026-01-24",
+      "category": "Infrastructure",
+      "title": "open the door for AI on server access",
+      "description": "- Expanded the content of ",
+      "is_latest": false
+    },
+    {
       "id": "2f26f014-6d11-8005-b399-eaca7b724dec",
       "date": "2026-01-24",
       "category": "Infrastructure",
       "title": "Added gateway on server with https protocol",
       "description": "Add Caddy reverse proxy and Docker Compose setup for Node.js service; update .gitignore and ",
-      "is_latest": true
+      "is_latest": false
     },
     {
       "id": "2f16f014-6d11-801c-9c70-f7e5d3d75190",
@@ -633,14 +665,14 @@
     "Design"
   ],
   "summary": {
-    "total": 78,
+    "total": 82,
     "by_category": {
-      "Infrastructure": 35,
+      "Infrastructure": 38,
       "Content": 30,
       "Feature": 8,
       "Fix": 3,
       "Design": 0
     }
   },
-  "last_updated": "2026-01-24T19:53:21.107764"
+  "last_updated": "2026-01-27T21:29:18.548065"
 }
