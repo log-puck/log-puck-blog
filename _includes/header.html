@@ -17,9 +17,17 @@
                     <ul class="dropdown-menu">
                         <li><a href="{{ '/ob-progetti/musicaai/' | relative_url }}" {% if page.url contains '/ob-progetti/musicaai/' %}class="active"{% endif %}>Musica</a></li>
                         <li><a href="{{ '/ob-progetti/giochiai/' | relative_url }}" {% if page.url contains '/ob-progetti/giochiai/' %}class="active"{% endif %}>Giochi</a></li>
-                        <li><a href="{{ '/ob-progetti/waw/council/' | relative_url }}" {% if page.url contains '/ob-progetti/waw/council/' %}class="active"{% endif %}>wAw - Council</a></li>
-                        <li><a href="{{ '/ob-progetti/waw/evolution/' | relative_url }}" {% if page.url contains '/ob-progetti/waw/evolution/' %}class="active"{% endif %}>wAw - Evolution</a></li>
-                        <li><a href="{{ '/ob-progetti/waw/metabolism/' | relative_url }}" {% if page.url contains '/ob-progetti/waw/metabolism/' %}class="active"{% endif %}>wAw - Metabolism</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-dropdown">
+                    <a href="{{ '/ob-progetti/waw/' | relative_url }}" class="nav-link {% if page.url contains '/ob-progetti/waw/' %}active{% endif %}">
+                        wAw <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ '/ob-progetti/waw/council/' | relative_url }}" {% if page.url contains '/ob-progetti/waw/council/' %}class="active"{% endif %}>Council</a></li>
+                        <li><a href="{{ '/ob-progetti/waw/evolution/' | relative_url }}" {% if page.url contains '/ob-progetti/waw/evolution/' %}class="active"{% endif %}>Evolution</a></li>
+                        <li><a href="{{ '/ob-progetti/waw/metabolism/' | relative_url }}" {% if page.url contains '/ob-progetti/waw/metabolism/' %}class="active"{% endif %}>Metabolism</a></li>
                     </ul>
                 </li>
                 
