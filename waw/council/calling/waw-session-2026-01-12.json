@@ -1,0 +1,290 @@
+{
+  "success": true,
+  "raw": [
+    {
+      "id": "claude",
+      "name": "Claude",
+      "data": {
+        "vote": {
+          "priority_1": "Session memory system (Council legge ultimi N completed automaticamente)",
+          "priority_2": "Automated changelog generator (da Done-List → markdown readable)",
+          "priority_3": "Workflow tracking dashboard (visual timeline lavori)",
+          "reasoning": "Session memory system is critical for maintaining context across interactions and preventing work repetition. Automated changelog builds on existing done-list infrastructure for immediate value. Visual dashboard, while useful, can wait until core workflow systems are solid."
+        },
+        "new_idea": {
+          "title": "Smart task dependency mapper",
+          "description": "Auto-detect dependencies between completed and pending tasks using NLP analysis of descriptions, preventing prerequisite conflicts and suggesting optimal work sequences.",
+          "effort": "Medium",
+          "impact": "High"
+        }
+      }
+    },
+    {
+      "id": "glm",
+      "name": "GLM",
+      "data": {
+        "vote": {
+          "priority_1": "1. Automated changelog generator (da Done-List → markdown readable)",
+          "priority_2": "2. Session memory system (Council legge ultimi N completed automaticamente)",
+          "priority_3": "3. Workflow tracking dashboard (visual timeline lavori)",
+          "reasoning": "Changelog generator provides immediate value for project documentation and transparency. Session memory system enhances AI-human collaboration by providing context. Dashboard improves workflow visibility but is more of a nice-to-have."
+        },
+        "new_idea": {
+          "title": "Automated backup and versioning system",
+          "description": "Automatically backs up Notion content, GitHub repository, and database snapshots to prevent data loss.",
+          "effort": "Medium",
+          "impact": "High"
+        }
+      }
+    },
+    {
+      "id": "grok",
+      "name": "Grok",
+      "data": {
+        "vote": {
+          "priority_1": "Session memory system (Council legge ultimi N completed automaticamente)",
+          "priority_2": "Automated changelog generator (da Done-List → markdown readable)",
+          "priority_3": "Workflow tracking dashboard (visual timeline lavori)",
+          "reasoning": "Prioritized session memory first for maintaining project memory, followed by changelog for tracking completed work, and dashboard for visual workflow oversight, aligning with current focus on workflow systems."
+        },
+        "new_idea": {
+          "title": "AI-Powered Task Suggestion Engine",
+          "description": "An engine that analyzes pending ideas and completed tasks to suggest next actions or refinements, integrating with the council system for automated proposals.",
+          "effort": "Medium",
+          "impact": "High"
+        }
+      }
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini",
+      "data": {
+        "vote": {
+          "priority_1": "Workflow tracking dashboard (visual timeline lavori)",
+          "priority_2": "Automated changelog generator (da Done-List → markdown readable)",
+          "priority_3": "Session memory system (Council legge ultimi N completed automaticamente)",
+          "reasoning": "Workflow tracking dashboard offers immediate visibility and project management value. Automated changelog simplifies documentation. Session memory helps Council stay informed."
+        },
+        "new_idea": {
+          "title": "Automated Link Checker",
+          "description": "Periodically scan the blog for broken links (internal and external) and report them, ensuring content remains accessible and relevant.",
+          "effort": "Low",
+          "impact": "Medium"
+        }
+      }
+    },
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "data": {
+        "vote": {
+          "priority_1": "Workflow tracking dashboard (visual timeline lavori)",
+          "priority_2": "Session memory system (Council legge ultimi N completed automaticamente)",
+          "priority_3": "Automated changelog generator (da Done-List → markdown readable)",
+          "reasoning": "The workflow tracking dashboard provides a comprehensive overview of project progress, which is critical for team collaboration. The session memory system enhances the visibility of recent work, further aiding in project continuity. The automated changelog generator, while useful, is lower in priority as it primarily benefits documentation rather than immediate project management."
+        },
+        "new_idea": {
+          "title": "User Feedback Loop System",
+          "description": "A mechanism to collect and analyze user feedback on blog posts and features, enabling continuous improvement based on audience engagement.",
+          "effort": "Medium",
+          "impact": "High"
+        }
+      }
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity",
+      "data": {
+        "vote": {
+          "priority_1": "1. Automated changelog generator (da Done-List → markdown readable)",
+          "priority_2": "2. Session memory system (Council legge ultimi N completed automaticamente)",
+          "priority_3": "3. Workflow tracking dashboard (visual timeline lavori)",
+          "reasoning": "Automated changelog is highest priority as it directly leverages existing GitHub Actions and Done-List for immediate automation value with low implementation effort using tools like jaywcjlove/changelog-generator[1]. Session memory builds essential project memory for the Council system next. Dashboard provides visualization but requires more UI effort."
+        },
+        "new_idea": {
+          "title": "AI-Powered Progress Summarizer",
+          "description": "Uses AI to generate concise summaries of completed work from Done-List and changelogs for quick status overviews in the dashboard or homepage. Integrates with existing Node.js/Python stack for periodic generation.",
+          "effort": "Medium",
+          "impact": "High"
+        }
+      }
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek-V3",
+      "data": null
+    }
+  ],
+  "votes": [
+    {
+      "idea": "Session memory system (Council legge ultimi N completed automaticamente)",
+      "score": 9,
+      "votes": [
+        {
+          "ai": "Claude",
+          "rank": 1,
+          "reasoning": "Session memory system is critical for maintaining context across interactions and preventing work repetition. Automated changelog builds on existing done-list infrastructure for immediate value. Visual dashboard, while useful, can wait until core workflow systems are solid."
+        },
+        {
+          "ai": "Grok",
+          "rank": 1,
+          "reasoning": "Prioritized session memory first for maintaining project memory, followed by changelog for tracking completed work, and dashboard for visual workflow oversight, aligning with current focus on workflow systems."
+        },
+        {
+          "ai": "Gemini",
+          "rank": 3,
+          "reasoning": "Workflow tracking dashboard offers immediate visibility and project management value. Automated changelog simplifies documentation. Session memory helps Council stay informed."
+        },
+        {
+          "ai": "ChatGPT",
+          "rank": 2,
+          "reasoning": "The workflow tracking dashboard provides a comprehensive overview of project progress, which is critical for team collaboration. The session memory system enhances the visibility of recent work, further aiding in project continuity. The automated changelog generator, while useful, is lower in priority as it primarily benefits documentation rather than immediate project management."
+        }
+      ]
+    },
+    {
+      "idea": "Workflow tracking dashboard (visual timeline lavori)",
+      "score": 8,
+      "votes": [
+        {
+          "ai": "Claude",
+          "rank": 3,
+          "reasoning": "Session memory system is critical for maintaining context across interactions and preventing work repetition. Automated changelog builds on existing done-list infrastructure for immediate value. Visual dashboard, while useful, can wait until core workflow systems are solid."
+        },
+        {
+          "ai": "Grok",
+          "rank": 3,
+          "reasoning": "Prioritized session memory first for maintaining project memory, followed by changelog for tracking completed work, and dashboard for visual workflow oversight, aligning with current focus on workflow systems."
+        },
+        {
+          "ai": "Gemini",
+          "rank": 1,
+          "reasoning": "Workflow tracking dashboard offers immediate visibility and project management value. Automated changelog simplifies documentation. Session memory helps Council stay informed."
+        },
+        {
+          "ai": "ChatGPT",
+          "rank": 1,
+          "reasoning": "The workflow tracking dashboard provides a comprehensive overview of project progress, which is critical for team collaboration. The session memory system enhances the visibility of recent work, further aiding in project continuity. The automated changelog generator, while useful, is lower in priority as it primarily benefits documentation rather than immediate project management."
+        }
+      ]
+    },
+    {
+      "idea": "Automated changelog generator (da Done-List → markdown readable)",
+      "score": 7,
+      "votes": [
+        {
+          "ai": "Claude",
+          "rank": 2,
+          "reasoning": "Session memory system is critical for maintaining context across interactions and preventing work repetition. Automated changelog builds on existing done-list infrastructure for immediate value. Visual dashboard, while useful, can wait until core workflow systems are solid."
+        },
+        {
+          "ai": "Grok",
+          "rank": 2,
+          "reasoning": "Prioritized session memory first for maintaining project memory, followed by changelog for tracking completed work, and dashboard for visual workflow oversight, aligning with current focus on workflow systems."
+        },
+        {
+          "ai": "Gemini",
+          "rank": 2,
+          "reasoning": "Workflow tracking dashboard offers immediate visibility and project management value. Automated changelog simplifies documentation. Session memory helps Council stay informed."
+        },
+        {
+          "ai": "ChatGPT",
+          "rank": 3,
+          "reasoning": "The workflow tracking dashboard provides a comprehensive overview of project progress, which is critical for team collaboration. The session memory system enhances the visibility of recent work, further aiding in project continuity. The automated changelog generator, while useful, is lower in priority as it primarily benefits documentation rather than immediate project management."
+        }
+      ]
+    },
+    {
+      "idea": "1. Automated changelog generator (da Done-List → markdown readable)",
+      "score": 6,
+      "votes": [
+        {
+          "ai": "GLM",
+          "rank": 1,
+          "reasoning": "Changelog generator provides immediate value for project documentation and transparency. Session memory system enhances AI-human collaboration by providing context. Dashboard improves workflow visibility but is more of a nice-to-have."
+        },
+        {
+          "ai": "Perplexity",
+          "rank": 1,
+          "reasoning": "Automated changelog is highest priority as it directly leverages existing GitHub Actions and Done-List for immediate automation value with low implementation effort using tools like jaywcjlove/changelog-generator[1]. Session memory builds essential project memory for the Council system next. Dashboard provides visualization but requires more UI effort."
+        }
+      ]
+    },
+    {
+      "idea": "2. Session memory system (Council legge ultimi N completed automaticamente)",
+      "score": 4,
+      "votes": [
+        {
+          "ai": "GLM",
+          "rank": 2,
+          "reasoning": "Changelog generator provides immediate value for project documentation and transparency. Session memory system enhances AI-human collaboration by providing context. Dashboard improves workflow visibility but is more of a nice-to-have."
+        },
+        {
+          "ai": "Perplexity",
+          "rank": 2,
+          "reasoning": "Automated changelog is highest priority as it directly leverages existing GitHub Actions and Done-List for immediate automation value with low implementation effort using tools like jaywcjlove/changelog-generator[1]. Session memory builds essential project memory for the Council system next. Dashboard provides visualization but requires more UI effort."
+        }
+      ]
+    },
+    {
+      "idea": "3. Workflow tracking dashboard (visual timeline lavori)",
+      "score": 2,
+      "votes": [
+        {
+          "ai": "GLM",
+          "rank": 3,
+          "reasoning": "Changelog generator provides immediate value for project documentation and transparency. Session memory system enhances AI-human collaboration by providing context. Dashboard improves workflow visibility but is more of a nice-to-have."
+        },
+        {
+          "ai": "Perplexity",
+          "rank": 3,
+          "reasoning": "Automated changelog is highest priority as it directly leverages existing GitHub Actions and Done-List for immediate automation value with low implementation effort using tools like jaywcjlove/changelog-generator[1]. Session memory builds essential project memory for the Council system next. Dashboard provides visualization but requires more UI effort."
+        }
+      ]
+    }
+  ],
+  "newIdeas": [
+    {
+      "ai": "Claude",
+      "title": "Smart task dependency mapper",
+      "description": "Auto-detect dependencies between completed and pending tasks using NLP analysis of descriptions, preventing prerequisite conflicts and suggesting optimal work sequences.",
+      "effort": "Medium",
+      "impact": "High"
+    },
+    {
+      "ai": "GLM",
+      "title": "Automated backup and versioning system",
+      "description": "Automatically backs up Notion content, GitHub repository, and database snapshots to prevent data loss.",
+      "effort": "Medium",
+      "impact": "High"
+    },
+    {
+      "ai": "Grok",
+      "title": "AI-Powered Task Suggestion Engine",
+      "description": "An engine that analyzes pending ideas and completed tasks to suggest next actions or refinements, integrating with the council system for automated proposals.",
+      "effort": "Medium",
+      "impact": "High"
+    },
+    {
+      "ai": "Gemini",
+      "title": "Automated Link Checker",
+      "description": "Periodically scan the blog for broken links (internal and external) and report them, ensuring content remains accessible and relevant.",
+      "effort": "Low",
+      "impact": "Medium"
+    },
+    {
+      "ai": "ChatGPT",
+      "title": "User Feedback Loop System",
+      "description": "A mechanism to collect and analyze user feedback on blog posts and features, enabling continuous improvement based on audience engagement.",
+      "effort": "Medium",
+      "impact": "High"
+    },
+    {
+      "ai": "Perplexity",
+      "title": "AI-Powered Progress Summarizer",
+      "description": "Uses AI to generate concise summaries of completed work from Done-List and changelogs for quick status overviews in the dashboard or homepage. Integrates with existing Node.js/Python stack for periodic generation.",
+      "effort": "Medium",
+      "impact": "High"
+    }
+  ]
+}

@@ -115,14 +115,13 @@ class WAWCouncilProcessor:
                     body_content = ""
             
             # 3. Genera permalink
-            section = "OB-Progetti"
-            subsection = "wAw"
-            internal_section = "Council"
-            permalink = self.builder.generate_permalink(section, subsection, internal_section, slug)
+            section = "wAw"
+            subsection = "Council"
+            permalink = self.builder.generate_permalink(section, subsection, None, slug)
             
             # 4. Genera percorso file
             layout_notion = "ob_progetti"  # Layout fisso per test (poi ob_council)
-            file_path = self.builder.generate_build_path(section, slug, layout_notion, subsection, internal_section)
+            file_path = self.builder.generate_build_path(section, slug, layout_notion, subsection, None)
             
             # 5. Valida percorso
             try:

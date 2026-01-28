@@ -5,7 +5,7 @@ date: "2026-01-09"
 section: "OB-Progetti"
 subsection: "wAw"
 layout: "ob_progetti"
-permalink: /ob-progetti/waw/evolution/
+permalink: /waw/evolution/
 description: "Codice MS-DOS incontra AI. Un esperimento di evoluzione digitale."
 keywords: "AI Code Analisys, AI Collaboration, Code Archeology"
 subtitle: "Evolution - DNA e Mutazione AI"

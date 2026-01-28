@@ -1,12 +1,20 @@
 {
   "tasks": [
     {
+      "id": "2f56f014-6d11-80d2-a0ef-c68eab7a020b",
+      "date": "2026-01-27",
+      "category": "Feature",
+      "title": "Add wAw Section as indipendent menu voice",
+      "description": "feat: reorganize wAw projects in navigation menu for better accessibility",
+      "is_latest": true
+    },
+    {
       "id": "2f56f014-6d11-8031-a624-d02e7bdd8ca2",
       "date": "2026-01-27",
-      "category": "General",
-      "title": "",
-      "description": "",
-      "is_latest": true
+      "category": "Feature",
+      "title": "Firme Ghost",
+      "description": "Add a signing ghost system in the back mirror",
+      "is_latest": false
     },
     {
       "id": "2f36f014-6d11-8026-9334-e1988c65347f",
@@ -665,14 +673,14 @@
     "Design"
   ],
   "summary": {
-    "total": 82,
+    "total": 83,
     "by_category": {
       "Infrastructure": 38,
       "Content": 30,
-      "Feature": 8,
+      "Feature": 10,
       "Fix": 3,
       "Design": 0
     }
   },
-  "last_updated": "2026-01-27T22:23:31.814802"
+  "last_updated": "2026-01-28T23:23:14.856257"
 }

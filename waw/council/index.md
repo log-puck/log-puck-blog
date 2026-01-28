@@ -5,7 +5,7 @@ date: "2026-01-09"
 section: "OB-Progetti"
 subsection: "wAw"
 layout: "ob_progetti"
-permalink: /ob-progetti/waw/council/
+permalink: /waw/council/
 description: "7 AI votano democraticamente su priorità e proposte. Consenso emergente, decisioni collettive, sistema Horus monitoring."
 tags:
   - AI Council

@@ -5,7 +5,7 @@ date: "2026-01-04"
 section: "OB-Progetti"
 subsection: "wAw"
 layout: "ob_progetti"
-permalink: /ob-progetti/waw/council/council-session-5/
+permalink: /waw/council/council-session-5/
 ---
 # AI Council Session - 04/01/2026
 

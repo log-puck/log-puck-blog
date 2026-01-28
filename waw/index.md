@@ -2,10 +2,10 @@
 title: "wAw - What AI Want"
 slug: "index"
 date: "2026-01-09"
-section: "OB-Progetti"
-subsection: "wAw"
+section: "wAw"
+subsection: ""
 layout: "ob_progetti"
-permalink: /ob-progetti/waw/
+permalink: /waw/
 description: "Non un progetto. Un ecosistema. Council, Metabolism, Evolution: i tre sistemi di un organismo AI vivente."
 keywords: "AI Collaboration, Comunicazio e tra AI, meta-programmazione"
 subtitle: "Organismo AI Sperimentale"

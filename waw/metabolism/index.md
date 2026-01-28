@@ -5,7 +5,7 @@ date: "2026-01-09"
 section: "OB-Progetti"
 subsection: "wAw"
 layout: "ob_progetti"
-permalink: /ob-progetti/waw/metabolism/
+permalink: /waw/metabolism/
 description: "AI che decompongono e ricostruiscono contenuti. Un esperimento di metabolismo digitale."
 keywords: "AI Collaboration, Comunicazione tra AI, meta-programmazione"
 subtitle: "Metabolism - Sistema Digestivo AI"

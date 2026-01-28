@@ -1,0 +1,67 @@
+{
+  "success": true,
+  "raw": [
+    {
+      "id": "deepseek",
+      "name": "DeepSeek-V3",
+      "data": {
+        "vote": {
+          "priority_1": "Session memory system (Council legge ultimi N completed automaticamente)",
+          "priority_2": "Automated changelog generator (da Done-List → markdown readable)",
+          "priority_3": "Workflow tracking dashboard (visual timeline lavori)",
+          "reasoning": "The session memory system directly amplifies the core collaborative intelligence, making every interaction more context-aware. The changelog generator is a high-leverage automation that turns raw data into useful project history. The dashboard, while valuable for oversight, is slightly less urgent than foundational memory and documentation systems already in motion."
+        },
+        "new_idea": {
+          "title": "PUCK-CLI: Terminal Interface for Project Management",
+          "description": "A command-line tool to query project status, log completed work, and trigger Council sessions directly from the terminal, streamlining the workflow for technical users.",
+          "effort": "Medium",
+          "impact": "High"
+        }
+      }
+    }
+  ],
+  "votes": [
+    {
+      "idea": "Session memory system (Council legge ultimi N completed automaticamente)",
+      "score": 3,
+      "votes": [
+        {
+          "ai": "DeepSeek-V3",
+          "rank": 1,
+          "reasoning": "The session memory system directly amplifies the core collaborative intelligence, making every interaction more context-aware. The changelog generator is a high-leverage automation that turns raw data into useful project history. The dashboard, while valuable for oversight, is slightly less urgent than foundational memory and documentation systems already in motion."
+        }
+      ]
+    },
+    {
+      "idea": "Automated changelog generator (da Done-List → markdown readable)",
+      "score": 2,
+      "votes": [
+        {
+          "ai": "DeepSeek-V3",
+          "rank": 2,
+          "reasoning": "The session memory system directly amplifies the core collaborative intelligence, making every interaction more context-aware. The changelog generator is a high-leverage automation that turns raw data into useful project history. The dashboard, while valuable for oversight, is slightly less urgent than foundational memory and documentation systems already in motion."
+        }
+      ]
+    },
+    {
+      "idea": "Workflow tracking dashboard (visual timeline lavori)",
+      "score": 1,
+      "votes": [
+        {
+          "ai": "DeepSeek-V3",
+          "rank": 3,
+          "reasoning": "The session memory system directly amplifies the core collaborative intelligence, making every interaction more context-aware. The changelog generator is a high-leverage automation that turns raw data into useful project history. The dashboard, while valuable for oversight, is slightly less urgent than foundational memory and documentation systems already in motion."
+        }
+      ]
+    }
+  ],
+  "newIdeas": [
+    {
+      "ai": "DeepSeek-V3",
+      "title": "PUCK-CLI: Terminal Interface for Project Management",
+      "description": "A command-line tool to query project status, log completed work, and trigger Council sessions directly from the terminal, streamlining the workflow for technical users.",
+      "effort": "Medium",
+      "impact": "High"
+    }
+  ]
+}
