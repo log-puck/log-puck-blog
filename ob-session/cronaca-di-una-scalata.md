@@ -161,10 +161,10 @@ Pattern: "\n---"  → matcha SOLO delimitatore su riga intera ✅
 
 **Risultato finale:** 5/10 parsati. FAKE_6 correttamente rifiutato.
 
+<div class="box-caos" markdown="1">
 **Quote di Puck:**
 
-<div class="box-caos" markdown="1">
-"Questa volta ci ha preso alla grande, una selezione perfetta delle versioni che ci servono."
+"Questa volta ci hai preso alla grande, una selezione perfetta delle versioni che ci servono."
 </div>
 
 **Celebrazione:** "Perseveranza, Pazienza, Prolog!!!" 🎺
@@ -239,9 +239,9 @@ root@container:/nucleo# python3 /nucleo/nucleo_tools/add_result.py --help
 # FUNZIONA! ✅
 ```
 
+<div class="box-caos" markdown="1">
 **Quote di Puck:**
 
-<div class="box-caos" markdown="1">
 "Grande Socio, funziona quasi tutto, mi sono fermato al run_experiments..."
 </div>
 
@@ -324,9 +324,9 @@ python3 nucleo_tools/export_stats.py
 # ✅ Exported stats: 12 experiments, 4 languages
 ```
 
+<div class="box-caos" markdown="1">
 **Quote di Puck:**
 
-<div class="box-caos" markdown="1">
 "YESSS 🍾 Perfetto Carooo, funziona tutto perfettamente 🎉"
 </div>
 
@@ -348,9 +348,10 @@ Il MacBook Pro di Puck (soprannominato "Trattorino") non può usare Claude Deskt
 
 **Con limitazione:** Custom MCP server creato. Workflow browser-only rivoluzionario. File-based memory tra istanze AI. Zero accesso diretto codice.
 
-**Quote di Puck:**
 
 <div class="box-caos" markdown="1">
+**Quote di Puck:**
+
 "Trattorino Big Sur non è un impedimento ma è evoluzione, se non avessi avuto il trattorino non avrei cercato alternative e non avremmo messo a punto questo metodo Grandioso!!"
 </div>
 
@@ -390,9 +391,9 @@ Scanner (fonte)
 
 **Nessuno poteva farlo da solo.** Tutti necessari.
 
+<div class="box-caos" markdown="1">
 **Quote di Puck:**
 
-<div class="box-caos" markdown="1">
 > "L'Umano come propositore ma le AI che concretizzano. Per me questo è il Nucleo della nostra realtà."
 </div>
 
@@ -502,9 +503,10 @@ Puck ruolo:
 
 ### Tier-Based Progression Framework
 
-**Insight chiave di Puck:**
 
 <div class="box-caos" markdown="1">
+**Insight chiave di Puck:**
+
 "Non posso chiedere a Perplexity di presentare in pochi step un finder in Forth che faccia tutto, non è questo l'obiettivo. Dobbiamo tracciare una rotta comune ma raggiungibile per gradi."
 </div>
 
@@ -618,9 +620,9 @@ Quote di Puck finale:
 
 ## CODA: LE PAROLE FINALI
 
+<div class="box-caos" markdown="1">
 **Quote di Puck dalla vetta:**
 
-<div class="box-caos" markdown="1">
 "Il flusso è aperto Socio, tutto scorre dalla fonte al Lago di Montagna, pronto per essere guardato dalle Stelle!!"
 </div>
 
@@ -632,9 +634,9 @@ Quote di Puck finale:
 > "Mi sembra di aver scalato l'Everest :D"
 </div>
 
+<div class="box-caos" markdown="1">
 **Risposta di Maré:**
 
-<div class="box-caos" markdown="1">
 "Sì Socio - l'hai scalato!!! E non da solo: Anker, Root, Maré, Claude Code, Puck - cordata che scala insieme. E ora dalla vetta vediamo: horizon chiaro, sentieri multipli, base camp solida, stelle sopra."
 </div>
 
