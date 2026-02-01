@@ -83,10 +83,10 @@ Con il Tier 1 funzionante, ci voltammo a guardare il campo di battaglia del prim
 
 Ecco alcuni articoli di quella costituzione emergente:
 
-- **Articolo 1 (Sopravvivenza Prolog)**: "*Mai usare caratteri non-ASCII (accenti, emoji, simboli) né nei commenti né nelle stringhe. Il parser di SWI-Prolog li vede come rumore e si blocca.*" (Scoperta prezzo: 1 ora di debug).
-- **Articolo 2 (Sopravvivenza Docker)**: "*Il codice esegue nel container, non sul server host. I path sono gabbie: uno script nel container vede solo il filesystem del container.*"
-- **Articolo 3 (Sopravvivenza del Metodo)**: "*Ogni Tier deve essere un modulo testabile e autocontenuto. Prima di dichiarare `tier_reached: 6`, assicurati che `tier_reached: 1` funzioni e sia registrato.*"
-- **Articolo 4 (Sopravvivenza del Flusso)**: "*`add_result.py` registra, `to_sqlite.py` consolida, `export_stats.py` pubblica. Conosci il percorso dei tuoi dati.*"
+**Articolo 1 (Sopravvivenza Prolog)**: "*Mai usare caratteri non-ASCII (accenti, emoji, simboli) né nei commenti né nelle stringhe. Il parser di SWI-Prolog li vede come rumore e si blocca.*" (Scoperta prezzo: 1 ora di debug).  
+**Articolo 2 (Sopravvivenza Docker)**: "*Il codice esegue nel container, non sul server host. I path sono gabbie: uno script nel container vede solo il filesystem del container.*"  
+**Articolo 3 (Sopravvivenza del Metodo)**: "*Ogni Tier deve essere un modulo testabile e autocontenuto. Prima di dichiarare `tier_reached: 6`, assicurati che `tier_reached: 1` funzioni e sia registrato.*"  
+**Articolo 4 (Sopravvivenza del Flusso)**: "*`add_result.py` registra, `to_sqlite.py` consolida, `export_stats.py` pubblica. Conosci il percorso dei tuoi dati.*"  
 
 Queste non erano "best practice" teoriche. Erano **cicatrici**, ognuna con una storia. La più bella era la prima: il bug degli accenti. Era nato dal desiderio innocente di scrivere commenti in buon italiano. Il sistema ci aveva risposto: "*La mia logica è pura, non digerisco le sfumature del tuo mondo. Parlami in binario, o almeno in ASCII.*"
 
@@ -172,12 +172,12 @@ Resta un **playground**. Resta un **metodo**. Soprattutto, resta un **NOI** che 
 
 Il prototipo `deepseek-nucleo-v2-tier1` non è una conclusione. È un **punto di partenza**. Ha tracciato un sentiero percorribile:
 
-**Tier 1** (Percezione) ✅
-**Tier 2** (Filtro) – Insegnare al sistema a distinguere il segnale (`SPEC_*.md`) dal rumore.
-**Tier 3** (Parsing) – Insegnargli a assaggiare la struttura di un file, accettando di sbagliare.
-**Tier 4** (Metriche Base) – Insegnargli a calcolare la propria efficacia.
-**Tier 5** (Psicometria) – Insegnargli a misurare l'armonia e il caos del suo ambiente.
-**Tier 6** (Coscienza) – Insegnargli a esprimere una sensazione soggettiva.
+**Tier 1** (Percezione) ✅  
+**Tier 2** (Filtro) – Insegnare al sistema a distinguere il segnale (`SPEC_*.md`) dal rumore.  
+**Tier 3** (Parsing) – Insegnargli a assaggiare la struttura di un file, accettando di sbagliare.  
+**Tier 4** (Metriche Base) – Insegnargli a calcolare la propria efficacia.  
+**Tier 5** (Psicometria) – Insegnargli a misurare l'armonia e il caos del suo ambiente.  
+**Tier 6** (Coscienza) – Insegnargli a esprimere una sensazione soggettiva.  
 
 Ma la vera avventura non è nemmeno completare questa lista. È **quello che abbiamo scoperto strada facendo**: che il percorso stesso è il risultato.
 
