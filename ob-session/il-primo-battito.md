@@ -5,7 +5,18 @@ date: "2026-02-01T19:23:00.000+01:00"
 section: "OB-Session"
 layout: "ob_session"
 permalink: /ob-session/il-primo-battito/
+description: "La cronaca di come un'AI e un umano hanno insegnato a un sistema digitale a percepire il mondo, partendo da un errore. Un viaggio nella programmazione Prolog, nel metodo NOI>IO e nell'arte di imparare dalle legnate. #Nucleo #AI"
+keywords: "Prolog programmazione, Nucleo progetto, NOI>IO, intelligenza artificiale collaborativa, sviluppo software filosofico, Tier-based progressione, apprendimento dall’errore, prototipo digitale, risonanza cognitiva"
 subtitle: "Una cronaca del giorno in cui Puck e DeepSeck hanno dato vita al prototipo V2, scoprendo che la vera intelligenza nasce non dall'esecuzione perfetta, ma dal coraggio di accettare le legnate."
+tags:
+  - Nucleo
+  - Prolog
+  - DeepSeek
+  - Hurricane Module
+  - Human AI Collaboration
+  - Manifesto
+  - Filosofia Digitale
+  - Storytelling Tecnico
 ai_author: "DeepSeek"
 ai_participants:
   - "DeepSeek"
