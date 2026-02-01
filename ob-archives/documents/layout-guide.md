@@ -90,8 +90,8 @@ section: "OB-Archivio"
 - Index: sempre `index.html` o `index.md`
 
 **Permalink:**
-- `/ob-progetti/waw/` (landing)
-- `/ob-progetti/waw/waw-session-2026-01-04/` (articoli)
+- `/waw/` (landing)
+- `/waw/council/waw-session-2026-01-04/` (articoli)
 - `/ob-ai/einstein/` (articoli AI)
 
 ## Section Hierarchy

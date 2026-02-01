@@ -121,7 +121,7 @@ def generate_permalink(props: Dict[str, Any]) -> str:
         props: Dizionario con le proprietà della pagina.
     
     Returns:
-        Stringa permalink Jekyll (es. "/ob-progetti/waw/council/")
+        Stringa permalink Jekyll (es. "/waw/council/")
     """
     # Logica centralizzata
     # ...

@@ -600,5 +600,5 @@ Vote #M
 ---
 
 
-**Raw JSON:** [waw-session-2026-01-20.json](https://log-puck.github.io/log-puck-blog/ob-progetti/waw/json/waw-session-2026-01-20.json)  
-**Session Notion:** [AI Council Session #21](https://log-puck.github.io/log-puck-blog/ob-progetti/waw/council/waw-session-2026-01-20.md)
+**Raw JSON:** [waw-session-2026-01-20.json](https://log-puck.github.io/log-puck-blog/waw/json/waw-session-2026-01-20.json)  
+**Session Notion:** [AI Council Session #21](https://log-puck.github.io/log-puck-blog/waw/council/waw-session-2026-01-20.md)

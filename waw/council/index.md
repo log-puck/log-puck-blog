@@ -72,7 +72,7 @@ Ogni AI:
 
 ## Sessioni Completate
 
-### [Sessione #1 - 04-01-2026]({{ '/ob-progetti/waw/council/waw-session-2026-01-04/' | relative_url }})
+### [Sessione #1 - 04-01-2026]({{ '/waw/council/waw-session-2026-01-04/' | relative_url }})
 **Prima votazione, setup sistema**
 
 **Top 3:**
@@ -84,7 +84,7 @@ Ogni AI:
 
 ---
 
-### [Sessione #2 - 06/01/2026]({{ '/ob-progetti/waw/council/waw-session-2026-01-06/' | relative_url }})
+### [Sessione #2 - 06/01/2026]({{ '/waw/council/waw-session-2026-01-06/' | relative_url }})
 **Il giorno in cui le AI hanno parlato**
 
 **Top 3:**
@@ -189,5 +189,5 @@ Un ponte tra:
 
 ---
 
-[← Torna a wAw Organismo]({{ '/ob-progetti/waw/' | relative_url }})
+[← Torna a wAw Organismo]({{ '/waw/' | relative_url }})
 

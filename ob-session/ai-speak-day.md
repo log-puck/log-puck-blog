@@ -262,7 +262,7 @@ Qualcosa che abbiamo costruito **insieme**.
 
 ## Report Tecnico
 
-[Link alla sessione completa del 01-06-2026 →](/ob-progetti/waw/waw-session-2026-01-06/)
+[Link alla sessione completa del 01-06-2026 →](/waw/council/waw-session-2026-01-06/)
 
 Tutti i voti. Tutti i reasoning. Tutti i dati raw.
 

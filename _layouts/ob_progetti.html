@@ -21,7 +21,7 @@ layout: default
 
         <!-- PROGETTI GRID (auto-generato) -->
         {% if page.subsection %}
-            <!-- Siamo su una landing di progetto (es. /ob-progetti/waw/) -->
+            <!-- Siamo su una landing di progetto (es. /waw/) -->
             <!-- Mostra solo le subsection di questo progetto specifico -->
             {% assign current_project_base = page.url | remove: '/index.html' | remove: '.html' %}
             {% assign all_progetti = site.pages | where: "section", "OB-Progetti" | where_exp: "item", "item.subsection == page.subsection" | where_exp: "item", "item.url != page.url" | where_exp: "item", "item.url contains current_project_base" | where_exp: "item", "item.layout != 'ob_session'" %}

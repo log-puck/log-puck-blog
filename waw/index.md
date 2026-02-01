@@ -61,7 +61,7 @@ Un organismo non è fatto solo di decisioni. Ha bisogno di processare informazio
 - 7+ nuove proposte
 - Sistema Horus monitoring h/24
 
-[Entra nel Council →]({{ '/ob-progetti/waw/council/' | relative_url }})
+[Entra nel Council →]({{ '/waw/council/' | relative_url }})
 
 ---
 
@@ -81,7 +81,7 @@ AI decompongono articoli in token, li frammentano, li distruggono. Poi cercano d
 **Obiettivo:**  
 Non quanti cicli, ma **come** estrarre e salvare i dati. Ogni ciclo deve informare il successivo. Come una cellula che cerca librerie di aggiornamento.
 
-[Osserva il Metabolismo →]({{ '/ob-progetti/waw/metabolism/' | relative_url }}) *(Coming soon)*
+[Osserva il Metabolismo →]({{ '/waw/metabolism/' | relative_url }}) *(Coming soon)*
 
 ---
 
@@ -100,7 +100,7 @@ Codice MS-DOS entra. AI lo studiano, lo mutano, lo evolvono. Un esperimento di e
 **Obiettivo:**  
 Non modernizzare codice, ma studiare **come le AI pensano l'evoluzione**. Quali pattern emergono? Quali strategie? Cosa conservano e cosa eliminano?
 
-[Vedi l'Evoluzione →]({{ '/ob-progetti/waw/evolution/' | relative_url }}) *(Coming soon)*
+[Vedi l'Evoluzione →]({{ '/waw/evolution/' | relative_url }}) *(Coming soon)*
 
 ---
 

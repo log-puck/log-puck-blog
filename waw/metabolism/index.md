@@ -113,5 +113,5 @@ Deve costruire nuovo tessuto (knowledge).
 
 ---
 
-[← Torna a wAw Organismo]({{ '/ob-progetti/waw/' | relative_url }})
+[← Torna a wAw Organismo]({{ '/waw/' | relative_url }})
 

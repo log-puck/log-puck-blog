@@ -62,8 +62,8 @@ class JekyllBuilder:
         
         Esempi:
         - section="OB-Session", slug="test" -> "/ob-session/test/"
-        - section="OB-Progetti", subsection="wAw", slug="index" -> "/ob-progetti/waw/"
-        - section="OB-Progetti", subsection="wAw", internal_section="Council", slug="index" -> "/ob-progetti/waw/council/"
+        - section="OB-Progetti", subsection="wAw", slug="index" -> "/waw/"
+        - section="OB-Progetti", subsection="wAw", internal_section="Council", slug="index" -> "/waw/council/"
         
         Args:
             section: Sezione (OB-Session, OB-AI, OB-Progetti, OB-Archives)
@@ -129,8 +129,8 @@ class JekyllBuilder:
         
         Esempi:
         - section="OB-Session", slug="test" -> "ob-session/test.md"
-        - section="OB-Progetti", subsection="wAw", slug="index" -> "ob-progetti/waw/index.md"
-        - section="OB-Progetti", subsection="wAw", internal_section="Council", slug="session-2026-01-04" -> "ob-progetti/waw/council/session-2026-01-04.md"
+        - section="OB-Progetti", subsection="wAw", slug="index" -> "waw/index.md"
+        - section="OB-Progetti", subsection="wAw", internal_section="Council", slug="session-2026-01-04" -> "waw/council/session-2026-01-04.md"
         
         Args:
             section: Sezione (OB-Session, OB-AI, OB-Progetti, OB-Archives)
