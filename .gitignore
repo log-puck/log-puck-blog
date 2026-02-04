@@ -71,6 +71,7 @@ tools/RECAP_*.md
 db/
 bak/
 Notion/
+*.bak
 
 # ============================================================================
 # Node.js (se usato per experiments)

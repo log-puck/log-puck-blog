@@ -1,0 +1,157 @@
+{
+  "generated": "2026-02-04T15:00:50.370393Z",
+  "summary": {
+    "total_experiments": 60,
+    "unique_nuclei": 7,
+    "languages": [
+      "Common Lisp",
+      "Lisp",
+      "Prolog",
+      "Python"
+    ]
+  },
+  "by_language": {
+    "Lisp": {
+      "experiments": 1,
+      "avg_time_ms": 0.0,
+      "avg_output_bytes": 0.0,
+      "max_tier": 1
+    },
+    "Python": {
+      "experiments": 2,
+      "avg_time_ms": 25.0,
+      "avg_output_bytes": 240.5,
+      "max_tier": 1
+    },
+    "Common Lisp": {
+      "experiments": 45,
+      "avg_time_ms": 30.6,
+      "avg_output_bytes": 656.87,
+      "max_tier": 4
+    },
+    "Prolog": {
+      "experiments": 12,
+      "avg_time_ms": 99.67,
+      "avg_output_bytes": 572.83,
+      "max_tier": 5
+    }
+  },
+  "recent": {
+    "claude_prolog_scanner_v1": [
+      {
+        "id": "EXP-20260202-05",
+        "nucleo_id": "claude_prolog_scanner_v1",
+        "tier_reached": 5,
+        "time_ms": 17.0
+      },
+      {
+        "id": "EXP-20260202-04",
+        "nucleo_id": "claude_prolog_scanner_v1",
+        "tier_reached": 5,
+        "time_ms": 12.0
+      }
+    ],
+    "deepseek-nucleo-v2-tier1": [
+      {
+        "id": "EXP-20260201-01",
+        "nucleo_id": "deepseek-nucleo-v2-tier1",
+        "tier_reached": 1,
+        "time_ms": 16.0
+      }
+    ],
+    "deepseek_prolog_scanner_v1": [
+      {
+        "id": "EXP-20260202-02",
+        "nucleo_id": "deepseek_prolog_scanner_v1",
+        "tier_reached": 1,
+        "time_ms": 8.0
+      }
+    ],
+    "deepseek_prolog_tier1_v1": [
+      {
+        "id": "EXP-20260202-01",
+        "nucleo_id": "deepseek_prolog_tier1_v1",
+        "tier_reached": 1,
+        "time_ms": 17.0
+      }
+    ],
+    "gemini_lisp_sonda_v1": [
+      {
+        "id": "EXP-20260203-01",
+        "nucleo_id": "gemini_lisp_sonda_v1",
+        "tier_reached": 1,
+        "time_ms": 4.0
+      },
+      {
+        "id": "EXP-20260202-08",
+        "nucleo_id": "gemini_lisp_sonda_v1",
+        "tier_reached": 1,
+        "time_ms": 4.0
+      },
+      {
+        "id": "EXP-20260202-07",
+        "nucleo_id": "gemini_lisp_sonda_v1",
+        "tier_reached": 1,
+        "time_ms": 4.0
+      },
+      {
+        "id": "EXP-20260202-06",
+        "nucleo_id": "gemini_lisp_sonda_v1",
+        "tier_reached": 1,
+        "time_ms": 4.0
+      }
+    ],
+    "gemini_lisp_sonda_v2": [
+      {
+        "id": "EXP-20260204-02",
+        "nucleo_id": "gemini_lisp_sonda_v2",
+        "tier_reached": 4,
+        "time_ms": 331.0
+      },
+      {
+        "id": "EXP-20260204-01",
+        "nucleo_id": "gemini_lisp_sonda_v2",
+        "tier_reached": 4,
+        "time_ms": 25.0
+      },
+      {
+        "id": "EXP-20260203-23",
+        "nucleo_id": "gemini_lisp_sonda_v2",
+        "tier_reached": 3,
+        "time_ms": 100.0
+      },
+      {
+        "id": "EXP-20260203-22",
+        "nucleo_id": "gemini_lisp_sonda_v2",
+        "tier_reached": 3,
+        "time_ms": 25.0
+      }
+    ],
+    "legacy-unknown": [
+      {
+        "id": "EXP-20260131-04",
+        "nucleo_id": "legacy-unknown",
+        "tier_reached": 1,
+        "time_ms": 4.0
+      },
+      {
+        "id": "EXP-20260131-03",
+        "nucleo_id": "legacy-unknown",
+        "tier_reached": 1,
+        "time_ms": 0.0
+      },
+      {
+        "id": "EXP-20260131-02",
+        "nucleo_id": "legacy-unknown",
+        "tier_reached": 5,
+        "time_ms": 12.0
+      },
+      {
+        "id": "EXP-20260131-01",
+        "nucleo_id": "legacy-unknown",
+        "tier_reached": 1,
+        "time_ms": 4.0
+      }
+    ]
+  }
+}
