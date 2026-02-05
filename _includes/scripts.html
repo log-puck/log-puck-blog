@@ -17,28 +17,35 @@
         });
     }
 
-    // Mobile dropdown toggle
-    const navDropdown = document.querySelector('.nav-dropdown');
-    const dropdownLink = document.querySelector('.nav-dropdown > .nav-link');
 
-    if (dropdownLink) {
-        dropdownLink.addEventListener('click', (e) => {
-            if (window.innerWidth <= 768) {
-                e.preventDefault();
-                navDropdown.classList.toggle('open'); // 👈 Uso 'open' invece di 'active'
-            }
-        });
-    }
-
-    // Close mobile menu when clicking dropdown items
-    const dropdownItems = document.querySelectorAll('.dropdown-menu a');
-    dropdownItems.forEach(item => {
-        item.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
-                navToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-                navDropdown.classList.remove('open');
-            }
+    // Mobile dropdown toggle per tutti i dropdown
+    const navDropdowns = document.querySelectorAll('.nav-dropdown');
+    navDropdowns.forEach(dropdown => {
+        const dropdownLink = dropdown.querySelector('.nav-link');
+        if (dropdownLink) {
+            dropdownLink.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    // Chiudi altri dropdown aperti
+                    navDropdowns.forEach(other => {
+                        if (other !== dropdown) {
+                            other.classList.remove('open');
+                        }
+                    });
+                    dropdown.classList.toggle('open');
+                }
+            });
+        }
+        // Chiudi menu mobile quando si clicca su un item del dropdown
+        const dropdownItems = dropdown.querySelectorAll('.dropdown-menu a');
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    dropdown.classList.remove('open');
+                }
+            });
         });
     });
 
