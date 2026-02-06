@@ -1,0 +1,29 @@
+{
+  "nucleo_id": "deepseek-nucleo-v2-tier1",
+  "info": {
+    "language": "Prolog",
+    "runtime": "SWI-Prolog",
+    "task": "Tier 1: Percezione Ambientale"
+  },
+  "stats": {
+    "total_runs": 1,
+    "avg_time_ms": 16.0,
+    "best_tier": 1
+  },
+  "runs": [
+    {
+      "id": "EXP-20260201-01",
+      "timestamp": "2026-02-01T17:28:49.725060Z",
+      "tier_reached": 1,
+      "time_ms": 16.0,
+      "output_bytes": 0,
+      "sensation": {
+        "mood": "unknown",
+        "rsai": "",
+        "flow": "",
+        "friction": "",
+        "timestamp": ""
+      }
+    }
+  ]
+}
