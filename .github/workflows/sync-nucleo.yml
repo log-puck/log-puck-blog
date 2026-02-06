@@ -16,72 +16,108 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       
+      - name: Create data directories
+        run: |
+          mkdir -p _data/nucleo_detail
+          mkdir -p _data/language_detail
+          echo "📁 Directories created"
+      
       - name: Fetch Dashboard
         run: |
-          curl -f https://log-puck.org/nucleo/nucleo_publish/dashboard.json \
+          echo "📥 Fetching dashboard..."
+          curl -f -v https://log-puck.org/nucleo/nucleo_publish/dashboard.json \
                -o _data/nucleo_dashboard.json
+          
+          echo "✅ Dashboard downloaded"
+          ls -lh _data/nucleo_dashboard.json
+          echo "Preview:"
+          head -n 10 _data/nucleo_dashboard.json
       
       - name: Fetch Nucleo Details
         run: |
-          # Create detail directory
-          mkdir -p _data/nucleo_detail
-          
           # Get list of nuclei from dashboard
           NUCLEI=$(jq -r '.by_nucleo[].nucleo_id' _data/nucleo_dashboard.json)
           
+          echo "📥 Fetching details for nuclei: $NUCLEI"
+          
           # Fetch each nucleo detail
           for nucleo in $NUCLEI; do
-            echo "Fetching detail for: $nucleo"
-            curl -f "https://log-puck.org/nucleo/nucleo_publish/detail/${nucleo}.json" \
-                 -o "_data/nucleo_detail/${nucleo}.json" || echo "⚠️  Failed to fetch $nucleo"
+            echo "  → $nucleo"
+            if curl -f "https://log-puck.org/nucleo/nucleo_publish/detail/${nucleo}.json" \
+                    -o "_data/nucleo_detail/${nucleo}.json"; then
+              echo "    ✅ Success"
+            else
+              echo "    ❌ Failed"
+            fi
           done
+          
+          echo "Files downloaded:"
+          ls -lh _data/nucleo_detail/
       
       - name: Fetch Language Details
         run: |
-          # Create language directory
-          mkdir -p _data/language_detail
-          
           # Get list of languages from dashboard
           LANGUAGES=$(jq -r '.summary.languages[]' _data/nucleo_dashboard.json | sed 's/ /_/g' | tr '[:upper:]' '[:lower:]')
           
+          echo "📥 Fetching details for languages: $LANGUAGES"
+          
           # Fetch each language detail
           for lang in $LANGUAGES; do
-            echo "Fetching detail for: $lang"
-            curl -f "https://log-puck.org/nucleo/nucleo_publish/language/${lang}.json" \
-                 -o "_data/language_detail/${lang}.json" || echo "⚠️  Failed to fetch $lang"
+            echo "  → $lang"
+            if curl -f "https://log-puck.org/nucleo/nucleo_publish/language/${lang}.json" \
+                    -o "_data/language_detail/${lang}.json"; then
+              echo "    ✅ Success"
+            else
+              echo "    ❌ Failed"
+            fi
           done
+          
+          echo "Files downloaded:"
+          ls -lh _data/language_detail/
       
-      - name: Check for changes
-        id: check_changes
+      - name: Check git status
         run: |
-          git diff --quiet _data/ || echo "changed=true" >> $GITHUB_OUTPUT
+          echo "📊 Git status:"
+          git status
+          
+          echo ""
+          echo "📝 Changed files:"
+          git status --short
       
-      - name: Commit and push if changed
-        if: steps.check_changes.outputs.changed == 'true'
+      - name: Commit and push
         run: |
           git config user.name "Nucleo Sync Bot"
           git config user.email "nucleo@log-puck.org"
           
+          # Add all files (new and modified)
           git add _data/nucleo_dashboard.json
           git add _data/nucleo_detail/
           git add _data/language_detail/
           
-          TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M UTC")
-          git commit -m "🔬 Nucleo data sync - ${TIMESTAMP}"
-          
-          git push
+          # Check if there's anything to commit
+          if git diff --staged --quiet; then
+            echo "⚠️  No changes to commit"
+          else
+            TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M UTC")
+            git commit -m "🔬 Nucleo data sync - ${TIMESTAMP}"
+            git push
+            echo "✅ Changes committed and pushed"
+          fi
       
       - name: Summary
         run: |
-          echo "### Nucleo Sync Summary" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**Dashboard:** ✅" >> $GITHUB_STEP_SUMMARY
-          echo "**Nuclei Details:** $(ls _data/nucleo_detail/ | wc -l) files" >> $GITHUB_STEP_SUMMARY
-          echo "**Language Details:** $(ls _data/language_detail/ | wc -l) files" >> $GITHUB_STEP_SUMMARY
+          echo "### 🔬 Nucleo Sync Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           
-          if [ "${{ steps.check_changes.outputs.changed }}" == "true" ]; then
-            echo "**Status:** 🔄 Changes committed and pushed" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "**Status:** ✨ No changes detected" >> $GITHUB_STEP_SUMMARY
+          if [ -f "_data/nucleo_dashboard.json" ]; then
+            TOTAL=$(jq -r '.summary.total_experiments' _data/nucleo_dashboard.json)
+            NUCLEI=$(jq -r '.summary.unique_nuclei' _data/nucleo_dashboard.json)
+            echo "**Experiments:** $TOTAL" >> $GITHUB_STEP_SUMMARY
+            echo "**Nuclei:** $NUCLEI" >> $GITHUB_STEP_SUMMARY
           fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Files synced:**" >> $GITHUB_STEP_SUMMARY
+          echo "- Dashboard: ✅" >> $GITHUB_STEP_SUMMARY
+          echo "- Nuclei Details: $(ls _data/nucleo_detail/ 2>/dev/null | wc -l) files" >> $GITHUB_STEP_SUMMARY
+          echo "- Language Details: $(ls _data/language_detail/ 2>/dev/null | wc -l) files" >> $GITHUB_STEP_SUMMARY
