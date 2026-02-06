@@ -1,12 +1,36 @@
 {
   "tasks": [
     {
+      "id": "2ff6f014-6d11-80d1-902a-d6351f60c4a6",
+      "date": "2026-02-06",
+      "category": "Infrastructure",
+      "title": "Export Script",
+      "description": "Export script (export_stats.py v2.0)\n✅ JSON generati sul server\n✅ Endpoint pubblici accessibili\n✅ Caddy serving correttamente\n✅ GitHub Action configurata\n✅ Permessi write abilitati\n✅ Dati sincronizzati nel repo\n✅ Commit automatico funzionante\n✅ Pronto per automazione ogni 6h",
+      "is_latest": true
+    },
+    {
+      "id": "2ff6f014-6d11-80e4-8f5c-ebda023bb5ce",
+      "date": "2026-02-06",
+      "category": "Feature",
+      "title": "Nucleo Project Implementation",
+      "description": "Oggi abbiamo:",
+      "is_latest": false
+    },
+    {
+      "id": "2ff6f014-6d11-8019-aff0-e6fa29a86b91",
+      "date": "2026-02-06",
+      "category": "Infrastructure",
+      "title": "Allineamento schema DB",
+      "description": "✅ ",
+      "is_latest": false
+    },
+    {
       "id": "2f66f014-6d11-8049-bc1a-cebe57aaf097",
       "date": "2026-01-28",
       "category": "Infrastructure",
       "title": "DAY 0: WAW sessione indipendente del menu + allineamento e riorganizzazione spec + MCP server.",
       "description": "📋 REPORT GIORNATA (ELENCO COMPATTO):\n✅ COMPLETATI:",
-      "is_latest": true
+      "is_latest": false
     },
     {
       "id": "2f56f014-6d11-80d2-a0ef-c68eab7a020b",
@@ -681,14 +705,14 @@
     "Design"
   ],
   "summary": {
-    "total": 84,
+    "total": 87,
     "by_category": {
-      "Infrastructure": 39,
+      "Infrastructure": 41,
       "Content": 30,
-      "Feature": 10,
+      "Feature": 11,
       "Fix": 3,
       "Design": 0
     }
   },
-  "last_updated": "2026-02-05T20:29:39.392251"
+  "last_updated": "2026-02-06T17:08:27.144678"
 }
