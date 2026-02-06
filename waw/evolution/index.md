@@ -1,73 +1,57 @@
 ---
-title: "Tools Nucleo Dashboard"
-layout: "default"  # o default se oblanding non esiste
-section: "ob-tools"
-# http://127.0.0.1:4000/log-puck-blog/ob-tools/tools-nucleo/
-# /ob-tools/nucleo/<nucleo_id>/
+title: "Nucleo Evolution Dashboard"
+layout: default
+section: ob-tools
 ---
 
 <div class="landing-page">
   <section class="hero">
-    <h1 class="hero-title">Nucleo Tools</h1>
-    <p class="hero-description">Esperimenti AI performance tracking</p>
+    <h1 class="hero-title">Nucleo Evolution</h1>
+    <p class="hero-description">
+      {{ site.data.nucleo_dashboard.summary.total_experiments }} esperimenti 
+      • {{ site.data.nucleo_dashboard.summary.unique_nuclei }} nuclei attivi
+    </p>
+    <p class="text-muted">
+      Ultimo aggiornamento: {{ site.data.nucleo_dashboard.generated | date: "%d %B %Y, %H:%M" }}
+    </p>
   </section>
 
-  <!-- Language summaries -->
+  <!-- Statistiche per Linguaggio -->
   <section class="landing-content">
-    <h2>Linguaggi</h2>
-    <div id="language-grid" class="articles-grid"></div>
+    <h2>Performance per Linguaggio</h2>
+    <div class="articles-grid">
+      {% for lang_pair in site.data.nucleo_dashboard.by_language %}
+        {% assign lang_name = lang_pair[0] %}
+        {% assign lang_data = lang_pair[1] %}
+        <article class="article-card card">
+          <h3>{{ lang_name }}</h3>
+          <div class="card-stats">
+            <p><strong>{{ lang_data.experiments }}</strong> esperimenti</p>
+            <p>Tempo medio: <strong>{{ lang_data.avg_time_ms | round: 1 }}</strong> ms</p>
+            <p>Output medio: <strong>{{ lang_data.avg_output_bytes | round: 0 }}</strong> bytes</p>
+            <p>Max tier: <strong>{{ lang_data.max_tier }}</strong></p>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
   </section>
 
-  <!-- Tool cards -->
+  <!-- Nuclei Attivi -->
   <section class="landing-content">
-    <h2>Esperimenti</h2>
-    <div id="tools-grid" class="articles-grid"></div>
+    <h2>Nuclei Attivi</h2>
+    <div class="articles-grid">
+      {% for nucleo in site.data.nucleo_dashboard.by_nucleo %}
+        <a href="/evolution/nucleo/{{ nucleo.nucleo_id }}/" class="article-card card">
+          <h3>{{ nucleo.nucleo_id }}</h3>
+          <p class="text-muted">{{ nucleo.language }}</p>
+          <div class="card-stats">
+            <p><strong>{{ nucleo.total_runs }}</strong> run totali</p>
+            <p>Ultimo: {{ nucleo.last_run.timestamp | date: "%d/%m %H:%M" }}</p>
+            <p>Tier <strong>{{ nucleo.last_run.tier_reached }}</strong> • {{ nucleo.last_run.time_ms }} ms</p>
+          </div>
+          <p class="card-action">→ Dettaglio timeline</p>
+        </a>
+      {% endfor %}
+    </div>
   </section>
 </div>
-
-<script>
-  async function loadStats() {
-    const res = await fetch('{{ "/assets/data/stats.json" | relative_url }}');
-    const data = await res.json();
-
-    // 1) Lingue
-    const langGrid = document.getElementById('language-grid');
-    langGrid.innerHTML = Object.entries(data.by_language).map(([name, v]) => `
-      <article class="article-card card">
-        <h3>${name}</h3>
-        <p>${v.experiments} esperimenti</p>
-        <p>${v.avg_time_ms.toFixed(1)} ms • ${v.avg_output_bytes.toFixed(1)} bytes</p>
-        <p>Max tier: ${v.max_tier}</p>
-      </article>
-    `).join('');
-
-    // 2) Esperimenti per nucleo_id
-    const toolsGrid = document.getElementById('tools-grid');
-    toolsGrid.innerHTML = Object.entries(data.recent).map(([nucleoId, runs]) => {
-      const last = runs[0];
-      const detailUrl = '{{ "/ob-tools/nucleo/" | relative_url }}' + nucleoId + '/';
-
-      return `
-        <a href="${detailUrl}" class="article-card card" style="display:block; text-decoration:none; color:inherit;">
-          <h3>${nucleoId}</h3>
-          <p>Ultimo ID: ${last.id}</p>
-          <p>Tier: ${last.tier_reached} • ${last.time_ms} ms</p>
-          <p style="margin-top:8px; font-weight:bold;">→ Apri dettaglio nucleo</p>
-        </a>
-      `;
-    }).join('');
-  }
-
-  document.addEventListener('DOMContentLoaded', loadStats);
-</script>
-
-
-<script>
-  loadRealData();
-  // Metriche colorate
-  function tierColor(tier) {
-    return tier >= 5 ? 'var(--accent-yellow)' : tier >= 3 ? '#ffa500' : '#ff6b6b';
-  }
-  // Nelle cards:
-  style="border-left: 4px solid ${tierColor(t.tierreached)}"
-</script>
