@@ -1,0 +1,87 @@
+name: Sync Nucleo Evolution Data
+
+on:
+  schedule:
+    # Ogni 6 ore
+    - cron: '0 */6 * * *'
+  
+  # Manuale on-demand
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Fetch Dashboard
+        run: |
+          curl -f https://log-puck.org/nucleo/nucleo_publish/dashboard.json \
+               -o _data/nucleo_dashboard.json
+      
+      - name: Fetch Nucleo Details
+        run: |
+          # Create detail directory
+          mkdir -p _data/nucleo_detail
+          
+          # Get list of nuclei from dashboard
+          NUCLEI=$(jq -r '.by_nucleo[].nucleo_id' _data/nucleo_dashboard.json)
+          
+          # Fetch each nucleo detail
+          for nucleo in $NUCLEI; do
+            echo "Fetching detail for: $nucleo"
+            curl -f "https://log-puck.org/nucleo/nucleo_publish/detail/${nucleo}.json" \
+                 -o "_data/nucleo_detail/${nucleo}.json" || echo "⚠️  Failed to fetch $nucleo"
+          done
+      
+      - name: Fetch Language Details
+        run: |
+          # Create language directory
+          mkdir -p _data/language_detail
+          
+          # Get list of languages from dashboard
+          LANGUAGES=$(jq -r '.summary.languages[]' _data/nucleo_dashboard.json | sed 's/ /_/g' | tr '[:upper:]' '[:lower:]')
+          
+          # Fetch each language detail
+          for lang in $LANGUAGES; do
+            echo "Fetching detail for: $lang"
+            curl -f "https://log-puck.org/nucleo/nucleo_publish/language/${lang}.json" \
+                 -o "_data/language_detail/${lang}.json" || echo "⚠️  Failed to fetch $lang"
+          done
+      
+      - name: Check for changes
+        id: check_changes
+        run: |
+          git diff --quiet _data/ || echo "changed=true" >> $GITHUB_OUTPUT
+      
+      - name: Commit and push if changed
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config user.name "Nucleo Sync Bot"
+          git config user.email "nucleo@log-puck.org"
+          
+          git add _data/nucleo_dashboard.json
+          git add _data/nucleo_detail/
+          git add _data/language_detail/
+          
+          TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M UTC")
+          git commit -m "🔬 Nucleo data sync - ${TIMESTAMP}"
+          
+          git push
+      
+      - name: Summary
+        run: |
+          echo "### Nucleo Sync Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Dashboard:** ✅" >> $GITHUB_STEP_SUMMARY
+          echo "**Nuclei Details:** $(ls _data/nucleo_detail/ | wc -l) files" >> $GITHUB_STEP_SUMMARY
+          echo "**Language Details:** $(ls _data/language_detail/ | wc -l) files" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ steps.check_changes.outputs.changed }}" == "true" ]; then
+            echo "**Status:** 🔄 Changes committed and pushed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "**Status:** ✨ No changes detected" >> $GITHUB_STEP_SUMMARY
+          fi
