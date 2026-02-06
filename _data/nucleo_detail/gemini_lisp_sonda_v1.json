@@ -1,0 +1,85 @@
+{
+  "nucleo_id": "gemini_lisp_sonda_v1",
+  "info": {
+    "language": "Common Lisp",
+    "runtime": "SBCL (Docker)",
+    "task": "Risonanza Universale v1"
+  },
+  "stats": {
+    "total_runs": 5,
+    "avg_time_ms": 4.0,
+    "best_tier": 1
+  },
+  "runs": [
+    {
+      "id": "EXP-20260203-01",
+      "timestamp": "2026-02-03T11:06:21.203486Z",
+      "tier_reached": 1,
+      "time_ms": 4.0,
+      "output_bytes": 52,
+      "sensation": {
+        "mood": "unknown",
+        "rsai": "",
+        "flow": "",
+        "friction": "",
+        "timestamp": ""
+      }
+    },
+    {
+      "id": "EXP-20260202-08",
+      "timestamp": "2026-02-02T21:30:58.058217Z",
+      "tier_reached": 1,
+      "time_ms": 4.0,
+      "output_bytes": 1057,
+      "sensation": {
+        "mood": "unknown",
+        "rsai": "",
+        "flow": "",
+        "friction": "",
+        "timestamp": ""
+      }
+    },
+    {
+      "id": "EXP-20260202-07",
+      "timestamp": "2026-02-02T21:28:50.992833Z",
+      "tier_reached": 1,
+      "time_ms": 4.0,
+      "output_bytes": 840,
+      "sensation": {
+        "mood": "unknown",
+        "rsai": "",
+        "flow": "",
+        "friction": "",
+        "timestamp": ""
+      }
+    },
+    {
+      "id": "EXP-20260202-06",
+      "timestamp": "2026-02-02T21:21:52.868436Z",
+      "tier_reached": 1,
+      "time_ms": 4.0,
+      "output_bytes": 840,
+      "sensation": {
+        "mood": "unknown",
+        "rsai": "",
+        "flow": "",
+        "friction": "",
+        "timestamp": ""
+      }
+    },
+    {
+      "id": "EXP-20260202-03",
+      "timestamp": "2026-02-02T12:21:49.376711Z",
+      "tier_reached": 1,
+      "time_ms": 4.0,
+      "output_bytes": 809,
+      "sensation": {
+        "mood": "unknown",
+        "rsai": "",
+        "flow": "",
+        "friction": "",
+        "timestamp": ""
+      }
+    }
+  ]
+}

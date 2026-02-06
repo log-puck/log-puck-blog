@@ -1,0 +1,119 @@
+{
+  "language": "Prolog",
+  "stats": {
+    "total_experiments": 12,
+    "unique_nuclei": 5,
+    "avg_time_ms": 99.67,
+    "avg_output_bytes": 572.83,
+    "best_tier": 5
+  },
+  "nuclei": [
+    {
+      "nucleo_id": "claude_prolog_scanner_v1",
+      "total_runs": 2,
+      "avg_time_ms": 14.5,
+      "best_tier": 5,
+      "last_run": "2026-02-02T17:46:20.662614Z"
+    },
+    {
+      "nucleo_id": "deepseek_prolog_scanner_v1",
+      "total_runs": 1,
+      "avg_time_ms": 8.0,
+      "best_tier": 1,
+      "last_run": "2026-02-02T12:14:23.228372Z"
+    },
+    {
+      "nucleo_id": "deepseek_prolog_tier1_v1",
+      "total_runs": 1,
+      "avg_time_ms": 17.0,
+      "best_tier": 1,
+      "last_run": "2026-02-02T11:58:04.143635Z"
+    },
+    {
+      "nucleo_id": "deepseek-nucleo-v2-tier1",
+      "total_runs": 1,
+      "avg_time_ms": 16.0,
+      "best_tier": 1,
+      "last_run": "2026-02-01T17:28:49.725060Z"
+    },
+    {
+      "nucleo_id": "legacy-unknown",
+      "total_runs": 7,
+      "avg_time_ms": 160.86,
+      "best_tier": 5,
+      "last_run": "2026-01-31T19:28:11.535509Z"
+    }
+  ],
+  "recent_runs": [
+    {
+      "id": "EXP-20260202-05",
+      "nucleo_id": "claude_prolog_scanner_v1",
+      "tier_reached": 5,
+      "time_ms": 17.0,
+      "timestamp": "2026-02-02T17:46:20.662614Z"
+    },
+    {
+      "id": "EXP-20260202-04",
+      "nucleo_id": "claude_prolog_scanner_v1",
+      "tier_reached": 5,
+      "time_ms": 12.0,
+      "timestamp": "2026-02-02T12:26:45.810682Z"
+    },
+    {
+      "id": "EXP-20260202-02",
+      "nucleo_id": "deepseek_prolog_scanner_v1",
+      "tier_reached": 1,
+      "time_ms": 8.0,
+      "timestamp": "2026-02-02T12:14:23.228372Z"
+    },
+    {
+      "id": "EXP-20260202-01",
+      "nucleo_id": "deepseek_prolog_tier1_v1",
+      "tier_reached": 1,
+      "time_ms": 17.0,
+      "timestamp": "2026-02-02T11:58:04.143635Z"
+    },
+    {
+      "id": "EXP-20260201-01",
+      "nucleo_id": "deepseek-nucleo-v2-tier1",
+      "tier_reached": 1,
+      "time_ms": 16.0,
+      "timestamp": "2026-02-01T17:28:49.725060Z"
+    },
+    {
+      "id": "EXP-20260131-02",
+      "nucleo_id": "legacy-unknown",
+      "tier_reached": 5,
+      "time_ms": 12.0,
+      "timestamp": "2026-01-31T19:28:11.535509Z"
+    },
+    {
+      "id": "EXP-20260130-05",
+      "nucleo_id": "legacy-unknown",
+      "tier_reached": 1,
+      "time_ms": 314.0,
+      "timestamp": "2026-01-30T15:40:17.837416Z"
+    },
+    {
+      "id": "EXP-20260130-04",
+      "nucleo_id": "legacy-unknown",
+      "tier_reached": 1,
+      "time_ms": 332.0,
+      "timestamp": "2026-01-30T13:51:18.427988Z"
+    },
+    {
+      "id": "EXP-20260130-03",
+      "nucleo_id": "legacy-unknown",
+      "tier_reached": 1,
+      "time_ms": 330.0,
+      "timestamp": "2026-01-30T13:31:01.625425Z"
+    },
+    {
+      "id": "EXP-20260130-02",
+      "nucleo_id": "legacy-unknown",
+      "tier_reached": 3,
+      "time_ms": 9.0,
+      "timestamp": "2026-01-30T11:29:25.621177Z"
+    }
+  ]
+}

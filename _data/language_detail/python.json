@@ -1,0 +1,35 @@
+{
+  "language": "Python",
+  "stats": {
+    "total_experiments": 2,
+    "unique_nuclei": 1,
+    "avg_time_ms": 25.0,
+    "avg_output_bytes": 240.5,
+    "best_tier": 1
+  },
+  "nuclei": [
+    {
+      "nucleo_id": "legacy-unknown",
+      "total_runs": 2,
+      "avg_time_ms": 25.0,
+      "best_tier": 1,
+      "last_run": "2026-01-29T21:56:46.310070Z"
+    }
+  ],
+  "recent_runs": [
+    {
+      "id": "EXP-20260129-05",
+      "nucleo_id": "legacy-unknown",
+      "tier_reached": 1,
+      "time_ms": 0.0,
+      "timestamp": "2026-01-29T21:56:46.310070Z"
+    },
+    {
+      "id": "EXP-20260129-01",
+      "nucleo_id": "legacy-unknown",
+      "tier_reached": 1,
+      "time_ms": 50.0,
+      "timestamp": "2026-01-29T00:09:40.580773Z"
+    }
+  ]
+}
