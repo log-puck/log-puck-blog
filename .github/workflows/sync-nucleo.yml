@@ -91,25 +91,26 @@ jobs:
           echo "🔬 Generating nucleo markdown files..."
           
           # Create evolution/nucleo directory if not exists
-          mkdir -p evolution/nucleo
+          mkdir -p waw/evolution/nucleo
           
           # Get list of nuclei from dashboard
           NUCLEI=$(jq -r '.by_nucleo[].nucleo_id' _data/nucleo_dashboard.json)
           
           # Generate .md file for each nucleo
           for nucleo in $NUCLEI; do
-            echo "  → Creating evolution/nucleo/${nucleo}.md"
+            echo "  → Creating waw/evolution/nucleo/${nucleo}.md"
             
-            cat > "evolution/nucleo/${nucleo}.md" << EOF
----
-layout: nucleo_detail
-nucleo_id: ${nucleo}
-section: wAw
-subsection: Evolution
-permalink: /evolution/nucleo/${nucleo}/
-title: "${nucleo}"
----
-EOF
+            # Write frontmatter using printf (safer than here-document in YAML)
+            printf '%s\n' \
+              "---" \
+              "layout: nucleo_detail" \
+              "nucleo_id: ${nucleo}" \
+              "section: wAw" \
+              "subsection: Evolution" \
+              "permalink: /waw/evolution/nucleo/${nucleo}/" \
+              "title: \"${nucleo}\"" \
+              "---" \
+              > "waw/evolution/nucleo/${nucleo}.md"
           done
           
           echo "✅ Generated $(echo "$NUCLEI" | wc -w) nucleo pages"
@@ -119,7 +120,7 @@ EOF
           echo "🗣️ Generating language markdown files..."
           
           # Create evolution/language directory if not exists
-          mkdir -p evolution/language
+          mkdir -p waw/evolution/language
           
           # Get list of languages from dashboard
           LANGUAGES=$(jq -r '.summary.languages[]' _data/nucleo_dashboard.json)
@@ -129,18 +130,19 @@ EOF
             # Sanitize language name for filename (lowercase, spaces to underscores)
             lang_key=$(echo "$lang" | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
             
-            echo "  → Creating evolution/language/${lang_key}.md"
+            echo "  → Creating waw/evolution/language/${lang_key}.md"
             
-            cat > "evolution/language/${lang_key}.md" << EOF
----
-layout: language_detail
-language_key: ${lang_key}
-section: wAw
-subsection: Evolution
-permalink: /evolution/language/${lang_key}/
-title: "${lang}"
----
-EOF
+            # Write frontmatter using printf (safer than here-document in YAML)
+            printf '%s\n' \
+              "---" \
+              "layout: language_detail" \
+              "language_key: ${lang_key}" \
+              "section: wAw" \
+              "subsection: Evolution" \
+              "permalink: /waw/evolution/language/${lang_key}/" \
+              "title: \"${lang}\"" \
+              "---" \
+              > "waw/evolution/language/${lang_key}.md"
           done
           
           echo "✅ Generated $(echo "$LANGUAGES" | wc -w) language pages"
@@ -154,8 +156,8 @@ EOF
           git add _data/nucleo_dashboard.json
           git add _data/nucleo_detail/
           git add _data/language_detail/
-          git add evolution/nucleo/
-          git add evolution/language/
+          git add waw/evolution/nucleo/
+          git add waw/evolution/language/
           
           # Check if there's anything to commit
           if git diff --staged --quiet; then
@@ -184,5 +186,5 @@ EOF
           echo "- Dashboard: ✅" >> $GITHUB_STEP_SUMMARY
           echo "- Nuclei Details: $(ls _data/nucleo_detail/ 2>/dev/null | wc -l) files" >> $GITHUB_STEP_SUMMARY
           echo "- Language Details: $(ls _data/language_detail/ 2>/dev/null | wc -l) files" >> $GITHUB_STEP_SUMMARY
-          echo "- Nucleo Pages: $(ls evolution/nucleo/*.md 2>/dev/null | wc -l) pages" >> $GITHUB_STEP_SUMMARY
-          echo "- Language Pages: $(ls evolution/language/*.md 2>/dev/null | wc -l) pages" >> $GITHUB_STEP_SUMMARY
+          echo "- Nucleo Pages: $(ls waw/evolution/nucleo/*.md 2>/dev/null | wc -l) pages" >> $GITHUB_STEP_SUMMARY
+          echo "- Language Pages: $(ls waw/evolution/language/*.md 2>/dev/null | wc -l) pages" >> $GITHUB_STEP_SUMMARY
