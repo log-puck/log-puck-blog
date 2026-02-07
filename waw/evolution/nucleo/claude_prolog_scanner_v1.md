@@ -5,9 +5,3 @@ section: wAw
 subsection: Evolution
 permalink: /evolution/nucleo/claude_prolog_scanner_v1/
 ---
-
-# Nucleo Detail
-
-Claude Prolog Scanner v1
-
-NOI > IO
