@@ -347,9 +347,9 @@ wget https://github.com/ForthHub/F83/raw/master/f83.com -O /root/caverna_dos/F83
   <strong>Github:</strong>
   <p>
     Il file esiste nel repository ed è effettivamente un eseguibile DOS di 26368 bytes, perfetto per il tuo scopo!<br>
-		<strong>Nota importante:<strong> Il nome del file nel repository è tutto minuscolo (f83.com), ma puoi salvarlo con il nome che preferisci usando l'opzione -O.
+		<strong>Nota importante:</strong> Il nome del file nel repository è tutto minuscolo (f83.com), ma puoi salvarlo con il nome che preferisci usando l'opzione -O.
   </p>
-  <p> class="data-firma">17 Gennaio 2026 - Log_Puck Lab</p>
+  <p class="data-firma">17 Gennaio 2026 - Log_Puck Lab</p>
 </div>
 
 ---
