@@ -1,0 +1,120 @@
+---
+layout: default
+---
+
+{% assign lang_key = page.language_key %}
+{% assign lang_data = site.data.language_detail[lang_key] %}
+
+<div class="landing-page language-detail-page">
+  <!-- Header -->
+  <section class="landing-header">
+    <h1 class="landing-title">{{ lang_data.language }}</h1>
+    <p class="text-muted" style="font-size: 1.1rem; margin-top: 0.5rem;">
+      Performance e analisi esperimenti
+    </p>
+  </section>
+
+  <!-- Language Stats -->
+  <section class="landing-content">
+    <div class="nucleo-detail-stats">
+      <h3>Statistiche Linguaggio</h3>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <span class="stat-value">{{ lang_data.stats.total_experiments }}</span>
+          <span class="stat-label">Esperimenti totali</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-value">{{ lang_data.stats.avg_time_ms | round: 1 }} <span class="unit">ms</span></span>
+          <span class="stat-label">Tempo medio</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-value">{{ lang_data.stats.avg_output_bytes | round: 0 }} <span class="unit">bytes</span></span>
+          <span class="stat-label">Output medio</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-value tier-badge tier-{{ lang_data.stats.max_tier }}">{{ lang_data.stats.max_tier }}</span>
+          <span class="stat-label">Max tier raggiunto</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nuclei che usano questo linguaggio -->
+  <section class="landing-content">
+    <h2>Nuclei Attivi</h2>
+    <p class="text-muted" style="margin-bottom: 1.5rem;">
+      {{ lang_data.nuclei | size }} nuclei utilizzano {{ lang_data.language }}
+    </p>
+    
+    <div class="articles-grid">
+      {% for nucleo in lang_data.nuclei %}
+        <a href="{{ '/evolution/nucleo/' | append: nucleo.nucleo_id | append: '/' | relative_url }}" class="article-card nucleo-card">
+          <h3>{{ nucleo.nucleo_id }}</h3>
+          
+          <div class="nucleo-stats">
+            <div class="stat-item">
+              <span class="stat-label">Run totali</span>
+              <span class="stat-value">{{ nucleo.total_runs }}</span>
+            </div>
+            
+            <div class="stat-item">
+              <span class="stat-label">Tempo medio</span>
+              <span class="stat-value">{{ nucleo.avg_time_ms | round: 1 }} <span class="unit">ms</span></span>
+            </div>
+            
+            <div class="stat-item">
+              <span class="stat-label">Best tier</span>
+              <span class="stat-value tier-badge tier-{{ nucleo.best_tier }}">{{ nucleo.best_tier }}</span>
+            </div>
+          </div>
+          
+          <p class="card-action">→ Timeline nucleo</p>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Recent Runs Cross-Nucleo -->
+  <section class="landing-content">
+    <h2>Esperimenti Recenti</h2>
+    <p class="text-muted" style="margin-bottom: 1.5rem;">
+      Ultimi {{ lang_data.recent_runs | size }} esperimenti cross-nucleo
+    </p>
+    
+    <div class="table-wrapper">
+      <table class="nucleo-table">
+        <thead>
+          <tr>
+            <th>Nucleo</th>
+            <th>ID Esperimento</th>
+            <th>Timestamp</th>
+            <th>Tier</th>
+            <th>Tempo</th>
+            <th>Output</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for run in lang_data.recent_runs %}
+          <tr>
+            <td><strong>{{ run.nucleo_id }}</strong></td>
+            <td><code>{{ run.id }}</code></td>
+            <td>{{ run.timestamp | date: "%d/%m/%Y %H:%M" }}</td>
+            <td>
+              <span class="tier-badge tier-{{ run.tier_reached }}">{{ run.tier_reached }}</span>
+            </td>
+            <td>{{ run.time_ms }} ms</td>
+            <td>{{ run.output_bytes }} bytes</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Back Link -->
+  <section class="landing-content">
+    <p style="text-align: center; margin-top: 2rem;">
+      <a href="{{ '/waw/evolution/' | relative_url }}" class="btn-enter">← Torna a Evolution Dashboard</a>
+    </p>
+  </section>
+</div>

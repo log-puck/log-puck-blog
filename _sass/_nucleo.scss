@@ -1,0 +1,299 @@
+/* ============================================================
+   Nucleo Evolution Styles
+   Dashboard, tier colors, sensation indicators, stats
+   ============================================================ */
+
+/* Language & Nucleo Card Variants */
+.language-card {
+    border-left: 4px solid var(--accent-yellow);
+}
+
+.language-card:hover {
+    border-left-color: var(--accent-yellow-dark);
+}
+
+.nucleo-card {
+    border-left: 4px solid var(--accent-lime);
+}
+
+.nucleo-card:hover {
+    border-left-color: var(--accent-magenta);
+}
+
+/* Stats Grid (for detail pages) */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.stat-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.stat-box .stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1;
+}
+
+.stat-box .stat-label {
+    font-size: 0.875rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+}
+
+/* Table Wrapper (for horizontal scroll on mobile) */
+.table-wrapper {
+    overflow-x: auto;
+    margin: 0 -1rem;
+    padding: 0 1rem;
+}
+
+/* Stats Container (inside cards) */
+.nucleo-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 1rem 0;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 0.9rem;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 0.875rem;
+}
+
+.stat-value {
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.stat-value .unit {
+    font-weight: 400;
+    font-size: 0.875em;
+    color: #666;
+}
+
+/* Tier Badge */
+.tier-badge {
+    display: inline-block;
+    padding: 0.125rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+/* Tier Colors */
+.tier-1,
+.tier-badge.tier-1 {
+    background-color: #e0e0e0;
+    color: #666;
+}
+
+.tier-2,
+.tier-badge.tier-2 {
+    background-color: #b3d9ff;
+    color: #004085;
+}
+
+.tier-3,
+.tier-badge.tier-3 {
+    background-color: #c3e6cb;
+    color: #155724;
+}
+
+.tier-4,
+.tier-badge.tier-4 {
+    background-color: #ffeaa7;
+    color: #856404;
+}
+
+.tier-5,
+.tier-badge.tier-5 {
+    background-color: #ffd700;
+    color: #7a5c00;
+}
+
+/* Last Run Block (for nucleo cards) */
+.nucleo-last-run {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.last-run-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #666;
+    margin-bottom: 0.25rem;
+}
+
+.last-run-data {
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.last-run-id {
+    font-family: 'Courier New', monospace;
+    font-size: 0.85em;
+    color: #666;
+}
+
+.last-run-meta {
+    color: var(--text-main);
+}
+
+/* Card Action Link */
+.card-action {
+    margin-top: auto;
+    padding-top: 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-main);
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.article-card:hover .card-action {
+    opacity: 1;
+}
+
+/* Nucleo Info/Stats Blocks (for detail pages) */
+.nucleo-info,
+.nucleo-detail-stats {
+    background-color: var(--slot-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.nucleo-info p,
+.nucleo-detail-stats p {
+    margin: 0.5rem 0;
+}
+
+.nucleo-info strong,
+.nucleo-detail-stats strong {
+    color: var(--text-main);
+    font-weight: 700;
+}
+
+/* Nucleo Table (for timeline) */
+.nucleo-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.9rem;
+}
+
+.nucleo-table thead {
+    background-color: var(--slot-bg);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.nucleo-table th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+}
+
+.nucleo-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.nucleo-table tbody tr:hover {
+    background-color: var(--slot-bg);
+}
+
+.nucleo-table code {
+    font-family: 'Courier New', monospace;
+    background-color: #f5f5f5;
+    padding: 0.125rem 0.25rem;
+    border-radius: 3px;
+    font-size: 0.875em;
+}
+
+/* Sensation Indicators (for future use) */
+.sensation-normal {
+    color: #5c7080;
+}
+
+.sensation-excited {
+    color: #0f9960;
+    font-weight: 600;
+}
+
+.sensation-frustrated {
+    color: #d9822b;
+    font-weight: 600;
+}
+
+.sensation-unknown {
+    color: #999;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .stat-box {
+        padding: 0.75rem;
+    }
+    
+    .stat-box .stat-value {
+        font-size: 1.5rem;
+    }
+    
+    .stat-box .stat-label {
+        font-size: 0.75rem;
+    }
+    
+    .nucleo-stats {
+        gap: 0.5rem;
+    }
+    
+    .stat-item {
+        font-size: 0.85rem;
+    }
+    
+    .nucleo-last-run {
+        font-size: 0.85rem;
+    }
+    
+    .nucleo-table {
+        font-size: 0.8rem;
+    }
+    
+    .nucleo-table th,
+    .nucleo-table td {
+        padding: 0.5rem;
+    }
+}

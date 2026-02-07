@@ -1,0 +1,100 @@
+---
+layout: default
+---
+
+{% assign nucleo_id = page.nucleo_id %}
+{% assign nucleo_data = site.data.nucleo_detail[nucleo_id] %}
+
+<div class="landing-page nucleo-detail-page">
+  <!-- Header -->
+  <section class="landing-header">
+    <h1 class="landing-title">{{ nucleo_data.nucleo_id }}</h1>
+    <p class="text-muted" style="font-size: 1.1rem; margin-top: 0.5rem;">
+      {{ nucleo_data.info.language }}
+    </p>
+  </section>
+
+  <!-- Nucleo Info -->
+  <section class="landing-content">
+    <div class="nucleo-info">
+      <h3>Informazioni Nucleo</h3>
+      <p><strong>Linguaggio:</strong> {{ nucleo_data.info.language }}</p>
+      <p><strong>Runtime:</strong> {{ nucleo_data.info.runtime }}</p>
+      <p><strong>Task:</strong> {{ nucleo_data.info.task }}</p>
+    </div>
+
+    <!-- Stats Aggregate -->
+    <div class="nucleo-detail-stats">
+      <h3>Statistiche Aggregate</h3>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <span class="stat-value">{{ nucleo_data.stats.total_runs }}</span>
+          <span class="stat-label">Run totali</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-value">{{ nucleo_data.stats.avg_time_ms | round: 1 }} <span class="unit">ms</span></span>
+          <span class="stat-label">Tempo medio</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-value tier-badge tier-{{ nucleo_data.stats.best_tier }}">{{ nucleo_data.stats.best_tier }}</span>
+          <span class="stat-label">Best tier</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Esperimenti -->
+  <section class="landing-content">
+    <h2>Timeline Esperimenti</h2>
+    <p class="text-muted" style="margin-bottom: 1.5rem;">
+      Ultimi {{ nucleo_data.runs | size }} esperimenti (ordinati dal più recente)
+    </p>
+    
+    <div class="table-wrapper">
+      <table class="nucleo-table">
+        <thead>
+          <tr>
+            <th>ID Esperimento</th>
+            <th>Timestamp</th>
+            <th>Tier</th>
+            <th>Tempo</th>
+            <th>Output</th>
+            <th>Sensazione</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for run in nucleo_data.runs %}
+          <tr>
+            <td><code>{{ run.id }}</code></td>
+            <td>{{ run.timestamp | date: "%d/%m/%Y %H:%M" }}</td>
+            <td>
+              <span class="tier-badge tier-{{ run.tier_reached }}">{{ run.tier_reached }}</span>
+            </td>
+            <td>{{ run.time_ms }} ms</td>
+            <td>{{ run.output_bytes }} bytes</td>
+            <td>
+              {% if run.sensation.mood %}
+                <span class="sensation-{{ run.sensation.mood }}">
+                  {{ run.sensation.mood }}
+                </span>
+                {% if run.sensation.rsai %}
+                  <br><small class="text-muted">{{ run.sensation.rsai | truncate: 50 }}</small>
+                {% endif %}
+              {% else %}
+                <span class="text-muted">—</span>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Back Link -->
+  <section class="landing-content">
+    <p style="text-align: center; margin-top: 2rem;">
+      <a href="{{ '/waw/evolution/' | relative_url }}" class="btn-enter">← Torna a Evolution Dashboard</a>
+    </p>
+  </section>
+</div>
