@@ -1,12 +1,28 @@
 {
   "tasks": [
     {
+      "id": "3006f014-6d11-809c-9350-c94d497a4689",
+      "date": "2026-02-07",
+      "category": "Feature",
+      "title": "Nucleo Layouts Fixed",
+      "description": "✨ Breadcrumb funzionante (Home > wAw > Evolution)✨ Header spacing perfetto (titolo + subtitle elegante)✨ Info box con bordi arrotondati✨ Stats grid con white boxes (pulito!)✨ Tier badges colorati (gradazioni oro vs grigio)✨ Border color diversi (lime=nucleo, yellow=language)✨ Card interamente cliccabili (non solo link!)✨ Tabelle responsive (scroll su mobile)✨ Typography consistente (font-sizes, weights)✨ Link interni funzionanti (language ↔ nucleo)",
+      "is_latest": true
+    },
+    {
+      "id": "3006f014-6d11-808e-8769-cc381d046dc3",
+      "date": "2026-02-07",
+      "category": "Feature",
+      "title": "Nucleo Layouts",
+      "description": "✅ Index Evolution (hero + card grid) ✅ SCSS tier colors + personalizzazioni ✅ Tier 7 scoperto (SPEC Sentinel!) ✅ Layout Nucleo Detail (info + stats + timeline) ✅ Layout Language Detail (stats + nuclei + recent runs) ✅ Responsive mobile per tutto ✅ Back links a dashboard",
+      "is_latest": false
+    },
+    {
       "id": "2ff6f014-6d11-80d1-902a-d6351f60c4a6",
       "date": "2026-02-06",
       "category": "Infrastructure",
       "title": "Export Script",
       "description": "✅ Export script (export_stats.py v2.0) ✅ JSON generati sul server ✅ Endpoint pubblici accessibili ✅ Caddy serving correttamente ✅ GitHub Action configurata ✅ Permessi write abilitati ✅ Dati sincronizzati nel repo ✅ Commit automatico funzionante ✅ Pronto per automazione ogni 6h",
-      "is_latest": true
+      "is_latest": false
     },
     {
       "id": "2ff6f014-6d11-80e4-8f5c-ebda023bb5ce",
@@ -705,14 +721,14 @@
     "Design"
   ],
   "summary": {
-    "total": 87,
+    "total": 89,
     "by_category": {
       "Infrastructure": 41,
       "Content": 30,
-      "Feature": 11,
+      "Feature": 13,
       "Fix": 3,
       "Design": 0
     }
   },
-  "last_updated": "2026-02-06T17:19:22.915649"
+  "last_updated": "2026-02-07T23:50:36.714411"
 }
