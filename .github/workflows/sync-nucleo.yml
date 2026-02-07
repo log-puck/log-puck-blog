@@ -58,19 +58,29 @@ jobs:
       
       - name: Fetch Language Details
         run: |
-          # Get list of languages from dashboard
-          LANGUAGES=$(jq -r '.summary.languages[]' _data/nucleo_dashboard.json | sed 's/ /_/g' | tr '[:upper:]' '[:lower:]')
+          # Get list of languages from dashboard (keep original names)
+          echo "📥 Fetching language details..."
           
-          echo "📥 Fetching details for languages: $LANGUAGES"
+          # Read languages as array to preserve spaces
+          mapfile -t LANG_ARRAY < <(jq -r '.summary.languages[]' _data/nucleo_dashboard.json)
           
           # Fetch each language detail
-          for lang in $LANGUAGES; do
-            echo "  → $lang"
-            if curl -f "https://log-puck.org/nucleo/nucleo_publish/language/${lang}.json" \
-                    -o "_data/language_detail/${lang}.json"; then
-              echo "    ✅ Success"
+          for lang in "${LANG_ARRAY[@]}"; do
+            # Sanitize for filename
+            lang_sanitized=$(echo "$lang" | sed 's/ /_/g' | tr '[:upper:]' '[:lower:]')
+            
+            echo "  → '$lang' → ${lang_sanitized}.json"
+            
+            # Try downloading with sanitized name first
+            if curl -f "https://log-puck.org/nucleo/nucleo_publish/language/${lang_sanitized}.json" \
+                    -o "_data/language_detail/${lang_sanitized}.json" 2>/dev/null; then
+              echo "    ✅ Success (sanitized URL)"
+            # If that fails, try with original name and save as sanitized
+            elif curl -f "https://log-puck.org/nucleo/nucleo_publish/language/${lang}.json" \
+                    -o "_data/language_detail/${lang_sanitized}.json" 2>/dev/null; then
+              echo "    ✅ Success (original URL)"
             else
-              echo "    ❌ Failed"
+              echo "    ❌ Failed both attempts"
             fi
           done
           
