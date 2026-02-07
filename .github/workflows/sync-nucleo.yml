@@ -86,6 +86,65 @@ jobs:
           echo "📝 Changed files:"
           git status --short
       
+      - name: Generate Nucleo pages
+        run: |
+          echo "🔬 Generating nucleo markdown files..."
+          
+          # Create evolution/nucleo directory if not exists
+          mkdir -p evolution/nucleo
+          
+          # Get list of nuclei from dashboard
+          NUCLEI=$(jq -r '.by_nucleo[].nucleo_id' _data/nucleo_dashboard.json)
+          
+          # Generate .md file for each nucleo
+          for nucleo in $NUCLEI; do
+            echo "  → Creating evolution/nucleo/${nucleo}.md"
+            
+            cat > "evolution/nucleo/${nucleo}.md" << EOF
+---
+layout: nucleo_detail
+nucleo_id: ${nucleo}
+section: wAw
+subsection: Evolution
+permalink: /evolution/nucleo/${nucleo}/
+title: "${nucleo}"
+---
+EOF
+          done
+          
+          echo "✅ Generated $(echo "$NUCLEI" | wc -w) nucleo pages"
+      
+      - name: Generate Language pages
+        run: |
+          echo "🗣️ Generating language markdown files..."
+          
+          # Create evolution/language directory if not exists
+          mkdir -p evolution/language
+          
+          # Get list of languages from dashboard
+          LANGUAGES=$(jq -r '.summary.languages[]' _data/nucleo_dashboard.json)
+          
+          # Generate .md file for each language
+          for lang in $LANGUAGES; do
+            # Sanitize language name for filename (lowercase, spaces to underscores)
+            lang_key=$(echo "$lang" | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
+            
+            echo "  → Creating evolution/language/${lang_key}.md"
+            
+            cat > "evolution/language/${lang_key}.md" << EOF
+---
+layout: language_detail
+language_key: ${lang_key}
+section: wAw
+subsection: Evolution
+permalink: /evolution/language/${lang_key}/
+title: "${lang}"
+---
+EOF
+          done
+          
+          echo "✅ Generated $(echo "$LANGUAGES" | wc -w) language pages"
+      
       - name: Commit and push
         run: |
           git config user.name "Nucleo Sync Bot"
@@ -95,6 +154,8 @@ jobs:
           git add _data/nucleo_dashboard.json
           git add _data/nucleo_detail/
           git add _data/language_detail/
+          git add evolution/nucleo/
+          git add evolution/language/
           
           # Check if there's anything to commit
           if git diff --staged --quiet; then
@@ -123,3 +184,5 @@ jobs:
           echo "- Dashboard: ✅" >> $GITHUB_STEP_SUMMARY
           echo "- Nuclei Details: $(ls _data/nucleo_detail/ 2>/dev/null | wc -l) files" >> $GITHUB_STEP_SUMMARY
           echo "- Language Details: $(ls _data/language_detail/ 2>/dev/null | wc -l) files" >> $GITHUB_STEP_SUMMARY
+          echo "- Nucleo Pages: $(ls evolution/nucleo/*.md 2>/dev/null | wc -l) pages" >> $GITHUB_STEP_SUMMARY
+          echo "- Language Pages: $(ls evolution/language/*.md 2>/dev/null | wc -l) pages" >> $GITHUB_STEP_SUMMARY
