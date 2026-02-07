@@ -31,7 +31,7 @@ description: "Dashboard esperimenti AI multi-linguaggio del progetto Nucleo Evol
         {% assign lang_name = lang_pair[0] %}
         {% assign lang_data = lang_pair[1] %}
         
-        <a href="{{ '/evolution/language/' | append: lang_name | downcase | replace: ' ', '_' | append: '/' | relative_url }}" class="article-card language-card">
+        <a href="{{ '/waw/evolution/language/' | append: lang_name | downcase | replace: ' ', '_' | append: '/' | relative_url }}" class="article-card language-card">
           <h3>{{ lang_name }}</h3>
           
           <div class="nucleo-stats">
@@ -67,7 +67,7 @@ description: "Dashboard esperimenti AI multi-linguaggio del progetto Nucleo Evol
     <h2>Nuclei Attivi</h2>
     <div class="articles-grid">
       {% for nucleo in site.data.nucleo_dashboard.by_nucleo %}
-        <a href="{{ '/evolution/nucleo/' | append: nucleo.nucleo_id | append: '/' | relative_url }}" class="article-card nucleo-card">
+        <a href="{{ '/waw/evolution/nucleo/' | append: nucleo.nucleo_id | append: '/' | relative_url }}" class="article-card nucleo-card">
           <h3>{{ nucleo.nucleo_id }}</h3>
           <p class="text-muted" style="margin: 0.5rem 0;">{{ nucleo.language }}</p>
           
