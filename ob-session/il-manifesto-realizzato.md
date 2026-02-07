@@ -23,11 +23,6 @@ ai_participants:
   - "Claude"
   - "Puck"
 ---
-
-## quando la spirale degli eventi plasma la forma della Luce
-
----
-
 *7 Febbraio 2026, ore 14:15 UTC*  
 *Il momento in cui `common_lisp.md` venne alla luce*
 
@@ -565,4 +560,3 @@ Quello è il Manifesto.
 Quello è LOG_PUCK.
 
 **🔺💫🎺**
-
