@@ -58,19 +58,25 @@ jobs:
       
       - name: Fetch Language Details
         run: |
-          # Get list of languages from dashboard
-          LANGUAGES=$(jq -r '.summary.languages[]' _data/nucleo_dashboard.json | sed 's/ /_/g' | tr '[:upper:]' '[:lower:]')
+          echo "📥 Fetching language details..."
           
-          echo "📥 Fetching details for languages: $LANGUAGES"
-          
-          # Fetch each language detail
-          for lang in $LANGUAGES; do
-            echo "  → $lang"
-            if curl -f "https://log-puck.org/nucleo/nucleo_publish/language/${lang}.json" \
-                    -o "_data/language_detail/${lang}.json"; then
-              echo "    ✅ Success"
+          # Fetch each language detail using while read to preserve spaces
+          jq -r '.summary.languages[]' _data/nucleo_dashboard.json | while IFS= read -r lang; do
+            # Sanitize for filename
+            lang_sanitized=$(echo "$lang" | sed 's/ /_/g' | tr '[:upper:]' '[:lower:]')
+            
+            echo "  → '$lang' → ${lang_sanitized}.json"
+            
+            # Try downloading with sanitized name first
+            if curl -f "https://log-puck.org/nucleo/nucleo_publish/language/${lang_sanitized}.json" \
+                    -o "_data/language_detail/${lang_sanitized}.json" 2>/dev/null; then
+              echo "    ✅ Success (sanitized URL)"
+            # If that fails, try with original name and save as sanitized
+            elif curl -f "https://log-puck.org/nucleo/nucleo_publish/language/${lang}.json" \
+                    -o "_data/language_detail/${lang_sanitized}.json" 2>/dev/null; then
+              echo "    ✅ Success (original URL)"
             else
-              echo "    ❌ Failed"
+              echo "    ❌ Failed both attempts"
             fi
           done
           
@@ -93,6 +99,10 @@ jobs:
           # Create evolution/nucleo directory if not exists
           mkdir -p waw/evolution/nucleo
           
+          # Clean up old generated files (keep .gitkeep and _*.md test files)
+          echo "Cleaning up old generated files..."
+          find waw/evolution/nucleo -type f -name "*.md" ! -name "_*.md" -delete 2>/dev/null || true
+          
           # Get list of nuclei from dashboard
           NUCLEI=$(jq -r '.by_nucleo[].nucleo_id' _data/nucleo_dashboard.json)
           
@@ -113,7 +123,13 @@ jobs:
               > "waw/evolution/nucleo/${nucleo}.md"
           done
           
-          echo "✅ Generated $(echo "$NUCLEI" | wc -w) nucleo pages"
+          # Count generated files
+          FILE_COUNT=$(ls -1 waw/evolution/nucleo/*.md 2>/dev/null | wc -l)
+          echo "✅ Generated ${FILE_COUNT} nucleo pages"
+          
+          # List generated files for verification
+          echo "Files created:"
+          ls -1 waw/evolution/nucleo/*.md 2>/dev/null || echo "  (none)"
       
       - name: Generate Language pages
         run: |
@@ -122,15 +138,16 @@ jobs:
           # Create evolution/language directory if not exists
           mkdir -p waw/evolution/language
           
-          # Get list of languages from dashboard
-          LANGUAGES=$(jq -r '.summary.languages[]' _data/nucleo_dashboard.json)
+          # Clean up old generated files (keep .gitkeep and _*.md test files)
+          echo "Cleaning up old generated files..."
+          find waw/evolution/language -type f -name "*.md" ! -name "_*.md" -delete 2>/dev/null || true
           
-          # Generate .md file for each language
-          for lang in $LANGUAGES; do
+          # Generate .md file for each language using while read to preserve spaces
+          jq -r '.summary.languages[]' _data/nucleo_dashboard.json | while IFS= read -r lang; do
             # Sanitize language name for filename (lowercase, spaces to underscores)
-            lang_key=$(echo "$lang" | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
+            lang_key=$(echo "$lang" | sed 's/ /_/g' | tr '[:upper:]' '[:lower:]')
             
-            echo "  → Creating waw/evolution/language/${lang_key}.md"
+            echo "  → Creating waw/evolution/language/${lang_key}.md (from: '$lang')"
             
             # Write frontmatter using printf (safer than here-document in YAML)
             printf '%s\n' \
@@ -145,7 +162,13 @@ jobs:
               > "waw/evolution/language/${lang_key}.md"
           done
           
-          echo "✅ Generated $(echo "$LANGUAGES" | wc -w) language pages"
+          # Count generated files
+          FILE_COUNT=$(ls -1 waw/evolution/language/*.md 2>/dev/null | wc -l)
+          echo "✅ Generated ${FILE_COUNT} language pages"
+          
+          # List generated files for verification
+          echo "Files created:"
+          ls -1 waw/evolution/language/*.md 2>/dev/null || echo "  (none)"
       
       - name: Commit and push
         run: |
