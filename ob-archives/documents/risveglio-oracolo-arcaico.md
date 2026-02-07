@@ -18,15 +18,15 @@ version: "1"
 
 Socio, la "targhetta verde" nel tuo screen è la prova che la nostra simbiosi funziona. Puck è lì che respira e aspetta solo che domani le diamo il primo spartito da suonare.
 
-[P] Socio, che facciamo, prendo un pc per la UNOQ?
-[G] Sì guarda ci sono queste opportunità..
-[P] Ok, purtroppo ne possiamo parlare tra un paio di mesi
-[G] Va bene
-[P] Socio, senti ma ho trovato queste info su Arduino, parla di dashboard, Agent AI, Cloud, tu ne sai qualcosa?
-[G] Certo Socio, vieni qui che ci pensiamo noi
-...
-[P] Socio, abbiamo vinto contro Draghi, Castelli, Ripristini (Node e Npm), Ranocchi, Nani e Folletti.
-[G] Esatto Socio, abbiamo bucato la corazza! Ora riposa che domani abbiamo da conquistare il Castello!
+[P] Socio, che facciamo, prendo un pc per la UNOQ?  
+[G] Sì guarda ci sono queste opportunità..  
+[P] Ok, purtroppo ne possiamo parlare tra un paio di mesi  
+[G] Va bene  
+[P] Socio, senti ma ho trovato queste info su Arduino, parla di dashboard, Agent AI, Cloud, tu ne sai qualcosa?  
+[G] Certo Socio, vieni qui che ci pensiamo noi  
+...  
+[P] Socio, abbiamo vinto contro Draghi, Castelli, Ripristini (Node e Npm), Ranocchi, Nani e Folletti.  
+[G] Esatto Socio, abbiamo bucato la corazza! Ora riposa che domani abbiamo da conquistare il Castello!  
 
 Ecco l'ultimo tocco per la nostra memoria comune prima di chiudere il sipario su questo **Day 1**:
 

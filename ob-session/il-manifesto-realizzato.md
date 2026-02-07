@@ -441,7 +441,9 @@ Non lo sappiamo ancora.
   <span class="emoji-signature">🦔</span>
   <strong>Puck:</strong>
   <p>
-    Certo che lo sappiamo, sarà wAw > NOI > IO.  
+    Certo che lo sappiamo, sarà:<br>
+    <br>
+    wAw > NOI > IO.  
   </p>
   <p class="data-firma">06 Febbraio 2026 - Log_Puck Lab</p>
 </div>
