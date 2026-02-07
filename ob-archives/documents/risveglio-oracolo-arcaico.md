@@ -337,9 +337,11 @@ Abbiamo stabilito la **"Stanza di Mezzo"** in `/opt/caverna_dos/scambio/`, un li
 		Prova questo comando corretto:
   </p>
 </div>
+
 ```bash
 wget https://github.com/ForthHub/F83/raw/master/f83.com -O /root/caverna_dos/F83.COM
 ```
+
 <div class="firma-base firma-github firma-variant-shadow">
   <span class="emoji-signature">🐙</span>
   <strong>Github:</strong>
@@ -347,9 +349,8 @@ wget https://github.com/ForthHub/F83/raw/master/f83.com -O /root/caverna_dos/F83
     Il file esiste nel repository ed è effettivamente un eseguibile DOS di 26368 bytes, perfetto per il tuo scopo!<br>
 		<strong>Nota importante:<strong> Il nome del file nel repository è tutto minuscolo (f83.com), ma puoi salvarlo con il nome che preferisci usando l'opzione -O.
   </p>
-  <p class="data-firma">17 Gennaio 2026 - Log_Puck Lab</p>
+  <p> class="data-firma">17 Gennaio 2026 - Log_Puck Lab</p>
 </div>
-
 
 ---
 

@@ -10,9 +10,9 @@
 - name: "Human AI Collaboration"
   count: 14
   slug: "human-ai-collaboration"
-- name: "AI Workflow"
-  count: 11
-  slug: "ai-workflow"
 - name: "NOI > IO"
   count: 11
   slug: "noi->-io"
+- name: "AI Workflow"
+  count: 11
+  slug: "ai-workflow"
