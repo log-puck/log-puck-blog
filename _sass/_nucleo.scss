@@ -294,52 +294,69 @@
   
   .sensation-popup {
     display: none;
-    position: absolute;
+    position: fixed;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    bottom: 100%;
-    margin-bottom: 0.5rem;
+    transform: translate(-50%, -50%);
     
     background: white;
-    border: 1px solid #e0e0e0;
+    border: 2px solid #2b5c7a;
     border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    z-index: 100;
+    padding: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    z-index: 9999;
     
-    min-width: 300px;
-    max-width: 500px;
+    min-width: 320px;
+    max-width: 90vw;
+    max-height: 80vh;
+    overflow-y: auto;
     
     text-align: left;
     white-space: normal;
   }
   
+  // Optional: overlay scuro dietro popup
+  .sensation-container:hover::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 9998;
+    pointer-events: none;
+  }
+  
   .sensation-popup strong {
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
     color: #2b5c7a;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    border-bottom: 2px solid #f5ddc5;
+    padding-bottom: 0.5rem;
   }
   
   .sensation-popup p {
     margin: 0.5rem 0;
     color: #5c7080;
-    line-height: 1.5;
+    line-height: 1.6;
   }
   
   .sensation-popup pre {
-    margin: 0;
-    padding: 0.75rem;
+    margin: 0.75rem 0 0 0;
+    padding: 1rem;
     background: #f7f9fa;
     border-radius: 4px;
     border: 1px solid #e0e0e0;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     overflow-x: auto;
   }
   
   .sensation-popup code {
     color: #2b5c7a;
     font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    line-height: 1.5;
   }
   
   .sensation-popup hr {
@@ -354,13 +371,13 @@
   
   .sensation-placeholder {
     background: #fef9f3;
-    border-color: #f5ddc5;
+    border-color: #d9822b;
   }
   
   .sensation-placeholder strong:first-child {
     color: #d9822b;
+    border-bottom-color: #d9822b;
   }
-  
   
 
 /* Responsive Adjustments */
@@ -404,9 +421,12 @@
     }
 
     .sensation-popup {
-      left: auto;
-      right: 0;
-      transform: none;
-      min-width: 250px;
+        min-width: 280px;
+        max-width: 85vw;
+        padding: 1.25rem;
+    }
+    
+    .sensation-popup pre {
+    font-size: 0.75rem;
     }
 }
