@@ -13,7 +13,7 @@
       "date": "2026-02-08",
       "category": "Feature",
       "title": "Sensation Popup (Tier 6 Feature)",
-      "description": "Implementazione: Fixed center popup con overlayFallback: Educational placeholder quando dati mancanoFile: ",
+      "description": "Implementazione: Fixed center popup con overlayFallback: Educational placeholder quando dati mancanoFile: _layouts/nucleo_detail.html + _sass/_nucleo.scssSPEC impact: Major visualization feature",
       "is_latest": false
     },
     {
@@ -21,7 +21,7 @@
       "date": "2026-02-08",
       "category": "Fix",
       "title": "Fix Best Tier (Drago #6)",
-      "description": "Problema: ",
+      "description": "Problema: max_tier vs best_tier naming mismatchSoluzione: Allineato layout a JSON namingFile: _layouts/language_detail.htmlSPEC impact: Field naming consistency",
       "is_latest": false
     },
     {
@@ -754,5 +754,5 @@
       "Design": 0
     }
   },
-  "last_updated": "2026-02-08T13:12:15.085692"
+  "last_updated": "2026-02-08T13:15:19.526782"
 }
