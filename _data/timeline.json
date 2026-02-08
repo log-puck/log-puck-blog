@@ -1,12 +1,36 @@
 {
   "tasks": [
     {
+      "id": "3016f014-6d11-80dd-aab1-d88ea5a75c6b",
+      "date": "2026-02-08",
+      "category": "Feature",
+      "title": "Visual Identity Enhancement",
+      "description": "Overlay scuro: Focus sul popupBorder arancio: Warning state (no data)Border blu: Data presentSPEC impact: Design system evolution",
+      "is_latest": true
+    },
+    {
+      "id": "3016f014-6d11-802d-89a6-fb02a41b1d9b",
+      "date": "2026-02-08",
+      "category": "Feature",
+      "title": "Sensation Popup (Tier 6 Feature)",
+      "description": "Implementazione: Fixed center popup con overlayFallback: Educational placeholder quando dati mancanoFile: ",
+      "is_latest": false
+    },
+    {
+      "id": "3016f014-6d11-80e5-9b04-d2069551a53a",
+      "date": "2026-02-08",
+      "category": "Fix",
+      "title": "Fix Best Tier (Drago #6)",
+      "description": "Problema: ",
+      "is_latest": false
+    },
+    {
       "id": "3006f014-6d11-809c-9350-c94d497a4689",
       "date": "2026-02-07",
       "category": "Feature",
       "title": "Nucleo Layouts Fixed",
       "description": "✨ Breadcrumb funzionante (Home > wAw > Evolution)✨ Header spacing perfetto (titolo + subtitle elegante)✨ Info box con bordi arrotondati✨ Stats grid con white boxes (pulito!)✨ Tier badges colorati (gradazioni oro vs grigio)✨ Border color diversi (lime=nucleo, yellow=language)✨ Card interamente cliccabili (non solo link!)✨ Tabelle responsive (scroll su mobile)✨ Typography consistente (font-sizes, weights)✨ Link interni funzionanti (language ↔ nucleo)",
-      "is_latest": true
+      "is_latest": false
     },
     {
       "id": "3006f014-6d11-808e-8769-cc381d046dc3",
@@ -721,14 +745,14 @@
     "Design"
   ],
   "summary": {
-    "total": 89,
+    "total": 92,
     "by_category": {
       "Infrastructure": 41,
       "Content": 30,
-      "Feature": 13,
-      "Fix": 3,
+      "Feature": 15,
+      "Fix": 4,
       "Design": 0
     }
   },
-  "last_updated": "2026-02-08T00:18:49.930448"
+  "last_updated": "2026-02-08T13:12:15.085692"
 }
