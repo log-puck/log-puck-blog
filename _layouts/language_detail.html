@@ -112,7 +112,13 @@ layout: default
             <td><code>{{ run.id }}</code></td>
             <td>{{ run.timestamp | date: "%d/%m/%Y %H:%M" }}</td>
             <td>
-              <span class="tier-badge tier-{{ run.tier_reached }}">{{ run.tier_reached }}</span>
+              {% if run.tier_reached %}
+                <span class="tier-badge tier-{{ run.tier_reached }}">
+                  {{ run.tier_reached }}
+                </span>
+              {% else %}
+                <span style="color: #999;">—</span>
+              {% endif %}
             </td>
             <td>{{ run.time_ms }} ms</td>
             <td>{{ run.output_bytes }} bytes</td>
