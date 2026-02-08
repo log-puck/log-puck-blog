@@ -32,7 +32,13 @@ layout: default
           <span class="stat-label">Output medio</span>
         </div>
         <div class="stat-box">
-          <span class="stat-value tier-badge tier-{{ lang_data.stats.max_tier }}">{{ lang_data.stats.max_tier }}</span>
+          {% if lang_data.stats.max_tier %}
+            <span class="stat-value tier-badge tier-{{ lang_data.stats.max_tier }}">
+              {{ lang_data.stats.max_tier }}
+            </span>
+          {% else %}
+            <span class="stat-value" style="color: #999; font-size: 1.5rem;">—</span>
+          {% endif %}
           <span class="stat-label">Max tier raggiunto</span>
         </div>
       </div>
@@ -64,7 +70,13 @@ layout: default
             
             <div class="stat-item">
               <span class="stat-label">Best tier</span>
-              <span class="stat-value tier-badge tier-{{ nucleo.best_tier }}">{{ nucleo.best_tier }}</span>
+              {% if nucleo.best_tier %}
+                <span class="stat-value tier-badge tier-{{ nucleo.best_tier }}">
+                  {{ nucleo.best_tier }}
+                </span>
+              {% else %}
+                <span class="stat-value" style="color: #999;">—</span>
+              {% endif %}
             </div>
           </div>
           
