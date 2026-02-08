@@ -257,6 +257,112 @@
     color: #999;
 }
 
+// ============================================================================
+// SENSATION POPUP STYLES
+// ============================================================================
+
+.sensation-cell {
+    text-align: center;
+  }
+  
+  .sensation-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .sensation-indicator {
+    cursor: help;
+    font-size: 1.2rem;
+    display: inline-block;
+    transition: transform 0.2s, filter 0.2s;
+    user-select: none;
+  }
+  
+  .sensation-indicator:hover {
+    transform: scale(1.2);
+  }
+  
+  .sensation-present {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+  
+  .sensation-empty {
+    filter: grayscale(100%);
+    opacity: 0.4;
+  }
+  
+  .sensation-popup {
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 100%;
+    margin-bottom: 0.5rem;
+    
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    
+    min-width: 300px;
+    max-width: 500px;
+    
+    text-align: left;
+    white-space: normal;
+  }
+  
+  .sensation-popup strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2b5c7a;
+    font-size: 0.95rem;
+  }
+  
+  .sensation-popup p {
+    margin: 0.5rem 0;
+    color: #5c7080;
+    line-height: 1.5;
+  }
+  
+  .sensation-popup pre {
+    margin: 0;
+    padding: 0.75rem;
+    background: #f7f9fa;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+    font-size: 0.8rem;
+    overflow-x: auto;
+  }
+  
+  .sensation-popup code {
+    color: #2b5c7a;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  }
+  
+  .sensation-popup hr {
+    margin: 1rem 0;
+    border: none;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  .sensation-container:hover .sensation-popup {
+    display: block;
+  }
+  
+  .sensation-placeholder {
+    background: #fef9f3;
+    border-color: #f5ddc5;
+  }
+  
+  .sensation-placeholder strong:first-child {
+    color: #d9822b;
+  }
+  
+  
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .stats-grid {
@@ -295,5 +401,12 @@
     .nucleo-table th,
     .nucleo-table td {
         padding: 0.5rem;
+    }
+
+    .sensation-popup {
+      left: auto;
+      right: 0;
+      transform: none;
+      min-width: 250px;
     }
 }

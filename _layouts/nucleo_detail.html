@@ -72,16 +72,37 @@ layout: default
             </td>
             <td>{{ run.time_ms }} ms</td>
             <td>{{ run.output_bytes }} bytes</td>
-            <td>
-              {% if run.sensation.mood %}
-                <span class="sensation-{{ run.sensation.mood }}">
-                  {{ run.sensation.mood }}
-                </span>
-                {% if run.sensation.rsai %}
-                  <br><small class="text-muted">{{ run.sensation.rsai | truncate: 50 }}</small>
-                {% endif %}
+            <td class="sensation-cell">
+              {% if run.sensation_json %}
+                <!-- DATI REALI (quando ci sono) -->
+                <div class="sensation-container">
+                  <span class="sensation-indicator sensation-present" title="Click to view sensation data">💭</span>
+                  <div class="sensation-popup">
+                    <strong>Sensation Data</strong>
+                    <pre><code>{{ run.sensation_json }}</code></pre>
+                  </div>
+                </div>
               {% else %}
-                <span class="text-muted">—</span>
+                <!-- PLACEHOLDER (quando mancano) -->
+                <div class="sensation-container">
+                  <span class="sensation-indicator sensation-empty" title="No sensation data - Tier 6 feature">💭</span>
+                  <div class="sensation-popup sensation-placeholder">
+                    <strong>Sensation Data - Not Available</strong>
+                    <p style="margin: 0.5rem 0; color: #999;">
+                      This experiment doesn't have sensation metadata yet.
+                    </p>
+                    <p style="margin: 0; font-size: 0.85rem; color: #999;">
+                      <em>Sensation tracking is a Tier 6 feature where AI generates subjective reports about task execution.</em>
+                    </p>
+                    <hr style="margin: 1rem 0; border: none; border-top: 1px solid #e0e0e0;">
+                    <strong style="font-size: 0.9rem;">Example Format:</strong>
+                    <pre style="margin-top: 0.5rem;"><code>{
+              "mood": "focused",
+              "flow": "smooth",
+              "rsai": "Task completed efficiently"
+            }</code></pre>
+                  </div>
+                </div>
               {% endif %}
             </td>
           </tr>
