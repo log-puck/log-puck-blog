@@ -1,5 +1,5 @@
 {
-  "generated": "2026-02-06T10:40:50.795600Z",
+  "generated": "2026-02-10T11:38:25.866920Z",
   "summary": {
     "total_experiments": 60,
     "unique_nuclei": 7,
@@ -127,6 +127,48 @@
         "time_ms": 4.0,
         "timestamp": "2026-01-31T21:46:08.379847Z"
       }
+    }
+  ],
+  "nuclei": [
+    {
+      "nucleus": "nucleo_claude_01",
+      "display_name": "Claude",
+      "model": "claude",
+      "status": "active",
+      "tools_count": 1,
+      "experiment_count": 2,
+      "best_tier": 5,
+      "last_experiment": "2026-02-02T17:46:20.662614Z"
+    },
+    {
+      "nucleus": "nucleo_deepseek_01",
+      "display_name": "DeepSeek",
+      "model": "deepseek",
+      "status": "active",
+      "tools_count": 2,
+      "experiment_count": 2,
+      "best_tier": 1,
+      "last_experiment": "2026-02-02T12:14:23.228372Z"
+    },
+    {
+      "nucleus": "nucleo_gemini_01",
+      "display_name": "Gemini",
+      "model": "gemini",
+      "status": "active",
+      "tools_count": 2,
+      "experiment_count": 29,
+      "best_tier": 4,
+      "last_experiment": "2026-02-04T10:59:01.996475Z"
+    },
+    {
+      "nucleus": "nucleo_unknown_01",
+      "display_name": "Unknown",
+      "model": "unknown",
+      "status": "active",
+      "tools_count": 0,
+      "experiment_count": 0,
+      "best_tier": null,
+      "last_experiment": null
     }
   ]
 }
