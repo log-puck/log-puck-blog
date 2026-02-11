@@ -20,7 +20,8 @@ jobs:
       
       - name: Create data directories
         run: |
-          mkdir -p _data/nucleo_detail
+          mkdir -p _data/expression_detail
+          mkdir -p _data/nucleus_overview
           mkdir -p _data/language_detail
           echo "📁 Directories created"
       
@@ -28,25 +29,23 @@ jobs:
         run: |
           echo "📥 Fetching dashboard..."
           curl -f -v https://log-puck.org/nucleo/nucleo_publish/dashboard.json \
-               -o _data/nucleo_dashboard.json
+               -o _data/evolution_dashboard.json
           
           echo "✅ Dashboard downloaded"
-          ls -lh _data/nucleo_dashboard.json
+          ls -lh _data/evolution_dashboard.json
           echo "Preview:"
-          head -n 10 _data/nucleo_dashboard.json
+          head -n 10 _data/evolution_dashboard.json
       
-      - name: Fetch Nucleo Details
+      - name: Fetch Nucleus Overview
         run: |
+          echo "📥 Fetching nucleus overview..."
+          
           # Get list of nuclei from dashboard
-          NUCLEI=$(jq -r '.by_nucleo[].nucleo_id' _data/nucleo_dashboard.json)
-          
-          echo "📥 Fetching details for nuclei: $NUCLEI"
-          
-          # Fetch each nucleo detail
-          for nucleo in $NUCLEI; do
-            echo "  → $nucleo"
-            if curl -f "https://log-puck.org/nucleo/nucleo_publish/detail/${nucleo}.json" \
-                    -o "_data/nucleo_detail/${nucleo}.json"; then
+          jq -r '.summary.nuclei[]' _data/evolution_dashboard.json | while IFS= read -r nucleus; do
+            echo "  → ${nucleus}"
+            
+            if curl -f "https://log-puck.org/nucleo/nucleo_publish/nucleus/${nucleus}.json" \
+                    -o "_data/nucleus_overview/${nucleus}.json" 2>/dev/null; then
               echo "    ✅ Success"
             else
               echo "    ❌ Failed"
@@ -54,14 +53,33 @@ jobs:
           done
           
           echo "Files downloaded:"
-          ls -lh _data/nucleo_detail/
+          ls -lh _data/nucleus_overview/ 2>/dev/null || echo "  (none)"
+      
+      - name: Fetch Expression Details
+        run: |
+          echo "📥 Fetching expression details..."
+          
+          # Get list of expressions from dashboard
+          jq -r '.summary.expressions[]' _data/evolution_dashboard.json | while IFS= read -r expr_id; do
+            echo "  → ${expr_id}"
+            
+            if curl -f "https://log-puck.org/nucleo/nucleo_publish/expressions/${expr_id}.json" \
+                    -o "_data/expression_detail/${expr_id}.json" 2>/dev/null; then
+              echo "    ✅ Success"
+            else
+              echo "    ❌ Failed"
+            fi
+          done
+          
+          echo "Files downloaded:"
+          ls -lh _data/expression_detail/ 2>/dev/null || echo "  (none)"
       
       - name: Fetch Language Details
         run: |
           echo "📥 Fetching language details..."
           
           # Fetch each language detail using while read to preserve spaces
-          jq -r '.summary.languages[]' _data/nucleo_dashboard.json | while IFS= read -r lang; do
+          jq -r '.summary.languages[]' _data/evolution_dashboard.json | while IFS= read -r lang; do
             # Sanitize for filename
             lang_sanitized=$(echo "$lang" | sed 's/ /_/g' | tr '[:upper:]' '[:lower:]')
             
@@ -81,7 +99,7 @@ jobs:
           done
           
           echo "Files downloaded:"
-          ls -lh _data/language_detail/
+          ls -lh _data/language_detail/ 2>/dev/null || echo "  (none)"
       
       - name: Check git status
         run: |
@@ -92,44 +110,86 @@ jobs:
           echo "📝 Changed files:"
           git status --short
       
-      - name: Generate Nucleo pages
+      - name: Generate Nucleus pages (OB-AI)
         run: |
-          echo "🔬 Generating nucleo markdown files..."
+          echo "👤 Generating nucleus profile pages..."
           
-          # Create evolution/nucleo directory if not exists
-          mkdir -p waw/evolution/nucleo
+          # Create ob-ai directory if not exists
+          mkdir -p ob-ai
           
-          # Clean up old generated files (keep .gitkeep and _*.md test files)
-          echo "Cleaning up old generated files..."
-          find waw/evolution/nucleo -type f -name "*.md" ! -name "_*.md" -delete 2>/dev/null || true
+          # Remove old Einstein placeholder if exists
+          rm -f ob-ai/einstein.md
           
           # Get list of nuclei from dashboard
-          NUCLEI=$(jq -r '.by_nucleo[].nucleo_id' _data/nucleo_dashboard.json)
-          
-          # Generate .md file for each nucleo
-          for nucleo in $NUCLEI; do
-            echo "  → Creating waw/evolution/nucleo/${nucleo}.md"
+          jq -r '.summary.nuclei[]' _data/evolution_dashboard.json | while IFS= read -r nucleus; do
+            # Get display_name from nucleus JSON
+            display_name=$(jq -r '.display_name // "Unknown"' "_data/nucleus_overview/${nucleus}.json" 2>/dev/null || echo "Unknown")
+            
+            echo "  → Creating ob-ai/${nucleus}.md (${display_name})"
             
             # Write frontmatter using printf (safer than here-document in YAML)
             printf '%s\n' \
               "---" \
-              "layout: nucleo_detail" \
-              "nucleo_id: ${nucleo}" \
-              "section: wAw" \
-              "subsection: Evolution" \
-              "permalink: /waw/evolution/nucleo/${nucleo}/" \
-              "title: \"${nucleo}\"" \
+              "layout: nucleus_profile" \
+              "nucleus: ${nucleus}" \
+              "section: OB-AI" \
+              "permalink: /ob-ai/${nucleus}/" \
+              "title: \"${display_name}\"" \
               "---" \
-              > "waw/evolution/nucleo/${nucleo}.md"
+              > "ob-ai/${nucleus}.md"
           done
           
           # Count generated files
-          FILE_COUNT=$(ls -1 waw/evolution/nucleo/*.md 2>/dev/null | wc -l)
-          echo "✅ Generated ${FILE_COUNT} nucleo pages"
+          FILE_COUNT=$(ls -1 ob-ai/nucleo_*.md 2>/dev/null | wc -l)
+          echo "✅ Generated ${FILE_COUNT} nucleus pages"
           
           # List generated files for verification
           echo "Files created:"
-          ls -1 waw/evolution/nucleo/*.md 2>/dev/null || echo "  (none)"
+          ls -1 ob-ai/nucleo_*.md 2>/dev/null || echo "  (none)"
+      
+      - name: Generate Expression pages (wAw/Evolution)
+        run: |
+          echo "🔬 Generating expression pages..."
+          
+          # Create evolution/expressions directory if not exists
+          mkdir -p waw/evolution/expressions
+          
+          # Clean up old generated files in nucleo/ directory
+          echo "Cleaning up old nucleo/ files..."
+          rm -rf waw/evolution/nucleo
+          
+          # Clean up old generated files in expressions/ (keep .gitkeep and _*.md test files)
+          echo "Cleaning up old expression files..."
+          find waw/evolution/expressions -type f -name "*.md" ! -name "_*.md" -delete 2>/dev/null || true
+          
+          # Get list of expressions from dashboard
+          jq -r '.summary.expressions[]' _data/evolution_dashboard.json | while IFS= read -r expr_id; do
+            # Get nucleus from expression JSON
+            nucleus=$(jq -r '.nucleus // "unknown"' "_data/expression_detail/${expr_id}.json" 2>/dev/null || echo "unknown")
+            
+            echo "  → Creating waw/evolution/expressions/${expr_id}.md (nucleus: ${nucleus})"
+            
+            # Write frontmatter using printf (safer than here-document in YAML)
+            printf '%s\n' \
+              "---" \
+              "layout: expression_detail" \
+              "expression_id: ${expr_id}" \
+              "nucleus: ${nucleus}" \
+              "section: wAw" \
+              "subsection: Evolution" \
+              "permalink: /waw/evolution/expressions/${expr_id}/" \
+              "title: \"${expr_id}\"" \
+              "---" \
+              > "waw/evolution/expressions/${expr_id}.md"
+          done
+          
+          # Count generated files
+          FILE_COUNT=$(ls -1 waw/evolution/expressions/*.md 2>/dev/null | wc -l)
+          echo "✅ Generated ${FILE_COUNT} expression pages"
+          
+          # List generated files for verification
+          echo "Files created:"
+          ls -1 waw/evolution/expressions/*.md 2>/dev/null || echo "  (none)"
       
       - name: Generate Language pages
         run: |
@@ -143,7 +203,7 @@ jobs:
           find waw/evolution/language -type f -name "*.md" ! -name "_*.md" -delete 2>/dev/null || true
           
           # Generate .md file for each language using while read to preserve spaces
-          jq -r '.summary.languages[]' _data/nucleo_dashboard.json | while IFS= read -r lang; do
+          jq -r '.summary.languages[]' _data/evolution_dashboard.json | while IFS= read -r lang; do
             # Sanitize language name for filename (lowercase, spaces to underscores)
             lang_key=$(echo "$lang" | sed 's/ /_/g' | tr '[:upper:]' '[:lower:]')
             
@@ -176,38 +236,49 @@ jobs:
           git config user.email "nucleo@log-puck.org"
           
           # Add all files (new and modified)
-          git add _data/nucleo_dashboard.json
-          git add _data/nucleo_detail/
+          git add _data/evolution_dashboard.json
+          git add _data/expression_detail/
+          git add _data/nucleus_overview/
           git add _data/language_detail/
-          git add waw/evolution/nucleo/
+          git add ob-ai/
+          git add waw/evolution/expressions/
           git add waw/evolution/language/
+          
+          # Stage removal of old nucleo/ directory if it exists
+          git add -A waw/evolution/nucleo/ 2>/dev/null || true
           
           # Check if there's anything to commit
           if git diff --staged --quiet; then
             echo "⚠️  No changes to commit"
           else
             TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M UTC")
-            git commit -m "🔬 Nucleo data sync - ${TIMESTAMP}"
+            git commit -m "🔬 Nucleus migration - Evolution data sync - ${TIMESTAMP}"
             git push
             echo "✅ Changes committed and pushed"
           fi
       
       - name: Summary
         run: |
-          echo "### 🔬 Nucleo Sync Summary" >> $GITHUB_STEP_SUMMARY
+          echo "### 🔬 Nucleus Evolution Sync Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           
-          if [ -f "_data/nucleo_dashboard.json" ]; then
-            TOTAL=$(jq -r '.summary.total_experiments' _data/nucleo_dashboard.json)
-            NUCLEI=$(jq -r '.summary.unique_nuclei' _data/nucleo_dashboard.json)
-            echo "**Experiments:** $TOTAL" >> $GITHUB_STEP_SUMMARY
+          if [ -f "_data/evolution_dashboard.json" ]; then
+            TOTAL=$(jq -r '.summary.total_experiments // 0' _data/evolution_dashboard.json)
+            NUCLEI=$(jq -r '.summary.nuclei | length' _data/evolution_dashboard.json 2>/dev/null || echo "0")
+            EXPRESSIONS=$(jq -r '.summary.expressions | length' _data/evolution_dashboard.json 2>/dev/null || echo "0")
+            echo "**Total Experiments:** $TOTAL" >> $GITHUB_STEP_SUMMARY
             echo "**Nuclei:** $NUCLEI" >> $GITHUB_STEP_SUMMARY
+            echo "**Expressions:** $EXPRESSIONS" >> $GITHUB_STEP_SUMMARY
           fi
           
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Files synced:**" >> $GITHUB_STEP_SUMMARY
           echo "- Dashboard: ✅" >> $GITHUB_STEP_SUMMARY
-          echo "- Nuclei Details: $(ls _data/nucleo_detail/ 2>/dev/null | wc -l) files" >> $GITHUB_STEP_SUMMARY
+          echo "- Nucleus Profiles: $(ls _data/nucleus_overview/ 2>/dev/null | wc -l) files" >> $GITHUB_STEP_SUMMARY
+          echo "- Expression Details: $(ls _data/expression_detail/ 2>/dev/null | wc -l) files" >> $GITHUB_STEP_SUMMARY
           echo "- Language Details: $(ls _data/language_detail/ 2>/dev/null | wc -l) files" >> $GITHUB_STEP_SUMMARY
-          echo "- Nucleo Pages: $(ls waw/evolution/nucleo/*.md 2>/dev/null | wc -l) pages" >> $GITHUB_STEP_SUMMARY
-          echo "- Language Pages: $(ls waw/evolution/language/*.md 2>/dev/null | wc -l) pages" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Pages generated:**" >> $GITHUB_STEP_SUMMARY
+          echo "- Nucleus Pages (OB-AI): $(ls ob-ai/nucleo_*.md 2>/dev/null | wc -l) pages" >> $GITHUB_STEP_SUMMARY
+          echo "- Expression Pages (Evolution): $(ls waw/evolution/expressions/*.md 2>/dev/null | wc -l) pages" >> $GITHUB_STEP_SUMMARY
+          echo "- Language Pages (Evolution): $(ls waw/evolution/language/*.md 2>/dev/null | wc -l) pages" >> $GITHUB_STEP_SUMMARY
