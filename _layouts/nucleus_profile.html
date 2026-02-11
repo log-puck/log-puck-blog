@@ -1,0 +1,119 @@
+---
+layout: default
+---
+
+{% assign nucleus_id = page.nucleus %}
+{% assign nucleus_data = site.data.nucleus_overview[nucleus_id] %}
+
+<div class="landing-page nucleus-profile-page">
+  <!-- Header -->
+  <section class="landing-header">
+    <h1 class="landing-title">{{ nucleus_data.display_name }}</h1>
+    <p class="text-muted" style="font-size: 1.1rem; margin-top: 0.5rem;">
+      {{ nucleus_data.model }} • {{ nucleus_id }}
+    </p>
+  </section>
+
+  <!-- Nucleus Stats -->
+  <section class="landing-content">
+    <div class="nucleus-stats-overview">
+      <h3>Statistiche Nucleus</h3>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <span class="stat-value">{{ nucleus_data.stats.total_experiments }}</span>
+          <span class="stat-label">Esperimenti totali</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-value">{{ nucleus_data.stats.total_AI_call | default: 0 }}</span>
+          <span class="stat-label">AI Calls</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-value tier-badge tier-{{ nucleus_data.stats.best_tier }}">{{ nucleus_data.stats.best_tier }}</span>
+          <span class="stat-label">Best tier</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-value">{{ nucleus_data.stats.languages_used | size }}</span>
+          <span class="stat-label">Linguaggi usati</span>
+        </div>
+      </div>
+      
+      <!-- Languages Used -->
+      {% if nucleus_data.stats.languages_used %}
+      <div style="margin-top: 1rem; text-align: center;">
+        <p class="text-muted" style="font-size: 0.9rem;">
+          <strong>Languages:</strong> {{ nucleus_data.stats.languages_used | join: ", " }}
+        </p>
+      </div>
+      {% endif %}
+      
+      <!-- Last Council Decision -->
+      {% if nucleus_data.stats.last_council_decision %}
+      <div class="council-decision" style="margin-top: 1.5rem; padding: 1rem; background: #f7f9fa; border-left: 3px solid #0f9960; border-radius: 4px;">
+        <h4 style="margin: 0 0 0.5rem 0; color: #2b5c7a;">Last Council Decision</h4>
+        <p style="margin: 0; font-style: italic; color: #5c7080;">
+          "{{ nucleus_data.stats.last_council_decision }}"
+        </p>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- Expressions -->
+  <section class="landing-content">
+    <h2>Expressions</h2>
+    <p class="text-muted" style="margin-bottom: 1.5rem;">
+      {{ nucleus_data.expressions | size }} expressions attive per questo nucleus
+    </p>
+    
+    <div class="articles-grid">
+      {% for expr in nucleus_data.expressions %}
+        <a href="{{ '/waw/evolution/expressions/' | append: expr.expression_id | append: '/' | relative_url }}" class="article-card expression-card">
+          <h3>{{ expr.expression_id }}</h3>
+          
+          <div class="expression-stats">
+            <div class="stat-item">
+              <span class="stat-label">Language</span>
+              <span class="stat-value">{{ expr.language }}</span>
+            </div>
+            
+            <div class="stat-item">
+              <span class="stat-label">Experiments</span>
+              <span class="stat-value">{{ expr.experiment_count }}</span>
+            </div>
+            
+            <div class="stat-item">
+              <span class="stat-label">Best tier</span>
+              {% if expr.best_tier %}
+                <span class="stat-value tier-badge tier-{{ expr.best_tier }}">{{ expr.best_tier }}</span>
+              {% else %}
+                <span class="stat-value" style="color: #999;">—</span>
+              {% endif %}
+            </div>
+          </div>
+          
+          <!-- Last Sensation (se presente) -->
+          {% if expr.last_sensation %}
+          <div class="expression-sensation" style="margin-top: 1rem; padding: 0.75rem; background: #fef9f3; border-radius: 4px; font-size: 0.85rem;">
+            <strong style="color: #d9822b;">Last Sensation:</strong>
+            <div style="margin-top: 0.5rem;">
+              <code style="color: #5c7080; word-break: break-word;">{{ expr.last_sensation.data | truncate: 100 }}</code>
+            </div>
+            <small class="text-muted" style="display: block; margin-top: 0.5rem;">
+              {{ expr.last_sensation.timestamp | date: "%d/%m/%Y %H:%M" }}
+            </small>
+          </div>
+          {% endif %}
+          
+          <p class="card-action">→ Expression detail</p>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Back Link -->
+  <section class="landing-content">
+    <p style="text-align: center; margin-top: 2rem;">
+      <a href="{{ '/ob-ai/' | relative_url }}" class="btn-enter">← Torna a OB-AI</a>
+    </p>
+  </section>
+</div>

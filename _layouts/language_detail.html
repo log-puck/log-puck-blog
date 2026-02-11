@@ -16,7 +16,7 @@ layout: default
 
   <!-- Language Stats -->
   <section class="landing-content">
-    <div class="nucleo-detail-stats">
+    <div class="language-detail-stats">
       <h3>Statistiche Linguaggio</h3>
       <div class="stats-grid">
         <div class="stat-box">
@@ -45,34 +45,34 @@ layout: default
     </div>
   </section>
 
-  <!-- Nuclei che usano questo linguaggio -->
+  <!-- Expressions che usano questo linguaggio -->
   <section class="landing-content">
-    <h2>Nuclei Attivi</h2>
+    <h2>Expressions Attive</h2>
     <p class="text-muted" style="margin-bottom: 1.5rem;">
-      {{ lang_data.nuclei | size }} nuclei utilizzano {{ lang_data.language }}
+      {{ lang_data.expressions | size }} expressions utilizzano {{ lang_data.language }}
     </p>
     
     <div class="articles-grid">
-      {% for nucleo in lang_data.nuclei %}
-        <a href="{{ '/waw/evolution/nucleo/' | append: nucleo.nucleo_id | append: '/' | relative_url }}" class="article-card nucleo-card">
-          <h3>{{ nucleo.nucleo_id }}</h3>
+      {% for expression in lang_data.expressions %}
+        <a href="{{ '/waw/evolution/expressions/' | append: expression.expression_id | append: '/' | relative_url }}" class="article-card expression-card">
+          <h3>{{ expression.expression_id }}</h3>
           
-          <div class="nucleo-stats">
+          <div class="expression-stats">
             <div class="stat-item">
               <span class="stat-label">Run totali</span>
-              <span class="stat-value">{{ nucleo.total_runs }}</span>
+              <span class="stat-value">{{ expression.total_runs }}</span>
             </div>
             
             <div class="stat-item">
               <span class="stat-label">Tempo medio</span>
-              <span class="stat-value">{{ nucleo.avg_time_ms | round: 1 }} <span class="unit">ms</span></span>
+              <span class="stat-value">{{ expression.avg_time_ms | round: 1 }} <span class="unit">ms</span></span>
             </div>
             
             <div class="stat-item">
               <span class="stat-label">Best tier</span>
-              {% if nucleo.best_tier %}
-                <span class="stat-value tier-badge tier-{{ nucleo.best_tier }}">
-                  {{ nucleo.best_tier }}
+              {% if expression.best_tier %}
+                <span class="stat-value tier-badge tier-{{ expression.best_tier }}">
+                  {{ expression.best_tier }}
                 </span>
               {% else %}
                 <span class="stat-value" style="color: #999;">—</span>
@@ -80,24 +80,24 @@ layout: default
             </div>
           </div>
           
-          <p class="card-action">→ Timeline nucleo</p>
+          <p class="card-action">→ Timeline expression</p>
         </a>
       {% endfor %}
     </div>
   </section>
 
-  <!-- Recent Runs Cross-Nucleo -->
+  <!-- Recent Runs Cross-Expression -->
   <section class="landing-content">
     <h2>Esperimenti Recenti</h2>
     <p class="text-muted" style="margin-bottom: 1.5rem;">
-      Ultimi {{ lang_data.recent_runs | size }} esperimenti cross-nucleo
+      Ultimi {{ lang_data.recent_runs | size }} esperimenti cross-expression
     </p>
     
     <div class="table-wrapper">
-      <table class="nucleo-table">
+      <table class="language-table">
         <thead>
           <tr>
-            <th>Nucleo</th>
+            <th>Expression</th>
             <th>ID Esperimento</th>
             <th>Timestamp</th>
             <th>Tier</th>
@@ -108,7 +108,7 @@ layout: default
         <tbody>
           {% for run in lang_data.recent_runs %}
           <tr>
-            <td><strong>{{ run.nucleo_id }}</strong></td>
+            <td><strong>{{ run.expression_id }}</strong></td>
             <td><code>{{ run.id }}</code></td>
             <td>{{ run.timestamp | date: "%d/%m/%Y %H:%M" }}</td>
             <td>

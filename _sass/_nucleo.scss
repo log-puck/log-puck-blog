@@ -12,11 +12,13 @@
     border-left-color: var(--accent-yellow-dark);
 }
 
-.nucleo-card {
+.nucleo-card,
+.expression-card {
     border-left: 4px solid var(--accent-lime);
 }
 
-.nucleo-card:hover {
+.nucleo-card:hover,
+.expression-card:hover {
     border-left-color: var(--accent-magenta);
 }
 
@@ -62,7 +64,8 @@
 }
 
 /* Stats Container (inside cards) */
-.nucleo-stats {
+.nucleo-stats,
+.expression-stats {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
@@ -178,9 +181,11 @@
     opacity: 1;
 }
 
-/* Nucleo Info/Stats Blocks (for detail pages) */
+/* Nucleo/Expression Info/Stats Blocks (for detail pages) */
 .nucleo-info,
-.nucleo-detail-stats {
+.expression-info,
+.nucleo-detail-stats,
+.expression-detail-stats {
     background-color: var(--slot-bg);
     padding: 1.5rem;
     border-radius: 8px;
@@ -189,30 +194,40 @@
 }
 
 .nucleo-info p,
-.nucleo-detail-stats p {
+.expression-info p,
+.nucleo-detail-stats p,
+.expression-detail-stats p {
     margin: 0.5rem 0;
 }
 
 .nucleo-info strong,
-.nucleo-detail-stats strong {
+.expression-info strong,
+.nucleo-detail-stats strong,
+.expression-detail-stats strong {
     color: var(--text-main);
     font-weight: 700;
 }
 
-/* Nucleo Table (for timeline) */
-.nucleo-table {
+/* Tables (for timeline) */
+.nucleo-table,
+.expression-table,
+.language-table {
     width: 100%;
     border-collapse: collapse;
     margin: 2rem 0;
     font-size: 0.9rem;
 }
 
-.nucleo-table thead {
+.nucleo-table thead,
+.expression-table thead,
+.language-table thead {
     background-color: var(--slot-bg);
     border-bottom: 2px solid var(--border-color);
 }
 
-.nucleo-table th {
+.nucleo-table th,
+.expression-table th,
+.language-table th {
     padding: 0.75rem 1rem;
     text-align: left;
     font-weight: 700;
@@ -221,16 +236,22 @@
     letter-spacing: 0.05em;
 }
 
-.nucleo-table td {
+.nucleo-table td,
+.expression-table td,
+.language-table td {
     padding: 0.75rem 1rem;
     border-bottom: 1px solid #e0e0e0;
 }
 
-.nucleo-table tbody tr:hover {
+.nucleo-table tbody tr:hover,
+.expression-table tbody tr:hover,
+.language-table tbody tr:hover {
     background-color: var(--slot-bg);
 }
 
-.nucleo-table code {
+.nucleo-table code,
+.expression-table code,
+.language-table code {
     font-family: 'Courier New', monospace;
     background-color: #f5f5f5;
     padding: 0.125rem 0.25rem;
@@ -399,7 +420,8 @@
         font-size: 0.75rem;
     }
     
-    .nucleo-stats {
+    .nucleo-stats,
+    .expression-stats {
         gap: 0.5rem;
     }
     
@@ -411,12 +433,18 @@
         font-size: 0.85rem;
     }
     
-    .nucleo-table {
+    .nucleo-table,
+    .expression-table,
+    .language-table {
         font-size: 0.8rem;
     }
     
     .nucleo-table th,
-    .nucleo-table td {
+    .nucleo-table td,
+    .expression-table th,
+    .expression-table td,
+    .language-table th,
+    .language-table td {
         padding: 0.5rem;
     }
 

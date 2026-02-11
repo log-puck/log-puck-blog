@@ -14,12 +14,12 @@ description: "Dashboard esperimenti AI multi-linguaggio del progetto Nucleo Evol
   <section class="hero">
     <h1 class="hero-title">Nucleo Evolution</h1>
     <p class="hero-description">
-      <strong>{{ site.data.nucleo_dashboard.summary.total_experiments }}</strong> esperimenti
-      • <strong>{{ site.data.nucleo_dashboard.summary.unique_nuclei }}</strong> nuclei attivi
-      • <strong>{{ site.data.nucleo_dashboard.summary.languages | size }}</strong> linguaggi
+      <strong>{{ site.data.evolution_dashboard.summary.total_experiments }}</strong> esperimenti
+      • <strong>{{ site.data.evolution_dashboard.summary.unique_nuclei }}</strong> nuclei attivi
+      • <strong>{{ site.data.evolution_dashboard.summary.languages | size }}</strong> linguaggi
     </p>
     <p class="text-muted" style="margin-top: 0.5rem; font-size: 0.9rem;">
-      Ultimo aggiornamento: {{ site.data.nucleo_dashboard.generated | date: "%d %B %Y, %H:%M" }}
+      Ultimo aggiornamento: {{ site.data.evolution_dashboard.generated | date: "%d %B %Y, %H:%M" }}
     </p>
   </section>
 
@@ -27,7 +27,7 @@ description: "Dashboard esperimenti AI multi-linguaggio del progetto Nucleo Evol
   <section class="landing-content">
     <h2>Performance per Linguaggio</h2>
     <div class="articles-grid">
-      {% for lang_pair in site.data.nucleo_dashboard.by_language %}
+      {% for lang_pair in site.data.evolution_dashboard.by_language %}
         {% assign lang_name = lang_pair[0] %}
         {% assign lang_data = lang_pair[1] %}
         
@@ -66,8 +66,8 @@ description: "Dashboard esperimenti AI multi-linguaggio del progetto Nucleo Evol
   <section class="landing-content">
     <h2>Nuclei Attivi</h2>
     <div class="articles-grid">
-      {% for nucleo in site.data.nucleo_dashboard.by_nucleo %}
-        <a href="{{ '/waw/evolution/nucleo/' | append: nucleo.nucleo_id | append: '/' | relative_url }}" class="article-card nucleo-card">
+      {% for nucleo in site.data.evolution_dashboard.by_nucleo %}
+        <a href="{{ '/waw/evolution/expressions/' | append: nucleo.nucleo_id | append: '/' | relative_url }}" class="article-card nucleo-card">
           <h3>{{ nucleo.nucleo_id }}</h3>
           <p class="text-muted" style="margin: 0.5rem 0;">{{ nucleo.language }}</p>
           
