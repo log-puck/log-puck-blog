@@ -40,39 +40,42 @@ jobs:
         run: |
           echo "📥 Fetching nucleus overview..."
           
-          # Get list of nuclei from dashboard
-          jq -r '.summary.nuclei[]' _data/evolution_dashboard.json | while IFS= read -r nucleus; do
-            echo "  → ${nucleus}"
-            
-            if curl -f "https://log-puck.org/nucleo/nucleo_publish/nucleus/${nucleus}.json" \
-                    -o "_data/nucleus_overview/${nucleus}.json" 2>/dev/null; then
-              echo "    ✅ Success"
-            else
-              echo "    ❌ Failed"
-            fi
-          done
+          # TEMPORANEO: Deduce nuclei da by_nucleo (fino a quando server genera summary.nuclei)
+          jq -r '.by_nucleo[].nucleo_id' _data/evolution_dashboard.json | \
+            sed -E 's/^(claude|gemini|deepseek)_.*/nucleo_\1_01/' | \
+            sort -u | \
+            while IFS= read -r nucleus; do
+              echo "  → ${nucleus}"
+              
+              if curl -f "https://log-puck.org/nucleo/nucleo_publish/nucleus/${nucleus}.json" \
+                      -o "_data/nucleus_overview/${nucleus}.json" 2>/dev/null; then
+                echo "    ✅ Success"
+              else
+                echo "    ⚠️  Failed (file may not exist yet on server)"
+              fi
+            done
           
           echo "Files downloaded:"
-          ls -lh _data/nucleus_overview/ 2>/dev/null || echo "  (none)"
+          ls -lh _data/nucleus_overview/ 2>/dev/null || echo "  (none yet - waiting for export_stats.py update)"
       
       - name: Fetch Expression Details
         run: |
           echo "📥 Fetching expression details..."
           
-          # Get list of expressions from dashboard
-          jq -r '.by_nucleo[].nucleo_id[]' _data/evolution_dashboard.json | while IFS= read -r expr_id; do
+          # CORRETTO: .by_nucleo[].nucleo_id (senza [] alla fine!)
+          jq -r '.by_nucleo[].nucleo_id' _data/evolution_dashboard.json | while IFS= read -r expr_id; do
             echo "  → ${expr_id}"
             
             if curl -f "https://log-puck.org/nucleo/nucleo_publish/expressions/${expr_id}.json" \
                     -o "_data/expression_detail/${expr_id}.json" 2>/dev/null; then
               echo "    ✅ Success"
             else
-              echo "    ❌ Failed"
+              echo "    ⚠️  Failed (file may not exist yet on server)"
             fi
           done
           
           echo "Files downloaded:"
-          ls -lh _data/expression_detail/ 2>/dev/null || echo "  (none)"
+          ls -lh _data/expression_detail/ 2>/dev/null || echo "  (none yet - waiting for export_stats.py update)"
       
       - name: Fetch Language Details
         run: |
@@ -120,24 +123,32 @@ jobs:
           # Remove old Einstein placeholder if exists
           rm -f ob-ai/einstein.md
           
-          # Get list of nuclei from dashboard
-          jq -r '.summary.nuclei[]' _data/evolution_dashboard.json | while IFS= read -r nucleus; do
-            # Get display_name from nucleus JSON
-            display_name=$(jq -r '.display_name // "Unknown"' "_data/nucleus_overview/${nucleus}.json" 2>/dev/null || echo "Unknown")
-            
-            echo "  → Creating ob-ai/${nucleus}.md (${display_name})"
-            
-            # Write frontmatter using printf (safer than here-document in YAML)
-            printf '%s\n' \
-              "---" \
-              "layout: nucleus_profile" \
-              "nucleus: ${nucleus}" \
-              "section: OB-AI" \
-              "permalink: /ob-ai/${nucleus}/" \
-              "title: \"${display_name}\"" \
-              "---" \
-              > "ob-ai/${nucleus}.md"
-          done
+          # TEMPORANEO: Deduce nuclei da by_nucleo
+          jq -r '.by_nucleo[].nucleo_id' _data/evolution_dashboard.json | \
+            sed -E 's/^(claude|gemini|deepseek)_.*/nucleo_\1_01/' | \
+            sort -u | \
+            while IFS= read -r nucleus; do
+              # Get display_name from nucleus JSON (se esiste)
+              if [ -f "_data/nucleus_overview/${nucleus}.json" ]; then
+                display_name=$(jq -r '.display_name // "Unknown"' "_data/nucleus_overview/${nucleus}.json" 2>/dev/null || echo "Unknown")
+              else
+                # Fallback: deduce da nome
+                display_name=$(echo "$nucleus" | sed -E 's/nucleo_([a-z]+)_01/\1/' | sed 's/^./\U&/')
+              fi
+              
+              echo "  → Creating ob-ai/${nucleus}.md (${display_name})"
+              
+              # Write frontmatter using printf (safer than here-document in YAML)
+              printf '%s\n' \
+                "---" \
+                "layout: nucleus_profile" \
+                "nucleus: ${nucleus}" \
+                "section: OB-AI" \
+                "permalink: /ob-ai/${nucleus}/" \
+                "title: \"${display_name}\"" \
+                "---" \
+                > "ob-ai/${nucleus}.md"
+            done
           
           # Count generated files
           FILE_COUNT=$(ls -1 ob-ai/nucleo_*.md 2>/dev/null | wc -l)
@@ -162,10 +173,10 @@ jobs:
           echo "Cleaning up old expression files..."
           find waw/evolution/expressions -type f -name "*.md" ! -name "_*.md" -delete 2>/dev/null || true
           
-          # Get list of expressions from dashboard
-          jq -r '.by_nucleo[].nucleo_id[]' _data/evolution_dashboard.json | while IFS= read -r expr_id; do
-            # Get nucleus from expression JSON
-            nucleus=$(jq -r '.nucleus // "unknown"' "_data/expression_detail/${expr_id}.json" 2>/dev/null || echo "unknown")
+          # CORRETTO: .by_nucleo[].nucleo_id (senza [] alla fine!)
+          jq -r '.by_nucleo[].nucleo_id' _data/evolution_dashboard.json | while IFS= read -r expr_id; do
+            # Deduce nucleus da expr_id (temporaneo)
+            nucleus=$(echo "$expr_id" | sed -E 's/^(claude|gemini|deepseek)_.*/nucleo_\1_01/')
             
             echo "  → Creating waw/evolution/expressions/${expr_id}.md (nucleus: ${nucleus})"
             
@@ -264,8 +275,8 @@ jobs:
           
           if [ -f "_data/evolution_dashboard.json" ]; then
             TOTAL=$(jq -r '.summary.total_experiments // 0' _data/evolution_dashboard.json)
-            NUCLEI=$(jq -r '.summary.nuclei | length' _data/evolution_dashboard.json 2>/dev/null || echo "0")
-            EXPRESSIONS=$(jq -r '.by_nucleo[].nucleo_id | length' _data/evolution_dashboard.json 2>/dev/null || echo "0")
+            NUCLEI=$(jq -r '.by_nucleo[].nucleo_id' _data/evolution_dashboard.json | sed -E 's/^(claude|gemini|deepseek)_.*/nucleo_\1_01/' | sort -u | wc -l)
+            EXPRESSIONS=$(jq -r '.by_nucleo | length' _data/evolution_dashboard.json)
             echo "**Total Experiments:** $TOTAL" >> $GITHUB_STEP_SUMMARY
             echo "**Nuclei:** $NUCLEI" >> $GITHUB_STEP_SUMMARY
             echo "**Expressions:** $EXPRESSIONS" >> $GITHUB_STEP_SUMMARY
