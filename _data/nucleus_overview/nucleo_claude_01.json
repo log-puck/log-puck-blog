@@ -1,0 +1,26 @@
+{
+  "nucleus": "nucleo_claude_01",
+  "display_name": "Claude",
+  "model": "claude",
+  "status": "active",
+  "tools": [
+    {
+      "tool_id": "claude_prolog_scanner_v1",
+      "language": "Prolog",
+      "project": "scanner",
+      "experiment_count": 2,
+      "best_tier": 5,
+      "last_run": "2026-02-02T17:46:20.662614Z"
+    }
+  ],
+  "stats": {
+    "total_experiments": 2,
+    "languages_used": [
+      "Prolog"
+    ],
+    "tools_count": 1,
+    "best_tier": 5,
+    "first_experiment": "2026-02-02T12:26:45.810682Z",
+    "last_experiment": "2026-02-02T17:46:20.662614Z"
+  }
+}
