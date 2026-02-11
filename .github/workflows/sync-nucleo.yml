@@ -60,7 +60,7 @@ jobs:
           echo "📥 Fetching expression details..."
           
           # Get list of expressions from dashboard
-          jq -r '.summary.expressions[]' _data/evolution_dashboard.json | while IFS= read -r expr_id; do
+          jq -r '.by_nucleo[].nucleo_id[]' _data/evolution_dashboard.json | while IFS= read -r expr_id; do
             echo "  → ${expr_id}"
             
             if curl -f "https://log-puck.org/nucleo/nucleo_publish/expressions/${expr_id}.json" \
@@ -163,7 +163,7 @@ jobs:
           find waw/evolution/expressions -type f -name "*.md" ! -name "_*.md" -delete 2>/dev/null || true
           
           # Get list of expressions from dashboard
-          jq -r '.summary.expressions[]' _data/evolution_dashboard.json | while IFS= read -r expr_id; do
+          jq -r '.by_nucleo[].nucleo_id[]' _data/evolution_dashboard.json | while IFS= read -r expr_id; do
             # Get nucleus from expression JSON
             nucleus=$(jq -r '.nucleus // "unknown"' "_data/expression_detail/${expr_id}.json" 2>/dev/null || echo "unknown")
             
@@ -265,7 +265,7 @@ jobs:
           if [ -f "_data/evolution_dashboard.json" ]; then
             TOTAL=$(jq -r '.summary.total_experiments // 0' _data/evolution_dashboard.json)
             NUCLEI=$(jq -r '.summary.nuclei | length' _data/evolution_dashboard.json 2>/dev/null || echo "0")
-            EXPRESSIONS=$(jq -r '.summary.expressions | length' _data/evolution_dashboard.json 2>/dev/null || echo "0")
+            EXPRESSIONS=$(jq -r '.by_nucleo[].nucleo_id | length' _data/evolution_dashboard.json 2>/dev/null || echo "0")
             echo "**Total Experiments:** $TOTAL" >> $GITHUB_STEP_SUMMARY
             echo "**Nuclei:** $NUCLEI" >> $GITHUB_STEP_SUMMARY
             echo "**Expressions:** $EXPRESSIONS" >> $GITHUB_STEP_SUMMARY
