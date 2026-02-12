@@ -1,12 +1,60 @@
 {
   "tasks": [
     {
+      "id": "3046f014-6d11-809b-b6ad-f39bc1a1706d",
+      "date": "2026-02-11",
+      "category": "Fix",
+      "title": "Debugging & Fix",
+      "description": "Spotted 3 errori JQ, Fixed sintassi, Fixed campo non esistente, Fixed count logica",
+      "is_latest": true
+    },
+    {
+      "id": "3046f014-6d11-80d8-a64a-db698fa28081",
+      "date": "2026-02-11",
+      "category": "Feature",
+      "title": "Evolution Dashboard",
+      "description": "index.md aggiornato, Data source: evolution_dashboard, Path: /expressions/",
+      "is_latest": false
+    },
+    {
+      "id": "3046f014-6d11-802e-9570-c7667ec4751a",
+      "date": "2026-02-11",
+      "category": "Design",
+      "title": "CSS Update",
+      "description": "Alias .expression-* per tutte classi, Responsive incluso, Zero breaking changes!",
+      "is_latest": false
+    },
+    {
+      "id": "3046f014-6d11-8056-a665-d28179763321",
+      "date": "2026-02-11",
+      "category": "Infrastructure",
+      "title": "Layout Jekyll (3 file)",
+      "description": "expression_detail.html (rinominato + aggiornato), language_detail.html (link aggiornati), nucleus_profile.html (NUOVO completo!)",
+      "is_latest": false
+    },
+    {
+      "id": "3046f014-6d11-8080-a1c1-d5e440f89041",
+      "date": "2026-02-11",
+      "category": "Feature",
+      "title": "GitHub Action Completa",
+      "description": "Fetch 3 endpoints (dashboard, expressions, nucleus), Generate expression pages, Generate nucleus pages, Cleanup vecchi file, Deploy & running green!",
+      "is_latest": false
+    },
+    {
+      "id": "3046f014-6d11-80d1-a81d-ecfc82f49f3c",
+      "date": "2026-02-11",
+      "category": "Design",
+      "title": "Nucleus Migration",
+      "description": "✅ GitHub Action completa e deployed, ✅ 3 layout pronti (expression, language, nucleus), ✅ CSS aggiornato con tutti alias, ✅ Cleanup file vecchi",
+      "is_latest": false
+    },
+    {
       "id": "3016f014-6d11-80dd-aab1-d88ea5a75c6b",
       "date": "2026-02-08",
       "category": "Feature",
       "title": "Visual Identity Enhancement",
       "description": "Overlay scuro: Focus sul popupBorder arancio: Warning state (no data)Border blu: Data presentSPEC impact: Design system evolution",
-      "is_latest": true
+      "is_latest": false
     },
     {
       "id": "3016f014-6d11-802d-89a6-fb02a41b1d9b",
@@ -745,14 +793,14 @@
     "Design"
   ],
   "summary": {
-    "total": 92,
+    "total": 98,
     "by_category": {
-      "Infrastructure": 41,
+      "Infrastructure": 42,
       "Content": 30,
-      "Feature": 15,
-      "Fix": 4,
-      "Design": 0
+      "Feature": 17,
+      "Fix": 5,
+      "Design": 2
     }
   },
-  "last_updated": "2026-02-11T11:15:48.043121"
+  "last_updated": "2026-02-13T00:15:16.551096"
 }
