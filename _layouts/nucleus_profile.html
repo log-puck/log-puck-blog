@@ -66,7 +66,9 @@ layout: default
     </p>
     
     <div class="articles-grid">
-      {% for expr in nucleus_data.expressions %}
+      {% assign expressions = nucleus_data.expressions %}
+      {% for expr in expressions %}
+        {% assign expr_id = expr.expression_id %}
         <a href="{{ '/waw/evolution/expressions/' | append: expr.expression_id | append: '/' | relative_url }}" class="article-card expression-card">
           <h3>{{ expr.expression_id }}</h3>
           
