@@ -135,7 +135,7 @@
       "display_name": "Claude",
       "model": "claude",
       "status": "active",
-      "expressions_count": 1,
+      "tools_count": 1,
       "experiment_count": 2,
       "best_tier": 5,
       "last_experiment": "2026-02-02T17:46:20.662614Z"
@@ -145,7 +145,7 @@
       "display_name": "DeepSeek",
       "model": "deepseek",
       "status": "active",
-      "expressions_count": 2,
+      "tools_count": 2,
       "experiment_count": 2,
       "best_tier": 1,
       "last_experiment": "2026-02-02T12:14:23.228372Z"
@@ -155,7 +155,7 @@
       "display_name": "Gemini",
       "model": "gemini",
       "status": "active",
-      "expressions_count": 2,
+      "tools_count": 2,
       "experiment_count": 29,
       "best_tier": 4,
       "last_experiment": "2026-02-04T10:59:01.996475Z"
@@ -165,7 +165,7 @@
       "display_name": "Unknown",
       "model": "unknown",
       "status": "active",
-      "expressions_count": 0,
+      "tools_count": 0,
       "experiment_count": 0,
       "best_tier": null,
       "last_experiment": null

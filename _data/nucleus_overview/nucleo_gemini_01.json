@@ -3,9 +3,9 @@
   "display_name": "Gemini",
   "model": "gemini",
   "status": "active",
-  "expressions": [
+  "tools": [
     {
-      "expression_id": "gemini_lisp_sonda_v2",
+      "tool_id": "gemini_lisp_sonda_v2",
       "language": "Common Lisp",
       "project": "sonda",
       "experiment_count": 24,
@@ -13,7 +13,7 @@
       "last_run": "2026-02-04T10:59:01.996475Z"
     },
     {
-      "expression_id": "gemini_lisp_sonda_v1",
+      "tool_id": "gemini_lisp_sonda_v1",
       "language": "Common Lisp",
       "project": "sonda",
       "experiment_count": 5,
@@ -26,7 +26,7 @@
     "languages_used": [
       "Common Lisp"
     ],
-    "expressions_count": 2,
+    "tools_count": 2,
     "best_tier": 4,
     "first_experiment": "2026-02-02T12:21:49.376711Z",
     "last_experiment": "2026-02-04T10:59:01.996475Z"
