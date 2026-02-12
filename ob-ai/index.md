@@ -36,52 +36,56 @@ show_footer: false
     <h2>Nuclei Attivi</h2>
     
     <div class="articles-grid">
-      {% assign nuclei = "nucleo_claude_01,nucleo_gemini_01,nucleo_deepseek_01" | split: "," %}
+      {% comment %}
+      Loop AUTOMATICO su tutti i file JSON in nucleus_overview!
+      Backward compatibility: supporta sia 'expressions' (nuovo) che 'tools' (vecchio)
+      {% endcomment %}
       
-      {% for nucleus_id in nuclei %}
-        {% assign nucleus_data = site.data.nucleus_overview[nucleus_id] %}
+      {% for nucleus_entry in site.data.nucleus_overview %}
+        {% assign nucleus_id = nucleus_entry[0] %}
+        {% assign nucleus_data = nucleus_entry[1] %}
+        
+        {% comment %}Supporta sia expressions (nuovo) che tools (vecchio){% endcomment %}
+        {% assign expressions = nucleus_data.expressions | default: nucleus_data.tools %}
+        {% assign expressions_count = nucleus_data.stats.expressions_count | default: nucleus_data.stats.tools_count | default: expressions.size %}
         
         <a href="{{ '/ob-ai/' | append: nucleus_id | append: '/' | relative_url }}" class="article-card nucleus-card">
-          {% if nucleus_data %}
-            <h3>{{ nucleus_data.display_name }}</h3>
-            <p class="text-muted" style="margin: 0.5rem 0;">{{ nucleus_data.model }}</p>
-            
-            <div class="nucleus-stats">
-              <div class="stat-item">
-                <span class="stat-label">Experiments</span>
-                <span class="stat-value">{{ nucleus_data.stats.total_experiments | default: 0 }}</span>
-              </div>
-              
-              <div class="stat-item">
-                <span class="stat-label">Expressions</span>
-                <span class="stat-value">{{ nucleus_data.expressions | size }}</span>
-              </div>
-              
-              <div class="stat-item">
-                <span class="stat-label">Best tier</span>
-                {% if nucleus_data.stats.best_tier %}
-                  <span class="stat-value tier-badge tier-{{ nucleus_data.stats.best_tier }}">{{ nucleus_data.stats.best_tier }}</span>
-                {% else %}
-                  <span class="stat-value" style="color: #999;">—</span>
-                {% endif %}
-              </div>
+          <h3>{{ nucleus_data.display_name | default: nucleus_id }}</h3>
+          <p class="text-muted" style="margin: 0.5rem 0;">{{ nucleus_data.model | default: "Unknown" }}</p>
+          
+          <div class="nucleus-stats">
+            <div class="stat-item">
+              <span class="stat-label">Experiments</span>
+              <span class="stat-value">{{ nucleus_data.stats.total_experiments | default: 0 }}</span>
             </div>
-          {% else %}
-            <!-- Fallback se JSON non esiste ancora -->
-            <h3>{{ nucleus_id | replace: "nucleo_", "" | replace: "_01", "" | capitalize }}</h3>
-            <p class="text-muted" style="margin: 0.5rem 0;">In attesa dati...</p>
             
-            <div class="nucleus-stats">
-              <div class="stat-item">
-                <span class="stat-label">Status</span>
-                <span class="stat-value" style="color: #999;">Pending</span>
-              </div>
+            <div class="stat-item">
+              <span class="stat-label">Expressions</span>
+              <span class="stat-value">{{ expressions_count }}</span>
             </div>
-          {% endif %}
+            
+            <div class="stat-item">
+              <span class="stat-label">Best tier</span>
+              {% if nucleus_data.stats.best_tier %}
+                <span class="stat-value tier-badge tier-{{ nucleus_data.stats.best_tier }}">{{ nucleus_data.stats.best_tier }}</span>
+              {% else %}
+                <span class="stat-value" style="color: #999;">—</span>
+              {% endif %}
+            </div>
+          </div>
           
           <p class="card-action">→ Nucleus profile</p>
         </a>
       {% endfor %}
+      
+      {% comment %}
+      Se nessun nucleus trovato, mostra messaggio
+      {% endcomment %}
+      {% if site.data.nucleus_overview.size == 0 %}
+      <div style="text-align: center; padding: 3rem; color: #999;">
+        <p>Nessun nucleus disponibile. I dati verranno caricati automaticamente quando generati dal server.</p>
+      </div>
+      {% endif %}
     </div>
   </section>
 </div>
