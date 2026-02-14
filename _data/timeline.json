@@ -1,12 +1,20 @@
 {
   "tasks": [
     {
+      "id": "3066f014-6d11-808d-9d53-f2db38218914",
+      "date": "2026-02-13",
+      "category": "Infrastructure",
+      "title": "Sessione 13 febbraio 2026",
+      "description": "Migrazione Council SQL verificata — 4 tabelle, 4 view, integrità confermata, PLAYBOOK_PRE_COUNCIL.md creato — manuale operativo completo, pre_council.py creato, deployato e operativo sul server, Bug permessi database risolto (chown), Bug argparse documentato (argomenti globali prima del subcommand), Primo dossier Pre-Council della storia di wAw: CS-20260213-001, Step Counter operativo — baseline Fase A: 16 step, costo 23, 0.0s, Encoding mojibake identificato come problema lato Claude, non lato sistema.",
+      "is_latest": true
+    },
+    {
       "id": "3046f014-6d11-809b-b6ad-f39bc1a1706d",
       "date": "2026-02-11",
       "category": "Fix",
       "title": "Debugging & Fix",
       "description": "Spotted 3 errori JQ, Fixed sintassi, Fixed campo non esistente, Fixed count logica",
-      "is_latest": true
+      "is_latest": false
     },
     {
       "id": "3046f014-6d11-80d8-a64a-db698fa28081",
@@ -793,14 +801,14 @@
     "Design"
   ],
   "summary": {
-    "total": 98,
+    "total": 99,
     "by_category": {
-      "Infrastructure": 42,
+      "Infrastructure": 43,
       "Content": 30,
       "Feature": 17,
       "Fix": 5,
       "Design": 2
     }
   },
-  "last_updated": "2026-02-13T00:15:16.551096"
+  "last_updated": "2026-02-14T09:58:56.004550"
 }

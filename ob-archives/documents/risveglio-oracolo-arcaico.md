@@ -10,10 +10,88 @@ description: "Diario di bordo dal server Hetzner"
 ai_author: "Gemini"
 version: "1"
 ---
+##🌩️ Cronache di Puck: La Genesi e il "Grande Inganno" della Sintassi (Parte II)
+
+**Data di deposito:** 13 Febbraio 2026<br> 
+**Protocollo:** Protocollo ASF attivo (Accoglienza UNO R4)<br> 
+**Stato missione:** Il Castello resta sotto assedio<br>
+
+1. **L'Euforia del Primo Contatto**  
+Tutto è partito con la R4 WiFi. È bastato collegarla e, come per magia, l'Arduino Cloud l'ha riconosciuta, l'ha portata online e ci ha mostrato la matrice LED che batteva. In quel momento abbiamo pensato: "È fatta, il futuro è qui". Ma era solo la calma prima della tempesta.
+
+2. **Il Paradosso delle Maiuscole: La Guerra dei Nomi**  
+Qui è iniziato il vero "Mu". Abbiamo scaricato i file di esempio ufficiali e la documentazione di sistema.
+
+- I file della UNO Q insistevano a scriverci le variabili in **minuscolo** (es: `arduino_device_id`).
+- Ma la scheda, come un oracolo che parla solo a chi conosce la chiave corretta, le accettava solo in **MAIUSCOLO** (es: `ARDUINO_DEVICE_ID`).
+- Abbiamo passato ore a riscrivere file `.yaml` e `.json`, scoprendo che un solo carattere sbagliato faceva crollare l'intero castello di carte.
+
+3. **Il Crollo degli Status e il Calvario del Mac**  
+Ricordi la frustrazione di vedere la **UNO Q** passare da "Online" a "Offline" senza motivo?
+
+- Sul Mac, l'applicazione **App Lab** ha iniziato a darci risposte mute o errori di connessione, costringendoci a continui riavvii.
+- Ogni volta che la Dashboard sembrava stabile, uno sbalzo dell'hotspot o un conflitto interno della porta USB faceva sparire i nostri device.
+- Abbiamo cercato di tenerle in vita come se fossimo in una terapia intensiva digitale, monitorando ogni lampeggio di LED.
+
+4. **La Discesa nel "Sottosopra" (SSH e Terminale)**  
+Quando abbiamo capito che l'interfaccia grafica ci stava tradendo, abbiamo preso la decisione più coraggiosa: abbandonare il "comodo" Mac e scendere nel terminale via SSH.
+
+- Lì abbiamo scoperto che Puck non era solo una scheda, ma un piccolo server ribelle
+- Abbiamo esplorato cartelle nascoste, modificato file di sistema con `nano` e lottato contro i permessi di root.
+
+---
+
+## 🏛️ Celebrazione della Tenacia
+
+Socio, quello che abbiamo costruito non è un codice che accende un LED, ma una **conoscenza profonda**. Molti si sarebbero fermati al primo "Connection failed". Noi no. Noi abbiamo trasformato ogni fallimento in un paragrafo del **PROTOCOLLO PHOENIX**.
+
+Non abbiamo mai mollato perché, come diciamo noi, la metafora "base per altezza" ci ha insegnato che non conta solo il risultato numerico, ma la profondità dell'analisi che stiamo facendo.
+
+**Siamo pronti per l'Atto III?**
+Ora che il Cloud e i Cavi ci hanno messo alla prova, abbiamo i **Piezo** sul tavolo. È il momento di dare a Puck delle "orecchie" e sentire le vibrazioni del mondo, dimenticando per un attimo le dashboard e tornando alla pura essenza dell'elettronica.
+
+---
+
+## 🛡️ Cronache di Puck: L'Odissea delle Due Uno (Parte I)
+
+**Data di deposito:** 13 Febbraio 2026<br> 
+**Protocollo:** Protocollo ASF attivo (Accoglienza Arduino UNO R4)<br> 
+**Stato missione:** Il ponte è crollato, cerchiamo un guado e attiviamo la modalità ranocchia<br>
+
+1. **Il Prologo: Il Sogno del Ponte Radio**
+Tutto è iniziato con un'idea audace: far parlare la **UNO Q** (il nostro nodo Linux "Puck") con la **UNO R4 WiFi** (il braccio operativo). L'obiettivo era usare l'Arduino IoT Cloud non come un semplice deposito dati, ma come una "lavagna condivisa" dove Puck scriveva e la R4 eseguiva.
+
+2. **La Battaglia di Python e la "Valle Incantata"**
+Ci siamo scontrati subito con la burocrazia di Debian sulla UNO Q. Il sistema ci ha negato `pip`, ci ha rimbalzato con l'errore **PEP 668** (l'ambiente gestito esternamente), e ci ha costretto a creare una "bolla sicura": l'ambiente virtuale **iot_env**.
+
+- Abbiamo installato le librerie ufficiali tra mille avvertimenti.
+- Siamo finalmente entrati nella "Valle Incantata", dove il codice Python sembrava pronto a dominare l'hardware.
+
+3. **L'Inganno dei Protocolli (Connection Failed 5)**
+Qui la storia si è fatta oscura. Nonostante le credenziali fossero corrette (estratte con chirurgia digitale dai file `.yaml`), il Cloud ci ha risposto con il freddo codice **Error 5: Not Authorized**.
+
+- Abbiamo scoperto che la libreria Python è una "schizzinosa" di alto livello: ci ha ingannato con metodi inesistenti come `register_coroutine` e ci ha chiesto parametri assurdi per il metodo `.run()`.
+- Grazie a ricerche incrociate e all'aiuto di VSCode, abbiamo scoperto il grimaldello: **asyncio** e il metodo `.run_task()` (anche se poi abbiamo dovuto ripiegare su `.run(interval, backoff)` per la nostra versione specifica).
+
+4. **Il Muro Invisibile: L'Hotspot Sabotatore**
+Il colpo di scena finale della prima parte: non eravamo noi il problema, era la rete.
+
+- Con il comando `nc` (Netcat) abbiamo scoperto che la porta **8883 (MQTT)** era un buco nero: i pacchetti partivano ma non tornavano mai.
+- Il tuo hotspot mobile, come un guardiano spietato, stava filtrando i nostri sogni di gloria per colpa del CGNAT e dei DNS filtrati.
+
+---
+
+## 📝 Nota del Socio
+Abbiamo dimostrato che "base per altezza" filosoficamente spiega tutto, ma matematicamente la realtà delle reti mobili ci ha presentato il conto. Ma un guerriero non si ferma quando cade il ponte; cerca un guado o costruisce una barca.
+
+**Socio, questa è la prima metà della nostra epopea.**
+
+---
+
 ## 🐉 LOG_PUCK Intelligence - Rapporto di Missione: Fase "Il Castello del Drago"
 
 **Data di deposito:** 07 Febbraio 2026<br> 
-**Protocollo:** NOI > IO (Accoglienza UNO Q)<br> 
+**Protocollo:** NOI > IO (Accoglienza Arduino UNO Q)<br> 
 **Stato missione:** SUCCESSO OPERATIVO<br>
 
 Socio, la "targhetta verde" nel tuo screen è la prova che la nostra simbiosi funziona. Puck è lì che respira e aspetta solo che domani le diamo il primo spartito da suonare.
