@@ -1,5 +1,5 @@
 {
-  "generated": "2026-02-10T11:38:25.866920Z",
+  "generated": "2026-02-14T19:55:28.582196Z",
   "summary": {
     "total_experiments": 60,
     "unique_nuclei": 7,
@@ -38,7 +38,7 @@
   },
   "by_nucleo": [
     {
-      "nucleo_id": "gemini_lisp_sonda_v2",
+      "expression_id": "gemini_lisp_sonda_v2",
       "language": "Common Lisp",
       "total_runs": 24,
       "avg_time_ms": 24.04,
@@ -51,7 +51,7 @@
       }
     },
     {
-      "nucleo_id": "gemini_lisp_sonda_v1",
+      "expression_id": "gemini_lisp_sonda_v1",
       "language": "Common Lisp",
       "total_runs": 5,
       "avg_time_ms": 4.0,
@@ -64,7 +64,7 @@
       }
     },
     {
-      "nucleo_id": "claude_prolog_scanner_v1",
+      "expression_id": "claude_prolog_scanner_v1",
       "language": "Prolog",
       "total_runs": 2,
       "avg_time_ms": 14.5,
@@ -77,7 +77,7 @@
       }
     },
     {
-      "nucleo_id": "deepseek_prolog_scanner_v1",
+      "expression_id": "deepseek_prolog_scanner_v1",
       "language": "Prolog",
       "total_runs": 1,
       "avg_time_ms": 8.0,
@@ -90,7 +90,7 @@
       }
     },
     {
-      "nucleo_id": "deepseek_prolog_tier1_v1",
+      "expression_id": "deepseek_prolog_tier1_v1",
       "language": "Prolog",
       "total_runs": 1,
       "avg_time_ms": 17.0,
@@ -103,7 +103,7 @@
       }
     },
     {
-      "nucleo_id": "deepseek-nucleo-v2-tier1",
+      "expression_id": "deepseek-nucleo-v2-tier1",
       "language": "Prolog",
       "total_runs": 1,
       "avg_time_ms": 16.0,
@@ -116,7 +116,7 @@
       }
     },
     {
-      "nucleo_id": "legacy-unknown",
+      "expression_id": "legacy-unknown",
       "language": "Common Lisp",
       "total_runs": 26,
       "avg_time_ms": 75.23,
@@ -135,7 +135,7 @@
       "display_name": "Claude",
       "model": "claude",
       "status": "active",
-      "tools_count": 1,
+      "expressions_count": 1,
       "experiment_count": 2,
       "best_tier": 5,
       "last_experiment": "2026-02-02T17:46:20.662614Z"
@@ -145,7 +145,7 @@
       "display_name": "DeepSeek",
       "model": "deepseek",
       "status": "active",
-      "tools_count": 2,
+      "expressions_count": 2,
       "experiment_count": 2,
       "best_tier": 1,
       "last_experiment": "2026-02-02T12:14:23.228372Z"
@@ -155,7 +155,7 @@
       "display_name": "Gemini",
       "model": "gemini",
       "status": "active",
-      "tools_count": 2,
+      "expressions_count": 2,
       "experiment_count": 29,
       "best_tier": 4,
       "last_experiment": "2026-02-04T10:59:01.996475Z"
@@ -165,7 +165,7 @@
       "display_name": "Unknown",
       "model": "unknown",
       "status": "active",
-      "tools_count": 0,
+      "expressions_count": 0,
       "experiment_count": 0,
       "best_tier": null,
       "last_experiment": null
