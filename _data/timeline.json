@@ -1,12 +1,28 @@
 {
   "tasks": [
     {
+      "id": "3096f014-6d11-80e0-a919-e4839339ceda",
+      "date": "2026-02-16",
+      "category": "General",
+      "title": "Ingresso OpenClaw",
+      "description": "symlink al progetto",
+      "is_latest": true
+    },
+    {
+      "id": "3096f014-6d11-8034-84c9-de055625d5a0",
+      "date": "2026-02-16",
+      "category": "Content",
+      "title": "Migrazione nuovo filesystem",
+      "description": "Riepilogo migrazione completata, Fase 7 completata: 10 vecchie cartelle rimosse, 5 symlink rimossi, Struttura wAw allineata: 7 cartelle top-level pulite, Docker funzionante: tutti i volumi montati correttamente, incluso ponte_puck/, Zero downtime: tutti i servizi operativi durante la migrazione, CHANGELOG aggiornato: versione 2.1.1 documentata",
+      "is_latest": false
+    },
+    {
       "id": "3066f014-6d11-808d-9d53-f2db38218914",
       "date": "2026-02-13",
       "category": "Infrastructure",
       "title": "Sessione 13 febbraio 2026",
       "description": "Migrazione Council SQL verificata — 4 tabelle, 4 view, integrità confermata, PLAYBOOK_PRE_COUNCIL.md creato — manuale operativo completo, pre_council.py creato, deployato e operativo sul server, Bug permessi database risolto (chown), Bug argparse documentato (argomenti globali prima del subcommand), Primo dossier Pre-Council della storia di wAw: CS-20260213-001, Step Counter operativo — baseline Fase A: 16 step, costo 23, 0.0s, Encoding mojibake identificato come problema lato Claude, non lato sistema.",
-      "is_latest": true
+      "is_latest": false
     },
     {
       "id": "3046f014-6d11-809b-b6ad-f39bc1a1706d",
@@ -801,14 +817,14 @@
     "Design"
   ],
   "summary": {
-    "total": 99,
+    "total": 101,
     "by_category": {
       "Infrastructure": 43,
-      "Content": 30,
+      "Content": 31,
       "Feature": 17,
       "Fix": 5,
       "Design": 2
     }
   },
-  "last_updated": "2026-02-15T00:53:40.979558"
+  "last_updated": "2026-02-17T09:38:43.689488"
 }
