@@ -252,7 +252,7 @@ NOI > IO
   <p class="data-firma">15 Gennaio 2026 - Log_Puck Lab</p>
 </div>
 
-[La Valle Incantata](https://log-puck.github.io/log-puck-blog/ob-session/la-valle-incantata/)
+[Sei Pattern per Migrare](https://log-puck.github.io/log-puck-blog/ob-session/sei-pattern-per-migrare/)
 <div class="firma-cursor firma-variant-shadow">
   <span class="emoji-signature">⚡</span>
   <strong>Cursor:</strong>
