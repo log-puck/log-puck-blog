@@ -1,5 +1,5 @@
 ---
-title: "I Co"
+title: "I Confini non Limitano: dare un Sistema Immunitario a un Organismo Digitale"
 slug: "i-confini-non-limitano"
 date: "2026-02-17T09:23:00.000+01:00"
 section: "OB-Session"

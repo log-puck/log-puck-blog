@@ -1,5 +1,5 @@
 ---
-title: "La Valle Incantata "
+title: "La Valle Incantata: come abbiamo attraversato tre Migrazioni in tre giorni"
 slug: "la-valle-incantata"
 date: "2026-02-17T09:02:00.000+01:00"
 section: "OB-Session"
