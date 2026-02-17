@@ -9,7 +9,7 @@
   },
   "nuclei": [
     {
-      "nucleo_id": "legacy-unknown",
+      "expression_id": "legacy-unknown",
       "total_runs": 1,
       "avg_time_ms": 0.0,
       "best_tier": 1,
@@ -19,7 +19,7 @@
   "recent_runs": [
     {
       "id": "EXP-20260126-01",
-      "nucleo_id": "legacy-unknown",
+      "expression_id": "legacy-unknown",
       "tier_reached": 1,
       "time_ms": 0.0,
       "timestamp": "2026-01-26T00:00:00Z"

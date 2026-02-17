@@ -9,21 +9,21 @@
   },
   "nuclei": [
     {
-      "nucleo_id": "gemini_lisp_sonda_v2",
+      "expression_id": "gemini_lisp_sonda_v2",
       "total_runs": 24,
       "avg_time_ms": 24.04,
       "best_tier": 4,
       "last_run": "2026-02-04T10:59:01.996475Z"
     },
     {
-      "nucleo_id": "gemini_lisp_sonda_v1",
+      "expression_id": "gemini_lisp_sonda_v1",
       "total_runs": 5,
       "avg_time_ms": 4.0,
       "best_tier": 1,
       "last_run": "2026-02-03T11:06:21.203486Z"
     },
     {
-      "nucleo_id": "legacy-unknown",
+      "expression_id": "legacy-unknown",
       "total_runs": 16,
       "avg_time_ms": 48.75,
       "best_tier": 1,
@@ -33,70 +33,70 @@
   "recent_runs": [
     {
       "id": "EXP-20260204-02",
-      "nucleo_id": "gemini_lisp_sonda_v2",
+      "expression_id": "gemini_lisp_sonda_v2",
       "tier_reached": 4,
       "time_ms": 331.0,
       "timestamp": "2026-02-04T10:59:01.996475Z"
     },
     {
       "id": "EXP-20260204-01",
-      "nucleo_id": "gemini_lisp_sonda_v2",
+      "expression_id": "gemini_lisp_sonda_v2",
       "tier_reached": 4,
       "time_ms": 25.0,
       "timestamp": "2026-02-04T10:20:39.891473Z"
     },
     {
       "id": "EXP-20260203-23",
-      "nucleo_id": "gemini_lisp_sonda_v2",
+      "expression_id": "gemini_lisp_sonda_v2",
       "tier_reached": 3,
       "time_ms": 100.0,
       "timestamp": "2026-02-03T19:04:32.510314Z"
     },
     {
       "id": "EXP-20260203-22",
-      "nucleo_id": "gemini_lisp_sonda_v2",
+      "expression_id": "gemini_lisp_sonda_v2",
       "tier_reached": 3,
       "time_ms": 25.0,
       "timestamp": "2026-02-03T18:55:13.103852Z"
     },
     {
       "id": "EXP-20260203-21",
-      "nucleo_id": "gemini_lisp_sonda_v2",
+      "expression_id": "gemini_lisp_sonda_v2",
       "tier_reached": 3,
       "time_ms": 25.0,
       "timestamp": "2026-02-03T18:41:37.266963Z"
     },
     {
       "id": "EXP-20260203-20",
-      "nucleo_id": "gemini_lisp_sonda_v2",
+      "expression_id": "gemini_lisp_sonda_v2",
       "tier_reached": 3,
       "time_ms": 25.0,
       "timestamp": "2026-02-03T18:39:41.056342Z"
     },
     {
       "id": "EXP-20260203-19",
-      "nucleo_id": "gemini_lisp_sonda_v2",
+      "expression_id": "gemini_lisp_sonda_v2",
       "tier_reached": 3,
       "time_ms": 4.0,
       "timestamp": "2026-02-03T18:24:55.445134Z"
     },
     {
       "id": "EXP-20260203-18",
-      "nucleo_id": "gemini_lisp_sonda_v2",
+      "expression_id": "gemini_lisp_sonda_v2",
       "tier_reached": 3,
       "time_ms": 1.0,
       "timestamp": "2026-02-03T18:03:22.401014Z"
     },
     {
       "id": "EXP-20260203-17",
-      "nucleo_id": "gemini_lisp_sonda_v2",
+      "expression_id": "gemini_lisp_sonda_v2",
       "tier_reached": 3,
       "time_ms": 4.0,
       "timestamp": "2026-02-03T16:59:55.472979Z"
     },
     {
       "id": "EXP-20260203-16",
-      "nucleo_id": "gemini_lisp_sonda_v2",
+      "expression_id": "gemini_lisp_sonda_v2",
       "tier_reached": 3,
       "time_ms": 1.0,
       "timestamp": "2026-02-03T16:55:03.751137Z"
