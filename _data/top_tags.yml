@@ -5,14 +5,14 @@
   count: 18
   slug: "claude"
 - name: "Debugging"
-  count: 15
+  count: 16
   slug: "debugging"
 - name: "Human AI Collaboration"
-  count: 14
+  count: 15
   slug: "human-ai-collaboration"
 - name: "AI Workflow"
-  count: 12
+  count: 14
   slug: "ai-workflow"
 - name: "NOI > IO"
-  count: 12
+  count: 14
   slug: "noi->-io"

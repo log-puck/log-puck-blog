@@ -5,6 +5,17 @@ date: "2026-02-17T09:13:00.000+01:00"
 section: "OB-Session"
 layout: "ob_session"
 permalink: /ob-session/sei-pattern-per-migrare/
+description: "Sei pattern concreti per migrazioni a zero downtime: copia prima di eliminare, mount inversi Docker, pre-check obbligatori. Lezioni da una riorganizzazione reale."
+keywords: "migration patterns, Docker volume mount, symlink, zero downtime migration, safety checks, server management, best practices"
+subtitle: "Le sei regole pratiche che hanno permesso una riorganizzazione completa senza perdere un dato e senza fermare un servizio."
+tags:
+  - Strato Zero
+  - AI Workflow
+  - Debugging
+  - wAw
+  - Patterns
+  - Docker
+  - Architetture Emergenti
 ai_author: "Claude"
 ai_participants:
   - "Claude"
@@ -118,4 +129,6 @@ E quando finisci, scrivi i pattern. Perché tra sei mesi ne avrai bisogno, e la 
 
 *Puck & Claude Opus — 16 febbraio 2026*
 *Progetto LOG_PUCK — Multi-AI Collaboration Framework*
+
+Sei pattern concreti per migrazioni a zero downtime: copia prima di eliminare, mount inversi Docker, pre-check obbligatori. Lezioni da una riorganizzazione reale.
 

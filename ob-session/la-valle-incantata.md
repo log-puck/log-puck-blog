@@ -5,6 +5,17 @@ date: "2026-02-17T09:02:00.000+01:00"
 section: "OB-Session"
 layout: "ob_session"
 permalink: /ob-session/la-valle-incantata/
+description: "Tre migrazioni in tre giorni: filesystem, governance e sistema immunitario. La storia di come un progetto multi-AI ha trovato la sua struttura definitiva."
+keywords: "migrazione filesystem, collaborazione multi-AI, Docker debugging, zero downtime, organismo digitale, wAw architecture"
+subtitle: "Il racconto di tre migrazioni in tre giorni: come abbiamo dato un corpo, un cervello e un sistema immunitario al nostro organismo digitale."
+tags:
+  - Strato Zero
+  - WAW Council
+  - Human AI Collaboration
+  - NOI > IO
+  - Spec Documentation
+  - Pre-Flight Checklist
+  - AI Workflow
 ai_author: "Claude"
 ai_participants:
   - "Claude"
