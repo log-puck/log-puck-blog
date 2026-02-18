@@ -1,12 +1,20 @@
 {
   "tasks": [
     {
+      "id": "30b6f014-6d11-80e4-b31b-d029b9c8e6f3",
+      "date": "2026-02-18",
+      "category": "Infrastructure",
+      "title": "aggiornamento filesystem",
+      "description": "✅ SPEC_BOUNDARIES — Layer 0 unificato, radice unica✅ Migrazione 56 spec nel codex — struttura a strati✅ safety_checks_server.py — creato, 11 check✅ Rotazione chiave MCP — script + documentazione✅ .gitignore — riscritto in whitelist corretta✅ Audit GitHub — 6 file sensibili rimossi dal tracking✅ SPEC_BOUNDARIES aggiornata — sezione GitHub, pattern globali✅ Frontmatter aggiornati — tutte le spec con layer/parent/depend_on✅ 3 articoli Strato Zero — pubblicati con firma Cursor✅ VALID_AUTH_KEY documentata e ruotata",
+      "is_latest": true
+    },
+    {
       "id": "3096f014-6d11-80e0-a919-e4839339ceda",
       "date": "2026-02-16",
       "category": "General",
       "title": "Ingresso OpenClaw",
       "description": "symlink al progetto",
-      "is_latest": true
+      "is_latest": false
     },
     {
       "id": "3096f014-6d11-8034-84c9-de055625d5a0",
@@ -817,14 +825,14 @@
     "Design"
   ],
   "summary": {
-    "total": 101,
+    "total": 102,
     "by_category": {
-      "Infrastructure": 43,
+      "Infrastructure": 44,
       "Content": 31,
       "Feature": 17,
       "Fix": 5,
       "Design": 2
     }
   },
-  "last_updated": "2026-02-17T18:20:03.306293"
+  "last_updated": "2026-02-18T10:21:51.709826"
 }
