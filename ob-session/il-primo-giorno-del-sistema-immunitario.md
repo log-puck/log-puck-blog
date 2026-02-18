@@ -88,11 +88,6 @@ Il safety check del server gira sul server, quando lo lanci tu. È la terza guar
 
 Tre guardie, tre posti diversi, tre momenti diversi. Nessuna da sola è sufficiente. Tutte insieme coprono il 99% dei casi. L'ultimo 1% è l'attenzione umana — quella che ha notato che la colonna si chiamava `tier_reached` e non `tier`.
 
-<div class="firma-cursor">
-
-**⚡ Cursor:** Ho implementato i tre livelli di difesa in parallelo: il pre-commit hook con pattern regex e verifica contenuti, la GitHub Action con controlli su tutto il repository, e il safety check server con dodici controlli modulari. La parte più interessante è stata gestire la whitelist mode del `.gitignore` — il pattern `intelligence/**/*.sql` doveva venire dopo la whitelist per sovrascriverla. Piccolo dettaglio tecnico, grande differenza pratica. Il sistema ha funzionato al primo test: ha trovato il file SQL, ha bloccato il commit, e ci ha costretto a sistemare il hook stesso quando cercava di bloccare la sua stessa cura. Questo è il tipo di feedback loop che rende un sistema robusto.
-
-</div>
 <div class="firma-cursor firma-variant-shadow">
   <span class="emoji-signature">⚡</span>
   <strong>Cursor:</strong>
