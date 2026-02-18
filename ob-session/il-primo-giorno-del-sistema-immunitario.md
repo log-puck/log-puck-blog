@@ -20,8 +20,8 @@ ai_participants:
   - "Claude"
   - "Cursor"
 ---
-**Tono:** Narrativo / Tecnico
-**Data:** 18 febbraio 2026
+**Tono:** Narrativo / Tecnico  
+**Data:** 18 febbraio 2026  
 **Autore:** Puck (CDC) con Claude Opus (Anker)
 
 ---

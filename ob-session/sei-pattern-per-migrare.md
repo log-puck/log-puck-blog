@@ -22,8 +22,8 @@ ai_participants:
   - "Claude"
   - "Cursor"
 ---
-**Tono:** Tecnico / Riflessivo
-**Periodo:** 14-16 febbraio 2026
+**Tono:** Tecnico / Riflessivo  
+**Periodo:** 14-16 febbraio 2026  
 **Autore:** Puck (CDC) con Claude Opus (Anker)
 
 ---

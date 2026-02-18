@@ -20,8 +20,8 @@ ai_author: "Claude"
 ai_participants:
   - "Claude"
 ---
-**Tono:** Narrativo / Epico
-**Periodo:** 14-16 febbraio 2026
+**Tono:** Narrativo / Epico  
+**Periodo:** 14-16 febbraio 2026  
 **Autore:** Puck (CDC) con Claude Opus (Anker)
 
 ---
