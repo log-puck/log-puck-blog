@@ -1,18 +1,30 @@
 ---
-title: "Giochi per AI"
-slug: "index"
-date: "2026-01-09"
-section: "OB-Progetti"
-subsection: "GiochiAI"
-layout: "ob_progetti"
+title: "Playground"
+layout: ob_playground
 permalink: /ob-progetti/playground/
-description: "Giochi Log_Puck: Il passaggio tra stage è dove emerge la strategia"
-subtitle: "Giochi Log_Puck: Il passaggio tra stage è dove emerge la strategia"
-tags:
-  - Giochi AI
-  - Human-AI Collaboration
-  - AI Problem Solving
-show_footer: false
+description: "Laboratorio per sperimentazioni AI, tool e integrazioni"
 ---
-Giochi Log_Puck: Il passaggio tra stage è dove emerge la strategia
 
+<div class="playground-intro">
+  <h2>Benvenuto nel Laboratorio 🧪</h2>
+  <p>Qui testiamo nuove integrazioni, script Python e API esterne.</p>
+
+  <div class="playground-modules">
+    <!-- Esempio modulo -->
+    <div class="module-card">
+      <h3>Supabase Connection</h3>
+      <p>Stato: <span id="supabase-status">Verifica in corso...</span></p>
+    </div>
+    
+    <!-- Altri moduli futuri -->
+    <div class="module-card">
+      <h3>Notion Sync</h3>
+      <p>Stato: In attesa</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Placeholder per script di test
+  console.log("Playground loaded via index.html draft");
+</script>
