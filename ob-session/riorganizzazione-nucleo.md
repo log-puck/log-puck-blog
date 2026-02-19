@@ -421,7 +421,7 @@ Durante il confronto tra `SPEC_NAVIGATION.md` nelle due versioni:
 ```markdown
 - **OB-Progetti** (dropdown) → `/ob-progetti/`
   - **Musica** → `/ob-progetti/musicaai/`
-  - **Giochi** → `/ob-progetti/giochiai/`
+  - **Giochi** → `/ob-progetti/playground/`
   - **wAw** → `/ob-progetti/waw/`
 ```
 

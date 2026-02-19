@@ -34,7 +34,7 @@ class JekyllBuilder:
         """
         Normalizza il nome della subsection per il percorso file.
         
-        Converte "MusicaAI" -> "musica", "GiochiAI" -> "giochiAI", etc.
+        Converte "MusicaAI" -> "musica", "GiochiAI" -> "playground", etc.
         
         Args:
             subsection: Nome subsection originale (può essere None)
@@ -49,7 +49,7 @@ class JekyllBuilder:
         if "musica" in sub_sub:
             sub_sub = "musica"
         elif "giochi" in sub_sub:
-            sub_sub = "giochiAI"
+            sub_sub = "playground"
         elif sub_sub == "documents":
             sub_sub = "documents"  # Mantieni "documents" per OB-Archives
         
