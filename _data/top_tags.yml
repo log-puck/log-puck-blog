@@ -4,15 +4,15 @@
 - name: "Claude"
   count: 18
   slug: "claude"
+- name: "Human AI Collaboration"
+  count: 17
+  slug: "human-ai-collaboration"
 - name: "Debugging"
   count: 17
   slug: "debugging"
-- name: "Human AI Collaboration"
-  count: 16
-  slug: "human-ai-collaboration"
-- name: "AI Workflow"
-  count: 14
-  slug: "ai-workflow"
 - name: "NOI > IO"
   count: 14
   slug: "noi->-io"
+- name: "AI Workflow"
+  count: 14
+  slug: "ai-workflow"
