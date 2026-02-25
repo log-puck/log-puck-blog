@@ -44,6 +44,15 @@
     color: var(--accent-magenta);
 }
 
+.article-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    opacity: 0.85;
+    font-style: italic;
+    color: var(--text-main);
+}
+
 .article-excerpt {
     font-size: 0.95rem;
     line-height: 1.6;
