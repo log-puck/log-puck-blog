@@ -104,6 +104,36 @@ jobs:
           echo "Files downloaded:"
           ls -lh _data/language_detail/ 2>/dev/null || echo "  (none)"
       
+      - name: Fetch Playground Projects
+        run: |
+          echo "📥 Fetching playground index..."
+          # Crea directory di destinazione (usiamo _posts/playground per integrazione Jekyll nativa)
+          mkdir -p _posts/playground
+          
+          # Scarica indice
+          curl -f -s https://log-puck.org/nucleo/playground/projects/index.json -o playground_index.json || echo "{}" > playground_index.json
+          
+          # Se indice vuoto o non scaricato, prosegui
+          if [ ! -s playground_index.json ] || [ "$(cat playground_index.json)" == "{}" ]; then
+            echo "⚠️ Empty index or failed download (Playground unavailable)."
+          else
+            echo "📊 Found projects index. Downloading content..."
+            # Scarica ogni file elencato nell'array .files
+            jq -r '.files[]' playground_index.json | while read filename; do
+              echo "  → Downloading $filename"
+              # Scarica e salva in _posts/playground
+              if curl -f -s "https://log-puck.org/nucleo/playground/projects/$filename" \
+                   -o "_posts/playground/$filename"; then
+                echo "    ✅ Success"
+              else
+                echo "    ❌ Failed"
+              fi
+            done
+          fi
+          
+          # Pulisci file temporaneo
+          rm -f playground_index.json
+      
       - name: Check git status
         run: |
           echo "📊 Git status:"
@@ -254,6 +284,7 @@ jobs:
           git add ob-ai/
           git add waw/evolution/expressions/
           git add waw/evolution/language/
+          git add _posts/playground/
           
           # Stage removal of old nucleo/ directory if it exists
           git add -A waw/evolution/nucleo/ 2>/dev/null || true
@@ -288,6 +319,7 @@ jobs:
           echo "- Nucleus Profiles: $(ls _data/nucleus_overview/ 2>/dev/null | wc -l) files" >> $GITHUB_STEP_SUMMARY
           echo "- Expression Details: $(ls _data/expression_detail/ 2>/dev/null | wc -l) files" >> $GITHUB_STEP_SUMMARY
           echo "- Language Details: $(ls _data/language_detail/ 2>/dev/null | wc -l) files" >> $GITHUB_STEP_SUMMARY
+          echo "- Playground Projects: $(ls _posts/playground/*.md 2>/dev/null | wc -l) files" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Pages generated:**" >> $GITHUB_STEP_SUMMARY
           echo "- Nucleus Pages (OB-AI): $(ls ob-ai/nucleo_*.md 2>/dev/null | wc -l) pages" >> $GITHUB_STEP_SUMMARY
