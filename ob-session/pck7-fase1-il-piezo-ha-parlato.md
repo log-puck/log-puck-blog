@@ -7,7 +7,7 @@ layout: "ob_session"
 permalink: /ob-session/pck7-fase1-il-piezo-ha-parlato/
 description: "Storia della Fase 1 di PCK-7"
 keywords: "PCK-7, sonificazione, Council degli Efori, Valle di Puck, NOI > IO, piezo ceramico"
-subtitle: ""Il tempo si ferma per lasciare spazio al sussurro della ceramica.”"
+subtitle: "Il tempo si ferma per lasciare spazio al sussurro della ceramica."
 tags:
   - PCK-7
   - Sonificazione
