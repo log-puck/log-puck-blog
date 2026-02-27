@@ -7,6 +7,7 @@ baseurl: "/log-puck-blog"   # importante per GitHub Pages
 markdown: kramdown
 permalink: /:categories/:title/
 highlighter: rouge
+future: true
 
 # Se NON usi un tema Jekyll, puoi commentare questa riga:
 # theme: minima

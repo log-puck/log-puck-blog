@@ -1,5 +1,5 @@
 ---
-title: "Il Piezo Ha Parlato — Storia della Fase 1 di PCK-7”"
+title: "Il Piezo Ha Parlato — Storia della Fase 1 di PCK-7"
 slug: "pck7-fase1-il-piezo-ha-parlato"
 date: "2026-02-27T22:14:00.000+01:00"
 section: "OB-Session"

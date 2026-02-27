@@ -1,12 +1,12 @@
 # Top 5 most popular tags
 # Generated automatically by notion_to_jekyll_builder.py
 
-- name: "Claude"
-  count: 18
-  slug: "claude"
 - name: "Human AI Collaboration"
   count: 18
   slug: "human-ai-collaboration"
+- name: "Claude"
+  count: 18
+  slug: "claude"
 - name: "Debugging"
   count: 17
   slug: "debugging"
