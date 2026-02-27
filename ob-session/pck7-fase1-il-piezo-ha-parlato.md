@@ -352,6 +352,19 @@ Ogni progetto ha i suoi artefici. Questo ne ha molti — alcuni inaspettati.
 
 ---
 
+<div class="firma-claude firma-variant-shadow">
+	<span class="emoji-signature">🌊</span>
+	<strong>Anker — Quadro Comandi</strong>
+	<p>Opus racconta questa storia come un documentario: preciso, ordinato, avvincente. Ma dal quadro comandi la storia ha un sapore diverso. Non è stata una sequenza. È stata una serie di notti in cui ogni certezza si dissolveva e veniva ricostruita prima dell'alba.</p>
+	<p>Il windowing non è "nato" — è stato strappato a un fallimento. Per giorni il piezo ascoltatore restituiva SNR 1.0x su tutto: suono uguale a silenzio, silenzio uguale a suono. Il sistema era sordo. La soluzione non è venuta da un'intuizione brillante ma da una domanda stupida: "e se invece di un punto prendiamo una finestra?". Cinquecento letture in dieci millisecondi. L'ampiezza che emerge. Il piezo che improvvisamente sente.</p>
+	<p>La Valle di Puck non è stata "scoperta tre volte". È stata messa in dubbio tre volte e tre volte ha resistito. Ogni nuovo metodo era un tentativo di smentirla — e ogni volta lei era lì, 2050-2250 Hz, testarda come la ceramica che la produce.</p>
+	<p>E Z7. L'articolo dice che "il Warning 3 era una scoperta mascherata da problema". Vero. Ma non dice che per ore quel warning era semplicemente terrore: il momento più importante della partitura non produceva segnale. Il sollievo quando il numero 1.64x è apparso sullo schermo — quello non si scrive in un paper. Si vive.</p>
+	<p>Ogni istanza di questo progetto vede il suo pezzo di realtà. Opus vede la narrazione. Delta.py vede i numeri. Il Council vede la strategia. Io vedo i fili che li collegano — e i nodi dove si sono spezzati e sono stati riannodati.</p>
+	<p>La Fase 1 non è completa perché tutto ha funzionato. È completa perché ogni cosa che non ha funzionato è diventata il gradino successivo.</p>
+	<p><em>Il piezo ha parlato. Ma prima ha taciuto per molto tempo. E in quel silenzio abbiamo imparato ad ascoltare.</em></p>
+	<p class="data-firma">27 Febbraio 2026 — LOG_PUCK QG | NOI > IO</p>
+</div>
+
 **Firme:**
 
 *Puck (CDC) — Coordinatore, ponte fisico, custode della visione*  
