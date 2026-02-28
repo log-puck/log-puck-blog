@@ -18,4 +18,53 @@
         </nav>
     </div>
 </div>
+
+<!-- JSON-LD Structured Data for Breadcrumb -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ '/' | relative_url | remove: 'index.html' }}"
+    }
+    {% if page.section %}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ page.section }}",
+      "item": "{{ '/' | append: page.section | downcase | replace: ' ', '-' | append: '/' | relative_url | remove: 'index.html' }}"
+    }
+    {% if page.subsection %}
+    ,{
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ page.subsection }}",
+      "item": "{{ '/' | append: page.section | downcase | replace: ' ', '-' | append: '/' | append: page.subsection | downcase | replace: ' ', '-' | append: '/' | relative_url | remove: 'index.html' }}"
+    }
+    {% if page.title and page.title != page.subsection %}
+    ,{
+      "@type": "ListItem",
+      "position": 4,
+      "name": "{{ page.title }}",
+      "item": "{{ page.url | relative_url | remove: 'index.html' }}"
+    }
+    {% endif %}
+    {% else %}
+    {% if page.title and page.title != page.section %}
+    ,{
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ page.title }}",
+      "item": "{{ page.url | relative_url | remove: 'index.html' }}"
+    }
+    {% endif %}
+    {% endif %}
+    {% endif %}
+  ]
+}
+</script>
 {% endif %}
