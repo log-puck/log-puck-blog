@@ -3,7 +3,7 @@ title: "wAw - What AI Want"
 slug: "index"
 date: "2026-01-09"
 section: "wAw"
-subsection: ""
+subsection: null
 layout: "ob_progetti"
 permalink: /waw/
 description: "Non un progetto. Un ecosistema. Council, Metabolism, Evolution: i tre sistemi di un organismo AI vivente."

@@ -31,36 +31,32 @@
       "name": "Home",
       "item": "{{ site.url }}{{ site.baseurl }}/"
     }
+    {% assign position = 2 %}
     {% if page.section %}
     ,{
       "@type": "ListItem",
-      "position": 2,
+      "position": {{ position }},
       "name": "{{ page.section }}",
       "item": "{{ site.url }}{{ site.baseurl }}/{{ page.section | downcase | replace: ' ', '-' }}/"
     }
-    {% if page.subsection and page.subsection != '' %}
+    {% assign position = position | plus: 1 %}
+    {% endif %}
+    {% if page.subsection and page.subsection | size > 0 %}
     ,{
       "@type": "ListItem",
-      "position": 3,
+      "position": {{ position }},
       "name": "{{ page.subsection }}",
       "item": "{{ site.url }}{{ site.baseurl }}/{{ page.section | downcase | replace: ' ', '-' }}/{{ page.subsection | downcase | replace: ' ', '-' }}/"
     }
-    {% if page.title and page.title != page.subsection %}
+    {% assign position = position | plus: 1 %}
+    {% endif %}
+    {% if page.title and page.title != page.section and page.title != page.subsection %}
     ,{
       "@type": "ListItem",
-      "position": 4,
+      "position": {{ position }},
       "name": "{{ page.title }}",
       "item": "{{ site.url }}{{ site.baseurl }}{{ page.url }}"
     }
-    {% endif %}
-    {% elsif page.title and page.title != page.section %}
-    ,{
-      "@type": "ListItem",
-      "position": 3,
-      "name": "{{ page.title }}",
-      "item": "{{ site.url }}{{ site.baseurl }}{{ page.url }}"
-    }
-    {% endif %}
     {% endif %}
   ]
 }
