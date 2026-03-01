@@ -29,28 +29,28 @@
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "{{ '/' | relative_url | remove: 'index.html' }}"
+      "item": "{{ site.url }}{{ site.baseurl }}/"
     }
     {% if page.section %}
     ,{
       "@type": "ListItem",
       "position": 2,
       "name": "{{ page.section }}",
-      "item": "{{ '/' | append: page.section | downcase | replace: ' ', '-' | append: '/' | relative_url | remove: 'index.html' }}"
+      "item": "{{ site.url }}{{ site.baseurl }}/{{ page.section | downcase | replace: ' ', '-' }}/"
     }
     {% if page.subsection %}
     ,{
       "@type": "ListItem",
       "position": 3,
       "name": "{{ page.subsection }}",
-      "item": "{{ '/' | append: page.section | downcase | replace: ' ', '-' | append: '/' | append: page.subsection | downcase | replace: ' ', '-' | append: '/' | relative_url | remove: 'index.html' }}"
+      "item": "{{ site.url }}{{ site.baseurl }}/{{ page.section | downcase | replace: ' ', '-' }}/{{ page.subsection | downcase | replace: ' ', '-' }}/"
     }
     {% if page.title and page.title != page.subsection %}
     ,{
       "@type": "ListItem",
       "position": 4,
       "name": "{{ page.title }}",
-      "item": "{{ page.url | relative_url | remove: 'index.html' }}"
+      "item": "{{ site.url }}{{ site.baseurl }}{{ page.url }}"
     }
     {% endif %}
     {% else %}
@@ -59,7 +59,7 @@
       "@type": "ListItem",
       "position": 3,
       "name": "{{ page.title }}",
-      "item": "{{ page.url | relative_url | remove: 'index.html' }}"
+      "item": "{{ site.url }}{{ site.baseurl }}{{ page.url }}"
     }
     {% endif %}
     {% endif %}
