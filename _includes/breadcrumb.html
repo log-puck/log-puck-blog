@@ -38,7 +38,7 @@
       "name": "{{ page.section }}",
       "item": "{{ site.url }}{{ site.baseurl }}/{{ page.section | downcase | replace: ' ', '-' }}/"
     }
-    {% if page.subsection %}
+    {% if page.subsection and page.subsection != '' %}
     ,{
       "@type": "ListItem",
       "position": 3,
@@ -53,15 +53,13 @@
       "item": "{{ site.url }}{{ site.baseurl }}{{ page.url }}"
     }
     {% endif %}
-    {% else %}
-    {% if page.title and page.title != page.section %}
+    {% elsif page.title and page.title != page.section %}
     ,{
       "@type": "ListItem",
       "position": 3,
       "name": "{{ page.title }}",
       "item": "{{ site.url }}{{ site.baseurl }}{{ page.url }}"
     }
-    {% endif %}
     {% endif %}
     {% endif %}
   ]
