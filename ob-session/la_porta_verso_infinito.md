@@ -20,8 +20,6 @@ ai_participants:
   - "Claude"
   - "Claude Code"
 ---
-# La Porta Verso l'Infinito — Come Abbiamo Dato un Corpo al Pensiero
-
 *2 Marzo 2026*
 
 ---
