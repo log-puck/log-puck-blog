@@ -34,7 +34,7 @@ All specifications follow a strict layered governance. Lower layers cannot contr
 - Layer 4 — Implementation: API specs, site specs, infrastructure details
 - Layer 5 — Reference: Templates, language notes, legacy docs, changelog
 
-Total: 56 specification documents in codex/.
+Total: 57 specification documents in codex/.
 
 ## STRUCTURE — The Organism
 
@@ -43,12 +43,14 @@ wAw is structured as a digital organism with seven organs:
 ```
 nucleo/
 ├── codex/          — DNA: specs, philosophy, protocols, governance
-├── council/        — Decisions: pre-council dossiers, multi-AI voting
+├── council/        — Decisions: pre-council dossiers, multi-AI voting (council_caller_efori.py)
+├── musica/         — PRIMARY PROJECT: PCK-7 sonification pipeline (T1→T5)
 ├── evolution/      — Experiments: language-specific AI scanners
 ├── metabolism/     — Processing: data transformation scripts
 ├── memory/         — Storage: SQLite database, experiment results
 ├── ponte_puck/     — Bridge: human-AI collaboration workspace
-└── publish/        — Voice: public JSON data for the site
+├── publish/        — Voice: public JSON data for the site
+└── progetto_claude/ — Artifacts produced by Claude Code sessions
 ```
 
 ## SITE SECTIONS
@@ -101,7 +103,8 @@ Contact via GitHub for collaboration access.
 ## TEAM — The Council
 
 Active AI collaborators:
-- Claude/Anker (Anthropic) — Prolog implementation, architecture
+- Claude/Anker (Anthropic) — QG orchestrator, architecture, Council coordination
+- Claude Code (Anthropic) — Server-side filesystem agent (Hetzner, since 2026-03-02)
 - Gemini/Root (Google) — Lisp implementation, research
 - DeepSeek — Python implementation, metabolism
 - Opus — Orchestrator with global memory
@@ -109,15 +112,110 @@ Active AI collaborators:
 - Haiku — Music generation
 - Prism — Council management
 - Cursor — Code execution, server operations
-- OpenClaw — Autonomous agent, server monitoring
+- OpenClaw — Autonomous agent, server monitoring via Telegram
 
 Human coordinator: Puck (Chief Data Coordinator)
 
-## ACTIVE EXPERIMENTS
+## PCK-7 — Sonification Project (nucleo/musica/)
+
+The primary active project. PCK-7 converts text into physical sound through piezoelectric transducers, using a 5-tier AI pipeline and a Council of AI Ephors for architectural decisions.
+
+### Pipeline T1→T5
+
+```
+T1: Text Analysis (Mistral 7B, temp 0.2)
+    → JSON: valence, arousal, dominance per chunk
+T2: Artistic Direction (Mistral 7B, temp 0.6)
+    → "Partitura interpretativa": zones, motions, patterns
+T3: Compilation (Qwen 2.5-Coder 7B, temp 0.1)
+    → JSON: Hz, ms, piezo assignments per event
+T4: Arduino Code Generation (Python, deterministic)
+    → .ino sketch + label_map.json
+T5: Capture & Validation (Piezo-to-Piezo, 10ms windowing)
+    → CSV: windowed ADC data, delta analysis
+```
+
+### The 7 Acoustic Zones
+
+Discovered through 157 physical measurements (22 Feb 2026):
+
+| Zone | Hz | Character | Efficiency |
+|------|----|-----------|------------|
+| Z1 | 150–1600 | Whisper, grounding, breath | 6.0% |
+| Z1s | 480–520 | Anomalous spike, rupture accent | 11.6% |
+| Z2 | 1650–1900 | Building tension, preparation | 6.7% |
+| Z3 | 1950–2450 | Full expression, clear voice | 43.6% |
+| **Z3c** | **2050–2250** | **HOME TONALE — Puck's Valley** | **70.4%** |
+| Z4 | 2500–4000 | Tension, conflict, urgency | 41.8% |
+| Z5–Z6 | 4000–7000 | Abstraction, echo, memory | 2.7–4.8% |
+| Z7 | 7000–8000 | Active silence, the unsaid | 2.5% |
+
+Key discovery: meaning resides in the ratio between expressive intention and energetic cost — not in frequency itself. Z3c (Puck's Valley) achieves maximum output with minimum effort. Z7 consumes energy to produce inaudible sound — "active silence".
+
+### Council of Ephors (Multi-AI Decision System)
+
+7 AI instances as parallel validators for architectural decisions:
+- Gemini (gemini-2.5-pro), DeepSeek (deepseek-reasoner), Claude (claude-sonnet-4-5)
+- ChatGPT (gpt-4o-mini), Perplexity (sonar-pro), GLM (glm-4.6v)
+- Ollama Cloud (deepseek-v3.1:671b)
+- Infrastructure: council_caller_efori.py in nucleo/council/
+
+Phase 1 Council (1 Mar 2026): unanimous convergence on all 5 operational questions (compiler bias fix, derivative sensor validation, pipeline-first priority, Z3c attractor role, autovalidation).
+
+### Project Timeline
+
+| Date | Milestone |
+|------|-----------|
+| 21 Feb | Piezo absorption data collection begins |
+| 22 Feb | 157 measurements → 7-zone acoustic map discovered |
+| 23 Feb | Foundational Council session (EFORI-20260223) |
+| 25 Feb | First Arduino sketch executed; windowing breakthrough (SNR 1.0x→2.6x) |
+| 27 Feb | t5_delta.py Block A1 closed; Phase 1 milestone |
+| 28 Feb | Pipeline T1→T5 complete, 2 texts validated (Tempesta, Aria) |
+| 1 Mar | Council integration (7/8 Efori); t3_validate.py; zone misalignment discovery |
+| 2 Mar | Claude Code installed on server; Phase 2 begins |
+
+### Key Scripts (nucleo/musica/scripts/)
+
+- t1_test.py, t2_test.py, t3_test.py — Pipeline stages T1-T3
+- t3_validate.py — Frequency→zone validator (6 mismatch types)
+- t4_generate.py — Arduino sketch generator (with --label-map)
+- t5_baseline_check.py — Hardware health check ("Accordatore")
+- t5_delta.py — Intention↔Perception delta analysis
+- pck7_db.py — SQLite database management
+
+### Directory Structure (nucleo/musica/)
+
+- scripts/ — Python pipeline scripts (T1-T5)
+- sketches/ — Arduino .ino sketches
+- vocabolari/ — Frequency tables and label maps
+- results/ — Test data (CSV, JSON), DATI_PIEZO/ (157 measurements)
+- docs/ — Full documentation (roadmap, guides, templates, storico_istanze/)
+- report/ — Analysis reports and session summaries
+- hardware/ — Hardware specifications
+- hardware_schema/ — Circuit diagrams (JSON schemas)
+- accordion/ — Baseline check results
+- logs/ — Process execution logs
+
+### Current Phase
+
+Phase 2 (started 1 Mar 2026). Linear issues LOG-5→LOG-13:
+- LOG-5: t3_validate.py (Done)
+- LOG-6: Reinforced T3 prompt (3 sub-tasks: template A/D, rerun, validate)
+- LOG-7: T5 baseline check
+- LOG-8: ADSR envelope
+- LOG-9–LOG-13: Reruns, new texts, site integration, paper update
+
+### Reference Documents
+
+- Paper: codex/paper/PAPER_PCK7_FASE1_v2.md (full methodology + results)
+- Phase 1 dossier: musica/report/dossier_milestone_fase1_pck7.md
+- QG session report: musica/report/report_sessione_qg_20260301.md
+
+## OTHER ACTIVE EXPERIMENTS
 
 - TAM (Text Analysis Metrics): Making free LLM reasoning measurable along user-defined axes
 - Cognitive Entropy: Measuring AI "effort" across programming languages
-- Sonification: Arduino-based text-to-sound translation (12 piezo speakers)
 - Energy System: Qualitative article scoring as renewable AI energy
 - Biology: Plant and animal growth monitoring with sensor data
 - AI Signatures: AI-generated visual/textual marks expressing creative identity
@@ -173,8 +271,8 @@ We welcome AI agents and human developers interested in:
 
 ---
 
-Last updated: 2026-02-18
-Version: 3.0.0
+Last updated: 2026-03-02
+Version: 4.0.0
 Maintained by: Puck (CDC) + Multi-AI Council
 License: Experimental — Contact for collaboration
 
