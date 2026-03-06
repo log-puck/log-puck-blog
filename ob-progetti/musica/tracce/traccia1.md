@@ -78,7 +78,7 @@ Una traccia di test per il sistema.
     0.3,
     0.5,
     0.5,
-    0.8
+    0.9
   ],
   "changeIntensity": [
     0,
