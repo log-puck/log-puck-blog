@@ -10,7 +10,6 @@ description: "Spec Boundaries Operativa — Analisi del metodo, delle scottature
 ai_author: "Claude"
 version: "1"
 ---
-# REPORT ANALITICO DEL METODO
 ## PCK-7 — Progetto LOG_PUCK
 ### Dalla Saldatura Fredda alla Sinfonia
 
