@@ -7,7 +7,7 @@ layout: "ob_session"
 permalink: /ob-session/10_giorni_un_ciclo_lunare_due_buzzerini/
 description: "Lo sviluppo del sistema di Sonificazione del testo senza passare da librerie pre-costituite ma creando un sistema in grado di evolvere"
 keywords: "Sonificazione del testo, AI Workflow, Human/AI Innovation, pipeline, contratto Hardware, Valle di Puck"
-subtitle: "Come PCK-7 è passato da "si potrebbe fare" a "possiamo evolvere"
+subtitle: "Come PCK-7 è passato da ‘si potrebbe fare’ a ‘possiamo evolvere’"
 tags:
   - Human AI Collaboration
   - AI Workflow
