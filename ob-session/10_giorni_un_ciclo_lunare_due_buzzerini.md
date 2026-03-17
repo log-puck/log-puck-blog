@@ -1,5 +1,5 @@
 ---
-title: "10 GIorni, un Ciclo Lunare e Due Buzzerini in Serie"
+title: "10 GIorni, un Ciclo Lunare e Due Buzzerini in Seri"
 slug: "10_giorni_un_ciclo_lunare_due_buzzerini"
 date: "2026-03-17T20:17:00.000+01:00"
 section: "OB-Session"
@@ -28,7 +28,6 @@ ai_participants:
   - "Ollama"
   - "Puck"
 ---
-# 10 Giorni, un Ciclo Lunare e Due Buzzerini in Serie
 ## Come PCK-7 è passato da "si potrebbe fare" a "possiamo evolvere"
 
 **Data:** 17 Marzo 2026  
