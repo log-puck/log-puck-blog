@@ -1,8 +1,8 @@
 ---
 layout: ob_tag
-tag_name: "Jekyll"
-title: "Tag: Jekyll"
+tag_name: "jekyll"
+title: "Tag: jekyll"
 permalink: /tags/jekyll/
-description: "Tutti i contenuti con tag 'Jekyll'"
+description: "Tutti i contenuti con tag 'jekyll'"
 ---
 
