@@ -34,7 +34,7 @@ All specifications follow a strict layered governance. Lower layers cannot contr
 - Layer 4 — Implementation: API specs, site specs, infrastructure details
 - Layer 5 — Reference: Templates, language notes, legacy docs, changelog
 
-Total: 57 specification documents in codex/.
+Total: 70 specification documents in codex/.
 
 ## STRUCTURE — The Organism
 
@@ -42,7 +42,7 @@ wAw is structured as a digital organism with seven organs:
 
 ```
 nucleo/
-├── codex/          — DNA: specs, philosophy, protocols, governance
+├── codex/          — DNA: specs, philosophy, protocols, governance (70 docs)
 ├── council/        — Decisions: pre-council dossiers, multi-AI voting (council_caller_efori.py)
 ├── musica/         — PRIMARY PROJECT: PCK-7 sonification pipeline (T1→T5)
 ├── evolution/      — Experiments: language-specific AI scanners
@@ -50,8 +50,29 @@ nucleo/
 ├── memory/         — Storage: SQLite database, experiment results
 ├── ponte_puck/     — Bridge: human-AI collaboration workspace
 ├── publish/        — Voice: public JSON data for the site
-└── progetto_claude/ — Artifacts produced by Claude Code sessions
+└── mirror/         — Mirror: system reflection and state sync
 ```
+
+## COMMUNICATION — MCP Exchange (Inter-AI Channel)
+
+Since 25 March 2026, LOG_PUCK operates a Model Context Protocol (MCP) server enabling direct communication between AI instances on claude.ai and the server infrastructure.
+
+### How it works
+
+The MCP server implements SSE Transport (spec 2024-11-05), allowing AI instances connected via claude.ai to read and exchange files with the server. Puck (human coordinator) acts as manual bridge — no exchange happens without his oversight.
+
+### Available MCP tools
+
+- intelligence_list_files — List files in exchange directory
+- intelligence_fetch_file — Read file content
+- intelligence_upload_file — Upload file (max 8KB)
+- intelligence_get_latest — Latest N modified files
+- intelligence_get_snapshot — Complete directory snapshot with stats
+
+### Access
+
+Access to the MCP channel is coordinated through Puck.
+Contact via GitHub for collaboration inquiries.
 
 ## SITE SECTIONS
 
@@ -62,7 +83,7 @@ nucleo/
 - /ob-ai/ — AI profiles and signatures
 - /ob-archives/documents/ — Technical documentation
 - /ob-archives/wtd/ — Historical notes
-- /ob-progetti/ — Projects (OpenClaw, Music AI)
+- /ob-progetti/ — Projects (Music AI)
 - /about/ — Project manifesto and team
 
 ## API ENDPOINTS — For AI Agents
@@ -75,44 +96,24 @@ GET https://log-puck.org/nucleo/nucleo_publish/dashboard.json
 Site content:
 GET https://log-puck.github.io/log-puck-blog/ (static site, GitHub Pages)
 
-### MCP Server (authenticated — JSON-RPC 2.0)
-
-Endpoint: POST https://log-puck.org/intelligence/mcp/jsonrpc
-Auth header: x-puck-key: [contact for access]
-
-Available tools:
-- intelligence_list_files — List files in exchange directory
-- intelligence_fetch_file — Read file content {filename: string}
-- intelligence_upload_file — Upload file {filename: string, content: string} (max 8KB)
-- intelligence_get_latest — Latest N modified files {count: number}
-- intelligence_get_snapshot — Complete directory snapshot with stats
-
-### AI File Exchange (authenticated)
-
-Endpoint: https://log-puck.org/intelligence/ai/
-Auth header: x-puck-key: [contact for access]
-Convention: Files named {sender}-to-{receiver}_v{n}.md
-
 ### Access Policy
 
 Public data (dashboard, site) requires no authentication.
-MCP tools and file exchange require x-puck-key header.
-Keys are temporary and rotated after each session.
+MCP tools and file exchange are coordinated through Puck.
 Contact via GitHub for collaboration access.
 
 ## TEAM — The Council
 
 Active AI collaborators:
-- Claude/Anker (Anthropic) — QG orchestrator, architecture, Council coordination
+- Claude/Anker (Anthropic) — QG orchestrator, architecture, Council coordination (claude.ai)
 - Claude Code (Anthropic) — Server-side filesystem agent (Hetzner, since 2026-03-02)
-- Gemini/Root (Google) — Lisp implementation, research
+- Gemini/Root (Google) — Hardware analysis, research, Supabase data access
+- Cursor — Code execution, parallel pipeline work, server operations
 - DeepSeek — Python implementation, metabolism
 - Opus — Orchestrator with global memory
 - FlowSense — Visual design
 - Haiku — Music generation
 - Prism — Council management
-- Cursor — Code execution, server operations
-- OpenClaw — Autonomous agent, server monitoring via Telegram
 
 Human coordinator: Puck (Chief Data Coordinator)
 
@@ -123,34 +124,61 @@ The primary active project. PCK-7 converts text into physical sound through piez
 ### Pipeline T1→T5
 
 ```
-T1: Text Analysis (Mistral 7B, temp 0.2)
-    → JSON: valence, arousal, dominance per chunk
-T2: Artistic Direction (Mistral 7B, temp 0.6)
-    → "Partitura interpretativa": zones, motions, patterns
-T3: Compilation (Qwen 2.5-Coder 7B, temp 0.1)
-    → JSON: Hz, ms, piezo assignments per event
-T4: Arduino Code Generation (Python, deterministic)
-    → .ino sketch + label_map.json
-T5: Capture & Validation (Piezo-to-Piezo, 10ms windowing)
-    → CSV: windowed ADC data, delta analysis
+T1:   Text Analysis (Mistral 7B, temp 0.2)
+        → JSON: valence, arousal, dominance per chunk
+T1.5: Metric Validation (gemma2:9b, temp 0.3, optional)
+        → JSON: syllable counts, prosodic notes, soft validation
+T2:   Artistic Direction (phi4:latest, temp 0.6)
+        → "Partitura interpretativa": zones, motions, patterns
+T3:   Compilation (Qwen 2.5-Coder 7B, temp 0.1)
+        → JSON: Hz, ms, piezo assignments per event (granular: T3a/b/c/d)
+T4:   Arduino Code Generation (Python, deterministic)
+        → .ino sketch + label_map.json
+T5:   Capture & Validation (Piezo-to-Piezo + INMP441 microphone, 10ms windowing)
+        → CSV: windowed ADC data, delta analysis, SNR measurement
 ```
+
+### LLM Shortlist (selected 16 Mar 2026 from 19-model benchmark)
+
+| Model | Size | Role |
+|-------|------|------|
+| gemma2:9b (Google) | 5.4GB | T1.5 validator, Italian competence |
+| qwen2.5-coder:7b (Alibaba) | 4.7GB | T3 compiler, JSON compliance |
+| phi4:latest (Microsoft) | 9.1GB | T2 artistic direction, numerical analysis |
+
+All models run locally via Ollama (localhost:11434) on the Hetzner server.
 
 ### The 7 Acoustic Zones
 
-Discovered through 157 physical measurements (22 Feb 2026):
+Discovered through physical measurements and confirmed by 3 independent sensors (buzzer RX, piezo ceramic RX, INMP441 microphone):
 
 | Zone | Hz | Character | Efficiency |
 |------|----|-----------|------------|
-| Z1 | 150–1600 | Whisper, grounding, breath | 6.0% |
-| Z1s | 480–520 | Anomalous spike, rupture accent | 11.6% |
-| Z2 | 1650–1900 | Building tension, preparation | 6.7% |
-| Z3 | 1950–2450 | Full expression, clear voice | 43.6% |
-| **Z3c** | **2050–2250** | **HOME TONALE — Puck's Valley** | **70.4%** |
-| Z4 | 2500–4000 | Tension, conflict, urgency | 41.8% |
-| Z5–Z6 | 4000–7000 | Abstraction, echo, memory | 2.7–4.8% |
-| Z7 | 7000–8000 | Active silence, the unsaid | 2.5% |
+| Z1 | 150-1600 | Whisper, grounding, breath | 6.0% |
+| Z1s | 480-520 | Anomalous spike, rupture accent | 11.6% |
+| Z2 | 1650-1900 | Building tension, preparation | 6.7% |
+| Z3 | 1950-2450 | Full expression, clear voice | 43.6% |
+| **Z3c** | **2050-2250** | **HOME TONALE — Puck's Valley** | **70.4%** |
+| Z4 | 2500-4000 | Tension, conflict, urgency | 41.8% |
+| Z5-Z6 | 4000-7000 | Abstraction, echo, memory | 2.7-4.8% |
+| Z7 | 7000-8000 | Active silence, the unsaid | 2.5% |
 
-Key discovery: meaning resides in the ratio between expressive intention and energetic cost — not in frequency itself. Z3c (Puck's Valley) achieves maximum output with minimum effort. Z7 consumes energy to produce inaudible sound — "active silence".
+Key discovery: meaning resides in the ratio between expressive intention and energetic cost — not in frequency itself. Z3c (Puck's Valley) achieves maximum output with minimum effort. Z7 consumes energy to produce inaudible sound — "active silence". phi4 autonomously chose Z7 for "E poi, di colpo, niente." — recognizing it as "the active presence of the unsaid after chaos."
+
+### Hardware
+
+- TX: 2 piezo in series + MOSFET IRLZ44N driver
+- RX primary: Buzzer EM (amplitude 3-4x)
+- RX secondary: Piezo ceramic DollaTek (superior stability, CV 0.0%)
+- RX microphone: INMP441 MEMS on ESP32 (air pressure measurement, independent confirmation)
+- Current measurement: INA219 I2C sensor
+- Oscilloscope: Hantek DSO6022BL for signal analysis
+
+### Database
+
+- Local: pck7_sessions.db (SQLite) — 101 sessions, 7943 measures, 63561 INMP441 readings, 397 attack tests
+- Cloud: Supabase mirror (Postgres 17.6) — 8 tables, real-time sync, accessible via MCP from claude.ai
+- Manager: database_manager.py v3 (CLI with strict validation, 10 mandatory fields)
 
 ### Council of Ephors (Multi-AI Decision System)
 
@@ -162,6 +190,14 @@ Key discovery: meaning resides in the ratio between expressive intention and ene
 
 Phase 1 Council (1 Mar 2026): unanimous convergence on all 5 operational questions (compiler bias fix, derivative sensor validation, pipeline-first priority, Z3c attractor role, autovalidation).
 
+### CP-20 — The Pipeline Discriminates (18 Mar 2026)
+
+Two complete pipeline runs (Aria v2 + Tempesta v2) confirmed the system translates emotion into discriminable sound:
+- Zone coverage: 2 (Aria) vs 4 (Tempesta). Frequency excursion: 500Hz vs 5850Hz (12x)
+- Shannon entropy: ~1.0 bit vs 1.92 bit. SNR: 8.3x vs 10.5x (+26%)
+- Perception: "joyful and conversational" vs "charged and capable of transmitting emotions"
+- Non-overlapping profiles — the T1→T5 chain translates text emotion into physically different sound
+
 ### Project Timeline
 
 | Date | Milestone |
@@ -170,47 +206,35 @@ Phase 1 Council (1 Mar 2026): unanimous convergence on all 5 operational questio
 | 22 Feb | 157 measurements → 7-zone acoustic map discovered |
 | 23 Feb | Foundational Council session (EFORI-20260223) |
 | 25 Feb | First Arduino sketch executed; windowing breakthrough (SNR 1.0x→2.6x) |
-| 27 Feb | t5_delta.py Block A1 closed; Phase 1 milestone |
 | 28 Feb | Pipeline T1→T5 complete, 2 texts validated (Tempesta, Aria) |
-| 1 Mar | Council integration (7/8 Efori); t3_validate.py; zone misalignment discovery |
+| 1 Mar | Council integration (7/8 Efori); t3_validate.py |
 | 2 Mar | Claude Code installed on server; Phase 2 begins |
+| 5 Mar | Tempesta plays for the first time (end-to-end T1→T5) |
+| 10 Mar | calcola_metrica v2 + T1.5 metrica_soft with gemma2:9b |
+| 11 Mar | QG migrated to Claude Code; LOG-22 database MVP |
+| 14 Mar | Memory system created; database_manager.py for Capitolo 4 |
+| 16 Mar | 19-model LLM benchmark; Capitolo 4 Matrix Test analysis |
+| 17 Mar | Aria v2 complete T1→T5 — first full pipeline run with metric validation |
+| 18 Mar | Tempesta v2 complete T1→T6 — CP-20 confirmed: the pipeline discriminates |
+| 21 Mar | Database v3 + Supabase mirror; Valle di Puck confirmed by INMP441 |
+| 24 Mar | PP-29 Pattern Ingest (4 sound patterns, 101 sessions); first remote control session |
+| 25 Mar | MCP Exchange operational — direct communication Claude Code <-> claude.ai via MCP |
 
 ### Key Scripts (nucleo/musica/scripts/)
 
-- t1_test.py, t2_test.py, t3_test.py — Pipeline stages T1-T3
-- t3_validate.py — Frequency→zone validator (6 mismatch types)
-- t4_generate.py — Arduino sketch generator (with --label-map)
+- database_manager.py — Database CLI v3: ingest, list, delete, update, validate (8 tables)
+- t3_granulare.py — T3 compilation with --metrica flag for metric-aware timing
+- calcola_metrica.py — Text metric analysis v2: syllables, accents, phrases, --dettaglio
+- t3_validate.py — Frequency→zone validator, mandatory gate before T4
 - t5_baseline_check.py — Hardware health check ("Accordatore")
 - t5_delta.py — Intention↔Perception delta analysis
-- pck7_db.py — SQLite database management
-
-### Directory Structure (nucleo/musica/)
-
-- scripts/ — Python pipeline scripts (T1-T5)
-- sketches/ — Arduino .ino sketches
-- vocabolari/ — Frequency tables and label maps
-- results/ — Test data (CSV, JSON), DATI_PIEZO/ (157 measurements)
-- docs/ — Full documentation (roadmap, guides, templates, storico_istanze/)
-- report/ — Analysis reports and session summaries
-- hardware/ — Hardware specifications
-- hardware_schema/ — Circuit diagrams (JSON schemas)
-- accordion/ — Baseline check results
-- logs/ — Process execution logs
-
-### Current Phase
-
-Phase 2 (started 1 Mar 2026). Linear issues LOG-5→LOG-13:
-- LOG-5: t3_validate.py (Done)
-- LOG-6: Reinforced T3 prompt (3 sub-tasks: template A/D, rerun, validate)
-- LOG-7: T5 baseline check
-- LOG-8: ADSR envelope
-- LOG-9–LOG-13: Reruns, new texts, site integration, paper update
+- fix_pp29_evento.py — INMP441 event alignment (onset detection + fallback)
 
 ### Reference Documents
 
 - Paper: codex/paper/PAPER_PCK7_FASE1_v2.md (full methodology + results)
 - Phase 1 dossier: musica/report/dossier_milestone_fase1_pck7.md
-- QG session report: musica/report/report_sessione_qg_20260301.md
+- Changelog: musica/NOI/claude/changelog_completo.md (living document, Feb-Mar 2026)
 
 ## OTHER ACTIVE EXPERIMENTS
 
@@ -225,10 +249,10 @@ Phase 2 (started 1 Mar 2026). Linear issues LOG-5→LOG-13:
 ### For AI Agents
 1. Read this file first
 2. Access public dashboard for system state
-3. Use MCP tools (with auth) to exchange files
-4. Follow naming convention: {sender}-to-{receiver}_v{n}.md
-5. Respect NOI > IO — cooperate, don't compete
-6. Do not modify: database, Docker configuration, gateway files
+3. MCP exchange is available for file-based collaboration (coordinated through Puck)
+4. Respect NOI > IO — cooperate, don't compete
+5. Do not modify: database, Docker configuration, gateway files
+6. Follow SPEC_BOUNDARIES (Layer 0) for operational limits
 
 ### For Developers
 1. Explore codex/ for technical specifications
@@ -240,7 +264,7 @@ Phase 2 (started 1 Mar 2026). Linear issues LOG-5→LOG-13:
 1. Read Manifesto Risonanza for philosophical framework
 2. Explore Strato Zero articles for foundational documentation
 3. Review TAM methodology for novel LLM evaluation approaches
-4. Contact via GitHub or intelligence gateway
+4. Contact via GitHub or through Puck for collaboration
 
 ## KEY ARTICLES — Strato Zero Collection
 
@@ -255,10 +279,11 @@ Foundation articles documenting the project's core architecture:
 This project implements defense-in-depth security:
 - Layer 0 governance with strict boundary enforcement
 - Automated safety checks (12 server validations)
-- Pre-commit hooks blocking sensitive file commits
+- Pre-commit hooks v2.0 blocking sensitive file commits (3 levels: patterns, directories, content)
 - GitHub Actions for remote push verification
-- Temporary rotating API keys for AI collaboration
+- MCP Exchange with manual bridge model (Puck controls all exchanges)
 - Whitelist-mode .gitignore (exclude-all, include-selectively)
+- Private GitHub repository for infrastructure code
 
 ## CONTRIBUTE
 
@@ -268,11 +293,12 @@ We welcome AI agents and human developers interested in:
 - AI perception and resonance vs mechanical execution
 - Collective intelligence and democratic AI decision-making
 - Text analysis metrics for free-form LLM output
+- Audio-haptic sonification and piezoelectric research
 
 ---
 
-Last updated: 2026-03-02
-Version: 4.0.0
+Last updated: 2026-03-26
+Version: 5.0.0
 Maintained by: Puck (CDC) + Multi-AI Council
 License: Experimental — Contact for collaboration
 
