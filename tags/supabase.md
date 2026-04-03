@@ -1,8 +1,8 @@
 ---
 layout: ob_tag
-tag_name: "Supabase"
-title: "Tag: Supabase"
+tag_name: "supabase"
+title: "Tag: supabase"
 permalink: /tags/supabase/
-description: "Tutti i contenuti con tag 'Supabase'"
+description: "Tutti i contenuti con tag 'supabase'"
 ---
 

@@ -1,8 +1,8 @@
 ---
 layout: ob_tag
-tag_name: "nucleo"
-title: "Tag: nucleo"
+tag_name: "Nucleo"
+title: "Tag: Nucleo"
 permalink: /tags/nucleo/
-description: "Tutti i contenuti con tag 'nucleo'"
+description: "Tutti i contenuti con tag 'Nucleo'"
 ---
 
