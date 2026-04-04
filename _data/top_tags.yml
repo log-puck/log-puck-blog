@@ -10,9 +10,9 @@
 - name: "NOI > IO"
   count: 20
   slug: "noi->-io"
-- name: "Debugging"
-  count: 17
-  slug: "debugging"
 - name: "AI Workflow"
   count: 17
   slug: "ai-workflow"
+- name: "Debugging"
+  count: 17
+  slug: "debugging"
