@@ -1,0 +1,74 @@
+[
+  {
+    "partitura_id": "pck7_T4_il_fuoco_arde_L0",
+    "testo_originale": "Il fuoco arde",
+    "direttore": "Anker-QG",
+    "strategia": "G9_caduta",
+    "layer": 0,
+    "num_eventi": 4,
+    "num_zone": 3,
+    "durata_ms": 3050,
+    "shannon_h": 1.585,
+    "vsm": 161.7
+  },
+  {
+    "partitura_id": "pck7_T4_la_porta_si_chiude_L0",
+    "testo_originale": "La porta si chiude...",
+    "direttore": "Anker-QG",
+    "strategia": "G9_caduta_invertita",
+    "layer": 0,
+    "num_eventi": 4,
+    "num_zone": 3,
+    "durata_ms": 2950,
+    "shannon_h": 1.585,
+    "vsm": 1087.4
+  },
+  {
+    "partitura_id": "pck7_T4_la_porta_si_chiude_L0_claude_incognito",
+    "testo_originale": "La porta si chiude...",
+    "direttore": "Claude Incognito (Opus)",
+    "strategia": "G9_caduta_invertita",
+    "layer": 0,
+    "num_eventi": 7,
+    "num_zone": 3,
+    "durata_ms": 2390,
+    "shannon_h": 1.500,
+    "vsm": 1052.1
+  },
+  {
+    "partitura_id": "pck7_T4_la_porta_si_chiude_L0_phi4_cc",
+    "testo_originale": "La porta si chiude...",
+    "direttore": "Phi4 (Ollama)",
+    "strategia": "G9_caduta_invertita",
+    "layer": 0,
+    "num_eventi": 4,
+    "num_zone": 3,
+    "durata_ms": 2500,
+    "shannon_h": 1.585,
+    "vsm": 1128.2
+  },
+  {
+    "partitura_id": "pck7_T4_la_porta_si_chiude_L0_phi4_cursor",
+    "testo_originale": "La porta si chiude...",
+    "direttore": "Phi4 (Ollama/Cursor)",
+    "strategia": "G9_caduta",
+    "layer": 0,
+    "num_eventi": 4,
+    "num_zone": 4,
+    "durata_ms": 5200,
+    "shannon_h": 2.000,
+    "vsm": 847.5
+  },
+  {
+    "partitura_id": "pck7_T4_la_porta_si_chiude_L1",
+    "testo_originale": "La porta si chiude...",
+    "direttore": "Anker-QG (Layer 1)",
+    "strategia": "G9_caduta_invertita",
+    "layer": 1,
+    "num_eventi": 11,
+    "num_zone": 4,
+    "durata_ms": 3060,
+    "shannon_h": 1.750,
+    "vsm": 1350.6
+  }
+]

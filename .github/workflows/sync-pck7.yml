@@ -1,0 +1,83 @@
+name: Sync PCK7 Musica Data
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create data directory
+        run: mkdir -p _data/pck7
+
+      - name: Fetch partiture from Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          echo "Fetching partiture..."
+          curl -f -s "${SUPABASE_URL}/rest/v1/partiture?select=id,testo_originale,layer,strategia,n_eventi,data,note&order=data" \
+            -H "apikey: ${SUPABASE_ANON_KEY}" \
+            -H "Authorization: Bearer ${SUPABASE_ANON_KEY}" \
+            -o _data/pck7/partiture.json
+
+          echo "Partiture downloaded:"
+          jq '. | length' _data/pck7/partiture.json
+          echo "records"
+
+      - name: Fetch profili tre assi from Caddy
+        run: |
+          echo "Fetching profili tre assi..."
+          if curl -f -s https://log-puck.org/nucleo/nucleo_publish/pck7/profili_tre_assi.json \
+               -o _data/pck7/profili_tre_assi.json; then
+            echo "Profili downloaded:"
+            jq '. | length' _data/pck7/profili_tre_assi.json
+            echo "records"
+          else
+            echo "Profili not available yet on server — keeping existing file"
+          fi
+
+      - name: Check git status
+        run: |
+          echo "Git status:"
+          git status --short
+
+      - name: Commit and push
+        run: |
+          git config user.name "PCK7 Sync Bot"
+          git config user.email "pck7@log-puck.org"
+
+          git add _data/pck7/
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M UTC")
+            git commit -m "PCK7 data sync — ${TIMESTAMP}"
+            git push
+            echo "Changes committed and pushed"
+          fi
+
+      - name: Summary
+        run: |
+          echo "### PCK7 Musica Sync Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [ -f "_data/pck7/partiture.json" ]; then
+            PARTITURE=$(jq '. | length' _data/pck7/partiture.json)
+            echo "**Partiture:** ${PARTITURE}" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          if [ -f "_data/pck7/profili_tre_assi.json" ]; then
+            PROFILI=$(jq '. | length' _data/pck7/profili_tre_assi.json)
+            echo "**Profili tre assi:** ${PROFILI}" >> $GITHUB_STEP_SUMMARY
+          fi

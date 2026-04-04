@@ -2,17 +2,17 @@
 layout: default
 ---
 
-<article class="document-page musica-track">
+<article class="pck7-page">
     <div class="container">
         <header class="document-header">
             {% include tags-list.html %}
             <h1 class="document-title">{{ page.title }}</h1>
-            
+
             <div class="document-meta">
                 <time class="document-date">{{ page.date | date: "%d %B %Y" }}</time>
-                {% if page.genere %}
+                {% if page.subtitle %}
                 <span class="separator">|</span>
-                <span class="track-genre">🎵 {{ page.genere }}</span>
+                <span class="pck7-subtitle">{{ page.subtitle }}</span>
                 {% endif %}
             </div>
         </header>
@@ -21,8 +21,81 @@ layout: default
             {{ content }}
         </div>
 
+        {% if page.show_partiture %}
+        <!-- Tabella Partiture -->
+        <section class="pck7-section">
+            <h2>Partiture</h2>
+            <p class="pck7-section-count">{{ site.data.pck7.partiture | size }} partiture nel database</p>
+            <div class="table-wrapper">
+                <table class="pck7-table">
+                    <thead>
+                        <tr>
+                            <th>Testo</th>
+                            <th>Strategia</th>
+                            <th>Layer</th>
+                            <th>Eventi</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for p in site.data.pck7.partiture %}
+                        <tr>
+                            <td>
+                                <span class="pck7-testo">{{ p.testo_originale }}</span>
+                                {% if p.note %}
+                                <span class="pck7-note">{{ p.note }}</span>
+                                {% endif %}
+                            </td>
+                            <td><code>{{ p.strategia }}</code></td>
+                            <td class="pck7-center">{{ p.layer }}</td>
+                            <td class="pck7-center">{{ p.n_eventi }}</td>
+                            <td class="pck7-date">{{ p.data }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        {% endif %}
+
+        {% if page.show_profili %}
+        <!-- Tabella Profili Tre Assi -->
+        <section class="pck7-section">
+            <h2>Profili Tre Assi</h2>
+            <p class="pck7-section-count">Analisi informazionale delle partiture: entropia (Shannon H), varianza spettrale (VSM), zone acustiche, durata</p>
+            <div class="table-wrapper">
+                <table class="pck7-table">
+                    <thead>
+                        <tr>
+                            <th>Direttore</th>
+                            <th>Strategia</th>
+                            <th>Layer</th>
+                            <th>Shannon H</th>
+                            <th>VSM</th>
+                            <th>Zone</th>
+                            <th>Durata</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for p in site.data.pck7.profili_tre_assi %}
+                        <tr>
+                            <td><strong>{{ p.direttore }}</strong></td>
+                            <td><code>{{ p.strategia }}</code></td>
+                            <td class="pck7-center">{{ p.layer }}</td>
+                            <td class="pck7-center">{{ p.shannon_h }}</td>
+                            <td class="pck7-center">{{ p.vsm }}</td>
+                            <td class="pck7-center">{{ p.num_zone }}</td>
+                            <td class="pck7-center">{{ p.durata_ms }} ms</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        {% endif %}
+
         <footer class="document-footer">
-            <p class="document-version">Traccia {{ page.version | default: "1.0" }} | {{ page.date | date: "%d/%m/%Y" }}</p>
+            <p class="document-version">PCK7 — Pipeline v2.0 | NOI &gt; IO</p>
         </footer>
     </div>
 </article>

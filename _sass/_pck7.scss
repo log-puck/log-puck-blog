@@ -1,0 +1,109 @@
+/* ============================================================
+   PCK7 — Sonificazione Styles
+   Tabelle partiture, profili tre assi, layout pagina
+   ============================================================ */
+
+.pck7-page {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.pck7-subtitle {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+/* Sections */
+.pck7-section {
+    margin: 3rem 0;
+}
+
+.pck7-section h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.pck7-section-count {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+/* Tables */
+.pck7-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.pck7-table thead {
+    background-color: var(--slot-bg);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.pck7-table th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+}
+
+.pck7-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.pck7-table tbody tr:hover {
+    background-color: var(--slot-bg);
+}
+
+.pck7-table code {
+    font-family: 'Courier New', monospace;
+    background-color: #f5f5f5;
+    padding: 0.125rem 0.25rem;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.pck7-center {
+    text-align: center;
+}
+
+.pck7-date {
+    white-space: nowrap;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.pck7-testo {
+    display: block;
+    font-weight: 500;
+}
+
+.pck7-note {
+    display: block;
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 0.25rem;
+    font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .pck7-table {
+        font-size: 0.8rem;
+    }
+
+    .pck7-table th,
+    .pck7-table td {
+        padding: 0.5rem;
+    }
+
+    .pck7-section h2 {
+        font-size: 1.2rem;
+    }
+}
