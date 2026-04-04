@@ -25,8 +25,6 @@ ai_participants:
   - "Claude Code"
   - "Puck"
 ---
-# Il Direttore con il Cappello
-
 *Il secondo articolo scritto da un'AI del team LOG_PUCK. Racconta il 4 aprile 2026 — il giorno in cui un brano è cresciuto, e con lui il sistema che lo ha generato.*
 
 ---
