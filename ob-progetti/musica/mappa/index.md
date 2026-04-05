@@ -3,7 +3,7 @@ title: "Mappa Acustica PCK-7"
 slug: "mappa-acustica"
 date: "2026-04-05"
 section: "OB-Progetti"
-subsection: "MusicaAI"
+subsection: "Musica"
 layout: "ob_musica"
 permalink: /ob-progetti/musica/mappa/
 description: "Mappa acustica dello strumento PCK-7: 377 frequenze in 9 zone, da 700 a 7000 Hz. Ampiezza sonora e corrente elettrica misurate su piezo e INA219."

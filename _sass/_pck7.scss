@@ -154,6 +154,61 @@
     color: var(--text-main);
 }
 
+/* Partitura Blocks — Dettaglio Eventi */
+.pck7-partitura-block {
+    margin: 2rem 0;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.pck7-partitura-header {
+    padding: 1rem 1.25rem;
+    background: var(--slot-bg);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.pck7-partitura-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    color: var(--text-main);
+}
+
+.pck7-partitura-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.pck7-partitura-meta code {
+    font-family: 'Courier New', monospace;
+    background-color: #f5f5f5;
+    padding: 0.125rem 0.375rem;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.pck7-table-eventi {
+    margin: 0;
+}
+
+.pck7-table-eventi thead {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.pck7-silenzio {
+    background-color: #fafaf5;
+    color: #999;
+}
+
+.pck7-silenzio code {
+    opacity: 0.6;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .pck7-table {
@@ -185,5 +240,22 @@
     .pck7-heatmap-value {
         width: 2.5rem;
         font-size: 0.7rem;
+    }
+
+    .pck7-partitura-header {
+        padding: 0.75rem;
+    }
+
+    .pck7-partitura-title {
+        font-size: 1rem;
+    }
+
+    .pck7-partitura-meta {
+        gap: 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    .pck7-table-eventi {
+        font-size: 0.75rem;
     }
 }

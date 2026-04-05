@@ -46,6 +46,21 @@ jobs:
             echo "Profili not available yet on server — keeping existing file"
           fi
 
+      - name: Fetch eventi partitura from Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          echo "Fetching eventi..."
+          curl -f -s "${SUPABASE_URL}/rest/v1/partiture_eventi?select=partitura_id,event_id,ordine,testo,dove,come,freq_start,freq_end,attack_ms,t_on_ms,decay_ms,note&order=partitura_id,ordine" \
+            -H "apikey: ${SUPABASE_ANON_KEY}" \
+            -H "Authorization: Bearer ${SUPABASE_ANON_KEY}" \
+            -o _data/pck7/eventi.json
+
+          echo "Eventi downloaded:"
+          jq '. | length' _data/pck7/eventi.json
+          echo "records"
+
       - name: Fetch mappa acustica from Caddy
         run: |
           echo "Fetching mappa acustica..."
@@ -92,6 +107,11 @@ jobs:
           if [ -f "_data/pck7/profili_tre_assi.json" ]; then
             PROFILI=$(jq '. | length' _data/pck7/profili_tre_assi.json)
             echo "**Profili tre assi:** ${PROFILI}" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          if [ -f "_data/pck7/eventi.json" ]; then
+            EVENTI=$(jq '. | length' _data/pck7/eventi.json)
+            echo "**Eventi partitura:** ${EVENTI}" >> $GITHUB_STEP_SUMMARY
           fi
 
           if [ -f "_data/pck7/mappa_acustica.json" ]; then

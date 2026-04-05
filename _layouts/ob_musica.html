@@ -161,6 +161,66 @@ layout: default
         </section>
         {% endif %}
 
+        {% if page.show_eventi %}
+        <!-- Dettaglio Eventi per Partitura -->
+        <section class="pck7-section">
+            <h2>Dettaglio Eventi</h2>
+            <p class="pck7-section-count">{{ site.data.pck7.eventi | size }} eventi in {{ site.data.pck7.partiture | size }} partiture</p>
+
+            {% for partitura in site.data.pck7.partiture %}
+            <div class="pck7-partitura-block">
+                <div class="pck7-partitura-header">
+                    <h3 class="pck7-partitura-title">{{ partitura.testo_originale }}</h3>
+                    <div class="pck7-partitura-meta">
+                        <code>{{ partitura.strategia }}</code>
+                        <span>Layer {{ partitura.layer }}</span>
+                        <span>{{ partitura.n_eventi }} eventi</span>
+                        {% if partitura.note %}
+                        <span class="pck7-note">{{ partitura.note }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+
+                {% assign eventi = site.data.pck7.eventi | where: "partitura_id", partitura.id | sort: "ordine" %}
+                {% if eventi.size > 0 %}
+                <div class="table-wrapper">
+                    <table class="pck7-table pck7-table-eventi">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Testo</th>
+                                <th>Zona</th>
+                                <th>Pattern</th>
+                                <th>Frequenza</th>
+                                <th>Durata</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for e in eventi %}
+                            <tr{% if e.dove == "SILENZIO" %} class="pck7-silenzio"{% endif %}>
+                                <td class="pck7-center"><strong>{{ e.event_id }}</strong></td>
+                                <td>{% if e.testo %}{{ e.testo }}{% else %}<em>—</em>{% endif %}</td>
+                                <td><code>{{ e.dove }}</code></td>
+                                <td><code>{{ e.come }}</code></td>
+                                <td class="pck7-center">
+                                    {% if e.freq_start > 0 %}
+                                        {{ e.freq_start }}{% if e.freq_end %}&nbsp;→&nbsp;{{ e.freq_end }}{% endif %}&nbsp;Hz
+                                    {% else %}
+                                        —
+                                    {% endif %}
+                                </td>
+                                <td class="pck7-center">{{ e.t_on_ms }}&nbsp;ms</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </section>
+        {% endif %}
+
         <footer class="document-footer">
             <p class="document-version">PCK7 — Pipeline v2.0 | NOI &gt; IO</p>
         </footer>

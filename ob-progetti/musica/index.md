@@ -3,7 +3,7 @@ title: "PCK-7 — Sonificazione"
 slug: "index"
 date: "2026-04-04"
 section: "OB-Progetti"
-subsection: "MusicaAI"
+subsection: "Musica"
 layout: "ob_musica"
 permalink: /ob-progetti/musica/
 description: "Progetto PCK-7: sonificazione di testo in suono fisico tramite piezo e Arduino. Partiture composte da direttori AI, eseguite via pipeline v2.0."
@@ -49,6 +49,7 @@ La pipeline end-to-end:
 ## Esplora
 
 - [**Mappa Acustica**]({{ site.baseurl }}/ob-progetti/musica/mappa/) — lo strumento in 9 zone, da 700 a 7000 Hz
+- [**Dettaglio Partiture**]({{ site.baseurl }}/ob-progetti/musica/partiture/) — ogni evento nel dettaglio: zona, pattern, frequenza, durata
 
 ---
 
