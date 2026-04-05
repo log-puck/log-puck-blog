@@ -46,6 +46,12 @@ La pipeline end-to-end:
 
 ---
 
+## Esplora
+
+- [**Mappa Acustica**]({{ site.baseurl }}/ob-progetti/musica/mappa/) — lo strumento in 9 zone, da 700 a 7000 Hz
+
+---
+
 ## Numeri
 
 **6** partiture nel database | **155** sessioni hardware | **8355** misurazioni INA219

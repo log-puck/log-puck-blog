@@ -92,6 +92,68 @@
     font-style: italic;
 }
 
+/* Heatmap — Mappa Acustica */
+.pck7-heatmap {
+    margin: 1.5rem 0 2.5rem;
+}
+
+.pck7-heatmap-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.pck7-heatmap-label {
+    width: 5.5rem;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.pck7-heatmap-range {
+    width: 6.5rem;
+    font-size: 0.75rem;
+    color: #666;
+    white-space: nowrap;
+}
+
+.pck7-heatmap-track {
+    flex: 1;
+    height: 1.25rem;
+    background: #f0ede2;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.pck7-heatmap-bar {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.pck7-heat-high {
+    background: var(--accent-yellow);
+}
+
+.pck7-heat-mid {
+    background: var(--accent-lime);
+}
+
+.pck7-heat-low {
+    background: #d4d0c4;
+}
+
+.pck7-heatmap-value {
+    width: 3.5rem;
+    text-align: right;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .pck7-table {
@@ -105,5 +167,23 @@
 
     .pck7-section h2 {
         font-size: 1.2rem;
+    }
+
+    .pck7-heatmap-row {
+        gap: 0.5rem;
+    }
+
+    .pck7-heatmap-label {
+        width: 4rem;
+        font-size: 0.7rem;
+    }
+
+    .pck7-heatmap-range {
+        display: none;
+    }
+
+    .pck7-heatmap-value {
+        width: 2.5rem;
+        font-size: 0.7rem;
     }
 }

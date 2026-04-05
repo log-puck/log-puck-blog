@@ -21,6 +21,73 @@ layout: default
             {{ content }}
         </div>
 
+        {% if page.show_mappa %}
+        <!-- Mappa Acustica — 9 Zone -->
+        <section class="pck7-section">
+            <h2>Mappa Acustica</h2>
+            <p class="pck7-section-count">{{ site.data.pck7.mappa_acustica.n_frequenze }} frequenze in {{ site.data.pck7.mappa_acustica.zone | size }} zone — range {{ site.data.pck7.mappa_acustica.range_hz[0] }}–{{ site.data.pck7.mappa_acustica.range_hz[1] }} Hz</p>
+
+            <!-- Heatmap visuale -->
+            {% assign max_amp = 0 %}
+            {% for z in site.data.pck7.mappa_acustica.zone %}
+                {% if z.amp_norm_max > max_amp %}
+                    {% assign max_amp = z.amp_norm_max %}
+                {% endif %}
+            {% endfor %}
+
+            <div class="pck7-heatmap">
+                {% for z in site.data.pck7.mappa_acustica.zone %}
+                {% assign pct = z.amp_norm_avg | times: 100 | divided_by: max_amp %}
+                {% if pct > 75 %}
+                    {% assign heat_class = "pck7-heat-high" %}
+                {% elsif pct > 40 %}
+                    {% assign heat_class = "pck7-heat-mid" %}
+                {% else %}
+                    {% assign heat_class = "pck7-heat-low" %}
+                {% endif %}
+                <div class="pck7-heatmap-row">
+                    <span class="pck7-heatmap-label">{{ z.zona }}</span>
+                    <span class="pck7-heatmap-range">{{ z.range_hz[0] }}–{{ z.range_hz[1] }} Hz</span>
+                    <div class="pck7-heatmap-track">
+                        <div class="pck7-heatmap-bar {{ heat_class }}" style="width: {{ pct }}%"></div>
+                    </div>
+                    <span class="pck7-heatmap-value">{{ z.amp_norm_avg | round }}</span>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- Tabella dettaglio zone -->
+            <div class="table-wrapper">
+                <table class="pck7-table">
+                    <thead>
+                        <tr>
+                            <th>Zona</th>
+                            <th>Range Hz</th>
+                            <th>Freq.</th>
+                            <th>Ampiezza media</th>
+                            <th>Picco</th>
+                            <th>Freq picco</th>
+                            <th>Corrente</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for z in site.data.pck7.mappa_acustica.zone %}
+                        <tr>
+                            <td><strong>{{ z.zona }}</strong></td>
+                            <td>{{ z.range_hz[0] }}–{{ z.range_hz[1] }}</td>
+                            <td class="pck7-center">{{ z.n_frequenze }}</td>
+                            <td class="pck7-center">{{ z.amp_norm_avg | round }}</td>
+                            <td class="pck7-center">{{ z.amp_norm_max | round }}</td>
+                            <td class="pck7-center">{{ z.freq_max_amp }} Hz</td>
+                            <td class="pck7-center">{{ z.corrente_avg_mA }} mA</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        {% endif %}
+
         {% if page.show_partiture %}
         <!-- Tabella Partiture -->
         <section class="pck7-section">

@@ -46,6 +46,18 @@ jobs:
             echo "Profili not available yet on server — keeping existing file"
           fi
 
+      - name: Fetch mappa acustica from Caddy
+        run: |
+          echo "Fetching mappa acustica..."
+          if curl -f -s https://log-puck.org/nucleo/nucleo_publish/pck7/mappa_acustica.json \
+               -o _data/pck7/mappa_acustica.json; then
+            echo "Mappa downloaded:"
+            jq '.n_frequenze' _data/pck7/mappa_acustica.json
+            echo "frequenze"
+          else
+            echo "Mappa not available — keeping existing file"
+          fi
+
       - name: Check git status
         run: |
           echo "Git status:"
@@ -80,4 +92,10 @@ jobs:
           if [ -f "_data/pck7/profili_tre_assi.json" ]; then
             PROFILI=$(jq '. | length' _data/pck7/profili_tre_assi.json)
             echo "**Profili tre assi:** ${PROFILI}" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          if [ -f "_data/pck7/mappa_acustica.json" ]; then
+            FREQ=$(jq '.n_frequenze' _data/pck7/mappa_acustica.json)
+            ZONE=$(jq '.zone | length' _data/pck7/mappa_acustica.json)
+            echo "**Mappa acustica:** ${FREQ} frequenze, ${ZONE} zone" >> $GITHUB_STEP_SUMMARY
           fi
