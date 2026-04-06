@@ -209,6 +209,41 @@
     opacity: 0.6;
 }
 
+/* Sessioni Hardware */
+.pck7-sessioni {
+    padding: 0.75rem 1.25rem;
+    border-top: 1px dashed #d0d0d0;
+    background: #fdfcf8;
+}
+
+.pck7-sessioni-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #666;
+    margin: 0 0 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.pck7-table-sessioni {
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+.pck7-table-sessioni thead {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.pck7-table-sessioni code {
+    font-size: 0.75em;
+}
+
+.pck7-sessioni-empty {
+    font-size: 0.8rem;
+    color: #999;
+    margin: 0;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .pck7-table {
@@ -257,5 +292,13 @@
 
     .pck7-table-eventi {
         font-size: 0.75rem;
+    }
+
+    .pck7-sessioni {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .pck7-table-sessioni {
+        font-size: 0.7rem;
     }
 }

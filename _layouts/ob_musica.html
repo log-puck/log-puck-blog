@@ -216,6 +216,41 @@ layout: default
                     </table>
                 </div>
                 {% endif %}
+
+                {% if site.data.pck7.sessioni %}
+                {% assign sessioni = site.data.pck7.sessioni | where: "partitura_id", partitura.id | sort: "run_n" %}
+                {% if sessioni.size > 0 %}
+                <div class="pck7-sessioni">
+                    <h4 class="pck7-sessioni-title">Esecuzioni hardware ({{ sessioni.size }} run)</h4>
+                    <div class="table-wrapper">
+                        <table class="pck7-table pck7-table-sessioni">
+                            <thead>
+                                <tr>
+                                    <th>Run</th>
+                                    <th>Sessione</th>
+                                    <th>Data</th>
+                                    <th>Note</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for s in sessioni %}
+                                <tr>
+                                    <td class="pck7-center">{{ s.run_n }}</td>
+                                    <td><code>{{ s.id }}</code></td>
+                                    <td class="pck7-date">{% if s.timestamp %}{{ s.timestamp | date: "%d %b %Y" }}{% else %}—{% endif %}</td>
+                                    <td>{% if s.note %}{{ s.note }}{% endif %}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {% else %}
+                <div class="pck7-sessioni">
+                    <p class="pck7-sessioni-empty"><em>Nessuna esecuzione hardware registrata</em></p>
+                </div>
+                {% endif %}
+                {% endif %}
             </div>
             {% endfor %}
         </section>

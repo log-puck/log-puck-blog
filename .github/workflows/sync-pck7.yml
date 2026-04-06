@@ -61,6 +61,21 @@ jobs:
           jq '. | length' _data/pck7/eventi.json
           echo "records"
 
+      - name: Fetch sessioni hardware from Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          echo "Fetching sessioni..."
+          curl -f -s "${SUPABASE_URL}/rest/v1/sessioni?select=id,partitura_id,run_n,test_type,timestamp,note&partitura_id=not.is.null&order=partitura_id,run_n" \
+            -H "apikey: ${SUPABASE_ANON_KEY}" \
+            -H "Authorization: Bearer ${SUPABASE_ANON_KEY}" \
+            -o _data/pck7/sessioni.json
+
+          echo "Sessioni downloaded:"
+          jq '. | length' _data/pck7/sessioni.json
+          echo "records"
+
       - name: Fetch mappa acustica from Caddy
         run: |
           echo "Fetching mappa acustica..."
@@ -112,6 +127,11 @@ jobs:
           if [ -f "_data/pck7/eventi.json" ]; then
             EVENTI=$(jq '. | length' _data/pck7/eventi.json)
             echo "**Eventi partitura:** ${EVENTI}" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          if [ -f "_data/pck7/sessioni.json" ]; then
+            SESSIONI=$(jq '. | length' _data/pck7/sessioni.json)
+            echo "**Sessioni hardware:** ${SESSIONI}" >> $GITHUB_STEP_SUMMARY
           fi
 
           if [ -f "_data/pck7/mappa_acustica.json" ]; then
