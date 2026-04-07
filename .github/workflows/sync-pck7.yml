@@ -76,9 +76,9 @@ jobs:
           jq '. | length' _data/pck7/sessioni.json
           echo "records"
 
-      - name: Fetch mappa acustica from Caddy
+      - name: Fetch mappa acustica from Caddy (legacy fallback)
         run: |
-          echo "Fetching mappa acustica..."
+          echo "Fetching mappa acustica (legacy)..."
           if curl -f -s https://log-puck.org/nucleo/nucleo_publish/pck7/mappa_acustica.json \
                -o _data/pck7/mappa_acustica.json; then
             echo "Mappa downloaded:"
@@ -86,6 +86,59 @@ jobs:
             echo "frequenze"
           else
             echo "Mappa not available — keeping existing file"
+          fi
+
+      - name: Fetch sweep analysis from Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          echo "Fetching sweep_analysis..."
+          curl -f -s \
+            "${SUPABASE_URL}/rest/v1/sweep_analysis?select=freq_hz,ina_smooth,inmp_smooth,ina_pct,inmp_pct,ina_trend,efficienza,zona_dove&sweep_id=like.pp42_sweep_*_up&order=freq_hz&limit=2000" \
+            -H "apikey: ${SUPABASE_ANON_KEY}" \
+            -H "Authorization: Bearer ${SUPABASE_ANON_KEY}" \
+            -o /tmp/sweep_raw.json
+
+          RAW_COUNT=$(jq '. | length' /tmp/sweep_raw.json)
+          echo "Raw points fetched: ${RAW_COUNT}"
+
+          if [ "$RAW_COUNT" -gt 0 ]; then
+            jq '
+              group_by(.zona_dove) |
+              {
+                n_punti: (map(length) | add),
+                range_hz: [([.[][].freq_hz] | min), ([.[][].freq_hz] | max)],
+                zone: map({
+                  zona: .[0].zona_dove,
+                  range_hz: [([.[].freq_hz] | min), ([.[].freq_hz] | max)],
+                  n_punti: length,
+                  inmp_avg: (([.[].inmp_smooth] | add / length) * 10 | round / 10),
+                  inmp_max: ([.[].inmp_smooth] | max),
+                  freq_inmp_max: (sort_by(-.inmp_smooth) | .[0].freq_hz),
+                  ina_avg: (([.[].ina_smooth] | add / length) * 10 | round / 10),
+                  ina_max: ([.[].ina_smooth] | max),
+                  freq_ina_max: (sort_by(-.ina_smooth) | .[0].freq_hz),
+                  efficienza_avg: (([.[].efficienza] | add / length) * 100 | round / 100),
+                  frequenze: [.[] | {
+                    freq_hz,
+                    inmp: .inmp_smooth,
+                    ina: .ina_smooth,
+                    inmp_pct,
+                    ina_pct,
+                    ina_trend,
+                    efficienza
+                  }]
+                }) | sort_by(.range_hz[0])
+              }
+            ' /tmp/sweep_raw.json > _data/pck7/sweep_analysis.json
+
+            echo "Sweep analysis zones:"
+            jq '.zone | length' _data/pck7/sweep_analysis.json
+            echo "zones, total points:"
+            jq '.n_punti' _data/pck7/sweep_analysis.json
+          else
+            echo "No sweep data returned — keeping existing file"
           fi
 
       - name: Check git status
@@ -137,5 +190,11 @@ jobs:
           if [ -f "_data/pck7/mappa_acustica.json" ]; then
             FREQ=$(jq '.n_frequenze' _data/pck7/mappa_acustica.json)
             ZONE=$(jq '.zone | length' _data/pck7/mappa_acustica.json)
-            echo "**Mappa acustica:** ${FREQ} frequenze, ${ZONE} zone" >> $GITHUB_STEP_SUMMARY
+            echo "**Mappa acustica (legacy):** ${FREQ} frequenze, ${ZONE} zone" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          if [ -f "_data/pck7/sweep_analysis.json" ]; then
+            PUNTI=$(jq '.n_punti' _data/pck7/sweep_analysis.json)
+            SZONE=$(jq '.zone | length' _data/pck7/sweep_analysis.json)
+            echo "**Sweep analysis:** ${PUNTI} punti, ${SZONE} zone" >> $GITHUB_STEP_SUMMARY
           fi

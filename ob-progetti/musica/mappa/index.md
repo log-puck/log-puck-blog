@@ -6,9 +6,9 @@ section: "OB-Progetti"
 subsection: "Musica"
 layout: "ob_musica"
 permalink: /ob-progetti/musica/mappa/
-description: "Mappa acustica dello strumento PCK-7: 377 frequenze in 9 zone, da 700 a 7000 Hz. Ampiezza sonora e corrente elettrica misurate su piezo e INA219."
-keywords: "PCK7, mappa acustica, frequenze, zone, piezo, INA219, INMP441"
-subtitle: "377 frequenze — 9 zone — 700÷7000 Hz"
+description: "Mappa acustica dello strumento PCK-7: 1526 punti smoothed in 9 zone, da 400 a 8000 Hz. Ampiezza sonora (INMP) e corrente elettrica (INA) misurate su piezo, INA219 e INMP441."
+keywords: "PCK7, mappa acustica, frequenze, zone, piezo, INA219, INMP441, sweep analysis"
+subtitle: "1526 punti — 9 zone — 400÷8000 Hz"
 tags:
   - PCK7
   - AI Music
@@ -24,9 +24,9 @@ show_mappa: true
 
 ## Lo Strumento in 9 Zone
 
-La mappa acustica è la fotografia dello strumento: 377 frequenze misurate con sensore INMP441 (ampiezza sonora) e INA219 (corrente elettrica al piezo). I dati vengono da due sessioni di scansione completa (PP-31 + PP-32) nel range 700–7000 Hz.
+La mappa acustica è la fotografia dello strumento: 1526 punti smoothed misurati con sensore INMP441 (ampiezza sonora) e INA219 (corrente elettrica al piezo). I dati vengono dalla sweep analysis PP-42 nel range 400–8000 Hz, con due serie separate per ampiezza e corrente.
 
-Le 9 zone raccontano il carattere acustico dello strumento — dove risuona forte, dove il suono si spegne, dove il caos prende il sopravvento.
+Le 9 zone raccontano il carattere acustico dello strumento — dove risuona forte, dove il suono si spegne, dove il caos prende il sopravvento. Espandi ogni zona per esplorare le singole frequenze.
 
 ---
 

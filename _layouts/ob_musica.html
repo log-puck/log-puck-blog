@@ -22,12 +22,190 @@ layout: default
         </div>
 
         {% if page.show_mappa %}
-        <!-- Mappa Acustica — 9 Zone -->
+        {% if site.data.pck7.sweep_analysis %}
+        <!-- Mappa Acustica — Sweep Analysis -->
+        {% assign sweep = site.data.pck7.sweep_analysis %}
+        <section class="pck7-section">
+            <h2>Mappa Acustica</h2>
+            <p class="pck7-section-count">{{ sweep.n_punti }} punti in {{ sweep.zone | size }} zone — range {{ sweep.range_hz[0] }}–{{ sweep.range_hz[1] }} Hz</p>
+
+            <!-- Heatmap Ampiezza Sonora (INMP) -->
+            {% assign max_inmp = 0 %}
+            {% for z in sweep.zone %}
+                {% if z.inmp_max > max_inmp %}
+                    {% assign max_inmp = z.inmp_max %}
+                {% endif %}
+            {% endfor %}
+
+            <div class="pck7-heatmap-section">
+                <h3>Ampiezza Sonora (INMP)</h3>
+                <div class="pck7-heatmap">
+                    {% for z in sweep.zone %}
+                    {% assign pct = z.inmp_avg | times: 100 | divided_by: max_inmp %}
+                    {% if pct > 75 %}
+                        {% assign heat_class = "pck7-heat-high" %}
+                    {% elsif pct > 40 %}
+                        {% assign heat_class = "pck7-heat-mid" %}
+                    {% else %}
+                        {% assign heat_class = "pck7-heat-low" %}
+                    {% endif %}
+                    <div class="pck7-heatmap-row">
+                        <span class="pck7-heatmap-label">{{ z.zona }}</span>
+                        <span class="pck7-heatmap-range">{{ z.range_hz[0] }}–{{ z.range_hz[1] }} Hz</span>
+                        <div class="pck7-heatmap-track">
+                            <div class="pck7-heatmap-bar {{ heat_class }}" style="width: {{ pct }}%"></div>
+                        </div>
+                        <span class="pck7-heatmap-value">{{ z.inmp_avg | round }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Heatmap Corrente Elettrica (INA) -->
+            {% assign max_ina = 0 %}
+            {% for z in sweep.zone %}
+                {% if z.ina_max > max_ina %}
+                    {% assign max_ina = z.ina_max %}
+                {% endif %}
+            {% endfor %}
+
+            <div class="pck7-heatmap-section">
+                <h3>Corrente Elettrica (INA)</h3>
+                <div class="pck7-heatmap">
+                    {% for z in sweep.zone %}
+                    {% assign pct = z.ina_avg | times: 100 | divided_by: max_ina %}
+                    {% if pct > 75 %}
+                        {% assign heat_class = "pck7-heat-high" %}
+                    {% elsif pct > 40 %}
+                        {% assign heat_class = "pck7-heat-mid" %}
+                    {% else %}
+                        {% assign heat_class = "pck7-heat-low" %}
+                    {% endif %}
+                    <div class="pck7-heatmap-row">
+                        <span class="pck7-heatmap-label">{{ z.zona }}</span>
+                        <span class="pck7-heatmap-range">{{ z.range_hz[0] }}–{{ z.range_hz[1] }} Hz</span>
+                        <div class="pck7-heatmap-track">
+                            <div class="pck7-heatmap-bar {{ heat_class }}" style="width: {{ pct }}%"></div>
+                        </div>
+                        <span class="pck7-heatmap-value">{{ z.ina_avg | round }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Tabella INMP — Ampiezza Sonora -->
+            <div class="table-wrapper">
+                <table class="pck7-table">
+                    <thead>
+                        <tr>
+                            <th colspan="6">Ampiezza Sonora (INMP)</th>
+                        </tr>
+                        <tr>
+                            <th>Zona</th>
+                            <th>Range Hz</th>
+                            <th>Punti</th>
+                            <th>Media</th>
+                            <th>Picco</th>
+                            <th>Freq picco</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for z in sweep.zone %}
+                        <tr>
+                            <td><strong>{{ z.zona }}</strong></td>
+                            <td>{{ z.range_hz[0] }}–{{ z.range_hz[1] }}</td>
+                            <td class="pck7-center">{{ z.n_punti }}</td>
+                            <td class="pck7-center">{{ z.inmp_avg | round }}</td>
+                            <td class="pck7-center">{{ z.inmp_max | round }}</td>
+                            <td class="pck7-center">{{ z.freq_inmp_max }} Hz</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Tabella INA — Corrente Elettrica -->
+            <div class="table-wrapper">
+                <table class="pck7-table">
+                    <thead>
+                        <tr>
+                            <th colspan="7">Corrente Elettrica (INA)</th>
+                        </tr>
+                        <tr>
+                            <th>Zona</th>
+                            <th>Range Hz</th>
+                            <th>Punti</th>
+                            <th>Media mA</th>
+                            <th>Picco mA</th>
+                            <th>Freq picco</th>
+                            <th>Efficienza</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for z in sweep.zone %}
+                        <tr>
+                            <td><strong>{{ z.zona }}</strong></td>
+                            <td>{{ z.range_hz[0] }}–{{ z.range_hz[1] }}</td>
+                            <td class="pck7-center">{{ z.n_punti }}</td>
+                            <td class="pck7-center">{{ z.ina_avg | round: 1 }}</td>
+                            <td class="pck7-center">{{ z.ina_max | round: 1 }}</td>
+                            <td class="pck7-center">{{ z.freq_ina_max }} Hz</td>
+                            <td class="pck7-center">{{ z.efficienza_avg | round: 2 }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Dettaglio frequenze per zona (espandibile) -->
+            <h3 style="margin-top: 2rem;">Dettaglio per Zona</h3>
+            {% for z in sweep.zone %}
+            <details class="pck7-zone-detail">
+                <summary class="pck7-zone-summary">
+                    <strong>{{ z.zona }}</strong>
+                    <span>{{ z.range_hz[0] }}–{{ z.range_hz[1] }} Hz</span>
+                    <span>{{ z.n_punti }} punti</span>
+                </summary>
+                <div class="pck7-zone-content">
+                    <div class="table-wrapper">
+                        <table class="pck7-table pck7-table-sweep">
+                            <thead>
+                                <tr>
+                                    <th>Freq Hz</th>
+                                    <th>INMP</th>
+                                    <th>INMP %</th>
+                                    <th>INA mA</th>
+                                    <th>INA %</th>
+                                    <th>Trend</th>
+                                    <th>Efficienza</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for f in z.frequenze %}
+                                <tr>
+                                    <td class="pck7-center">{{ f.freq_hz }}</td>
+                                    <td class="pck7-center">{{ f.inmp | round: 1 }}</td>
+                                    <td class="pck7-center">{{ f.inmp_pct }}%</td>
+                                    <td class="pck7-center">{{ f.ina | round: 1 }}</td>
+                                    <td class="pck7-center">{{ f.ina_pct }}%</td>
+                                    <td class="pck7-center">{{ f.ina_trend }}</td>
+                                    <td class="pck7-center">{{ f.efficienza | round: 2 }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </details>
+            {% endfor %}
+        </section>
+
+        {% elsif site.data.pck7.mappa_acustica %}
+        <!-- Mappa Acustica — Legacy fallback (Caddy JSON) -->
         <section class="pck7-section">
             <h2>Mappa Acustica</h2>
             <p class="pck7-section-count">{{ site.data.pck7.mappa_acustica.n_frequenze }} frequenze in {{ site.data.pck7.mappa_acustica.zone | size }} zone — range {{ site.data.pck7.mappa_acustica.range_hz[0] }}–{{ site.data.pck7.mappa_acustica.range_hz[1] }} Hz</p>
 
-            <!-- Heatmap visuale -->
             {% assign max_amp = 0 %}
             {% for z in site.data.pck7.mappa_acustica.zone %}
                 {% if z.amp_norm_max > max_amp %}
@@ -56,7 +234,6 @@ layout: default
                 {% endfor %}
             </div>
 
-            <!-- Tabella dettaglio zone -->
             <div class="table-wrapper">
                 <table class="pck7-table">
                     <thead>
@@ -86,6 +263,7 @@ layout: default
                 </table>
             </div>
         </section>
+        {% endif %}
         {% endif %}
 
         {% if page.show_partiture %}
