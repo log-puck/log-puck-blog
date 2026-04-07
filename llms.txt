@@ -62,7 +62,7 @@ nucleo/
 - /ob-archives/wtd/ — Historical notes
 - /ob-progetti/ — Projects (OpenClaw, Music AI)
 - /ob-progetti/musica/ — PCK-7 Sonificazione: partiture, profili tre assi, data dashboard
-- /ob-progetti/musica/mappa/ — Acoustic Map: 377 frequencies in 9 zones (700-7000 Hz)
+- /ob-progetti/musica/mappa/ — Acoustic Map: 1,526 smoothed sweep points in 9 zones (400-8000 Hz), dual INA/INMP heatmaps
 - /ob-progetti/musica/partiture/ — Score Details: 34 events across 6 scores + 21 hardware sessions
 - /about/ — Project manifesto and team
 
@@ -183,7 +183,7 @@ OORT (5500-7000)    — chaotic frontier, creative chaos
 - 6 scores (partiture) by 4 AI directors + 1 Layer expansion
 - 34 events with zone, pattern, frequency, duration
 - 21 hardware execution sessions (INA219 + INMP441)
-- 377 mapped frequencies with amplitude and current
+- 1,526 smoothed sweep points (400-8000 Hz) with INA current + INMP amplitude in 9 acoustic zones
 - 6 three-axis profiles (Shannon H, VSM, dynamics)
 
 ### AI Directors — "Il Passaggio" (First Concert)
@@ -196,7 +196,8 @@ Four AI directors interpreted the same text ("La porta si chiude...") with radic
 
 ### Public Endpoints
 - Site: https://log-puck.github.io/log-puck-blog/ob-progetti/musica/
-- Acoustic map JSON: https://log-puck.org/nucleo/nucleo_publish/pck7/mappa_acustica.json
+- Acoustic map JSON (legacy): https://log-puck.org/nucleo/nucleo_publish/pck7/mappa_acustica.json
+- Sweep analysis: fetched from Supabase sweep_analysis table (1,526 points, paginated)
 - Three-axis profiles: https://log-puck.org/nucleo/nucleo_publish/pck7/profili_tre_assi.json
 
 Day 0: 6 April 2026 — the music section went live. Built in two days by CC-Server (Hetzner) and CC-Mac (Big Sur), coordinated by Puck.
