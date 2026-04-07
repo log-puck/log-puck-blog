@@ -93,16 +93,27 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
         run: |
-          echo "Fetching sweep_analysis..."
-          curl -f -s \
-            "${SUPABASE_URL}/rest/v1/sweep_analysis?select=freq_hz,ina_smooth,inmp_smooth,ina_pct,inmp_pct,ina_trend,efficienza,zona_dove&sweep_id=like.pp42_sweep_*_up&order=freq_hz" \
+          echo "Fetching sweep_analysis (paginated)..."
+          SWEEP_URL="${SUPABASE_URL}/rest/v1/sweep_analysis?select=freq_hz,ina_smooth,inmp_smooth,ina_pct,inmp_pct,ina_trend,efficienza,zona_dove&sweep_id=like.pp42_sweep_*_up&order=freq_hz"
+
+          curl -f -s "${SWEEP_URL}" \
             -H "apikey: ${SUPABASE_ANON_KEY}" \
             -H "Authorization: Bearer ${SUPABASE_ANON_KEY}" \
-            -H "Range: 0-1999" \
-            -o /tmp/sweep_raw.json
+            -H "Range: 0-999" \
+            -o /tmp/sweep_p1.json
+          echo "Page 1: $(jq '. | length' /tmp/sweep_p1.json) rows"
+
+          curl -f -s "${SWEEP_URL}" \
+            -H "apikey: ${SUPABASE_ANON_KEY}" \
+            -H "Authorization: Bearer ${SUPABASE_ANON_KEY}" \
+            -H "Range: 1000-1999" \
+            -o /tmp/sweep_p2.json
+          echo "Page 2: $(jq '. | length' /tmp/sweep_p2.json) rows"
+
+          jq -s 'add' /tmp/sweep_p1.json /tmp/sweep_p2.json > /tmp/sweep_raw.json
 
           RAW_COUNT=$(jq '. | length' /tmp/sweep_raw.json)
-          echo "Raw points fetched: ${RAW_COUNT}"
+          echo "Total points fetched: ${RAW_COUNT}"
 
           if [ "$RAW_COUNT" -gt 0 ]; then
             jq '
