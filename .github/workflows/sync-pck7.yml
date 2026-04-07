@@ -95,9 +95,10 @@ jobs:
         run: |
           echo "Fetching sweep_analysis..."
           curl -f -s \
-            "${SUPABASE_URL}/rest/v1/sweep_analysis?select=freq_hz,ina_smooth,inmp_smooth,ina_pct,inmp_pct,ina_trend,efficienza,zona_dove&sweep_id=like.pp42_sweep_*_up&order=freq_hz&limit=2000" \
+            "${SUPABASE_URL}/rest/v1/sweep_analysis?select=freq_hz,ina_smooth,inmp_smooth,ina_pct,inmp_pct,ina_trend,efficienza,zona_dove&sweep_id=like.pp42_sweep_*_up&order=freq_hz" \
             -H "apikey: ${SUPABASE_ANON_KEY}" \
             -H "Authorization: Bearer ${SUPABASE_ANON_KEY}" \
+            -H "Range: 0-1999" \
             -o /tmp/sweep_raw.json
 
           RAW_COUNT=$(jq '. | length' /tmp/sweep_raw.json)
