@@ -1,8 +1,8 @@
 {
-  "n_punti": 1000,
+  "n_punti": 1526,
   "range_hz": [
     400,
-    5380
+    8000
   ],
   "zone": [
     {
@@ -6176,16 +6176,16 @@
       "zona": "ECHO",
       "range_hz": [
         3750,
-        5380
+        5495
       ],
-      "n_punti": 328,
-      "inmp_avg": 3900106.3,
+      "n_punti": 351,
+      "inmp_avg": 3741458.3,
       "inmp_max": 7.04565E+6,
       "freq_inmp_max": 4150,
-      "ina_avg": 36.7,
+      "ina_avg": 36.5,
       "ina_max": 39.2886,
       "freq_ina_max": 3750,
-      "efficienza_avg": 105346.33,
+      "efficienza_avg": 101323.14,
       "frequenze": [
         {
           "freq_hz": 3750,
@@ -9138,6 +9138,4757 @@
           "ina_pct": 4.51987,
           "ina_trend": "STABILE",
           "efficienza": 49763.9
+        },
+        {
+          "freq_hz": 5385,
+          "inmp": 1.61793E+6,
+          "ina": 33.7305,
+          "inmp_pct": 3.1759,
+          "ina_pct": 3.55781,
+          "ina_trend": "STABILE",
+          "efficienza": 47966.5
+        },
+        {
+          "freq_hz": 5390,
+          "inmp": 1.54813E+6,
+          "ina": 33.66,
+          "inmp_pct": 1.93064,
+          "ina_pct": 2.21456,
+          "ina_trend": "STABILE",
+          "efficienza": 45993.1
+        },
+        {
+          "freq_hz": 5395,
+          "inmp": 1.48145E+6,
+          "ina": 33.6124,
+          "inmp_pct": 0.741185,
+          "ina_pct": 1.30695,
+          "ina_trend": "STABILE",
+          "efficienza": 44074.5
+        },
+        {
+          "freq_hz": 5400,
+          "inmp": 1.47652E+6,
+          "ina": 33.7557,
+          "inmp_pct": 0.653276,
+          "ina_pct": 4.03884,
+          "ina_trend": "STABILE",
+          "efficienza": 43741.4
+        },
+        {
+          "freq_hz": 5405,
+          "inmp": 1.48084E+6,
+          "ina": 33.6433,
+          "inmp_pct": 0.730255,
+          "ina_pct": 1.8969,
+          "ina_trend": "STABILE",
+          "efficienza": 44015.8
+        },
+        {
+          "freq_hz": 5410,
+          "inmp": 1.4874E+6,
+          "ina": 33.5476,
+          "inmp_pct": 0.847233,
+          "ina_pct": 0.0726067,
+          "ina_trend": "STABILE",
+          "efficienza": 44336.8
+        },
+        {
+          "freq_hz": 5415,
+          "inmp": 1.4907E+6,
+          "ina": 33.5595,
+          "inmp_pct": 0.906108,
+          "ina_pct": 0.299512,
+          "ina_trend": "STABILE",
+          "efficienza": 44419.4
+        },
+        {
+          "freq_hz": 5420,
+          "inmp": 1.48536E+6,
+          "ina": 33.6233,
+          "inmp_pct": 0.811018,
+          "ina_pct": 1.5157,
+          "ina_trend": "STABILE",
+          "efficienza": 44176.6
+        },
+        {
+          "freq_hz": 5425,
+          "inmp": 1.48278E+6,
+          "ina": 33.57,
+          "inmp_pct": 0.764819,
+          "ina_pct": 0.499182,
+          "ina_trend": "STABILE",
+          "efficienza": 44169.6
+        },
+        {
+          "freq_hz": 5430,
+          "inmp": 1.47746E+6,
+          "ina": 33.5571,
+          "inmp_pct": 0.670014,
+          "ina_pct": 0.254132,
+          "ina_trend": "STABILE",
+          "efficienza": 44028.2
+        },
+        {
+          "freq_hz": 5435,
+          "inmp": 1.47407E+6,
+          "ina": 33.5438,
+          "inmp_pct": 0.609604,
+          "ina_pct": 0,
+          "ina_trend": "STABILE",
+          "efficienza": 43944.7
+        },
+        {
+          "freq_hz": 5440,
+          "inmp": 1.46568E+6,
+          "ina": 33.5643,
+          "inmp_pct": 0.459809,
+          "ina_pct": 0.390271,
+          "ina_trend": "STABILE",
+          "efficienza": 43667.8
+        },
+        {
+          "freq_hz": 5445,
+          "inmp": 1.44903E+6,
+          "ina": 33.6652,
+          "inmp_pct": 0.162845,
+          "ina_pct": 2.3144,
+          "ina_trend": "STABILE",
+          "efficienza": 43042.3
+        },
+        {
+          "freq_hz": 5450,
+          "inmp": 1.4427E+6,
+          "ina": 33.6824,
+          "inmp_pct": 0.0499863,
+          "ina_pct": 2.64113,
+          "ina_trend": "STABILE",
+          "efficienza": 42832.6
+        },
+        {
+          "freq_hz": 5455,
+          "inmp": 1.44212E+6,
+          "ina": 33.6462,
+          "inmp_pct": 0.0396669,
+          "ina_pct": 1.95135,
+          "ina_trend": "STABILE",
+          "efficienza": 42861.5
+        },
+        {
+          "freq_hz": 5460,
+          "inmp": 1.4399E+6,
+          "ina": 33.7529,
+          "inmp_pct": 0,
+          "ina_pct": 3.98439,
+          "ina_trend": "STABILE",
+          "efficienza": 42660.1
+        },
+        {
+          "freq_hz": 5465,
+          "inmp": 1.4407E+6,
+          "ina": 33.7686,
+          "inmp_pct": 0.0143167,
+          "ina_pct": 4.2839,
+          "ina_trend": "STABILE",
+          "efficienza": 42664
+        },
+        {
+          "freq_hz": 5470,
+          "inmp": 1.44657E+6,
+          "ina": 33.6552,
+          "inmp_pct": 0.118947,
+          "ina_pct": 2.1238,
+          "ina_trend": "STABILE",
+          "efficienza": 42982
+        },
+        {
+          "freq_hz": 5475,
+          "inmp": 1.44596E+6,
+          "ina": 33.6914,
+          "inmp_pct": 0.108034,
+          "ina_pct": 2.81358,
+          "ina_trend": "STABILE",
+          "efficienza": 42917.7
+        },
+        {
+          "freq_hz": 5480,
+          "inmp": 1.46793E+6,
+          "ina": 33.6852,
+          "inmp_pct": 0.500057,
+          "ina_pct": 2.69559,
+          "ina_trend": "STABILE",
+          "efficienza": 43577.9
+        },
+        {
+          "freq_hz": 5485,
+          "inmp": 1.48192E+6,
+          "ina": 33.6843,
+          "inmp_pct": 0.749527,
+          "ina_pct": 2.67743,
+          "ina_trend": "STABILE",
+          "efficienza": 43994.3
+        },
+        {
+          "freq_hz": 5490,
+          "inmp": 1.49041E+6,
+          "ina": 33.7261,
+          "inmp_pct": 0.901049,
+          "ina_pct": 3.47462,
+          "ina_trend": "STABILE",
+          "efficienza": 44191.6
+        },
+        {
+          "freq_hz": 5495,
+          "inmp": 1.50143E+6,
+          "ina": 33.6873,
+          "inmp_pct": 1.09753,
+          "ina_pct": 2.73552,
+          "ina_trend": "EDGE",
+          "efficienza": 44569.5
+        }
+      ]
+    },
+    {
+      "zona": "OORT",
+      "range_hz": [
+        5500,
+        8000
+      ],
+      "n_punti": 503,
+      "inmp_avg": 1028253.8,
+      "inmp_max": 1.62816E+6,
+      "freq_inmp_max": 5585,
+      "ina_avg": 30.1,
+      "ina_max": 33.6562,
+      "freq_ina_max": 5520,
+      "efficienza_avg": 34192.22,
+      "frequenze": [
+        {
+          "freq_hz": 5500,
+          "inmp": 1.51532E+6,
+          "ina": 33.6067,
+          "inmp_pct": 1.34536,
+          "ina_pct": 1.19804,
+          "ina_trend": "EDGE",
+          "efficienza": 45089.8
+        },
+        {
+          "freq_hz": 5500,
+          "inmp": 1.51622E+6,
+          "ina": 33.5992,
+          "inmp_pct": 91.5283,
+          "ina_pct": 98.0843,
+          "ina_trend": "EDGE",
+          "efficienza": 45126.7
+        },
+        {
+          "freq_hz": 5505,
+          "inmp": 1.51804E+6,
+          "ina": 33.616,
+          "inmp_pct": 91.6664,
+          "ina_pct": 98.6498,
+          "ina_trend": "EDGE",
+          "efficienza": 45158.4
+        },
+        {
+          "freq_hz": 5510,
+          "inmp": 1.52028E+6,
+          "ina": 33.5556,
+          "inmp_pct": 91.8359,
+          "ina_pct": 96.6192,
+          "ina_trend": "STABILE",
+          "efficienza": 45306.5
+        },
+        {
+          "freq_hz": 5515,
+          "inmp": 1.52882E+6,
+          "ina": 33.5724,
+          "inmp_pct": 92.4821,
+          "ina_pct": 97.1844,
+          "ina_trend": "STABILE",
+          "efficienza": 45538.1
+        },
+        {
+          "freq_hz": 5520,
+          "inmp": 1.54013E+6,
+          "ina": 33.6562,
+          "inmp_pct": 93.338,
+          "ina_pct": 100,
+          "ina_trend": "STABILE",
+          "efficienza": 45760.7
+        },
+        {
+          "freq_hz": 5525,
+          "inmp": 1.54052E+6,
+          "ina": 33.631,
+          "inmp_pct": 93.3672,
+          "ina_pct": 99.1521,
+          "ina_trend": "STABILE",
+          "efficienza": 45806.6
+        },
+        {
+          "freq_hz": 5530,
+          "inmp": 1.54333E+6,
+          "ina": 33.6005,
+          "inmp_pct": 93.5798,
+          "ina_pct": 98.1283,
+          "ina_trend": "STABILE",
+          "efficienza": 45931.7
+        },
+        {
+          "freq_hz": 5535,
+          "inmp": 1.53946E+6,
+          "ina": 33.5157,
+          "inmp_pct": 93.2873,
+          "ina_pct": 95.2808,
+          "ina_trend": "STABILE",
+          "efficienza": 45932.6
+        },
+        {
+          "freq_hz": 5540,
+          "inmp": 1.53839E+6,
+          "ina": 33.519,
+          "inmp_pct": 93.2057,
+          "ina_pct": 95.3927,
+          "ina_trend": "STABILE",
+          "efficienza": 45895.9
+        },
+        {
+          "freq_hz": 5545,
+          "inmp": 1.54819E+6,
+          "ina": 33.551,
+          "inmp_pct": 93.9481,
+          "ina_pct": 96.4646,
+          "ina_trend": "STABILE",
+          "efficienza": 46144.6
+        },
+        {
+          "freq_hz": 5550,
+          "inmp": 1.54973E+6,
+          "ina": 33.5038,
+          "inmp_pct": 94.0643,
+          "ina_pct": 94.8808,
+          "ina_trend": "STABILE",
+          "efficienza": 46255.3
+        },
+        {
+          "freq_hz": 5555,
+          "inmp": 1.55713E+6,
+          "ina": 33.461,
+          "inmp_pct": 94.6241,
+          "ina_pct": 93.441,
+          "ina_trend": "STABILE",
+          "efficienza": 46535.7
+        },
+        {
+          "freq_hz": 5560,
+          "inmp": 1.57036E+6,
+          "ina": 33.4333,
+          "inmp_pct": 95.6254,
+          "ina_pct": 92.5132,
+          "ina_trend": "STABILE",
+          "efficienza": 46969.8
+        },
+        {
+          "freq_hz": 5565,
+          "inmp": 1.59246E+6,
+          "ina": 33.4619,
+          "inmp_pct": 97.2979,
+          "ina_pct": 93.473,
+          "ina_trend": "STABILE",
+          "efficienza": 47590.2
+        },
+        {
+          "freq_hz": 5570,
+          "inmp": 1.60516E+6,
+          "ina": 33.5095,
+          "inmp_pct": 98.2592,
+          "ina_pct": 95.0728,
+          "ina_trend": "STABILE",
+          "efficienza": 47901.7
+        },
+        {
+          "freq_hz": 5575,
+          "inmp": 1.62273E+6,
+          "ina": 33.4771,
+          "inmp_pct": 99.5886,
+          "ina_pct": 93.985,
+          "ina_trend": "STABILE",
+          "efficienza": 48472.7
+        },
+        {
+          "freq_hz": 5580,
+          "inmp": 1.62403E+6,
+          "ina": 33.4576,
+          "inmp_pct": 99.6874,
+          "ina_pct": 93.3291,
+          "ina_trend": "STABILE",
+          "efficienza": 48540
+        },
+        {
+          "freq_hz": 5585,
+          "inmp": 1.62816E+6,
+          "ina": 33.4295,
+          "inmp_pct": 100,
+          "ina_pct": 92.3852,
+          "ina_trend": "STABILE",
+          "efficienza": 48704.4
+        },
+        {
+          "freq_hz": 5590,
+          "inmp": 1.62777E+6,
+          "ina": 33.4567,
+          "inmp_pct": 99.9703,
+          "ina_pct": 93.2971,
+          "ina_trend": "STABILE",
+          "efficienza": 48653.2
+        },
+        {
+          "freq_hz": 5595,
+          "inmp": 1.62619E+6,
+          "ina": 33.5081,
+          "inmp_pct": 99.8509,
+          "ina_pct": 95.0248,
+          "ina_trend": "STABILE",
+          "efficienza": 48531.4
+        },
+        {
+          "freq_hz": 5600,
+          "inmp": 1.61914E+6,
+          "ina": 33.4448,
+          "inmp_pct": 99.3174,
+          "ina_pct": 92.8971,
+          "ina_trend": "STABILE",
+          "efficienza": 48412.5
+        },
+        {
+          "freq_hz": 5605,
+          "inmp": 1.59976E+6,
+          "ina": 33.3152,
+          "inmp_pct": 97.8508,
+          "ina_pct": 88.5458,
+          "ina_trend": "STABILE",
+          "efficienza": 48019
+        },
+        {
+          "freq_hz": 5610,
+          "inmp": 1.57327E+6,
+          "ina": 33.2748,
+          "inmp_pct": 95.8459,
+          "ina_pct": 87.186,
+          "ina_trend": "STABILE",
+          "efficienza": 47281.3
+        },
+        {
+          "freq_hz": 5615,
+          "inmp": 1.55251E+6,
+          "ina": 33.2652,
+          "inmp_pct": 94.2744,
+          "ina_pct": 86.8661,
+          "ina_trend": "STABILE",
+          "efficienza": 46670.5
+        },
+        {
+          "freq_hz": 5620,
+          "inmp": 1.53555E+6,
+          "ina": 33.2929,
+          "inmp_pct": 92.9908,
+          "ina_pct": 87.7939,
+          "ina_trend": "STABILE",
+          "efficienza": 46122.4
+        },
+        {
+          "freq_hz": 5625,
+          "inmp": 1.50683E+6,
+          "ina": 33.2095,
+          "inmp_pct": 90.8179,
+          "ina_pct": 84.9944,
+          "ina_trend": "STABILE",
+          "efficienza": 45373.5
+        },
+        {
+          "freq_hz": 5630,
+          "inmp": 1.48274E+6,
+          "ina": 33.1157,
+          "inmp_pct": 88.9945,
+          "ina_pct": 81.8429,
+          "ina_trend": "STABILE",
+          "efficienza": 44774.5
+        },
+        {
+          "freq_hz": 5635,
+          "inmp": 1.46128E+6,
+          "ina": 33.1714,
+          "inmp_pct": 87.3706,
+          "ina_pct": 83.7146,
+          "ina_trend": "STABILE",
+          "efficienza": 44052.4
+        },
+        {
+          "freq_hz": 5640,
+          "inmp": 1.4624E+6,
+          "ina": 33.2357,
+          "inmp_pct": 87.4557,
+          "ina_pct": 85.8743,
+          "ina_trend": "STABILE",
+          "efficienza": 44001
+        },
+        {
+          "freq_hz": 5645,
+          "inmp": 1.45858E+6,
+          "ina": 33.2114,
+          "inmp_pct": 87.1663,
+          "ina_pct": 85.0584,
+          "ina_trend": "STABILE",
+          "efficienza": 43918
+        },
+        {
+          "freq_hz": 5650,
+          "inmp": 1.45343E+6,
+          "ina": 33.1857,
+          "inmp_pct": 86.7765,
+          "ina_pct": 84.1945,
+          "ina_trend": "STABILE",
+          "efficienza": 43796.9
+        },
+        {
+          "freq_hz": 5655,
+          "inmp": 1.442E+6,
+          "ina": 33.1962,
+          "inmp_pct": 85.9118,
+          "ina_pct": 84.5465,
+          "ina_trend": "STABILE",
+          "efficienza": 43438.8
+        },
+        {
+          "freq_hz": 5660,
+          "inmp": 1.4385E+6,
+          "ina": 33.2114,
+          "inmp_pct": 85.6468,
+          "ina_pct": 85.0584,
+          "ina_trend": "STABILE",
+          "efficienza": 43313.4
+        },
+        {
+          "freq_hz": 5665,
+          "inmp": 1.4383E+6,
+          "ina": 33.2286,
+          "inmp_pct": 85.6315,
+          "ina_pct": 85.6343,
+          "ina_trend": "STABILE",
+          "efficienza": 43285
+        },
+        {
+          "freq_hz": 5670,
+          "inmp": 1.43688E+6,
+          "ina": 33.1848,
+          "inmp_pct": 85.5241,
+          "ina_pct": 84.1625,
+          "ina_trend": "STABILE",
+          "efficienza": 43299.4
+        },
+        {
+          "freq_hz": 5675,
+          "inmp": 1.43423E+6,
+          "ina": 33.1581,
+          "inmp_pct": 85.3239,
+          "ina_pct": 83.2667,
+          "ina_trend": "STABILE",
+          "efficienza": 43254.4
+        },
+        {
+          "freq_hz": 5680,
+          "inmp": 1.44024E+6,
+          "ina": 33.1319,
+          "inmp_pct": 85.7786,
+          "ina_pct": 82.3868,
+          "ina_trend": "STABILE",
+          "efficienza": 43470
+        },
+        {
+          "freq_hz": 5685,
+          "inmp": 1.44962E+6,
+          "ina": 33.1233,
+          "inmp_pct": 86.4881,
+          "ina_pct": 82.0989,
+          "ina_trend": "STABILE",
+          "efficienza": 43764.3
+        },
+        {
+          "freq_hz": 5690,
+          "inmp": 1.45814E+6,
+          "ina": 33.0724,
+          "inmp_pct": 87.1328,
+          "ina_pct": 80.3871,
+          "ina_trend": "STABILE",
+          "efficienza": 44089.3
+        },
+        {
+          "freq_hz": 5695,
+          "inmp": 1.47039E+6,
+          "ina": 33.0162,
+          "inmp_pct": 88.0601,
+          "ina_pct": 78.4994,
+          "ina_trend": "STABILE",
+          "efficienza": 44535.5
+        },
+        {
+          "freq_hz": 5700,
+          "inmp": 1.47591E+6,
+          "ina": 32.9429,
+          "inmp_pct": 88.4775,
+          "ina_pct": 76.0358,
+          "ina_trend": "STABILE",
+          "efficienza": 44802
+        },
+        {
+          "freq_hz": 5705,
+          "inmp": 1.47866E+6,
+          "ina": 32.9471,
+          "inmp_pct": 88.6856,
+          "ina_pct": 76.1798,
+          "ina_trend": "STABILE",
+          "efficienza": 44879.6
+        },
+        {
+          "freq_hz": 5710,
+          "inmp": 1.48158E+6,
+          "ina": 32.9571,
+          "inmp_pct": 88.9068,
+          "ina_pct": 76.5158,
+          "ina_trend": "STABILE",
+          "efficienza": 44954.7
+        },
+        {
+          "freq_hz": 5715,
+          "inmp": 1.48168E+6,
+          "ina": 32.9519,
+          "inmp_pct": 88.9142,
+          "ina_pct": 76.3398,
+          "ina_trend": "STABILE",
+          "efficienza": 44964.8
+        },
+        {
+          "freq_hz": 5720,
+          "inmp": 1.48172E+6,
+          "ina": 32.9238,
+          "inmp_pct": 88.9175,
+          "ina_pct": 75.3959,
+          "ina_trend": "STABILE",
+          "efficienza": 45004.5
+        },
+        {
+          "freq_hz": 5725,
+          "inmp": 1.48273E+6,
+          "ina": 32.9214,
+          "inmp_pct": 88.9939,
+          "ina_pct": 75.3159,
+          "ina_trend": "STABILE",
+          "efficienza": 45038.5
+        },
+        {
+          "freq_hz": 5730,
+          "inmp": 1.48219E+6,
+          "ina": 32.9419,
+          "inmp_pct": 88.9531,
+          "ina_pct": 76.0038,
+          "ina_trend": "STABILE",
+          "efficienza": 44994.1
+        },
+        {
+          "freq_hz": 5735,
+          "inmp": 1.48544E+6,
+          "ina": 32.9648,
+          "inmp_pct": 89.1993,
+          "ina_pct": 76.7717,
+          "ina_trend": "STABILE",
+          "efficienza": 45061.6
+        },
+        {
+          "freq_hz": 5740,
+          "inmp": 1.48829E+6,
+          "ina": 32.939,
+          "inmp_pct": 89.4146,
+          "ina_pct": 75.9078,
+          "ina_trend": "STABILE",
+          "efficienza": 45183.1
+        },
+        {
+          "freq_hz": 5745,
+          "inmp": 1.48806E+6,
+          "ina": 32.8862,
+          "inmp_pct": 89.3976,
+          "ina_pct": 74.1321,
+          "ina_trend": "STABILE",
+          "efficienza": 45248.9
+        },
+        {
+          "freq_hz": 5750,
+          "inmp": 1.50454E+6,
+          "ina": 32.8895,
+          "inmp_pct": 90.6441,
+          "ina_pct": 74.2441,
+          "ina_trend": "STABILE",
+          "efficienza": 45745.1
+        },
+        {
+          "freq_hz": 5755,
+          "inmp": 1.50352E+6,
+          "ina": 32.919,
+          "inmp_pct": 90.5668,
+          "ina_pct": 75.2359,
+          "ina_trend": "STABILE",
+          "efficienza": 45673.1
+        },
+        {
+          "freq_hz": 5760,
+          "inmp": 1.50283E+6,
+          "ina": 32.8648,
+          "inmp_pct": 90.5153,
+          "ina_pct": 73.4122,
+          "ina_trend": "STABILE",
+          "efficienza": 45727.8
+        },
+        {
+          "freq_hz": 5765,
+          "inmp": 1.50511E+6,
+          "ina": 32.8305,
+          "inmp_pct": 90.6879,
+          "ina_pct": 72.2604,
+          "ina_trend": "STABILE",
+          "efficienza": 45845
+        },
+        {
+          "freq_hz": 5770,
+          "inmp": 1.49995E+6,
+          "ina": 32.8276,
+          "inmp_pct": 90.2968,
+          "ina_pct": 72.1644,
+          "ina_trend": "STABILE",
+          "efficienza": 45691.6
+        },
+        {
+          "freq_hz": 5775,
+          "inmp": 1.49955E+6,
+          "ina": 32.8124,
+          "inmp_pct": 90.2665,
+          "ina_pct": 71.6525,
+          "ina_trend": "STABILE",
+          "efficienza": 45700.6
+        },
+        {
+          "freq_hz": 5780,
+          "inmp": 1.50744E+6,
+          "ina": 32.7952,
+          "inmp_pct": 90.8636,
+          "ina_pct": 71.0766,
+          "ina_trend": "STABILE",
+          "efficienza": 45965.1
+        },
+        {
+          "freq_hz": 5785,
+          "inmp": 1.49924E+6,
+          "ina": 32.8181,
+          "inmp_pct": 90.2433,
+          "ina_pct": 71.8445,
+          "ina_trend": "STABILE",
+          "efficienza": 45683.3
+        },
+        {
+          "freq_hz": 5790,
+          "inmp": 1.50501E+6,
+          "ina": 32.7886,
+          "inmp_pct": 90.6798,
+          "ina_pct": 70.8527,
+          "ina_trend": "STABILE",
+          "efficienza": 45900.4
+        },
+        {
+          "freq_hz": 5795,
+          "inmp": 1.51033E+6,
+          "ina": 32.7943,
+          "inmp_pct": 91.0825,
+          "ina_pct": 71.0446,
+          "ina_trend": "STABILE",
+          "efficienza": 46054.6
+        },
+        {
+          "freq_hz": 5800,
+          "inmp": 1.51315E+6,
+          "ina": 32.7676,
+          "inmp_pct": 91.2961,
+          "ina_pct": 70.1488,
+          "ina_trend": "STABILE",
+          "efficienza": 46178.2
+        },
+        {
+          "freq_hz": 5805,
+          "inmp": 1.519E+6,
+          "ina": 32.7581,
+          "inmp_pct": 91.7391,
+          "ina_pct": 69.8288,
+          "ina_trend": "STABILE",
+          "efficienza": 46370.4
+        },
+        {
+          "freq_hz": 5810,
+          "inmp": 1.51751E+6,
+          "ina": 32.7229,
+          "inmp_pct": 91.6257,
+          "ina_pct": 68.645,
+          "ina_trend": "STABILE",
+          "efficienza": 46374.5
+        },
+        {
+          "freq_hz": 5815,
+          "inmp": 1.51119E+6,
+          "ina": 32.6605,
+          "inmp_pct": 91.1478,
+          "ina_pct": 66.5493,
+          "ina_trend": "STABILE",
+          "efficienza": 46269.7
+        },
+        {
+          "freq_hz": 5820,
+          "inmp": 1.52399E+6,
+          "ina": 32.6138,
+          "inmp_pct": 92.1166,
+          "ina_pct": 64.9816,
+          "ina_trend": "STABILE",
+          "efficienza": 46728.5
+        },
+        {
+          "freq_hz": 5825,
+          "inmp": 1.52493E+6,
+          "ina": 32.5743,
+          "inmp_pct": 92.1877,
+          "ina_pct": 63.6538,
+          "ina_trend": "STABILE",
+          "efficienza": 46814
+        },
+        {
+          "freq_hz": 5830,
+          "inmp": 1.52085E+6,
+          "ina": 32.5457,
+          "inmp_pct": 91.8787,
+          "ina_pct": 62.694,
+          "ina_trend": "STABILE",
+          "efficienza": 46729.7
+        },
+        {
+          "freq_hz": 5835,
+          "inmp": 1.51944E+6,
+          "ina": 32.5519,
+          "inmp_pct": 91.7718,
+          "ina_pct": 62.9019,
+          "ina_trend": "STABILE",
+          "efficienza": 46677.4
+        },
+        {
+          "freq_hz": 5840,
+          "inmp": 1.5164E+6,
+          "ina": 32.5324,
+          "inmp_pct": 91.5418,
+          "ina_pct": 62.246,
+          "ina_trend": "STABILE",
+          "efficienza": 46611.9
+        },
+        {
+          "freq_hz": 5845,
+          "inmp": 1.51891E+6,
+          "ina": 32.4976,
+          "inmp_pct": 91.732,
+          "ina_pct": 61.0782,
+          "ina_trend": "STABILE",
+          "efficienza": 46739.2
+        },
+        {
+          "freq_hz": 5850,
+          "inmp": 1.53514E+6,
+          "ina": 32.5167,
+          "inmp_pct": 92.9605,
+          "ina_pct": 61.7181,
+          "ina_trend": "STABILE",
+          "efficienza": 47211
+        },
+        {
+          "freq_hz": 5855,
+          "inmp": 1.53129E+6,
+          "ina": 32.5167,
+          "inmp_pct": 92.6691,
+          "ina_pct": 61.7181,
+          "ina_trend": "STABILE",
+          "efficienza": 47092.6
+        },
+        {
+          "freq_hz": 5860,
+          "inmp": 1.54675E+6,
+          "ina": 32.5314,
+          "inmp_pct": 93.839,
+          "ina_pct": 62.214,
+          "ina_trend": "STABILE",
+          "efficienza": 47546.4
+        },
+        {
+          "freq_hz": 5865,
+          "inmp": 1.54465E+6,
+          "ina": 32.4905,
+          "inmp_pct": 93.6798,
+          "ina_pct": 60.8383,
+          "ina_trend": "STABILE",
+          "efficienza": 47541.6
+        },
+        {
+          "freq_hz": 5870,
+          "inmp": 1.51238E+6,
+          "ina": 32.3962,
+          "inmp_pct": 91.2374,
+          "ina_pct": 57.6708,
+          "ina_trend": "STABILE",
+          "efficienza": 46683.8
+        },
+        {
+          "freq_hz": 5875,
+          "inmp": 1.48033E+6,
+          "ina": 32.3733,
+          "inmp_pct": 88.812,
+          "ina_pct": 56.9029,
+          "ina_trend": "STABILE",
+          "efficienza": 45726.7
+        },
+        {
+          "freq_hz": 5880,
+          "inmp": 1.44432E+6,
+          "ina": 32.3905,
+          "inmp_pct": 86.0872,
+          "ina_pct": 57.4788,
+          "ina_trend": "STABILE",
+          "efficienza": 44590.9
+        },
+        {
+          "freq_hz": 5885,
+          "inmp": 1.4258E+6,
+          "ina": 32.3681,
+          "inmp_pct": 84.6855,
+          "ina_pct": 56.7269,
+          "ina_trend": "STABILE",
+          "efficienza": 44049.5
+        },
+        {
+          "freq_hz": 5890,
+          "inmp": 1.41452E+6,
+          "ina": 32.3029,
+          "inmp_pct": 83.8322,
+          "ina_pct": 54.5353,
+          "ina_trend": "STABILE",
+          "efficienza": 43789.4
+        },
+        {
+          "freq_hz": 5895,
+          "inmp": 1.37357E+6,
+          "ina": 32.2371,
+          "inmp_pct": 80.7333,
+          "ina_pct": 52.3276,
+          "ina_trend": "STABILE",
+          "efficienza": 42608.4
+        },
+        {
+          "freq_hz": 5900,
+          "inmp": 1.36909E+6,
+          "ina": 32.259,
+          "inmp_pct": 80.3943,
+          "ina_pct": 53.0635,
+          "ina_trend": "STABILE",
+          "efficienza": 42440.6
+        },
+        {
+          "freq_hz": 5905,
+          "inmp": 1.38631E+6,
+          "ina": 32.3119,
+          "inmp_pct": 81.6972,
+          "ina_pct": 54.8392,
+          "ina_trend": "STABILE",
+          "efficienza": 42904.1
+        },
+        {
+          "freq_hz": 5910,
+          "inmp": 1.38914E+6,
+          "ina": 32.3057,
+          "inmp_pct": 81.9109,
+          "ina_pct": 54.6313,
+          "ina_trend": "STABILE",
+          "efficienza": 42999.7
+        },
+        {
+          "freq_hz": 5915,
+          "inmp": 1.39037E+6,
+          "ina": 32.2776,
+          "inmp_pct": 82.0046,
+          "ina_pct": 53.6874,
+          "ina_trend": "STABILE",
+          "efficienza": 43075.5
+        },
+        {
+          "freq_hz": 5920,
+          "inmp": 1.3634E+6,
+          "ina": 32.2533,
+          "inmp_pct": 79.9637,
+          "ina_pct": 52.8716,
+          "ina_trend": "STABILE",
+          "efficienza": 42271.8
+        },
+        {
+          "freq_hz": 5925,
+          "inmp": 1.33015E+6,
+          "ina": 32.2833,
+          "inmp_pct": 77.4474,
+          "ina_pct": 53.8794,
+          "ina_trend": "STABILE",
+          "efficienza": 41202.5
+        },
+        {
+          "freq_hz": 5930,
+          "inmp": 1.32669E+6,
+          "ina": 32.3133,
+          "inmp_pct": 77.1854,
+          "ina_pct": 54.8872,
+          "ina_trend": "STABILE",
+          "efficienza": 41057.1
+        },
+        {
+          "freq_hz": 5935,
+          "inmp": 1.35886E+6,
+          "ina": 32.3219,
+          "inmp_pct": 79.6198,
+          "ina_pct": 55.1752,
+          "ina_trend": "STABILE",
+          "efficienza": 42041.5
+        },
+        {
+          "freq_hz": 5940,
+          "inmp": 1.33983E+6,
+          "ina": 32.2676,
+          "inmp_pct": 78.1799,
+          "ina_pct": 53.3515,
+          "ina_trend": "STABILE",
+          "efficienza": 41522.6
+        },
+        {
+          "freq_hz": 5945,
+          "inmp": 1.37331E+6,
+          "ina": 32.1938,
+          "inmp_pct": 80.7131,
+          "ina_pct": 50.8719,
+          "ina_trend": "STABILE",
+          "efficienza": 42657.5
+        },
+        {
+          "freq_hz": 5950,
+          "inmp": 1.38774E+6,
+          "ina": 32.1695,
+          "inmp_pct": 81.8055,
+          "ina_pct": 50.056,
+          "ina_trend": "STABILE",
+          "efficienza": 43138.4
+        },
+        {
+          "freq_hz": 5955,
+          "inmp": 1.37459E+6,
+          "ina": 32.1881,
+          "inmp_pct": 80.81,
+          "ina_pct": 50.6799,
+          "ina_trend": "STABILE",
+          "efficienza": 42704.9
+        },
+        {
+          "freq_hz": 5960,
+          "inmp": 1.35826E+6,
+          "ina": 32.1338,
+          "inmp_pct": 79.5739,
+          "ina_pct": 48.8562,
+          "ina_trend": "STABILE",
+          "efficienza": 42268.7
+        },
+        {
+          "freq_hz": 5965,
+          "inmp": 1.33562E+6,
+          "ina": 32.0524,
+          "inmp_pct": 77.8609,
+          "ina_pct": 46.1206,
+          "ina_trend": "STABILE",
+          "efficienza": 41669.9
+        },
+        {
+          "freq_hz": 5970,
+          "inmp": 1.32077E+6,
+          "ina": 31.9895,
+          "inmp_pct": 76.7369,
+          "ina_pct": 44.009,
+          "ina_trend": "STABILE",
+          "efficienza": 41287.5
+        },
+        {
+          "freq_hz": 5975,
+          "inmp": 1.34051E+6,
+          "ina": 32.0486,
+          "inmp_pct": 78.2307,
+          "ina_pct": 45.9926,
+          "ina_trend": "STABILE",
+          "efficienza": 41827.3
+        },
+        {
+          "freq_hz": 5980,
+          "inmp": 1.3206E+6,
+          "ina": 32.0686,
+          "inmp_pct": 76.7243,
+          "ina_pct": 46.6645,
+          "ina_trend": "STABILE",
+          "efficienza": 41180.5
+        },
+        {
+          "freq_hz": 5985,
+          "inmp": 1.31215E+6,
+          "ina": 32.0343,
+          "inmp_pct": 76.0847,
+          "ina_pct": 45.5127,
+          "ina_trend": "STABILE",
+          "efficienza": 40960.8
+        },
+        {
+          "freq_hz": 5990,
+          "inmp": 1.37233E+6,
+          "ina": 32,
+          "inmp_pct": 80.6393,
+          "ina_pct": 44.3609,
+          "ina_trend": "STABILE",
+          "efficienza": 42885.4
+        },
+        {
+          "freq_hz": 5995,
+          "inmp": 1.38801E+6,
+          "ina": 32.03,
+          "inmp_pct": 81.8259,
+          "ina_pct": 45.3687,
+          "ina_trend": "STABILE",
+          "efficienza": 43334.8
+        },
+        {
+          "freq_hz": 6000,
+          "inmp": 1.39001E+6,
+          "ina": 32.0538,
+          "inmp_pct": 81.9771,
+          "ina_pct": 46.1686,
+          "ina_trend": "STABILE",
+          "efficienza": 43364.9
+        },
+        {
+          "freq_hz": 6005,
+          "inmp": 1.3304E+6,
+          "ina": 32.0448,
+          "inmp_pct": 77.4663,
+          "ina_pct": 45.8647,
+          "ina_trend": "STABILE",
+          "efficienza": 41517.1
+        },
+        {
+          "freq_hz": 6010,
+          "inmp": 1.27761E+6,
+          "ina": 31.9833,
+          "inmp_pct": 73.4713,
+          "ina_pct": 43.801,
+          "ina_trend": "STABILE",
+          "efficienza": 39946.3
+        },
+        {
+          "freq_hz": 6015,
+          "inmp": 1.22515E+6,
+          "ina": 31.9681,
+          "inmp_pct": 69.5007,
+          "ina_pct": 43.2891,
+          "ina_trend": "STABILE",
+          "efficienza": 38324.1
+        },
+        {
+          "freq_hz": 6020,
+          "inmp": 1.18508E+6,
+          "ina": 31.98,
+          "inmp_pct": 66.4685,
+          "ina_pct": 43.689,
+          "ina_trend": "STABILE",
+          "efficienza": 37056.9
+        },
+        {
+          "freq_hz": 6025,
+          "inmp": 1.10008E+6,
+          "ina": 31.9862,
+          "inmp_pct": 60.0356,
+          "ina_pct": 43.897,
+          "ina_trend": "STABILE",
+          "efficienza": 34392.2
+        },
+        {
+          "freq_hz": 6030,
+          "inmp": 1.06368E+6,
+          "ina": 31.9305,
+          "inmp_pct": 57.2812,
+          "ina_pct": 42.0253,
+          "ina_trend": "STABILE",
+          "efficienza": 33312.4
+        },
+        {
+          "freq_hz": 6035,
+          "inmp": 1.03798E+6,
+          "ina": 31.91,
+          "inmp_pct": 55.3366,
+          "ina_pct": 41.3374,
+          "ina_trend": "STABILE",
+          "efficienza": 32528.5
+        },
+        {
+          "freq_hz": 6040,
+          "inmp": 1.01713E+6,
+          "ina": 31.9414,
+          "inmp_pct": 53.7587,
+          "ina_pct": 42.3932,
+          "ina_trend": "STABILE",
+          "efficienza": 31843.7
+        },
+        {
+          "freq_hz": 6045,
+          "inmp": 1.01202E+6,
+          "ina": 31.9443,
+          "inmp_pct": 53.3714,
+          "ina_pct": 42.4892,
+          "ina_trend": "STABILE",
+          "efficienza": 31680.6
+        },
+        {
+          "freq_hz": 6050,
+          "inmp": 1.01688E+6,
+          "ina": 31.9119,
+          "inmp_pct": 53.7399,
+          "ina_pct": 41.4014,
+          "ina_trend": "STABILE",
+          "efficienza": 31865.4
+        },
+        {
+          "freq_hz": 6055,
+          "inmp": 1.01559E+6,
+          "ina": 31.8833,
+          "inmp_pct": 53.6423,
+          "ina_pct": 40.4415,
+          "ina_trend": "STABILE",
+          "efficienza": 31853.5
+        },
+        {
+          "freq_hz": 6060,
+          "inmp": 1.05996E+6,
+          "ina": 31.9029,
+          "inmp_pct": 56.9998,
+          "ina_pct": 41.0974,
+          "ina_trend": "STABILE",
+          "efficienza": 33224.7
+        },
+        {
+          "freq_hz": 6065,
+          "inmp": 1.10404E+6,
+          "ina": 31.9105,
+          "inmp_pct": 60.3357,
+          "ina_pct": 41.3534,
+          "ina_trend": "STABILE",
+          "efficienza": 34598.1
+        },
+        {
+          "freq_hz": 6070,
+          "inmp": 1.13151E+6,
+          "ina": 31.8871,
+          "inmp_pct": 62.4147,
+          "ina_pct": 40.5695,
+          "ina_trend": "STABILE",
+          "efficienza": 35484.9
+        },
+        {
+          "freq_hz": 6075,
+          "inmp": 1.13291E+6,
+          "ina": 31.8571,
+          "inmp_pct": 62.5203,
+          "ina_pct": 39.5617,
+          "ina_trend": "STABILE",
+          "efficienza": 35562.1
+        },
+        {
+          "freq_hz": 6080,
+          "inmp": 1.14217E+6,
+          "ina": 31.8562,
+          "inmp_pct": 63.2209,
+          "ina_pct": 39.5297,
+          "ina_trend": "STABILE",
+          "efficienza": 35853.8
+        },
+        {
+          "freq_hz": 6085,
+          "inmp": 1.16158E+6,
+          "ina": 31.7914,
+          "inmp_pct": 64.6901,
+          "ina_pct": 37.354,
+          "ina_trend": "STABILE",
+          "efficienza": 36537.5
+        },
+        {
+          "freq_hz": 6090,
+          "inmp": 1.16451E+6,
+          "ina": 31.7976,
+          "inmp_pct": 64.9117,
+          "ina_pct": 37.562,
+          "ina_trend": "STABILE",
+          "efficienza": 36622.5
+        },
+        {
+          "freq_hz": 6095,
+          "inmp": 1.12247E+6,
+          "ina": 31.7452,
+          "inmp_pct": 61.7301,
+          "ina_pct": 35.8023,
+          "ina_trend": "STABILE",
+          "efficienza": 35358.6
+        },
+        {
+          "freq_hz": 6100,
+          "inmp": 1.07612E+6,
+          "ina": 31.6495,
+          "inmp_pct": 58.2223,
+          "ina_pct": 32.5868,
+          "ina_trend": "STABILE",
+          "efficienza": 34001
+        },
+        {
+          "freq_hz": 6105,
+          "inmp": 1.08109E+6,
+          "ina": 31.6124,
+          "inmp_pct": 58.5987,
+          "ina_pct": 31.339,
+          "ina_trend": "STABILE",
+          "efficienza": 34198.3
+        },
+        {
+          "freq_hz": 6110,
+          "inmp": 1.10729E+6,
+          "ina": 31.5481,
+          "inmp_pct": 60.5814,
+          "ina_pct": 29.1793,
+          "ina_trend": "STABILE",
+          "efficienza": 35098.4
+        },
+        {
+          "freq_hz": 6115,
+          "inmp": 1.08789E+6,
+          "ina": 31.4905,
+          "inmp_pct": 59.1133,
+          "ina_pct": 27.2436,
+          "ina_trend": "STABILE",
+          "efficienza": 34546.6
+        },
+        {
+          "freq_hz": 6120,
+          "inmp": 1.0792E+6,
+          "ina": 31.4971,
+          "inmp_pct": 58.4554,
+          "ina_pct": 27.4676,
+          "ina_trend": "STABILE",
+          "efficienza": 34263.3
+        },
+        {
+          "freq_hz": 6125,
+          "inmp": 1.09754E+6,
+          "ina": 31.5033,
+          "inmp_pct": 59.8438,
+          "ina_pct": 27.6756,
+          "ina_trend": "STABILE",
+          "efficienza": 34838.9
+        },
+        {
+          "freq_hz": 6130,
+          "inmp": 1.09093E+6,
+          "ina": 31.5819,
+          "inmp_pct": 59.3438,
+          "ina_pct": 30.3151,
+          "ina_trend": "STABILE",
+          "efficienza": 34543
+        },
+        {
+          "freq_hz": 6135,
+          "inmp": 1.11503E+6,
+          "ina": 31.6633,
+          "inmp_pct": 61.1673,
+          "ina_pct": 33.0507,
+          "ina_trend": "STABILE",
+          "efficienza": 35215.2
+        },
+        {
+          "freq_hz": 6140,
+          "inmp": 1.12706E+6,
+          "ina": 31.6862,
+          "inmp_pct": 62.0778,
+          "ina_pct": 33.8186,
+          "ina_trend": "STABILE",
+          "efficienza": 35569.5
+        },
+        {
+          "freq_hz": 6145,
+          "inmp": 1.08631E+6,
+          "ina": 31.6938,
+          "inmp_pct": 58.9937,
+          "ina_pct": 34.0745,
+          "ina_trend": "STABILE",
+          "efficienza": 34275.1
+        },
+        {
+          "freq_hz": 6150,
+          "inmp": 1.08694E+6,
+          "ina": 31.6976,
+          "inmp_pct": 59.0412,
+          "ina_pct": 34.2025,
+          "ina_trend": "STABILE",
+          "efficienza": 34290.8
+        },
+        {
+          "freq_hz": 6155,
+          "inmp": 1.13125E+6,
+          "ina": 31.709,
+          "inmp_pct": 62.3949,
+          "ina_pct": 34.5865,
+          "ina_trend": "STABILE",
+          "efficienza": 35676
+        },
+        {
+          "freq_hz": 6160,
+          "inmp": 1.15137E+6,
+          "ina": 31.6586,
+          "inmp_pct": 63.9177,
+          "ina_pct": 32.8907,
+          "ina_trend": "STABILE",
+          "efficienza": 36368.5
+        },
+        {
+          "freq_hz": 6165,
+          "inmp": 1.14864E+6,
+          "ina": 31.5519,
+          "inmp_pct": 63.711,
+          "ina_pct": 29.3073,
+          "ina_trend": "STABILE",
+          "efficienza": 36404.8
+        },
+        {
+          "freq_hz": 6170,
+          "inmp": 1.13546E+6,
+          "ina": 31.54,
+          "inmp_pct": 62.7135,
+          "ina_pct": 28.9074,
+          "ina_trend": "STABILE",
+          "efficienza": 36000.7
+        },
+        {
+          "freq_hz": 6175,
+          "inmp": 1.09429E+6,
+          "ina": 31.4848,
+          "inmp_pct": 59.5976,
+          "ina_pct": 27.0517,
+          "ina_trend": "STABILE",
+          "efficienza": 34756.1
+        },
+        {
+          "freq_hz": 6180,
+          "inmp": 1.09698E+6,
+          "ina": 31.4795,
+          "inmp_pct": 59.8012,
+          "ina_pct": 26.8757,
+          "ina_trend": "STABILE",
+          "efficienza": 34847.4
+        },
+        {
+          "freq_hz": 6185,
+          "inmp": 1.08177E+6,
+          "ina": 31.4843,
+          "inmp_pct": 58.6506,
+          "ina_pct": 27.0357,
+          "ina_trend": "STABILE",
+          "efficienza": 34359.2
+        },
+        {
+          "freq_hz": 6190,
+          "inmp": 1.00765E+6,
+          "ina": 31.5081,
+          "inmp_pct": 53.0414,
+          "ina_pct": 27.8355,
+          "ina_trend": "STABILE",
+          "efficienza": 31980.8
+        },
+        {
+          "freq_hz": 6195,
+          "inmp": 938100,
+          "ina": 31.511,
+          "inmp_pct": 47.7777,
+          "ina_pct": 27.9315,
+          "ina_trend": "STABILE",
+          "efficienza": 29770.6
+        },
+        {
+          "freq_hz": 6200,
+          "inmp": 922280,
+          "ina": 31.52,
+          "inmp_pct": 46.5804,
+          "ina_pct": 28.2355,
+          "ina_trend": "STABILE",
+          "efficienza": 29260.1
+        },
+        {
+          "freq_hz": 6205,
+          "inmp": 869204,
+          "ina": 31.4795,
+          "inmp_pct": 42.5638,
+          "ina_pct": 26.8757,
+          "ina_trend": "STABILE",
+          "efficienza": 27611.7
+        },
+        {
+          "freq_hz": 6210,
+          "inmp": 824574,
+          "ina": 31.5,
+          "inmp_pct": 39.1863,
+          "ina_pct": 27.5636,
+          "ina_trend": "STABILE",
+          "efficienza": 26177
+        },
+        {
+          "freq_hz": 6215,
+          "inmp": 800771,
+          "ina": 31.4819,
+          "inmp_pct": 37.385,
+          "ina_pct": 26.9557,
+          "ina_trend": "STABILE",
+          "efficienza": 25435.9
+        },
+        {
+          "freq_hz": 6220,
+          "inmp": 784627,
+          "ina": 31.4595,
+          "inmp_pct": 36.1632,
+          "ina_pct": 26.2038,
+          "ina_trend": "STABILE",
+          "efficienza": 24940.8
+        },
+        {
+          "freq_hz": 6225,
+          "inmp": 760621,
+          "ina": 31.4538,
+          "inmp_pct": 34.3465,
+          "ina_pct": 26.0118,
+          "ina_trend": "STABILE",
+          "efficienza": 24182.2
+        },
+        {
+          "freq_hz": 6230,
+          "inmp": 750988,
+          "ina": 31.489,
+          "inmp_pct": 33.6175,
+          "ina_pct": 27.1956,
+          "ina_trend": "STABILE",
+          "efficienza": 23849.2
+        },
+        {
+          "freq_hz": 6235,
+          "inmp": 733948,
+          "ina": 31.4581,
+          "inmp_pct": 32.328,
+          "ina_pct": 26.1558,
+          "ina_trend": "STABILE",
+          "efficienza": 23331
+        },
+        {
+          "freq_hz": 6240,
+          "inmp": 725841,
+          "ina": 31.4176,
+          "inmp_pct": 31.7145,
+          "ina_pct": 24.796,
+          "ina_trend": "STABILE",
+          "efficienza": 23103
+        },
+        {
+          "freq_hz": 6245,
+          "inmp": 726655,
+          "ina": 31.4,
+          "inmp_pct": 31.7761,
+          "ina_pct": 24.2041,
+          "ina_trend": "STABILE",
+          "efficienza": 23141.9
+        },
+        {
+          "freq_hz": 6250,
+          "inmp": 715815,
+          "ina": 31.409,
+          "inmp_pct": 30.9557,
+          "ina_pct": 24.5081,
+          "ina_trend": "STABILE",
+          "efficienza": 22790.1
+        },
+        {
+          "freq_hz": 6255,
+          "inmp": 713421,
+          "ina": 31.3643,
+          "inmp_pct": 30.7746,
+          "ina_pct": 23.0043,
+          "ina_trend": "STABILE",
+          "efficienza": 22746.3
+        },
+        {
+          "freq_hz": 6260,
+          "inmp": 704015,
+          "ina": 31.2933,
+          "inmp_pct": 30.0627,
+          "ina_pct": 20.6207,
+          "ina_trend": "STABILE",
+          "efficienza": 22497.3
+        },
+        {
+          "freq_hz": 6265,
+          "inmp": 694153,
+          "ina": 31.2314,
+          "inmp_pct": 29.3164,
+          "ina_pct": 18.541,
+          "ina_trend": "STABILE",
+          "efficienza": 22226.1
+        },
+        {
+          "freq_hz": 6270,
+          "inmp": 686837,
+          "ina": 31.2038,
+          "inmp_pct": 28.7627,
+          "ina_pct": 17.6132,
+          "ina_trend": "STABILE",
+          "efficienza": 22011.3
+        },
+        {
+          "freq_hz": 6275,
+          "inmp": 692431,
+          "ina": 31.1633,
+          "inmp_pct": 29.1861,
+          "ina_pct": 16.2534,
+          "ina_trend": "STABILE",
+          "efficienza": 22219.4
+        },
+        {
+          "freq_hz": 6280,
+          "inmp": 682757,
+          "ina": 31.161,
+          "inmp_pct": 28.454,
+          "ina_pct": 16.1734,
+          "ina_trend": "STABILE",
+          "efficienza": 21910.7
+        },
+        {
+          "freq_hz": 6285,
+          "inmp": 682042,
+          "ina": 31.15,
+          "inmp_pct": 28.3999,
+          "ina_pct": 15.8055,
+          "ina_trend": "STABILE",
+          "efficienza": 21895.4
+        },
+        {
+          "freq_hz": 6290,
+          "inmp": 678183,
+          "ina": 31.1448,
+          "inmp_pct": 28.1078,
+          "ina_pct": 15.6295,
+          "ina_trend": "STABILE",
+          "efficienza": 21775.2
+        },
+        {
+          "freq_hz": 6295,
+          "inmp": 671492,
+          "ina": 31.1433,
+          "inmp_pct": 27.6015,
+          "ina_pct": 15.5815,
+          "ina_trend": "STABILE",
+          "efficienza": 21561.3
+        },
+        {
+          "freq_hz": 6300,
+          "inmp": 671669,
+          "ina": 31.111,
+          "inmp_pct": 27.6149,
+          "ina_pct": 14.4937,
+          "ina_trend": "STABILE",
+          "efficienza": 21589.5
+        },
+        {
+          "freq_hz": 6305,
+          "inmp": 667394,
+          "ina": 31.0676,
+          "inmp_pct": 27.2914,
+          "ina_pct": 13.0379,
+          "ina_trend": "STABILE",
+          "efficienza": 21482
+        },
+        {
+          "freq_hz": 6310,
+          "inmp": 659639,
+          "ina": 31.0981,
+          "inmp_pct": 26.7045,
+          "ina_pct": 14.0618,
+          "ina_trend": "STABILE",
+          "efficienza": 21211.6
+        },
+        {
+          "freq_hz": 6315,
+          "inmp": 629822,
+          "ina": 31.0881,
+          "inmp_pct": 24.448,
+          "ina_pct": 13.7258,
+          "ina_trend": "STABILE",
+          "efficienza": 20259.3
+        },
+        {
+          "freq_hz": 6320,
+          "inmp": 599174,
+          "ina": 31.04,
+          "inmp_pct": 22.1286,
+          "ina_pct": 12.1101,
+          "ina_trend": "STABILE",
+          "efficienza": 19303.3
+        },
+        {
+          "freq_hz": 6325,
+          "inmp": 568198,
+          "ina": 31.0324,
+          "inmp_pct": 19.7844,
+          "ina_pct": 11.8541,
+          "ina_trend": "STABILE",
+          "efficienza": 18309.8
+        },
+        {
+          "freq_hz": 6330,
+          "inmp": 539894,
+          "ina": 31.021,
+          "inmp_pct": 17.6425,
+          "ina_pct": 11.4702,
+          "ina_trend": "STABILE",
+          "efficienza": 17404.2
+        },
+        {
+          "freq_hz": 6335,
+          "inmp": 501559,
+          "ina": 31.0538,
+          "inmp_pct": 14.7414,
+          "ina_pct": 12.574,
+          "ina_trend": "STABILE",
+          "efficienza": 16151.3
+        },
+        {
+          "freq_hz": 6340,
+          "inmp": 472565,
+          "ina": 31.0067,
+          "inmp_pct": 12.5472,
+          "ina_pct": 10.9902,
+          "ina_trend": "STABILE",
+          "efficienza": 15240.8
+        },
+        {
+          "freq_hz": 6345,
+          "inmp": 443434,
+          "ina": 30.9952,
+          "inmp_pct": 10.3426,
+          "ina_pct": 10.6063,
+          "ina_trend": "STABILE",
+          "efficienza": 14306.5
+        },
+        {
+          "freq_hz": 6350,
+          "inmp": 437151,
+          "ina": 30.9905,
+          "inmp_pct": 9.86716,
+          "ina_pct": 10.4463,
+          "ina_trend": "STABILE",
+          "efficienza": 14106
+        },
+        {
+          "freq_hz": 6355,
+          "inmp": 435174,
+          "ina": 30.9871,
+          "inmp_pct": 9.71756,
+          "ina_pct": 10.3344,
+          "ina_trend": "STABILE",
+          "efficienza": 14043.7
+        },
+        {
+          "freq_hz": 6360,
+          "inmp": 433758,
+          "ina": 30.9667,
+          "inmp_pct": 9.61037,
+          "ina_pct": 9.64646,
+          "ina_trend": "STABILE",
+          "efficienza": 14007.2
+        },
+        {
+          "freq_hz": 6365,
+          "inmp": 432926,
+          "ina": 30.9929,
+          "inmp_pct": 9.54739,
+          "ina_pct": 10.5263,
+          "ina_trend": "STABILE",
+          "efficienza": 13968.6
+        },
+        {
+          "freq_hz": 6370,
+          "inmp": 431554,
+          "ina": 30.9762,
+          "inmp_pct": 9.44361,
+          "ina_pct": 9.96641,
+          "ina_trend": "STABILE",
+          "efficienza": 13931.8
+        },
+        {
+          "freq_hz": 6375,
+          "inmp": 429346,
+          "ina": 31.0448,
+          "inmp_pct": 9.2765,
+          "ina_pct": 12.27,
+          "ina_trend": "STABILE",
+          "efficienza": 13829.9
+        },
+        {
+          "freq_hz": 6380,
+          "inmp": 428964,
+          "ina": 31.0543,
+          "inmp_pct": 9.24756,
+          "ina_pct": 12.59,
+          "ina_trend": "STABILE",
+          "efficienza": 13813.4
+        },
+        {
+          "freq_hz": 6385,
+          "inmp": 432533,
+          "ina": 31.0429,
+          "inmp_pct": 9.51765,
+          "ina_pct": 12.206,
+          "ina_trend": "STABILE",
+          "efficienza": 13933.4
+        },
+        {
+          "freq_hz": 6390,
+          "inmp": 427083,
+          "ina": 31.0724,
+          "inmp_pct": 9.10521,
+          "ina_pct": 13.1979,
+          "ina_trend": "STABILE",
+          "efficienza": 13744.8
+        },
+        {
+          "freq_hz": 6395,
+          "inmp": 427398,
+          "ina": 31.0529,
+          "inmp_pct": 9.12906,
+          "ina_pct": 12.542,
+          "ina_trend": "STABILE",
+          "efficienza": 13763.6
+        },
+        {
+          "freq_hz": 6400,
+          "inmp": 416876,
+          "ina": 31.0462,
+          "inmp_pct": 8.33283,
+          "ina_pct": 12.318,
+          "ina_trend": "STABILE",
+          "efficienza": 13427.6
+        },
+        {
+          "freq_hz": 6405,
+          "inmp": 404885,
+          "ina": 30.9514,
+          "inmp_pct": 7.42533,
+          "ina_pct": 9.13454,
+          "ina_trend": "STABILE",
+          "efficienza": 13081.3
+        },
+        {
+          "freq_hz": 6410,
+          "inmp": 396049,
+          "ina": 30.9562,
+          "inmp_pct": 6.75667,
+          "ina_pct": 9.29452,
+          "ina_trend": "STABILE",
+          "efficienza": 12793.9
+        },
+        {
+          "freq_hz": 6415,
+          "inmp": 385483,
+          "ina": 30.8552,
+          "inmp_pct": 5.95707,
+          "ina_pct": 5.90306,
+          "ina_trend": "STABILE",
+          "efficienza": 12493.3
+        },
+        {
+          "freq_hz": 6420,
+          "inmp": 374981,
+          "ina": 30.7976,
+          "inmp_pct": 5.16226,
+          "ina_pct": 3.96737,
+          "ina_trend": "STABILE",
+          "efficienza": 12175.6
+        },
+        {
+          "freq_hz": 6425,
+          "inmp": 363178,
+          "ina": 30.6905,
+          "inmp_pct": 4.26907,
+          "ina_pct": 0.367943,
+          "ina_trend": "STABILE",
+          "efficienza": 11833.6
+        },
+        {
+          "freq_hz": 6430,
+          "inmp": 353902,
+          "ina": 30.7443,
+          "inmp_pct": 3.56705,
+          "ina_pct": 2.17565,
+          "ina_trend": "STABILE",
+          "efficienza": 11511.1
+        },
+        {
+          "freq_hz": 6435,
+          "inmp": 353479,
+          "ina": 30.7371,
+          "inmp_pct": 3.53508,
+          "ina_pct": 1.93569,
+          "ina_trend": "STABILE",
+          "efficienza": 11500.1
+        },
+        {
+          "freq_hz": 6440,
+          "inmp": 356168,
+          "ina": 30.7567,
+          "inmp_pct": 3.73858,
+          "ina_pct": 2.59158,
+          "ina_trend": "STABILE",
+          "efficienza": 11580.2
+        },
+        {
+          "freq_hz": 6445,
+          "inmp": 351673,
+          "ina": 30.6795,
+          "inmp_pct": 3.39839,
+          "ina_pct": 0,
+          "ina_trend": "STABILE",
+          "efficienza": 11462.8
+        },
+        {
+          "freq_hz": 6450,
+          "inmp": 352128,
+          "ina": 30.7214,
+          "inmp_pct": 3.43287,
+          "ina_pct": 1.40777,
+          "ina_trend": "STABILE",
+          "efficienza": 11462
+        },
+        {
+          "freq_hz": 6455,
+          "inmp": 351364,
+          "ina": 30.7714,
+          "inmp_pct": 3.37499,
+          "ina_pct": 3.0875,
+          "ina_trend": "STABILE",
+          "efficienza": 11418.5
+        },
+        {
+          "freq_hz": 6460,
+          "inmp": 349874,
+          "ina": 30.8324,
+          "inmp_pct": 3.26225,
+          "ina_pct": 5.13517,
+          "ina_trend": "STABILE",
+          "efficienza": 11347.6
+        },
+        {
+          "freq_hz": 6465,
+          "inmp": 349415,
+          "ina": 30.8219,
+          "inmp_pct": 3.22751,
+          "ina_pct": 4.78323,
+          "ina_trend": "STABILE",
+          "efficienza": 11336.6
+        },
+        {
+          "freq_hz": 6470,
+          "inmp": 350150,
+          "ina": 30.7362,
+          "inmp_pct": 3.28314,
+          "ina_pct": 1.90369,
+          "ina_trend": "STABILE",
+          "efficienza": 11392.1
+        },
+        {
+          "freq_hz": 6475,
+          "inmp": 350985,
+          "ina": 30.8057,
+          "inmp_pct": 3.34631,
+          "ina_pct": 4.23932,
+          "ina_trend": "STABILE",
+          "efficienza": 11393.5
+        },
+        {
+          "freq_hz": 6480,
+          "inmp": 335642,
+          "ina": 30.82,
+          "inmp_pct": 2.18522,
+          "ina_pct": 4.71924,
+          "ina_trend": "STABILE",
+          "efficienza": 10890.4
+        },
+        {
+          "freq_hz": 6485,
+          "inmp": 324443,
+          "ina": 30.8081,
+          "inmp_pct": 1.33772,
+          "ina_pct": 4.3193,
+          "ina_trend": "STABILE",
+          "efficienza": 10531.1
+        },
+        {
+          "freq_hz": 6490,
+          "inmp": 320400,
+          "ina": 30.7789,
+          "inmp_pct": 1.03172,
+          "ina_pct": 3.33813,
+          "ina_trend": "STABILE",
+          "efficienza": 10409.7
+        },
+        {
+          "freq_hz": 6495,
+          "inmp": 319843,
+          "ina": 30.758,
+          "inmp_pct": 0.989619,
+          "ina_pct": 2.63637,
+          "ina_trend": "EDGE",
+          "efficienza": 10398.7
+        },
+        {
+          "freq_hz": 6500,
+          "inmp": 306767,
+          "ina": 30.685,
+          "inmp_pct": 0,
+          "ina_pct": 0.183963,
+          "ina_trend": "EDGE",
+          "efficienza": 9997.28
+        },
+        {
+          "freq_hz": 6500,
+          "inmp": 399950,
+          "ina": 30.2358,
+          "inmp_pct": 16.0287,
+          "ina_pct": 87.6519,
+          "ina_trend": "EDGE",
+          "efficienza": 13227.7
+        },
+        {
+          "freq_hz": 6505,
+          "inmp": 437051,
+          "ina": 30.2933,
+          "inmp_pct": 19.082,
+          "ina_pct": 89.3584,
+          "ina_trend": "EDGE",
+          "efficienza": 14427.3
+        },
+        {
+          "freq_hz": 6510,
+          "inmp": 455897,
+          "ina": 30.3656,
+          "inmp_pct": 20.6329,
+          "ina_pct": 91.5018,
+          "ina_trend": "STABILE",
+          "efficienza": 15013.6
+        },
+        {
+          "freq_hz": 6515,
+          "inmp": 452724,
+          "ina": 30.3857,
+          "inmp_pct": 20.3718,
+          "ina_pct": 92.1001,
+          "ina_trend": "STABILE",
+          "efficienza": 14899.2
+        },
+        {
+          "freq_hz": 6520,
+          "inmp": 447849,
+          "ina": 30.4886,
+          "inmp_pct": 19.9706,
+          "ina_pct": 95.1526,
+          "ina_trend": "STABILE",
+          "efficienza": 14689.1
+        },
+        {
+          "freq_hz": 6525,
+          "inmp": 450432,
+          "ina": 30.4786,
+          "inmp_pct": 20.1832,
+          "ina_pct": 94.8559,
+          "ina_trend": "STABILE",
+          "efficienza": 14778.7
+        },
+        {
+          "freq_hz": 6530,
+          "inmp": 452731,
+          "ina": 30.4957,
+          "inmp_pct": 20.3724,
+          "ina_pct": 95.3646,
+          "ina_trend": "STABILE",
+          "efficienza": 14845.7
+        },
+        {
+          "freq_hz": 6535,
+          "inmp": 452571,
+          "ina": 30.5267,
+          "inmp_pct": 20.3593,
+          "ina_pct": 96.2832,
+          "ina_trend": "STABILE",
+          "efficienza": 14825.4
+        },
+        {
+          "freq_hz": 6540,
+          "inmp": 428182,
+          "ina": 30.5048,
+          "inmp_pct": 18.3521,
+          "ina_pct": 95.6331,
+          "ina_trend": "STABILE",
+          "efficienza": 14036.6
+        },
+        {
+          "freq_hz": 6545,
+          "inmp": 409633,
+          "ina": 30.4743,
+          "inmp_pct": 16.8255,
+          "ina_pct": 94.7287,
+          "ina_trend": "STABILE",
+          "efficienza": 13441.9
+        },
+        {
+          "freq_hz": 6550,
+          "inmp": 405946,
+          "ina": 30.4438,
+          "inmp_pct": 16.5221,
+          "ina_pct": 93.8242,
+          "ina_trend": "STABILE",
+          "efficienza": 13334.3
+        },
+        {
+          "freq_hz": 6555,
+          "inmp": 410637,
+          "ina": 30.4367,
+          "inmp_pct": 16.9081,
+          "ina_pct": 93.6122,
+          "ina_trend": "STABILE",
+          "efficienza": 13491.5
+        },
+        {
+          "freq_hz": 6560,
+          "inmp": 408894,
+          "ina": 30.4762,
+          "inmp_pct": 16.7647,
+          "ina_pct": 94.7852,
+          "ina_trend": "STABILE",
+          "efficienza": 13416.8
+        },
+        {
+          "freq_hz": 6565,
+          "inmp": 381496,
+          "ina": 30.4214,
+          "inmp_pct": 14.5099,
+          "ina_pct": 93.16,
+          "ina_trend": "STABILE",
+          "efficienza": 12540.4
+        },
+        {
+          "freq_hz": 6570,
+          "inmp": 355037,
+          "ina": 30.5505,
+          "inmp_pct": 12.3323,
+          "ina_pct": 96.9898,
+          "ina_trend": "STABILE",
+          "efficienza": 11621.3
+        },
+        {
+          "freq_hz": 6575,
+          "inmp": 326096,
+          "ina": 30.4724,
+          "inmp_pct": 9.95057,
+          "ina_pct": 94.6721,
+          "ina_trend": "STABILE",
+          "efficienza": 10701.4
+        },
+        {
+          "freq_hz": 6580,
+          "inmp": 292016,
+          "ina": 30.6519,
+          "inmp_pct": 7.14581,
+          "ina_pct": 100,
+          "ina_trend": "STABILE",
+          "efficienza": 9526.84
+        },
+        {
+          "freq_hz": 6585,
+          "inmp": 263238,
+          "ina": 30.6205,
+          "inmp_pct": 4.77741,
+          "ina_pct": 99.0673,
+          "ina_trend": "STABILE",
+          "efficienza": 8596.78
+        },
+        {
+          "freq_hz": 6590,
+          "inmp": 233319,
+          "ina": 30.4814,
+          "inmp_pct": 2.31514,
+          "ina_pct": 94.9406,
+          "ina_trend": "STABILE",
+          "efficienza": 7654.46
+        },
+        {
+          "freq_hz": 6595,
+          "inmp": 205188,
+          "ina": 30.5433,
+          "inmp_pct": 0,
+          "ina_pct": 96.7778,
+          "ina_trend": "STABILE",
+          "efficienza": 6717.92
+        },
+        {
+          "freq_hz": 6600,
+          "inmp": 206168,
+          "ina": 30.6086,
+          "inmp_pct": 0.0807169,
+          "ina_pct": 98.714,
+          "ina_trend": "STABILE",
+          "efficienza": 6735.65
+        },
+        {
+          "freq_hz": 6605,
+          "inmp": 209382,
+          "ina": 30.249,
+          "inmp_pct": 0.345143,
+          "ina_pct": 88.0441,
+          "ina_trend": "STABILE",
+          "efficienza": 6921.92
+        },
+        {
+          "freq_hz": 6610,
+          "inmp": 208908,
+          "ina": 30.3924,
+          "inmp_pct": 0.306137,
+          "ina_pct": 92.2979,
+          "ina_trend": "STABILE",
+          "efficienza": 6873.68
+        },
+        {
+          "freq_hz": 6615,
+          "inmp": 213903,
+          "ina": 30.1257,
+          "inmp_pct": 0.717262,
+          "ina_pct": 84.3838,
+          "ina_trend": "STABILE",
+          "efficienza": 7100.35
+        },
+        {
+          "freq_hz": 6620,
+          "inmp": 214909,
+          "ina": 30.0348,
+          "inmp_pct": 0.800014,
+          "ina_pct": 81.6846,
+          "ina_trend": "STABILE",
+          "efficienza": 7155.33
+        },
+        {
+          "freq_hz": 6625,
+          "inmp": 216281,
+          "ina": 30.2419,
+          "inmp_pct": 0.912929,
+          "ina_pct": 87.8321,
+          "ina_trend": "STABILE",
+          "efficienza": 7151.69
+        },
+        {
+          "freq_hz": 6630,
+          "inmp": 217343,
+          "ina": 30.1614,
+          "inmp_pct": 1.00037,
+          "ina_pct": 85.4437,
+          "ina_trend": "STABILE",
+          "efficienza": 7206
+        },
+        {
+          "freq_hz": 6635,
+          "inmp": 215176,
+          "ina": 30.0729,
+          "inmp_pct": 0.821984,
+          "ina_pct": 82.8151,
+          "ina_trend": "STABILE",
+          "efficienza": 7155.14
+        },
+        {
+          "freq_hz": 6640,
+          "inmp": 216361,
+          "ina": 30.3433,
+          "inmp_pct": 0.919567,
+          "ina_pct": 90.8423,
+          "ina_trend": "STABILE",
+          "efficienza": 7130.44
+        },
+        {
+          "freq_hz": 6645,
+          "inmp": 216742,
+          "ina": 30.3057,
+          "inmp_pct": 0.950867,
+          "ina_pct": 89.7258,
+          "ina_trend": "STABILE",
+          "efficienza": 7151.84
+        },
+        {
+          "freq_hz": 6650,
+          "inmp": 214440,
+          "ina": 30.401,
+          "inmp_pct": 0.761477,
+          "ina_pct": 92.5523,
+          "ina_trend": "STABILE",
+          "efficienza": 7053.74
+        },
+        {
+          "freq_hz": 6655,
+          "inmp": 229040,
+          "ina": 30.4895,
+          "inmp_pct": 1.96304,
+          "ina_pct": 95.1809,
+          "ina_trend": "STABILE",
+          "efficienza": 7512.1
+        },
+        {
+          "freq_hz": 6660,
+          "inmp": 242436,
+          "ina": 30.4148,
+          "inmp_pct": 3.0655,
+          "ina_pct": 92.9621,
+          "ina_trend": "STABILE",
+          "efficienza": 7971.01
+        },
+        {
+          "freq_hz": 6665,
+          "inmp": 256289,
+          "ina": 30.3448,
+          "inmp_pct": 4.20556,
+          "ina_pct": 90.8847,
+          "ina_trend": "STABILE",
+          "efficienza": 8445.91
+        },
+        {
+          "freq_hz": 6670,
+          "inmp": 299987,
+          "ina": 30.3286,
+          "inmp_pct": 7.80182,
+          "ina_pct": 90.4042,
+          "ina_trend": "STABILE",
+          "efficienza": 9891.23
+        },
+        {
+          "freq_hz": 6675,
+          "inmp": 331526,
+          "ina": 30.1633,
+          "inmp_pct": 10.3975,
+          "ina_pct": 85.5003,
+          "ina_trend": "STABILE",
+          "efficienza": 10991
+        },
+        {
+          "freq_hz": 6680,
+          "inmp": 347003,
+          "ina": 30.099,
+          "inmp_pct": 11.6712,
+          "ina_pct": 83.5924,
+          "ina_trend": "STABILE",
+          "efficienza": 11528.7
+        },
+        {
+          "freq_hz": 6685,
+          "inmp": 361728,
+          "ina": 30.049,
+          "inmp_pct": 12.883,
+          "ina_pct": 82.1085,
+          "ina_trend": "STABILE",
+          "efficienza": 12037.9
+        },
+        {
+          "freq_hz": 6690,
+          "inmp": 358966,
+          "ina": 30.0686,
+          "inmp_pct": 12.6557,
+          "ina_pct": 82.688,
+          "ina_trend": "STABILE",
+          "efficienza": 11938.2
+        },
+        {
+          "freq_hz": 6695,
+          "inmp": 361672,
+          "ina": 30.0076,
+          "inmp_pct": 12.8784,
+          "ina_pct": 80.879,
+          "ina_trend": "STABILE",
+          "efficienza": 12052.7
+        },
+        {
+          "freq_hz": 6700,
+          "inmp": 359350,
+          "ina": 29.9848,
+          "inmp_pct": 12.6873,
+          "ina_pct": 80.2007,
+          "ina_trend": "STABILE",
+          "efficienza": 11984.4
+        },
+        {
+          "freq_hz": 6705,
+          "inmp": 329122,
+          "ina": 30.0071,
+          "inmp_pct": 10.1995,
+          "ina_pct": 80.8649,
+          "ina_trend": "STABILE",
+          "efficienza": 10968.1
+        },
+        {
+          "freq_hz": 6710,
+          "inmp": 306766,
+          "ina": 30.0319,
+          "inmp_pct": 8.35974,
+          "ina_pct": 81.5998,
+          "ina_trend": "STABILE",
+          "efficienza": 10214.7
+        },
+        {
+          "freq_hz": 6715,
+          "inmp": 302015,
+          "ina": 30.0452,
+          "inmp_pct": 7.96875,
+          "ina_pct": 81.9955,
+          "ina_trend": "STABILE",
+          "efficienza": 10052
+        },
+        {
+          "freq_hz": 6720,
+          "inmp": 300326,
+          "ina": 30.0171,
+          "inmp_pct": 7.82976,
+          "ina_pct": 81.1617,
+          "ina_trend": "STABILE",
+          "efficienza": 10005.2
+        },
+        {
+          "freq_hz": 6725,
+          "inmp": 300197,
+          "ina": 29.9486,
+          "inmp_pct": 7.81908,
+          "ina_pct": 79.1266,
+          "ina_trend": "STABILE",
+          "efficienza": 10023.7
+        },
+        {
+          "freq_hz": 6730,
+          "inmp": 297457,
+          "ina": 29.9586,
+          "inmp_pct": 7.59361,
+          "ina_pct": 79.4234,
+          "ina_trend": "STABILE",
+          "efficienza": 9928.95
+        },
+        {
+          "freq_hz": 6735,
+          "inmp": 295264,
+          "ina": 29.9943,
+          "inmp_pct": 7.41311,
+          "ina_pct": 80.4833,
+          "ina_trend": "STABILE",
+          "efficienza": 9844
+        },
+        {
+          "freq_hz": 6740,
+          "inmp": 292609,
+          "ina": 30.0219,
+          "inmp_pct": 7.19461,
+          "ina_pct": 81.303,
+          "ina_trend": "STABILE",
+          "efficienza": 9746.51
+        },
+        {
+          "freq_hz": 6745,
+          "inmp": 306310,
+          "ina": 30.011,
+          "inmp_pct": 8.32219,
+          "ina_pct": 80.978,
+          "ina_trend": "STABILE",
+          "efficienza": 10206.6
+        },
+        {
+          "freq_hz": 6750,
+          "inmp": 325255,
+          "ina": 29.9524,
+          "inmp_pct": 9.88137,
+          "ina_pct": 79.2397,
+          "ina_trend": "STABILE",
+          "efficienza": 10859.1
+        },
+        {
+          "freq_hz": 6755,
+          "inmp": 341796,
+          "ina": 29.8657,
+          "inmp_pct": 11.2426,
+          "ina_pct": 76.6676,
+          "ina_trend": "STABILE",
+          "efficienza": 11444.4
+        },
+        {
+          "freq_hz": 6760,
+          "inmp": 358453,
+          "ina": 29.8419,
+          "inmp_pct": 12.6134,
+          "ina_pct": 75.961,
+          "ina_trend": "STABILE",
+          "efficienza": 12011.7
+        },
+        {
+          "freq_hz": 6765,
+          "inmp": 375967,
+          "ina": 29.8505,
+          "inmp_pct": 14.0548,
+          "ina_pct": 76.2154,
+          "ina_trend": "STABILE",
+          "efficienza": 12595
+        },
+        {
+          "freq_hz": 6770,
+          "inmp": 393215,
+          "ina": 29.8076,
+          "inmp_pct": 15.4744,
+          "ina_pct": 74.9435,
+          "ina_trend": "STABILE",
+          "efficienza": 13191.8
+        },
+        {
+          "freq_hz": 6775,
+          "inmp": 412094,
+          "ina": 29.73,
+          "inmp_pct": 17.028,
+          "ina_pct": 72.6399,
+          "ina_trend": "STABILE",
+          "efficienza": 13861.2
+        },
+        {
+          "freq_hz": 6780,
+          "inmp": 414584,
+          "ina": 29.6833,
+          "inmp_pct": 17.2329,
+          "ina_pct": 71.255,
+          "ina_trend": "STABILE",
+          "efficienza": 13966.9
+        },
+        {
+          "freq_hz": 6785,
+          "inmp": 415131,
+          "ina": 29.6629,
+          "inmp_pct": 17.278,
+          "ina_pct": 70.6473,
+          "ina_trend": "STABILE",
+          "efficienza": 13995
+        },
+        {
+          "freq_hz": 6790,
+          "inmp": 415707,
+          "ina": 29.7071,
+          "inmp_pct": 17.3254,
+          "ina_pct": 71.9616,
+          "ina_trend": "STABILE",
+          "efficienza": 13993.5
+        },
+        {
+          "freq_hz": 6795,
+          "inmp": 414654,
+          "ina": 29.7543,
+          "inmp_pct": 17.2387,
+          "ina_pct": 73.3607,
+          "ina_trend": "STABILE",
+          "efficienza": 13936
+        },
+        {
+          "freq_hz": 6800,
+          "inmp": 410953,
+          "ina": 29.749,
+          "inmp_pct": 16.9341,
+          "ina_pct": 73.2052,
+          "ina_trend": "STABILE",
+          "efficienza": 13814
+        },
+        {
+          "freq_hz": 6805,
+          "inmp": 413330,
+          "ina": 29.7114,
+          "inmp_pct": 17.1298,
+          "ina_pct": 72.0887,
+          "ina_trend": "STABILE",
+          "efficienza": 13911.5
+        },
+        {
+          "freq_hz": 6810,
+          "inmp": 412333,
+          "ina": 29.6814,
+          "inmp_pct": 17.0477,
+          "ina_pct": 71.1984,
+          "ina_trend": "STABILE",
+          "efficienza": 13891.9
+        },
+        {
+          "freq_hz": 6815,
+          "inmp": 410299,
+          "ina": 29.6919,
+          "inmp_pct": 16.8803,
+          "ina_pct": 71.5093,
+          "ina_trend": "STABILE",
+          "efficienza": 13818.5
+        },
+        {
+          "freq_hz": 6820,
+          "inmp": 409168,
+          "ina": 29.7071,
+          "inmp_pct": 16.7873,
+          "ina_pct": 71.9616,
+          "ina_trend": "STABILE",
+          "efficienza": 13773.4
+        },
+        {
+          "freq_hz": 6825,
+          "inmp": 408245,
+          "ina": 29.7233,
+          "inmp_pct": 16.7113,
+          "ina_pct": 72.4421,
+          "ina_trend": "STABILE",
+          "efficienza": 13734.8
+        },
+        {
+          "freq_hz": 6830,
+          "inmp": 409165,
+          "ina": 29.7019,
+          "inmp_pct": 16.787,
+          "ina_pct": 71.8061,
+          "ina_trend": "STABILE",
+          "efficienza": 13775.7
+        },
+        {
+          "freq_hz": 6835,
+          "inmp": 460345,
+          "ina": 29.6048,
+          "inmp_pct": 20.999,
+          "ina_pct": 68.9231,
+          "ina_trend": "STABILE",
+          "efficienza": 15549.7
+        },
+        {
+          "freq_hz": 6840,
+          "inmp": 508593,
+          "ina": 29.6029,
+          "inmp_pct": 24.9698,
+          "ina_pct": 68.8666,
+          "ina_trend": "STABILE",
+          "efficienza": 17180.5
+        },
+        {
+          "freq_hz": 6845,
+          "inmp": 555949,
+          "ina": 29.6176,
+          "inmp_pct": 28.8671,
+          "ina_pct": 69.3047,
+          "ina_trend": "STABILE",
+          "efficienza": 18770.9
+        },
+        {
+          "freq_hz": 6850,
+          "inmp": 605435,
+          "ina": 29.6076,
+          "inmp_pct": 32.9397,
+          "ina_pct": 69.0079,
+          "ina_trend": "STABILE",
+          "efficienza": 20448.6
+        },
+        {
+          "freq_hz": 6855,
+          "inmp": 652139,
+          "ina": 29.5129,
+          "inmp_pct": 36.7834,
+          "ina_pct": 66.1956,
+          "ina_trend": "STABILE",
+          "efficienza": 22096.8
+        },
+        {
+          "freq_hz": 6860,
+          "inmp": 701612,
+          "ina": 29.4733,
+          "inmp_pct": 40.8549,
+          "ina_pct": 65.0226,
+          "ina_trend": "STABILE",
+          "efficienza": 23805
+        },
+        {
+          "freq_hz": 6865,
+          "inmp": 748327,
+          "ina": 29.4524,
+          "inmp_pct": 44.6994,
+          "ina_pct": 64.4008,
+          "ina_trend": "STABILE",
+          "efficienza": 25408
+        },
+        {
+          "freq_hz": 6870,
+          "inmp": 746443,
+          "ina": 29.4876,
+          "inmp_pct": 44.5444,
+          "ina_pct": 65.4466,
+          "ina_trend": "STABILE",
+          "efficienza": 25313.8
+        },
+        {
+          "freq_hz": 6875,
+          "inmp": 744794,
+          "ina": 29.4733,
+          "inmp_pct": 44.4087,
+          "ina_pct": 65.0226,
+          "ina_trend": "STABILE",
+          "efficienza": 25270.1
+        },
+        {
+          "freq_hz": 6880,
+          "inmp": 744959,
+          "ina": 29.4424,
+          "inmp_pct": 44.4223,
+          "ina_pct": 64.104,
+          "ina_trend": "STABILE",
+          "efficienza": 25302.3
+        },
+        {
+          "freq_hz": 6885,
+          "inmp": 744891,
+          "ina": 29.4067,
+          "inmp_pct": 44.4167,
+          "ina_pct": 63.0441,
+          "ina_trend": "STABILE",
+          "efficienza": 25330.7
+        },
+        {
+          "freq_hz": 6890,
+          "inmp": 744686,
+          "ina": 29.4476,
+          "inmp_pct": 44.3998,
+          "ina_pct": 64.2595,
+          "ina_trend": "STABILE",
+          "efficienza": 25288.5
+        },
+        {
+          "freq_hz": 6895,
+          "inmp": 745377,
+          "ina": 29.4371,
+          "inmp_pct": 44.4567,
+          "ina_pct": 63.9486,
+          "ina_trend": "STABILE",
+          "efficienza": 25321
+        },
+        {
+          "freq_hz": 6900,
+          "inmp": 746122,
+          "ina": 29.4505,
+          "inmp_pct": 44.518,
+          "ina_pct": 64.3443,
+          "ina_trend": "STABILE",
+          "efficienza": 25334.8
+        },
+        {
+          "freq_hz": 6905,
+          "inmp": 744125,
+          "ina": 29.469,
+          "inmp_pct": 44.3537,
+          "ina_pct": 64.8954,
+          "ina_trend": "STABILE",
+          "efficienza": 25251.1
+        },
+        {
+          "freq_hz": 6910,
+          "inmp": 743458,
+          "ina": 29.4219,
+          "inmp_pct": 44.2988,
+          "ina_pct": 63.4963,
+          "ina_trend": "STABILE",
+          "efficienza": 25268.9
+        },
+        {
+          "freq_hz": 6915,
+          "inmp": 744168,
+          "ina": 29.4381,
+          "inmp_pct": 44.3572,
+          "ina_pct": 63.9768,
+          "ina_trend": "STABILE",
+          "efficienza": 25279.1
+        },
+        {
+          "freq_hz": 6920,
+          "inmp": 743246,
+          "ina": 29.4524,
+          "inmp_pct": 44.2813,
+          "ina_pct": 64.4008,
+          "ina_trend": "STABILE",
+          "efficienza": 25235.5
+        },
+        {
+          "freq_hz": 6925,
+          "inmp": 743927,
+          "ina": 29.5338,
+          "inmp_pct": 44.3373,
+          "ina_pct": 66.8174,
+          "ina_trend": "STABILE",
+          "efficienza": 25189
+        },
+        {
+          "freq_hz": 6930,
+          "inmp": 794210,
+          "ina": 29.5048,
+          "inmp_pct": 48.4755,
+          "ina_pct": 65.9553,
+          "ina_trend": "STABILE",
+          "efficienza": 26918
+        },
+        {
+          "freq_hz": 6935,
+          "inmp": 846134,
+          "ina": 29.4305,
+          "inmp_pct": 52.7488,
+          "ina_pct": 63.7507,
+          "ina_trend": "STABILE",
+          "efficienza": 28750.2
+        },
+        {
+          "freq_hz": 6940,
+          "inmp": 899310,
+          "ina": 29.3971,
+          "inmp_pct": 57.1251,
+          "ina_pct": 62.7615,
+          "ina_trend": "STABILE",
+          "efficienza": 30591.8
+        },
+        {
+          "freq_hz": 6945,
+          "inmp": 951293,
+          "ina": 29.4019,
+          "inmp_pct": 61.4032,
+          "ina_pct": 62.9028,
+          "ina_trend": "STABILE",
+          "efficienza": 32354.8
+        },
+        {
+          "freq_hz": 6950,
+          "inmp": 1.00304E+6,
+          "ina": 29.3814,
+          "inmp_pct": 65.6618,
+          "ina_pct": 62.2951,
+          "ina_trend": "STABILE",
+          "efficienza": 34138.5
+        },
+        {
+          "freq_hz": 6955,
+          "inmp": 1.05462E+6,
+          "ina": 29.3276,
+          "inmp_pct": 69.907,
+          "ina_pct": 60.6981,
+          "ina_trend": "STABILE",
+          "efficienza": 35960
+        },
+        {
+          "freq_hz": 6960,
+          "inmp": 1.10547E+6,
+          "ina": 29.2157,
+          "inmp_pct": 74.0917,
+          "ina_pct": 57.3771,
+          "ina_trend": "STABILE",
+          "efficienza": 37838.2
+        },
+        {
+          "freq_hz": 6965,
+          "inmp": 1.1052E+6,
+          "ina": 29.2076,
+          "inmp_pct": 74.0693,
+          "ina_pct": 57.1368,
+          "ina_trend": "STABILE",
+          "efficienza": 37839.3
+        },
+        {
+          "freq_hz": 6970,
+          "inmp": 1.10579E+6,
+          "ina": 29.2352,
+          "inmp_pct": 74.1181,
+          "ina_pct": 57.9565,
+          "ina_trend": "STABILE",
+          "efficienza": 37823.9
+        },
+        {
+          "freq_hz": 6975,
+          "inmp": 1.10623E+6,
+          "ina": 29.2438,
+          "inmp_pct": 74.1541,
+          "ina_pct": 58.2109,
+          "ina_trend": "STABILE",
+          "efficienza": 37827.7
+        },
+        {
+          "freq_hz": 6980,
+          "inmp": 1.10621E+6,
+          "ina": 29.2138,
+          "inmp_pct": 74.1529,
+          "ina_pct": 57.3205,
+          "ina_trend": "STABILE",
+          "efficienza": 37866.1
+        },
+        {
+          "freq_hz": 6985,
+          "inmp": 1.10517E+6,
+          "ina": 29.1748,
+          "inmp_pct": 74.067,
+          "ina_pct": 56.1617,
+          "ina_trend": "STABILE",
+          "efficienza": 37881
+        },
+        {
+          "freq_hz": 6990,
+          "inmp": 1.10474E+6,
+          "ina": 29.2,
+          "inmp_pct": 74.0317,
+          "ina_pct": 56.9107,
+          "ina_trend": "STABILE",
+          "efficienza": 37833.6
+        },
+        {
+          "freq_hz": 6995,
+          "inmp": 1.10419E+6,
+          "ina": 29.2105,
+          "inmp_pct": 73.9861,
+          "ina_pct": 57.2216,
+          "ina_trend": "STABILE",
+          "efficienza": 37801.1
+        },
+        {
+          "freq_hz": 7000,
+          "inmp": 1.10325E+6,
+          "ina": 29.2462,
+          "inmp_pct": 73.9093,
+          "ina_pct": 58.2815,
+          "ina_trend": "STABILE",
+          "efficienza": 37723
+        },
+        {
+          "freq_hz": 7005,
+          "inmp": 1.10188E+6,
+          "ina": 29.2267,
+          "inmp_pct": 73.7966,
+          "ina_pct": 57.7021,
+          "ina_trend": "STABILE",
+          "efficienza": 37701.3
+        },
+        {
+          "freq_hz": 7010,
+          "inmp": 1.10051E+6,
+          "ina": 29.2052,
+          "inmp_pct": 73.6833,
+          "ina_pct": 57.0661,
+          "ina_trend": "STABILE",
+          "efficienza": 37681.9
+        },
+        {
+          "freq_hz": 7015,
+          "inmp": 1.10004E+6,
+          "ina": 29.2281,
+          "inmp_pct": 73.6445,
+          "ina_pct": 57.7445,
+          "ina_trend": "STABILE",
+          "efficienza": 37636.3
+        },
+        {
+          "freq_hz": 7020,
+          "inmp": 1.10059E+6,
+          "ina": 29.279,
+          "inmp_pct": 73.6899,
+          "ina_pct": 59.2566,
+          "ina_trend": "STABILE",
+          "efficienza": 37589.6
+        },
+        {
+          "freq_hz": 7025,
+          "inmp": 1.10096E+6,
+          "ina": 29.2876,
+          "inmp_pct": 73.7204,
+          "ina_pct": 59.511,
+          "ina_trend": "STABILE",
+          "efficienza": 37591.2
+        },
+        {
+          "freq_hz": 7030,
+          "inmp": 1.13229E+6,
+          "ina": 29.29,
+          "inmp_pct": 76.2986,
+          "ina_pct": 59.5817,
+          "ina_trend": "STABILE",
+          "efficienza": 38657.7
+        },
+        {
+          "freq_hz": 7035,
+          "inmp": 1.16333E+6,
+          "ina": 29.2648,
+          "inmp_pct": 78.8537,
+          "ina_pct": 58.8327,
+          "ina_trend": "STABILE",
+          "efficienza": 39752
+        },
+        {
+          "freq_hz": 7040,
+          "inmp": 1.19235E+6,
+          "ina": 29.2343,
+          "inmp_pct": 81.2419,
+          "ina_pct": 57.9282,
+          "ina_trend": "STABILE",
+          "efficienza": 40786
+        },
+        {
+          "freq_hz": 7045,
+          "inmp": 1.22223E+6,
+          "ina": 29.2305,
+          "inmp_pct": 83.7012,
+          "ina_pct": 57.8151,
+          "ina_trend": "STABILE",
+          "efficienza": 41813.7
+        },
+        {
+          "freq_hz": 7050,
+          "inmp": 1.25182E+6,
+          "ina": 29.2229,
+          "inmp_pct": 86.1362,
+          "ina_pct": 57.589,
+          "ina_trend": "STABILE",
+          "efficienza": 42837.1
+        },
+        {
+          "freq_hz": 7055,
+          "inmp": 1.28095E+6,
+          "ina": 29.1767,
+          "inmp_pct": 88.5331,
+          "ina_pct": 56.2182,
+          "ina_trend": "STABILE",
+          "efficienza": 43903.1
+        },
+        {
+          "freq_hz": 7060,
+          "inmp": 1.30672E+6,
+          "ina": 29.0814,
+          "inmp_pct": 90.6542,
+          "ina_pct": 53.3917,
+          "ina_trend": "STABILE",
+          "efficienza": 44933.1
+        },
+        {
+          "freq_hz": 7065,
+          "inmp": 1.30447E+6,
+          "ina": 29.0205,
+          "inmp_pct": 90.4691,
+          "ina_pct": 51.5828,
+          "ina_trend": "STABILE",
+          "efficienza": 44950
+        },
+        {
+          "freq_hz": 7070,
+          "inmp": 1.30397E+6,
+          "ina": 28.9952,
+          "inmp_pct": 90.4278,
+          "ina_pct": 50.8338,
+          "ina_trend": "STABILE",
+          "efficienza": 44971.8
+        },
+        {
+          "freq_hz": 7075,
+          "inmp": 1.30335E+6,
+          "ina": 28.9671,
+          "inmp_pct": 90.3768,
+          "ina_pct": 50,
+          "ina_trend": "STABILE",
+          "efficienza": 44994
+        },
+        {
+          "freq_hz": 7080,
+          "inmp": 1.30205E+6,
+          "ina": 28.8624,
+          "inmp_pct": 90.2702,
+          "ina_pct": 46.8909,
+          "ina_trend": "STABILE",
+          "efficienza": 45112.4
+        },
+        {
+          "freq_hz": 7085,
+          "inmp": 1.30258E+6,
+          "ina": 28.8571,
+          "inmp_pct": 90.3137,
+          "ina_pct": 46.7354,
+          "ina_trend": "STABILE",
+          "efficienza": 45139
+        },
+        {
+          "freq_hz": 7090,
+          "inmp": 1.30213E+6,
+          "ina": 28.84,
+          "inmp_pct": 90.2767,
+          "ina_pct": 46.2267,
+          "ina_trend": "STABILE",
+          "efficienza": 45150.2
+        },
+        {
+          "freq_hz": 7095,
+          "inmp": 1.30431E+6,
+          "ina": 28.901,
+          "inmp_pct": 90.4561,
+          "ina_pct": 48.0356,
+          "ina_trend": "STABILE",
+          "efficienza": 45130.4
+        },
+        {
+          "freq_hz": 7100,
+          "inmp": 1.30682E+6,
+          "ina": 28.951,
+          "inmp_pct": 90.6621,
+          "ina_pct": 49.5195,
+          "ina_trend": "STABILE",
+          "efficienza": 45138.9
+        },
+        {
+          "freq_hz": 7105,
+          "inmp": 1.30445E+6,
+          "ina": 28.9614,
+          "inmp_pct": 90.4678,
+          "ina_pct": 49.8304,
+          "ina_trend": "STABILE",
+          "efficienza": 45041.1
+        },
+        {
+          "freq_hz": 7110,
+          "inmp": 1.30401E+6,
+          "ina": 29.049,
+          "inmp_pct": 90.4313,
+          "ina_pct": 52.4307,
+          "ina_trend": "STABILE",
+          "efficienza": 44889.9
+        },
+        {
+          "freq_hz": 7115,
+          "inmp": 1.30547E+6,
+          "ina": 29.1105,
+          "inmp_pct": 90.5518,
+          "ina_pct": 54.2538,
+          "ina_trend": "STABILE",
+          "efficienza": 44845.5
+        },
+        {
+          "freq_hz": 7120,
+          "inmp": 1.30291E+6,
+          "ina": 29.1052,
+          "inmp_pct": 90.3405,
+          "ina_pct": 54.0984,
+          "ina_trend": "STABILE",
+          "efficienza": 44765.4
+        },
+        {
+          "freq_hz": 7125,
+          "inmp": 1.30199E+6,
+          "ina": 29.0857,
+          "inmp_pct": 90.2653,
+          "ina_pct": 53.5189,
+          "ina_trend": "STABILE",
+          "efficienza": 44764
+        },
+        {
+          "freq_hz": 7130,
+          "inmp": 1.29132E+6,
+          "ina": 29.0543,
+          "inmp_pct": 89.3871,
+          "ina_pct": 52.5862,
+          "ina_trend": "STABILE",
+          "efficienza": 44445.2
+        },
+        {
+          "freq_hz": 7135,
+          "inmp": 1.27788E+6,
+          "ina": 29.0376,
+          "inmp_pct": 88.2804,
+          "ina_pct": 52.0916,
+          "ina_trend": "STABILE",
+          "efficienza": 44007.6
+        },
+        {
+          "freq_hz": 7140,
+          "inmp": 1.26694E+6,
+          "ina": 28.9795,
+          "inmp_pct": 87.3806,
+          "ina_pct": 50.3674,
+          "ina_trend": "STABILE",
+          "efficienza": 43718.5
+        },
+        {
+          "freq_hz": 7145,
+          "inmp": 1.25689E+6,
+          "ina": 28.8681,
+          "inmp_pct": 86.5531,
+          "ina_pct": 47.0605,
+          "ina_trend": "STABILE",
+          "efficienza": 43539
+        },
+        {
+          "freq_hz": 7150,
+          "inmp": 1.24505E+6,
+          "ina": 28.8295,
+          "inmp_pct": 85.5791,
+          "ina_pct": 45.9158,
+          "ina_trend": "STABILE",
+          "efficienza": 43186.7
+        },
+        {
+          "freq_hz": 7155,
+          "inmp": 1.23519E+6,
+          "ina": 28.8033,
+          "inmp_pct": 84.7672,
+          "ina_pct": 45.1385,
+          "ina_trend": "STABILE",
+          "efficienza": 42883.5
+        },
+        {
+          "freq_hz": 7160,
+          "inmp": 1.22462E+6,
+          "ina": 28.78,
+          "inmp_pct": 83.8972,
+          "ina_pct": 44.446,
+          "ina_trend": "STABILE",
+          "efficienza": 42550.9
+        },
+        {
+          "freq_hz": 7165,
+          "inmp": 1.22429E+6,
+          "ina": 28.761,
+          "inmp_pct": 83.8702,
+          "ina_pct": 43.8807,
+          "ina_trend": "STABILE",
+          "efficienza": 42567.7
+        },
+        {
+          "freq_hz": 7170,
+          "inmp": 1.22485E+6,
+          "ina": 28.7319,
+          "inmp_pct": 83.9164,
+          "ina_pct": 43.0187,
+          "ina_trend": "STABILE",
+          "efficienza": 42630.3
+        },
+        {
+          "freq_hz": 7175,
+          "inmp": 1.22502E+6,
+          "ina": 28.6948,
+          "inmp_pct": 83.9306,
+          "ina_pct": 41.9163,
+          "ina_trend": "STABILE",
+          "efficienza": 42691.5
+        },
+        {
+          "freq_hz": 7180,
+          "inmp": 1.22556E+6,
+          "ina": 28.7267,
+          "inmp_pct": 83.9748,
+          "ina_pct": 42.8632,
+          "ina_trend": "STABILE",
+          "efficienza": 42662.7
+        },
+        {
+          "freq_hz": 7185,
+          "inmp": 1.22466E+6,
+          "ina": 28.7281,
+          "inmp_pct": 83.9009,
+          "ina_pct": 42.9056,
+          "ina_trend": "STABILE",
+          "efficienza": 42629.4
+        },
+        {
+          "freq_hz": 7190,
+          "inmp": 1.22468E+6,
+          "ina": 28.7871,
+          "inmp_pct": 83.9026,
+          "ina_pct": 44.658,
+          "ina_trend": "STABILE",
+          "efficienza": 42542.6
+        },
+        {
+          "freq_hz": 7195,
+          "inmp": 1.22406E+6,
+          "ina": 28.8438,
+          "inmp_pct": 83.8518,
+          "ina_pct": 46.3397,
+          "ina_trend": "STABILE",
+          "efficienza": 42437.6
+        },
+        {
+          "freq_hz": 7200,
+          "inmp": 1.22356E+6,
+          "ina": 28.77,
+          "inmp_pct": 83.8105,
+          "ina_pct": 44.1492,
+          "ina_trend": "STABILE",
+          "efficienza": 42529.1
+        },
+        {
+          "freq_hz": 7205,
+          "inmp": 1.22344E+6,
+          "ina": 28.7438,
+          "inmp_pct": 83.8005,
+          "ina_pct": 43.372,
+          "ina_trend": "STABILE",
+          "efficienza": 42563.6
+        },
+        {
+          "freq_hz": 7210,
+          "inmp": 1.22375E+6,
+          "ina": 28.819,
+          "inmp_pct": 83.826,
+          "ina_pct": 45.6049,
+          "ina_trend": "STABILE",
+          "efficienza": 42463.2
+        },
+        {
+          "freq_hz": 7215,
+          "inmp": 1.22381E+6,
+          "ina": 28.7886,
+          "inmp_pct": 83.8313,
+          "ina_pct": 44.7004,
+          "ina_trend": "STABILE",
+          "efficienza": 42510.4
+        },
+        {
+          "freq_hz": 7220,
+          "inmp": 1.23897E+6,
+          "ina": 28.7467,
+          "inmp_pct": 85.0785,
+          "ina_pct": 43.4568,
+          "ina_trend": "STABILE",
+          "efficienza": 43099.6
+        },
+        {
+          "freq_hz": 7225,
+          "inmp": 1.23964E+6,
+          "ina": 28.6514,
+          "inmp_pct": 85.1337,
+          "ina_pct": 40.6303,
+          "ina_trend": "STABILE",
+          "efficienza": 43266.3
+        },
+        {
+          "freq_hz": 7230,
+          "inmp": 1.24012E+6,
+          "ina": 28.5895,
+          "inmp_pct": 85.173,
+          "ina_pct": 38.7931,
+          "ina_trend": "STABILE",
+          "efficienza": 43376.6
+        },
+        {
+          "freq_hz": 7235,
+          "inmp": 1.22433E+6,
+          "ina": 28.6457,
+          "inmp_pct": 83.8734,
+          "ina_pct": 40.4607,
+          "ina_trend": "STABILE",
+          "efficienza": 42740.3
+        },
+        {
+          "freq_hz": 7240,
+          "inmp": 1.20693E+6,
+          "ina": 28.5843,
+          "inmp_pct": 82.4419,
+          "ina_pct": 38.6376,
+          "ina_trend": "STABILE",
+          "efficienza": 42223.6
+        },
+        {
+          "freq_hz": 7245,
+          "inmp": 1.19002E+6,
+          "ina": 28.5129,
+          "inmp_pct": 81.0502,
+          "ina_pct": 36.5178,
+          "ina_trend": "STABILE",
+          "efficienza": 41736.3
+        },
+        {
+          "freq_hz": 7250,
+          "inmp": 1.17214E+6,
+          "ina": 28.5314,
+          "inmp_pct": 79.5784,
+          "ina_pct": 37.069,
+          "ina_trend": "STABILE",
+          "efficienza": 41082.4
+        },
+        {
+          "freq_hz": 7255,
+          "inmp": 1.14125E+6,
+          "ina": 28.579,
+          "inmp_pct": 77.0364,
+          "ina_pct": 38.4822,
+          "ina_trend": "STABILE",
+          "efficienza": 39933.1
+        },
+        {
+          "freq_hz": 7260,
+          "inmp": 1.12317E+6,
+          "ina": 28.5914,
+          "inmp_pct": 75.548,
+          "ina_pct": 38.8496,
+          "ina_trend": "STABILE",
+          "efficienza": 39283.3
+        },
+        {
+          "freq_hz": 7265,
+          "inmp": 1.10633E+6,
+          "ina": 28.5838,
+          "inmp_pct": 74.1624,
+          "ina_pct": 38.6235,
+          "ina_trend": "STABILE",
+          "efficienza": 38704.7
+        },
+        {
+          "freq_hz": 7270,
+          "inmp": 1.12092E+6,
+          "ina": 28.5786,
+          "inmp_pct": 75.3632,
+          "ina_pct": 38.4681,
+          "ina_trend": "STABILE",
+          "efficienza": 39222.4
+        },
+        {
+          "freq_hz": 7275,
+          "inmp": 1.12425E+6,
+          "ina": 28.6595,
+          "inmp_pct": 75.6375,
+          "ina_pct": 40.8705,
+          "ina_trend": "STABILE",
+          "efficienza": 39227.9
+        },
+        {
+          "freq_hz": 7280,
+          "inmp": 1.12509E+6,
+          "ina": 28.6629,
+          "inmp_pct": 75.7062,
+          "ina_pct": 40.9695,
+          "ina_trend": "STABILE",
+          "efficienza": 39252.5
+        },
+        {
+          "freq_hz": 7285,
+          "inmp": 1.12634E+6,
+          "ina": 28.6081,
+          "inmp_pct": 75.8095,
+          "ina_pct": 39.3443,
+          "ina_trend": "STABILE",
+          "efficienza": 39371.4
+        },
+        {
+          "freq_hz": 7290,
+          "inmp": 1.12559E+6,
+          "ina": 28.56,
+          "inmp_pct": 75.7473,
+          "ina_pct": 37.9169,
+          "ina_trend": "STABILE",
+          "efficienza": 39411.3
+        },
+        {
+          "freq_hz": 7295,
+          "inmp": 1.12494E+6,
+          "ina": 28.5781,
+          "inmp_pct": 75.6944,
+          "ina_pct": 38.4539,
+          "ina_trend": "STABILE",
+          "efficienza": 39363.8
+        },
+        {
+          "freq_hz": 7300,
+          "inmp": 1.12405E+6,
+          "ina": 28.5919,
+          "inmp_pct": 75.6209,
+          "ina_pct": 38.8638,
+          "ina_trend": "STABILE",
+          "efficienza": 39313.6
+        },
+        {
+          "freq_hz": 7305,
+          "inmp": 1.10773E+6,
+          "ina": 28.5995,
+          "inmp_pct": 74.2773,
+          "ina_pct": 39.0899,
+          "ina_trend": "STABILE",
+          "efficienza": 38732.3
+        },
+        {
+          "freq_hz": 7310,
+          "inmp": 1.1034E+6,
+          "ina": 28.5757,
+          "inmp_pct": 73.9217,
+          "ina_pct": 38.3833,
+          "ina_trend": "STABILE",
+          "efficienza": 38613.3
+        },
+        {
+          "freq_hz": 7315,
+          "inmp": 1.10145E+6,
+          "ina": 28.5914,
+          "inmp_pct": 73.7606,
+          "ina_pct": 38.8496,
+          "ina_trend": "STABILE",
+          "efficienza": 38523.7
+        },
+        {
+          "freq_hz": 7320,
+          "inmp": 1.09841E+6,
+          "ina": 28.6376,
+          "inmp_pct": 73.5109,
+          "ina_pct": 40.2205,
+          "ina_trend": "STABILE",
+          "efficienza": 38355.6
+        },
+        {
+          "freq_hz": 7325,
+          "inmp": 1.09687E+6,
+          "ina": 28.659,
+          "inmp_pct": 73.384,
+          "ina_pct": 40.8564,
+          "ina_trend": "STABILE",
+          "efficienza": 38273.1
+        },
+        {
+          "freq_hz": 7330,
+          "inmp": 1.09542E+6,
+          "ina": 28.6062,
+          "inmp_pct": 73.2649,
+          "ina_pct": 39.2877,
+          "ina_trend": "STABILE",
+          "efficienza": 38293.2
+        },
+        {
+          "freq_hz": 7335,
+          "inmp": 1.09539E+6,
+          "ina": 28.6052,
+          "inmp_pct": 73.2625,
+          "ina_pct": 39.2595,
+          "ina_trend": "STABILE",
+          "efficienza": 38293.5
+        },
+        {
+          "freq_hz": 7340,
+          "inmp": 1.12102E+6,
+          "ina": 28.601,
+          "inmp_pct": 75.3711,
+          "ina_pct": 39.1323,
+          "ina_trend": "STABILE",
+          "efficienza": 39195
+        },
+        {
+          "freq_hz": 7345,
+          "inmp": 1.14621E+6,
+          "ina": 28.5829,
+          "inmp_pct": 77.4444,
+          "ina_pct": 38.5952,
+          "ina_trend": "STABILE",
+          "efficienza": 40101.2
+        },
+        {
+          "freq_hz": 7350,
+          "inmp": 1.17106E+6,
+          "ina": 28.5267,
+          "inmp_pct": 79.4898,
+          "ina_pct": 36.9276,
+          "ina_trend": "STABILE",
+          "efficienza": 41051.5
+        },
+        {
+          "freq_hz": 7355,
+          "inmp": 1.19634E+6,
+          "ina": 28.47,
+          "inmp_pct": 81.5701,
+          "ina_pct": 35.2459,
+          "ina_trend": "STABILE",
+          "efficienza": 42021.1
+        },
+        {
+          "freq_hz": 7360,
+          "inmp": 1.22206E+6,
+          "ina": 28.4757,
+          "inmp_pct": 83.6869,
+          "ina_pct": 35.4155,
+          "ina_trend": "STABILE",
+          "efficienza": 42915.9
+        },
+        {
+          "freq_hz": 7365,
+          "inmp": 1.2479E+6,
+          "ina": 28.4895,
+          "inmp_pct": 85.8135,
+          "ina_pct": 35.8253,
+          "ina_trend": "STABILE",
+          "efficienza": 43802.1
+        },
+        {
+          "freq_hz": 7370,
+          "inmp": 1.27256E+6,
+          "ina": 28.461,
+          "inmp_pct": 87.8427,
+          "ina_pct": 34.9774,
+          "ina_trend": "STABILE",
+          "efficienza": 44712.4
+        },
+        {
+          "freq_hz": 7375,
+          "inmp": 1.27299E+6,
+          "ina": 28.409,
+          "inmp_pct": 87.8781,
+          "ina_pct": 33.437,
+          "ina_trend": "STABILE",
+          "efficienza": 44809.2
+        },
+        {
+          "freq_hz": 7380,
+          "inmp": 1.27298E+6,
+          "ina": 28.3867,
+          "inmp_pct": 87.8779,
+          "ina_pct": 32.7728,
+          "ina_trend": "STABILE",
+          "efficienza": 44844.5
+        },
+        {
+          "freq_hz": 7385,
+          "inmp": 1.27281E+6,
+          "ina": 28.4281,
+          "inmp_pct": 87.8636,
+          "ina_pct": 34.0023,
+          "ina_trend": "STABILE",
+          "efficienza": 44773
+        },
+        {
+          "freq_hz": 7390,
+          "inmp": 1.27349E+6,
+          "ina": 28.4638,
+          "inmp_pct": 87.9199,
+          "ina_pct": 35.0622,
+          "ina_trend": "STABILE",
+          "efficienza": 44740.8
+        },
+        {
+          "freq_hz": 7395,
+          "inmp": 1.27375E+6,
+          "ina": 28.4471,
+          "inmp_pct": 87.9412,
+          "ina_pct": 34.5676,
+          "ina_trend": "STABILE",
+          "efficienza": 44776.1
+        },
+        {
+          "freq_hz": 7400,
+          "inmp": 1.27418E+6,
+          "ina": 28.4319,
+          "inmp_pct": 87.9759,
+          "ina_pct": 34.1153,
+          "ina_trend": "STABILE",
+          "efficienza": 44815
+        },
+        {
+          "freq_hz": 7405,
+          "inmp": 1.27487E+6,
+          "ina": 28.4133,
+          "inmp_pct": 88.0332,
+          "ina_pct": 33.5642,
+          "ina_trend": "STABILE",
+          "efficienza": 44868.8
+        },
+        {
+          "freq_hz": 7410,
+          "inmp": 1.27451E+6,
+          "ina": 28.4214,
+          "inmp_pct": 88.0034,
+          "ina_pct": 33.8044,
+          "ina_trend": "STABILE",
+          "efficienza": 44843.2
+        },
+        {
+          "freq_hz": 7415,
+          "inmp": 1.27426E+6,
+          "ina": 28.4152,
+          "inmp_pct": 87.9832,
+          "ina_pct": 33.6207,
+          "ina_trend": "STABILE",
+          "efficienza": 44844.4
+        },
+        {
+          "freq_hz": 7420,
+          "inmp": 1.2745E+6,
+          "ina": 28.3962,
+          "inmp_pct": 88.0023,
+          "ina_pct": 33.0554,
+          "ina_trend": "STABILE",
+          "efficienza": 44882.6
+        },
+        {
+          "freq_hz": 7425,
+          "inmp": 1.27329E+6,
+          "ina": 28.3981,
+          "inmp_pct": 87.9028,
+          "ina_pct": 33.1119,
+          "ina_trend": "STABILE",
+          "efficienza": 44837.1
+        },
+        {
+          "freq_hz": 7430,
+          "inmp": 1.27415E+6,
+          "ina": 28.38,
+          "inmp_pct": 87.9739,
+          "ina_pct": 32.5749,
+          "ina_trend": "STABILE",
+          "efficienza": 44896.1
+        },
+        {
+          "freq_hz": 7435,
+          "inmp": 1.2743E+6,
+          "ina": 28.4038,
+          "inmp_pct": 87.9865,
+          "ina_pct": 33.2815,
+          "ina_trend": "STABILE",
+          "efficienza": 44863.8
+        },
+        {
+          "freq_hz": 7440,
+          "inmp": 1.2743E+6,
+          "ina": 28.4548,
+          "inmp_pct": 87.9862,
+          "ina_pct": 34.7937,
+          "ina_trend": "STABILE",
+          "efficienza": 44783.4
+        },
+        {
+          "freq_hz": 7445,
+          "inmp": 1.27607E+6,
+          "ina": 28.4705,
+          "inmp_pct": 88.1322,
+          "ina_pct": 35.26,
+          "ina_trend": "STABILE",
+          "efficienza": 44821
+        },
+        {
+          "freq_hz": 7450,
+          "inmp": 1.25962E+6,
+          "ina": 28.4295,
+          "inmp_pct": 86.7784,
+          "ina_pct": 34.0447,
+          "ina_trend": "STABILE",
+          "efficienza": 44306.9
+        },
+        {
+          "freq_hz": 7455,
+          "inmp": 1.2416E+6,
+          "ina": 28.3938,
+          "inmp_pct": 85.2951,
+          "ina_pct": 32.9847,
+          "ina_trend": "STABILE",
+          "efficienza": 43727.9
+        },
+        {
+          "freq_hz": 7460,
+          "inmp": 1.22478E+6,
+          "ina": 28.3586,
+          "inmp_pct": 83.9107,
+          "ina_pct": 31.9389,
+          "ina_trend": "STABILE",
+          "efficienza": 43189
+        },
+        {
+          "freq_hz": 7465,
+          "inmp": 1.20547E+6,
+          "ina": 28.3495,
+          "inmp_pct": 82.3213,
+          "ina_pct": 31.6704,
+          "ina_trend": "STABILE",
+          "efficienza": 42521.6
+        },
+        {
+          "freq_hz": 7470,
+          "inmp": 1.18655E+6,
+          "ina": 28.3005,
+          "inmp_pct": 80.7645,
+          "ina_pct": 30.2148,
+          "ina_trend": "STABILE",
+          "efficienza": 41926.9
+        },
+        {
+          "freq_hz": 7475,
+          "inmp": 1.16618E+6,
+          "ina": 28.2433,
+          "inmp_pct": 79.0882,
+          "ina_pct": 28.5189,
+          "ina_trend": "STABILE",
+          "efficienza": 41290.5
+        },
+        {
+          "freq_hz": 7480,
+          "inmp": 1.14508E+6,
+          "ina": 28.2267,
+          "inmp_pct": 77.3515,
+          "ina_pct": 28.0243,
+          "ina_trend": "STABILE",
+          "efficienza": 40567.3
+        },
+        {
+          "freq_hz": 7485,
+          "inmp": 1.14237E+6,
+          "ina": 28.2471,
+          "inmp_pct": 77.1282,
+          "ina_pct": 28.632,
+          "ina_trend": "STABILE",
+          "efficienza": 40441.8
+        },
+        {
+          "freq_hz": 7490,
+          "inmp": 1.14198E+6,
+          "ina": 28.241,
+          "inmp_pct": 77.0966,
+          "ina_pct": 28.4483,
+          "ina_trend": "STABILE",
+          "efficienza": 40437.1
+        },
+        {
+          "freq_hz": 7495,
+          "inmp": 1.14093E+6,
+          "ina": 28.2295,
+          "inmp_pct": 77.0097,
+          "ina_pct": 28.1091,
+          "ina_trend": "STABILE",
+          "efficienza": 40416.1
+        },
+        {
+          "freq_hz": 7500,
+          "inmp": 1.1413E+6,
+          "ina": 28.2314,
+          "inmp_pct": 77.0407,
+          "ina_pct": 28.1656,
+          "ina_trend": "STABILE",
+          "efficienza": 40426.7
+        },
+        {
+          "freq_hz": 7505,
+          "inmp": 1.1568E+6,
+          "ina": 28.2305,
+          "inmp_pct": 78.3162,
+          "ina_pct": 28.1374,
+          "ina_trend": "STABILE",
+          "efficienza": 40977.1
+        },
+        {
+          "freq_hz": 7510,
+          "inmp": 1.16103E+6,
+          "ina": 28.2129,
+          "inmp_pct": 78.6643,
+          "ina_pct": 27.6145,
+          "ina_trend": "STABILE",
+          "efficienza": 41152.5
+        },
+        {
+          "freq_hz": 7515,
+          "inmp": 1.161E+6,
+          "ina": 28.2167,
+          "inmp_pct": 78.6614,
+          "ina_pct": 27.7275,
+          "ina_trend": "STABILE",
+          "efficienza": 41145.8
+        },
+        {
+          "freq_hz": 7520,
+          "inmp": 1.16304E+6,
+          "ina": 28.2405,
+          "inmp_pct": 78.8297,
+          "ina_pct": 28.4341,
+          "ina_trend": "STABILE",
+          "efficienza": 41183.5
+        },
+        {
+          "freq_hz": 7525,
+          "inmp": 1.16207E+6,
+          "ina": 28.2581,
+          "inmp_pct": 78.7498,
+          "ina_pct": 28.957,
+          "ina_trend": "STABILE",
+          "efficienza": 41123.4
+        },
+        {
+          "freq_hz": 7530,
+          "inmp": 1.1618E+6,
+          "ina": 28.259,
+          "inmp_pct": 78.7274,
+          "ina_pct": 28.9853,
+          "ina_trend": "STABILE",
+          "efficienza": 41112.4
+        },
+        {
+          "freq_hz": 7535,
+          "inmp": 1.16216E+6,
+          "ina": 28.2333,
+          "inmp_pct": 78.7574,
+          "ina_pct": 28.2222,
+          "ina_trend": "STABILE",
+          "efficienza": 41162.8
+        },
+        {
+          "freq_hz": 7540,
+          "inmp": 1.14881E+6,
+          "ina": 28.2229,
+          "inmp_pct": 77.6589,
+          "ina_pct": 27.9113,
+          "ina_trend": "STABILE",
+          "efficienza": 40705.1
+        },
+        {
+          "freq_hz": 7545,
+          "inmp": 1.16193E+6,
+          "ina": 28.2524,
+          "inmp_pct": 78.7384,
+          "ina_pct": 28.7875,
+          "ina_trend": "STABILE",
+          "efficienza": 41126.8
+        },
+        {
+          "freq_hz": 7550,
+          "inmp": 1.1781E+6,
+          "ina": 28.2457,
+          "inmp_pct": 80.0693,
+          "ina_pct": 28.5896,
+          "ina_trend": "STABILE",
+          "efficienza": 41709.1
+        },
+        {
+          "freq_hz": 7555,
+          "inmp": 1.18388E+6,
+          "ina": 28.2443,
+          "inmp_pct": 80.5447,
+          "ina_pct": 28.5472,
+          "ina_trend": "STABILE",
+          "efficienza": 41915.7
+        },
+        {
+          "freq_hz": 7560,
+          "inmp": 1.18694E+6,
+          "ina": 28.2248,
+          "inmp_pct": 80.7962,
+          "ina_pct": 27.9678,
+          "ina_trend": "STABILE",
+          "efficienza": 42053
+        },
+        {
+          "freq_hz": 7565,
+          "inmp": 1.22567E+6,
+          "ina": 28.1633,
+          "inmp_pct": 83.9839,
+          "ina_pct": 26.1447,
+          "ina_trend": "STABILE",
+          "efficienza": 43520
+        },
+        {
+          "freq_hz": 7570,
+          "inmp": 1.26252E+6,
+          "ina": 28.1514,
+          "inmp_pct": 87.0165,
+          "ina_pct": 25.7914,
+          "ina_trend": "STABILE",
+          "efficienza": 44847.4
+        },
+        {
+          "freq_hz": 7575,
+          "inmp": 1.29948E+6,
+          "ina": 28.1443,
+          "inmp_pct": 90.0588,
+          "ina_pct": 25.5794,
+          "ina_trend": "STABILE",
+          "efficienza": 46172.2
+        },
+        {
+          "freq_hz": 7580,
+          "inmp": 1.32205E+6,
+          "ina": 28.0971,
+          "inmp_pct": 91.9161,
+          "ina_pct": 24.1803,
+          "ina_trend": "STABILE",
+          "efficienza": 47052.9
+        },
+        {
+          "freq_hz": 7585,
+          "inmp": 1.34605E+6,
+          "ina": 28.0238,
+          "inmp_pct": 93.8914,
+          "ina_pct": 22.004,
+          "ina_trend": "STABILE",
+          "efficienza": 48032.5
+        },
+        {
+          "freq_hz": 7590,
+          "inmp": 1.37887E+6,
+          "ina": 28.0162,
+          "inmp_pct": 96.5924,
+          "ina_pct": 21.7778,
+          "ina_trend": "STABILE",
+          "efficienza": 49217
+        },
+        {
+          "freq_hz": 7595,
+          "inmp": 1.41596E+6,
+          "ina": 27.959,
+          "inmp_pct": 99.6446,
+          "ina_pct": 20.082,
+          "ina_trend": "STABILE",
+          "efficienza": 50644.1
+        },
+        {
+          "freq_hz": 7600,
+          "inmp": 1.4176E+6,
+          "ina": 27.9729,
+          "inmp_pct": 99.7793,
+          "ina_pct": 20.4918,
+          "ina_trend": "STABILE",
+          "efficienza": 50677.6
+        },
+        {
+          "freq_hz": 7605,
+          "inmp": 1.41941E+6,
+          "ina": 27.9852,
+          "inmp_pct": 99.9289,
+          "ina_pct": 20.8592,
+          "ina_trend": "STABILE",
+          "efficienza": 50720.1
+        },
+        {
+          "freq_hz": 7610,
+          "inmp": 1.41988E+6,
+          "ina": 27.9652,
+          "inmp_pct": 99.9673,
+          "ina_pct": 20.2657,
+          "ina_trend": "STABILE",
+          "efficienza": 50773.1
+        },
+        {
+          "freq_hz": 7615,
+          "inmp": 1.42028E+6,
+          "ina": 27.9919,
+          "inmp_pct": 100,
+          "ina_pct": 21.0571,
+          "ina_trend": "STABILE",
+          "efficienza": 50738.9
+        },
+        {
+          "freq_hz": 7620,
+          "inmp": 1.4198E+6,
+          "ina": 28.0143,
+          "inmp_pct": 99.9602,
+          "ina_pct": 21.7213,
+          "ina_trend": "STABILE",
+          "efficienza": 50681.1
+        },
+        {
+          "freq_hz": 7625,
+          "inmp": 1.41749E+6,
+          "ina": 27.9652,
+          "inmp_pct": 99.7707,
+          "ina_pct": 20.2657,
+          "ina_trend": "STABILE",
+          "efficienza": 50687.7
+        },
+        {
+          "freq_hz": 7630,
+          "inmp": 1.41821E+6,
+          "ina": 27.9814,
+          "inmp_pct": 99.8294,
+          "ina_pct": 20.7462,
+          "ina_trend": "STABILE",
+          "efficienza": 50683.8
+        },
+        {
+          "freq_hz": 7635,
+          "inmp": 1.41626E+6,
+          "ina": 27.9943,
+          "inmp_pct": 99.6688,
+          "ina_pct": 21.1278,
+          "ina_trend": "STABILE",
+          "efficienza": 50590.9
+        },
+        {
+          "freq_hz": 7640,
+          "inmp": 1.41565E+6,
+          "ina": 27.9757,
+          "inmp_pct": 99.6193,
+          "ina_pct": 20.5766,
+          "ina_trend": "STABILE",
+          "efficienza": 50602.9
+        },
+        {
+          "freq_hz": 7645,
+          "inmp": 1.41507E+6,
+          "ina": 27.9914,
+          "inmp_pct": 99.5709,
+          "ina_pct": 21.043,
+          "ina_trend": "STABILE",
+          "efficienza": 50553.5
+        },
+        {
+          "freq_hz": 7650,
+          "inmp": 1.4149E+6,
+          "ina": 27.991,
+          "inmp_pct": 99.5572,
+          "ina_pct": 21.0288,
+          "ina_trend": "STABILE",
+          "efficienza": 50548.4
+        },
+        {
+          "freq_hz": 7655,
+          "inmp": 1.41351E+6,
+          "ina": 27.9843,
+          "inmp_pct": 99.4432,
+          "ina_pct": 20.831,
+          "ina_trend": "STABILE",
+          "efficienza": 50511
+        },
+        {
+          "freq_hz": 7660,
+          "inmp": 1.41339E+6,
+          "ina": 27.9838,
+          "inmp_pct": 99.4327,
+          "ina_pct": 20.8168,
+          "ina_trend": "STABILE",
+          "efficienza": 50507.3
+        },
+        {
+          "freq_hz": 7665,
+          "inmp": 1.41334E+6,
+          "ina": 27.9776,
+          "inmp_pct": 99.4286,
+          "ina_pct": 20.6331,
+          "ina_trend": "STABILE",
+          "efficienza": 50516.7
+        },
+        {
+          "freq_hz": 7670,
+          "inmp": 1.4133E+6,
+          "ina": 27.9795,
+          "inmp_pct": 99.4252,
+          "ina_pct": 20.6897,
+          "ina_trend": "STABILE",
+          "efficienza": 50511.8
+        },
+        {
+          "freq_hz": 7675,
+          "inmp": 1.41212E+6,
+          "ina": 27.969,
+          "inmp_pct": 99.3283,
+          "ina_pct": 20.3787,
+          "ina_trend": "STABILE",
+          "efficienza": 50488.6
+        },
+        {
+          "freq_hz": 7680,
+          "inmp": 1.3911E+6,
+          "ina": 27.9105,
+          "inmp_pct": 97.5987,
+          "ina_pct": 18.6405,
+          "ina_trend": "STABILE",
+          "efficienza": 49841.5
+        },
+        {
+          "freq_hz": 7685,
+          "inmp": 1.36928E+6,
+          "ina": 27.841,
+          "inmp_pct": 95.8026,
+          "ina_pct": 16.5772,
+          "ina_trend": "STABILE",
+          "efficienza": 49182.1
+        },
+        {
+          "freq_hz": 7690,
+          "inmp": 1.35088E+6,
+          "ina": 27.8405,
+          "inmp_pct": 94.2884,
+          "ina_pct": 16.563,
+          "ina_trend": "STABILE",
+          "efficienza": 48522.1
+        },
+        {
+          "freq_hz": 7695,
+          "inmp": 1.33183E+6,
+          "ina": 27.82,
+          "inmp_pct": 92.7211,
+          "ina_pct": 15.9553,
+          "ina_trend": "STABILE",
+          "efficienza": 47873.3
+        },
+        {
+          "freq_hz": 7700,
+          "inmp": 1.31271E+6,
+          "ina": 27.81,
+          "inmp_pct": 91.1473,
+          "ina_pct": 15.6586,
+          "ina_trend": "STABILE",
+          "efficienza": 47202.8
+        },
+        {
+          "freq_hz": 7705,
+          "inmp": 1.29257E+6,
+          "ina": 27.7614,
+          "inmp_pct": 89.4896,
+          "ina_pct": 14.2171,
+          "ina_trend": "STABILE",
+          "efficienza": 46559.9
+        },
+        {
+          "freq_hz": 7710,
+          "inmp": 1.27221E+6,
+          "ina": 27.7314,
+          "inmp_pct": 87.814,
+          "ina_pct": 13.3267,
+          "ina_trend": "STABILE",
+          "efficienza": 45876
+        },
+        {
+          "freq_hz": 7715,
+          "inmp": 1.27246E+6,
+          "ina": 27.749,
+          "inmp_pct": 87.8344,
+          "ina_pct": 13.8496,
+          "ina_trend": "STABILE",
+          "efficienza": 45855.8
+        },
+        {
+          "freq_hz": 7720,
+          "inmp": 1.27189E+6,
+          "ina": 27.7757,
+          "inmp_pct": 87.7878,
+          "ina_pct": 14.641,
+          "ina_trend": "STABILE",
+          "efficienza": 45791.4
+        },
+        {
+          "freq_hz": 7725,
+          "inmp": 1.2702E+6,
+          "ina": 27.751,
+          "inmp_pct": 87.6488,
+          "ina_pct": 13.9062,
+          "ina_trend": "STABILE",
+          "efficienza": 45771.4
+        },
+        {
+          "freq_hz": 7730,
+          "inmp": 1.27949E+6,
+          "ina": 27.7243,
+          "inmp_pct": 88.4131,
+          "ina_pct": 13.1147,
+          "ina_trend": "STABILE",
+          "efficienza": 46150.4
+        },
+        {
+          "freq_hz": 7735,
+          "inmp": 1.28137E+6,
+          "ina": 27.7452,
+          "inmp_pct": 88.5683,
+          "ina_pct": 13.7366,
+          "ina_trend": "STABILE",
+          "efficienza": 46183.5
+        },
+        {
+          "freq_hz": 7740,
+          "inmp": 1.28197E+6,
+          "ina": 27.769,
+          "inmp_pct": 88.6172,
+          "ina_pct": 14.4432,
+          "ina_trend": "STABILE",
+          "efficienza": 46165.3
+        },
+        {
+          "freq_hz": 7745,
+          "inmp": 1.28166E+6,
+          "ina": 27.7357,
+          "inmp_pct": 88.5923,
+          "ina_pct": 13.4539,
+          "ina_trend": "STABILE",
+          "efficienza": 46209.9
+        },
+        {
+          "freq_hz": 7750,
+          "inmp": 1.2814E+6,
+          "ina": 27.7019,
+          "inmp_pct": 88.5701,
+          "ina_pct": 12.4505,
+          "ina_trend": "STABILE",
+          "efficienza": 46256.6
+        },
+        {
+          "freq_hz": 7755,
+          "inmp": 1.28114E+6,
+          "ina": 27.7062,
+          "inmp_pct": 88.5494,
+          "ina_pct": 12.5777,
+          "ina_trend": "STABILE",
+          "efficienza": 46240.4
+        },
+        {
+          "freq_hz": 7760,
+          "inmp": 1.28075E+6,
+          "ina": 27.7386,
+          "inmp_pct": 88.517,
+          "ina_pct": 13.5387,
+          "ina_trend": "STABILE",
+          "efficienza": 46172.2
+        },
+        {
+          "freq_hz": 7765,
+          "inmp": 1.2699E+6,
+          "ina": 27.7214,
+          "inmp_pct": 87.6243,
+          "ina_pct": 13.03,
+          "ina_trend": "STABILE",
+          "efficienza": 45809.5
+        },
+        {
+          "freq_hz": 7770,
+          "inmp": 1.26484E+6,
+          "ina": 27.6929,
+          "inmp_pct": 87.208,
+          "ina_pct": 12.182,
+          "ina_trend": "STABILE",
+          "efficienza": 45674
+        },
+        {
+          "freq_hz": 7775,
+          "inmp": 1.26451E+6,
+          "ina": 27.7024,
+          "inmp_pct": 87.1802,
+          "ina_pct": 12.4647,
+          "ina_trend": "STABILE",
+          "efficienza": 45646.1
+        },
+        {
+          "freq_hz": 7780,
+          "inmp": 1.2656E+6,
+          "ina": 27.751,
+          "inmp_pct": 87.2703,
+          "ina_pct": 13.9062,
+          "ina_trend": "STABILE",
+          "efficienza": 45605.7
+        },
+        {
+          "freq_hz": 7785,
+          "inmp": 1.26714E+6,
+          "ina": 27.7895,
+          "inmp_pct": 87.3971,
+          "ina_pct": 15.0509,
+          "ina_trend": "STABILE",
+          "efficienza": 45597.9
+        },
+        {
+          "freq_hz": 7790,
+          "inmp": 1.26737E+6,
+          "ina": 27.759,
+          "inmp_pct": 87.4158,
+          "ina_pct": 14.1464,
+          "ina_trend": "STABILE",
+          "efficienza": 45656.1
+        },
+        {
+          "freq_hz": 7795,
+          "inmp": 1.26627E+6,
+          "ina": 27.7286,
+          "inmp_pct": 87.3255,
+          "ina_pct": 13.2419,
+          "ina_trend": "STABILE",
+          "efficienza": 45666.7
+        },
+        {
+          "freq_hz": 7800,
+          "inmp": 1.24128E+6,
+          "ina": 27.7486,
+          "inmp_pct": 85.2686,
+          "ina_pct": 13.8355,
+          "ina_trend": "STABILE",
+          "efficienza": 44733.1
+        },
+        {
+          "freq_hz": 7805,
+          "inmp": 1.21622E+6,
+          "ina": 27.7243,
+          "inmp_pct": 83.206,
+          "ina_pct": 13.1147,
+          "ina_trend": "STABILE",
+          "efficienza": 43868.3
+        },
+        {
+          "freq_hz": 7810,
+          "inmp": 1.19038E+6,
+          "ina": 27.6405,
+          "inmp_pct": 81.0799,
+          "ina_pct": 10.6275,
+          "ina_trend": "STABILE",
+          "efficienza": 43066.7
+        },
+        {
+          "freq_hz": 7815,
+          "inmp": 1.16458E+6,
+          "ina": 27.5857,
+          "inmp_pct": 78.9564,
+          "ina_pct": 9.00226,
+          "ina_trend": "STABILE",
+          "efficienza": 42216.8
+        },
+        {
+          "freq_hz": 7820,
+          "inmp": 1.13763E+6,
+          "ina": 27.5748,
+          "inmp_pct": 76.7381,
+          "ina_pct": 8.67722,
+          "ina_trend": "STABILE",
+          "efficienza": 41256.1
+        },
+        {
+          "freq_hz": 7825,
+          "inmp": 1.11387E+6,
+          "ina": 27.5362,
+          "inmp_pct": 74.7828,
+          "ina_pct": 7.5325,
+          "ina_trend": "STABILE",
+          "efficienza": 40451
+        },
+        {
+          "freq_hz": 7830,
+          "inmp": 1.09022E+6,
+          "ina": 27.4824,
+          "inmp_pct": 72.8368,
+          "ina_pct": 5.93556,
+          "ina_trend": "STABILE",
+          "efficienza": 39669.8
+        },
+        {
+          "freq_hz": 7835,
+          "inmp": 1.09109E+6,
+          "ina": 27.4843,
+          "inmp_pct": 72.9079,
+          "ina_pct": 5.99209,
+          "ina_trend": "STABILE",
+          "efficienza": 39698.5
+        },
+        {
+          "freq_hz": 7840,
+          "inmp": 1.09217E+6,
+          "ina": 27.5081,
+          "inmp_pct": 72.9969,
+          "ina_pct": 6.6987,
+          "ina_trend": "STABILE",
+          "efficienza": 39703.5
+        },
+        {
+          "freq_hz": 7845,
+          "inmp": 1.09421E+6,
+          "ina": 27.4962,
+          "inmp_pct": 73.1654,
+          "ina_pct": 6.3454,
+          "ina_trend": "STABILE",
+          "efficienza": 39795.1
+        },
+        {
+          "freq_hz": 7850,
+          "inmp": 1.09489E+6,
+          "ina": 27.4719,
+          "inmp_pct": 73.2211,
+          "ina_pct": 5.62465,
+          "ina_trend": "STABILE",
+          "efficienza": 39855
+        },
+        {
+          "freq_hz": 7855,
+          "inmp": 1.09449E+6,
+          "ina": 27.4629,
+          "inmp_pct": 73.1884,
+          "ina_pct": 5.35613,
+          "ina_trend": "STABILE",
+          "efficienza": 39853.6
+        },
+        {
+          "freq_hz": 7860,
+          "inmp": 1.0948E+6,
+          "ina": 27.491,
+          "inmp_pct": 73.2139,
+          "ina_pct": 6.18993,
+          "ina_trend": "STABILE",
+          "efficienza": 39824.1
+        },
+        {
+          "freq_hz": 7865,
+          "inmp": 1.0942E+6,
+          "ina": 27.501,
+          "inmp_pct": 73.1638,
+          "ina_pct": 6.48671,
+          "ina_trend": "STABILE",
+          "efficienza": 39787.5
+        },
+        {
+          "freq_hz": 7870,
+          "inmp": 1.09392E+6,
+          "ina": 27.4743,
+          "inmp_pct": 73.1416,
+          "ina_pct": 5.6953,
+          "ina_trend": "STABILE",
+          "efficienza": 39816.3
+        },
+        {
+          "freq_hz": 7875,
+          "inmp": 1.09277E+6,
+          "ina": 27.4733,
+          "inmp_pct": 73.0463,
+          "ina_pct": 5.66704,
+          "ina_trend": "STABILE",
+          "efficienza": 39775.6
+        },
+        {
+          "freq_hz": 7880,
+          "inmp": 1.09089E+6,
+          "ina": 27.5095,
+          "inmp_pct": 72.892,
+          "ina_pct": 6.74109,
+          "ina_trend": "STABILE",
+          "efficienza": 39655.1
+        },
+        {
+          "freq_hz": 7885,
+          "inmp": 1.09028E+6,
+          "ina": 27.5176,
+          "inmp_pct": 72.8419,
+          "ina_pct": 6.98134,
+          "ina_trend": "STABILE",
+          "efficienza": 39621.3
+        },
+        {
+          "freq_hz": 7890,
+          "inmp": 1.09167E+6,
+          "ina": 27.47,
+          "inmp_pct": 72.9562,
+          "ina_pct": 5.56811,
+          "ina_trend": "STABILE",
+          "efficienza": 39740.5
+        },
+        {
+          "freq_hz": 7895,
+          "inmp": 1.09256E+6,
+          "ina": 27.4633,
+          "inmp_pct": 73.0292,
+          "ina_pct": 5.37026,
+          "ina_trend": "STABILE",
+          "efficienza": 39782.5
+        },
+        {
+          "freq_hz": 7900,
+          "inmp": 1.09308E+6,
+          "ina": 27.4776,
+          "inmp_pct": 73.0723,
+          "ina_pct": 5.79423,
+          "ina_trend": "STABILE",
+          "efficienza": 39780.9
+        },
+        {
+          "freq_hz": 7905,
+          "inmp": 1.09411E+6,
+          "ina": 27.4733,
+          "inmp_pct": 73.1567,
+          "ina_pct": 5.66704,
+          "ina_trend": "STABILE",
+          "efficienza": 39824.4
+        },
+        {
+          "freq_hz": 7910,
+          "inmp": 1.09382E+6,
+          "ina": 27.4352,
+          "inmp_pct": 73.1332,
+          "ina_pct": 4.53646,
+          "ina_trend": "STABILE",
+          "efficienza": 39869.3
+        },
+        {
+          "freq_hz": 7915,
+          "inmp": 1.09398E+6,
+          "ina": 27.4395,
+          "inmp_pct": 73.1458,
+          "ina_pct": 4.66365,
+          "ina_trend": "STABILE",
+          "efficienza": 39868.6
+        },
+        {
+          "freq_hz": 7920,
+          "inmp": 1.0943E+6,
+          "ina": 27.4676,
+          "inmp_pct": 73.1727,
+          "ina_pct": 5.49746,
+          "ina_trend": "STABILE",
+          "efficienza": 39839.7
+        },
+        {
+          "freq_hz": 7925,
+          "inmp": 1.05095E+6,
+          "ina": 27.4676,
+          "inmp_pct": 69.6051,
+          "ina_pct": 5.49746,
+          "ina_trend": "STABILE",
+          "efficienza": 38261.5
+        },
+        {
+          "freq_hz": 7930,
+          "inmp": 1.0074E+6,
+          "ina": 27.4243,
+          "inmp_pct": 66.021,
+          "ina_pct": 4.21142,
+          "ina_trend": "STABILE",
+          "efficienza": 36734
+        },
+        {
+          "freq_hz": 7935,
+          "inmp": 964325,
+          "ina": 27.3886,
+          "inmp_pct": 62.4757,
+          "ina_pct": 3.1515,
+          "ina_trend": "STABILE",
+          "efficienza": 35209
+        },
+        {
+          "freq_hz": 7940,
+          "inmp": 921077,
+          "ina": 27.3824,
+          "inmp_pct": 58.9165,
+          "ina_pct": 2.96778,
+          "ina_trend": "STABILE",
+          "efficienza": 33637.6
+        },
+        {
+          "freq_hz": 7945,
+          "inmp": 880186,
+          "ina": 27.3714,
+          "inmp_pct": 55.5512,
+          "ina_pct": 2.64274,
+          "ina_trend": "STABILE",
+          "efficienza": 32157.1
+        },
+        {
+          "freq_hz": 7950,
+          "inmp": 838125,
+          "ina": 27.3224,
+          "inmp_pct": 52.0896,
+          "ina_pct": 1.18711,
+          "ina_trend": "STABILE",
+          "efficienza": 30675.4
+        },
+        {
+          "freq_hz": 7955,
+          "inmp": 794488,
+          "ina": 27.2824,
+          "inmp_pct": 48.4984,
+          "ina_pct": 0,
+          "ina_trend": "STABILE",
+          "efficienza": 29120.9
+        },
+        {
+          "freq_hz": 7960,
+          "inmp": 795160,
+          "ina": 27.299,
+          "inmp_pct": 48.5538,
+          "ina_pct": 0.49463,
+          "ina_trend": "STABILE",
+          "efficienza": 29127.8
+        },
+        {
+          "freq_hz": 7965,
+          "inmp": 794424,
+          "ina": 27.3176,
+          "inmp_pct": 48.4932,
+          "ina_pct": 1.04579,
+          "ina_trend": "STABILE",
+          "efficienza": 29081
+        },
+        {
+          "freq_hz": 7970,
+          "inmp": 795144,
+          "ina": 27.3176,
+          "inmp_pct": 48.5524,
+          "ina_pct": 1.04579,
+          "ina_trend": "STABILE",
+          "efficienza": 29107.4
+        },
+        {
+          "freq_hz": 7975,
+          "inmp": 793163,
+          "ina": 27.3067,
+          "inmp_pct": 48.3894,
+          "ina_pct": 0.720747,
+          "ina_trend": "STABILE",
+          "efficienza": 29046.5
+        },
+        {
+          "freq_hz": 7980,
+          "inmp": 792224,
+          "ina": 27.3019,
+          "inmp_pct": 48.3121,
+          "ina_pct": 0.579423,
+          "ina_trend": "STABILE",
+          "efficienza": 29017.2
+        },
+        {
+          "freq_hz": 7985,
+          "inmp": 788869,
+          "ina": 27.3224,
+          "inmp_pct": 48.036,
+          "ina_pct": 1.18711,
+          "ina_trend": "STABILE",
+          "efficienza": 28872.6
+        },
+        {
+          "freq_hz": 7990,
+          "inmp": 788976,
+          "ina": 27.3367,
+          "inmp_pct": 48.0448,
+          "ina_pct": 1.61108,
+          "ina_trend": "STABILE",
+          "efficienza": 28861.5
+        },
+        {
+          "freq_hz": 7995,
+          "inmp": 787105,
+          "ina": 27.3187,
+          "inmp_pct": 47.8908,
+          "ina_pct": 1.07687,
+          "ina_trend": "EDGE",
+          "efficienza": 28812
+        },
+        {
+          "freq_hz": 8000,
+          "inmp": 786317,
+          "ina": 27.2967,
+          "inmp_pct": 47.826,
+          "ina_pct": 0.423959,
+          "ina_trend": "EDGE",
+          "efficienza": 28806.4
         }
       ]
     }
