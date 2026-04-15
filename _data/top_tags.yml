@@ -2,7 +2,7 @@
 # Generated automatically by notion_to_jekyll_builder.py
 
 - name: "Human AI Collaboration"
-  count: 23
+  count: 24
   slug: "human-ai-collaboration"
 - name: "Claude"
   count: 21
@@ -11,7 +11,7 @@
   count: 20
   slug: "noi->-io"
 - name: "AI Workflow"
-  count: 17
+  count: 18
   slug: "ai-workflow"
 - name: "Debugging"
   count: 17

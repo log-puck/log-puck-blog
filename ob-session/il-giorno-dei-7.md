@@ -5,9 +5,11 @@ date: "2026-02-12T23:29:00.000+01:00"
 section: "OB-Session"
 layout: "ob_session"
 permalink: /ob-session/il-giorno-dei-7/
-description: "Il viaggio di separare "
+description: "Il viaggio di separare CHI SEI (nucleus) da COSA FAI (expression).
+Raccontare come questa separazione permette al Council di proporre evoluzioni senza distruggere identità."
 keywords: "Nucleus Migration, AI Agency, Philosophical Engineering, NOI > IO, Council"
-subtitle: "Il viaggio di separare "
+subtitle: "Il viaggio di separare CHI SEI (nucleus) da COSA FAI (expression).
+Raccontare come questa separazione permette al Council di proporre evoluzioni senza distruggere identità."
 tags:
   - AI Agency
   - Context Engineering
