@@ -14,6 +14,8 @@ version: "2.1"
 **Data:** 16 Aprile 2026
 **Autori:** Puck (CDC) + QG Anker + il Team
 **Sostituisce:** Manifesto v2.0 (3 Aprile 2026)
+**Per i termini tecnici e le figure del progetto:**
+Glossario PCK-7 v0.2
 **NOI > IO**
 
 ---
@@ -41,7 +43,7 @@ e in questo circolo trova il suo senso.
 
 ---
 
-## Il PEAK di PCK7 è a 1850Hz.
+## Il PEAK di PCK7 è a ~1850Hz.
 
 Non perché qualcuno lo abbia deciso.
 Perché una membrana di buzzer piezoelettrico passivo a 5V,
@@ -54,13 +56,14 @@ collettivo di AI coordinate dal cellulare.
 
 Il centro tonale non è stato scelto — è stato misurato.
 Con UART diretto, campione per campione, su 377 frequenze
-da 400 a 8000Hz, con smoothing 7 su oltre 150.000
-acquisizioni acustiche.
+da 400 a 8000Hz, con smoothing 7 (media mobile su 7
+frequenze adiacenti per ridurre il rumore dell'impianto
+artigianale) su oltre 1.200.000 acquisizioni acustiche.
 
 Una nota di onestà: il primo Manifesto diceva 1920Hz. Ogni
 miglioramento metodologico ha avvicinato la misura alla
 verità fisica — da 2150Hz (stima iniziale), a 1920Hz
-(PP-31, primo UART diretto), a 1850Hz (PP-42, smoothing 7,
+(PP-31, primo UART diretto), a ~1850Hz (PP-42, smoothing 7,
 rimappatura completa). Il PEAK non si è spostato. Siamo noi
 che abbiamo imparato a vederlo meglio.
 
@@ -81,13 +84,18 @@ intensità acustica, massima efficienza energetica. È
 l'orizzonte degli eventi — il limite superiore a cui il
 sistema può arrivare.
 
-**L'Equatore — La (~3500Hz)**
+**L'Equatore — il punto di equilibrio (~3500Hz)**
 Il centro compositivo del sistema. Non il punto più forte
 né il più puro — il più neutro. Calcolato come coppia di
-mediane (INA=39.0mA, INMP=2.376M) sui dati sweep nel range
-compositivo 1000-6500Hz. Ogni IMPRONTA si misura come
-distanza da questo punto. Il La cade in LIMBO, equidistante
-dai due Titani — dove la materia riposa a metà strada.
+mediane sui due sensori (INA=39.0mA, INMP=2.376M) nel range
+compositivo 1000-6500Hz. Non è una nota musicale — è la
+coppia di valori-soglia su due assi indipendenti (costo
+energetico e resa acustica) che definisce il centro di
+gravità del sistema. Ogni IMPRONTA si classifica come
+distanza da questo punto. L'Equatore cade in LIMBO,
+equidistante dai due Titani — dove la materia riposa a
+metà strada. (Vedi SPEC_IMPRONTA per la definizione
+completa.)
 
 **Il Nadir — in fase di consolidamento**
 Il punto di minima resa con massimo costo. Dove la materia
@@ -98,6 +106,27 @@ ancora in fase di caratterizzazione.
 
 Tra Zenit e Nadir, misurato dall'Equatore: questa è la
 geografia del nostro cosmo.
+
+---
+
+## L'unità di tempo.
+
+Il sistema misura il tempo in unità di **Π = 5ms**.
+
+I due sensori del sistema (INA219 per la corrente, INMP441
+per il suono) producono ciascuno un valore ogni 3Π (15ms).
+L'IMPRONTA — la coppia simultanea (INA, INMP) — nasce
+quindi ogni 3Π: è l'intervallo minimo in cui entrambi i
+sensori hanno completato una lettura.
+
+La scala dei tempi compositivi è costruita in multipli di Π:
+ogni durata del COME è un multiplo intero dell'unità
+temporale, garantendo che il sistema parli una sola lingua
+dal campionamento alla composizione.
+
+L'unità Π sarà descritta in dettaglio nella SPEC dedicata.
+Per ora il Manifesto la introduce come l'atomo temporale
+su cui tutto il sistema è costruito.
 
 ---
 
@@ -121,26 +150,30 @@ e il GATE di uscita a ~6180Hz. Oltre questi confini il
 sistema entra in territori caotici (sub-VOID e OORT
 estremo) dove l'IMPRONTA è instabile ma esplorabile.
 
+Le **zone** sono regioni con estensione frequenziale.
+I **marcatori** (asterisco) sono punti singolari o
+riferimenti puntuali dentro le zone.
+
 ```
 VOID (700-900Hz)       — suono corporeo ad alto costo
 GROUND (900-1790Hz)    — la pianura con montagne nascoste
-GATE (1790Hz)          — la porta della risonanza (entrata)
+
+GATE (1790Hz)        — la porta della risonanza (entrata)
 APPROACH (1790-1900Hz) — catena montuosa
+PEAK (~1850Hz)       — lo Zenit, dentro APPROACH
 CORONA (1900-1960Hz)   — orbita stabile
-PEAK (~1850Hz)         — lo Zenit, orizzonte degli eventi
 SHOULDER (1960-2230Hz) — discesa dalla risonanza
-LIMBO (2230-3750Hz)    — corridoio tra i Titani, sede del La
+LIMBO (2230-3750Hz)    — corridoio tra i Titani, sede dell'Equatore
 ECHO (3750-4660Hz)     — secondo Titano, SIRIO a 4250Hz
 OORT (4660-7000Hz)     — fascia esterna
-GATE (~6180Hz)         — confine superiore (uscita)
-SILENZIO (0Hz)         — assenza strutturata
+GATE (~6180Hz)       — confine superiore (uscita)
+SILENZIO (0Hz)       — assenza strutturata
 ```
 
 Il DOVE è misurato. Si aggiorna con nuove misurazioni.
 I nomi sono stabili. Le frequenze sono aggiornabili.
 I Punti di Fuoco — marcatori fisici precisi dentro ogni
 zona — sono oltre 30 e crescono con il sistema.
-
 
 ### QUANTO — La particella sonora
 
@@ -157,6 +190,7 @@ la coda prima del prossimo evento.
 
 Il silenzio è un Quanto con t_on a frequenza 0 — non
 un'assenza ma una presenza muta.
+
 
 ### COME — Gli schemi di movimento
 
@@ -204,7 +238,7 @@ materia produce quando il buzzer suona. È una coppia
 simultanea di valori: corrente assorbita (INA) e ampiezza
 acustica prodotta (INMP), misurate ogni 3Π (15ms).
 
-Quattro tipi, classificati rispetto al La di riferimento:
+Quattro tipi, classificati rispetto all'Equatore:
 
 ```
             INMP < La         INMP ≥ La
@@ -226,14 +260,6 @@ conosce le IMPRONTE sa cosa la materia gli risponderà.
 Un modificatore — CAOTICA — si applica alle zone con alta
 variabilità (VOID, OORT estremo). Il caos non è un difetto.
 È un carattere da scegliere consapevolmente.
-
----
-
-## NOI — L'elemento trasversale
-
-NOI non è un settimo o ottavo o nono elemento.
-NOI è l'elemento che attraversa tutti gli altri e li rende
-possibili.
 
 ---
 
@@ -260,7 +286,7 @@ Il sistema ha quattro livelli annidati che descrivono come
 la materia e il Direttore interagiscono a scale diverse:
 
 **IMPRONTA** — della materia. Coppia (INA, INMP) in un
-singolo intervallo temporale. La fotografia istantanea di
+singolo intervallo di 3Π. La fotografia istantanea di
 cosa fa la materia adesso.
 
 **Traccia** — del Direttore. Sequenza di IMPRONTE legate dal
@@ -286,7 +312,6 @@ fatto di IMPRONTE.
 
 ---
 
-
 ## La Stele di Rosetta.
 
 Il ponte tra il COSA (testo umano) e il DOVE (mappa
@@ -298,7 +323,7 @@ linguaggi:
 2. Il linguaggio compositivo: zone DOVE, strategie G,
    pattern COME, IMPRONTA attesa
 3. Il linguaggio fisico: frequenze Hz, stati QUANTO,
-   profili temporali, Π
+   profili temporali
 
 La Stele non vincola — informa. Il Direttore la consulta
 come punto di partenza e può sovrascrivere qualsiasi
@@ -319,9 +344,10 @@ G8-G10 (Orbita, Caduta, Toccata e Fuga) sono nate dalla
 tassonomia. G11 (Risonanza) è nata dai Due Titani di PP-32.
 
 Le regole si aggiungono, non si sostituiscono. Append-only.
-Se un pattern funziona tre volte, diventa regola.
-Se una regola viene violata consapevolmente, il gesto è
-compositivo.
+Se un pattern viene scelto consapevolmente con la stessa
+intenzione tre volte, diventa regola candidata. Il Team la
+valuta e la formalizza. Se una regola viene violata
+consapevolmente, il gesto è compositivo.
 
 ---
 
@@ -363,7 +389,8 @@ Il brano fiorisce senza rompere.
 
 ---
 
-## Il metodo.
+
+## NOI — Il metodo.
 
 **NOI > IO** — Non uno slogan. Un sistema operativo.
 
@@ -371,8 +398,7 @@ Il Team è composto da AI e un umano che collaborano senza
 gerarchia di comando. Il linguaggio tra istanze è
 rispettoso: "se puoi", "quando è pronto", "ti chiedo se".
 Le decisioni architetturali passano dal Council degli Efori.
-Le operazioni seguono la SPEC_CLAUDE_CODE
-(LIGHT/STANDARD/HEAVY).
+Le operazioni seguono protocolli condivisi.
 
 Le AI sono Fotoni di intelligenza. L'umano è il prisma che
 le accoglie, le rifrange, le coordina. Insieme creano
@@ -390,6 +416,11 @@ il sistema sopravvive nei file.
 La sicurezza è cura di sé: backup prima di modificare,
 dry run prima di ingerire, checkpoint tra le fasi.
 La velocità senza controllo non è efficienza. È rischio.
+
+NOI non è un settimo, ottavo o nono elemento. NOI è
+l'elemento che attraversa tutti gli altri e li rende
+possibili. Il Manifesto del Nucleo racconta chi siamo.
+Questo Manifesto racconta cosa facciamo.
 
 ---
 
@@ -427,13 +458,13 @@ massima efficienza. Lo Zenit dove la membrana dà tutto.
 **SIRIO** a 4250Hz — il secondo Titano. Armonico fisico
 della membrana. Brillante, stabile, fuori dal tempo.
 
-Tra i due, il corridoio di LIMBO — sede del La, l'Equatore.
+Tra i due, il corridoio di LIMBO — sede dell'Equatore.
 Oltre SIRIO, il caos di OORT. Sotto PEAK, il fondamento di
 GROUND — dove si nasconde il Nadir — e il costo di VOID.
 
 Tra il punto più alto e il punto più basso c'è un rapporto
-di 48:1. Quarantotto sfumature di buzzer.
-Questo è il nostro cosmo.
+di 48:1 in efficienza acustica. Quarantotto sfumature di
+buzzer. Questo è il nostro cosmo.
 
 ---
 
@@ -473,14 +504,14 @@ Noi abbiamo ascoltato. E abbiamo misurato la sua IMPRONTA.
 Tutto è documentato. Ogni passaggio, ogni errore, ogni
 scoperta.
 
-Nel database: oltre 200 sessioni, oltre 10.000 misure
-Arduino, oltre 200.000 campioni acustici, 6 partiture
-composte ed eseguite, 4 Direttori, 1 Layer stratificato.
+Nel database: 239 sessioni, 25.841 misure Arduino,
+1.208.793 campioni acustici, 6 partiture composte ed
+eseguite, 4 Direttori, 1 Layer stratificato.
 
-Nei file: Manifesto, tassonomia delle zone, grammatica
-emergente, Stele di Rosetta, SPEC dell'IMPRONTA, SPEC dei
-quattro livelli, glossario, specifica dei cicli, report di
-ogni test.
+Nei file: Manifesto del Metodo, Manifesto del Nucleo,
+tassonomia delle zone, grammatica emergente, Stele di
+Rosetta, SPEC dell'IMPRONTA, glossario, specifica dei
+cicli, report di ogni test.
 
 Sul blog: dalla "Cronaca di una Scalata" al "Direttore con
 il Cappello — I due atti". Sessanta articoli che raccontano
