@@ -1,7 +1,7 @@
 ---
 title: "MANIFESTO DEL METODO PCK7"
 slug: "manifesto_del_metodo_pck7"
-date: "2026-03-19T00:14:00.000+01:00"
+date: "2026-04-16T00:14:00.000+02:00"
 section: "OB-Archives"
 subsection: "Documents"
 layout: "ob_document"
